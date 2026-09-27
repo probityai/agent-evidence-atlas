@@ -1,0 +1,786 @@
+# Data behind atlas.html. tools/gen_atlas.py renders it into src/atlas.md through
+# templates/atlas.md.in; never edit src/atlas.md by hand.
+#
+# Shape: nodes with a type (layer, entry, mechanism, artifact, corpus, contribution,
+# listing) and edges carried as fields (entry.layer, mechanism.layer,
+# artifact.layers). The shape is chosen so the page can later be generated from an
+# exported property graph: every node has an id, a type, a title, a url and, where it
+# was measured, a value with its read time and source.
+#
+# Size rule for naming: a standard from a recognised body, or an
+# organisation-owned project measured at roughly 500 GitHub stars or more.
+# Every `stars` value carries `read`, and tools/rederive.py re-reads every entry
+# that has a `repo`.
+
+[meta]
+version = "0.2"
+read_window = "2026-09-27 00:40 to 01:00 UTC"
+
+# ---------------------------------------------------------------- layers
+[[layer]]
+id = "L1"
+name = "Identity and authorization"
+job = "policy"
+question = "Who, or what workload, is making this request, and on whose delegated authority?"
+short_question = "Who is making this request, on whose authority?"
+establishes = "That a request carried a credential bound to an identity a trusted issuer vouched for, and, through delegation or token exchange, the principal it acts for and the scope it was granted."
+short_establishes = "A credential from a trusted issuer is bound to an identity and a delegated scope"
+cannot = "That the holder is the agent it claims to be once a key or token leaves its workload; what the agent did with the authority; or whether a particular action matched what the principal intended. An identity is a precondition for accountability. It is never a record of conduct."
+short_cannot = "What was done with the authority, or whether an action matched the principal's intent"
+seam = "The policy engine decides on the identity it is shown, and that identity usually names a workload, not a task. When a user delegates to an agent, which calls a tool, which calls a sub-agent, the token at the enforcement point often carries the agent's own identity and a broad scope. The human principal, the narrowing at each hop and the purpose of the call are lost or merely asserted. Policy then approves \"this workload may call this tool\". Whether the call was within what the user delegated for this task falls between the layers."
+
+[[layer]]
+id = "L2"
+name = "Policy and runtime control"
+job = "policy"
+question = "Given who is asking, is this specific action permitted right now?"
+short_question = "Is this action permitted right now?"
+establishes = "That a request which reached an enforcement point was evaluated against a stated policy, and allowed or denied."
+short_establishes = "A request that reached the enforcement point was evaluated and allowed or denied"
+cannot = "Anything about requests that never passed through that point, anything about what happened after an allow, or that the policy was right. The decision log is written by the decider, so it reports the decision; it does not witness the effect."
+short_cannot = "Anything about requests that bypassed the point, or what happened after an allow"
+seam = "Policy judges the action as declared at the gateway. Containment governs what the process can actually reach. Whatever the agent does without crossing the gateway, such as code it runs inside an allowed tool, a direct socket, or a file a later step reads, is invisible to the policy engine. The decision and the effect happen in different places at different times, and nothing binds one to the other."
+
+[[layer]]
+id = "L3"
+name = "Containment"
+job = "containment"
+question = "If the agent or its tools misbehave, what can they reach?"
+short_question = "If the agent misbehaves, what can it reach?"
+establishes = "That execution was restricted: the system calls, files, network destinations and memory it could touch were bounded, which bounds the damage."
+short_establishes = "Execution was bounded to certain calls, files and destinations"
+cannot = "What happened inside the allowed boundary. A sandbox restricts; it does not witness. It cannot show by itself that it was in place for a particular run, which needs attestation from outside it, and an escape it did not detect looks exactly like no escape."
+short_cannot = "What happened inside the boundary, or that the boundary was in place for a given run"
+seam = "The contained process is also the process that reports on itself. Traces come from instrumentation inside the sandboxed workload, so a denied connection, a killed process, or a tool that did something other than what it logged produces no span, and the trace still looks complete. Containment and observation sit at different vantage points, and neither reports what the other saw."
+
+[[layer]]
+id = "L4"
+name = "Tracing and observability"
+job = "evidence (self-reported)"
+question = "What did the agent report doing, in what order, with what inputs and outputs?"
+short_question = "What did the agent report doing?"
+establishes = "What the instrumentation emitted: correlated spans, timings and attributes, as reported."
+short_establishes = "What the instrumentation emitted, correlated and timed"
+cannot = "That the events happened independently of the party emitting them; that nothing is missing, since tracing has no concept of a missing span and sampling drops spans by design; or that the record is intact, since spans are unsigned and can change anywhere in the collection pipeline. A trace is written by the party it describes."
+short_cannot = "That the events occurred independently of the emitter, or that nothing is missing"
+seam = "Signing a trace fixes its bytes. It does not make the trace true or complete. Whatever the emitter left out before signing stays out, and the signed version now carries more authority than the unsigned one did. A receipt over a self-report is an integrity-protected self-report."
+
+[[layer]]
+id = "L5"
+name = "Receipts and transparency"
+job = "evidence (integrity)"
+question = "Can a third party check, later and offline, that this record is exactly the one that was issued, by whom, and that the issuer did not show different records to different parties?"
+short_question = "Is this record exactly the one that was issued, and by whom?"
+establishes = "Integrity and origin of bytes: the holder of a key signed exactly these bytes. A transparency log adds that an entry was included at a point in the log's history and that the history was not rewritten, which prevents equivocation for anyone who checks."
+short_establishes = "Integrity and origin of bytes; with a log, that the history was not rewritten"
+cannot = "That what the bytes describe occurred; that the set of records is complete; that the content is true; or that the signer observed anything at all."
+short_cannot = "That the described events occurred, that the record is complete, or that the signer observed anything"
+seam = "A receipt proves which bytes were issued. An evaluation measures how a system behaved. The two are rarely bound: an evaluation result seldom names, by digest, the weights, scaffold, tools, configuration and grader it ran against, and a production receipt seldom points back to the evaluation that licensed the deployment. \"This deployed agent is the one that was evaluated\" is asserted, not checkable."
+
+[[layer]]
+id = "L6"
+name = "Evaluation"
+job = "scrutiny"
+question = "Before and during deployment, how does this system behave on tasks designed to draw out the capabilities and failures that matter, and who measured it?"
+short_question = "How does this system behave on tests designed to find failures?"
+establishes = "Measured behavior of a specific system version, under a specific harness and task set, at a specific time."
+short_establishes = "Measured behavior of one version, under one harness, at one time"
+cannot = "Behavior in deployment; that the evaluated system is the deployed one, unless the two are bound by digest; the absence of capabilities it did not test; or the soundness of its own result, unless someone else can recompute it from preserved inputs."
+short_cannot = "Behavior in deployment, or that the deployed system is the one tested"
+seam = "Governance texts name outcomes such as record-keeping, testing, logging and third-party assessment, without fixing an evidence format, a required vantage, or a way for a regulator to re-check a result. The European harmonised standards that would give a presumption of conformity are, on CEN-CENELEC's own page, still under development. Evaluator independence is now being written down as operating conditions; whether the evidence an evaluator produces can be re-checked is not."
+
+[[layer]]
+id = "L7"
+name = "Governance and standards"
+job = "scrutiny"
+question = "What must be true of an AI system, who must show it, and to whom?"
+short_question = "What must be true, who must show it, and to whom?"
+establishes = "Obligations, risk categories, process requirements and routes to conformity."
+short_establishes = "Obligations, risk categories and routes to conformity"
+cannot = "That any obligation was met. Several instruments are voluntary, several rest on standards not yet published, and none specifies evidence that a distrusting party could re-check."
+short_cannot = "That any obligation was met"
+seam = "Accountability obligations end in a person or an organization. The record that would show which principal authorized which agent action is not something any of these instruments requires in a checkable form. The chain from \"this obligation applies to the deployer\" back to \"this delegation authorized this call\" is closed by documentation, not by evidence."
+
+# ---------------------------------------------------------------- entries
+# layer 1
+[[entry]]
+layer = "L1"
+name = "SPIFFE and SPIRE"
+url = "https://spiffe.io/"
+repo = "spiffe/spire"
+stars = 2558
+status = "CNCF Graduated (August 2022)"
+[[entry]]
+layer = "L1"
+name = "IETF WIMSE working group"
+url = "https://datatracker.ietf.org/wg/wimse/about/"
+status = "Active working group; seven working-group drafts, including an AI identity management draft"
+[[entry]]
+layer = "L1"
+name = "OAuth 2.0 Token Exchange, RFC 8693"
+url = "https://www.rfc-editor.org/info/rfc8693"
+status = "Proposed Standard. OAuth 2.1 is still a working-group draft"
+[[entry]]
+layer = "L1"
+name = "MCP authorization"
+url = "https://modelcontextprotocol.io/specification/latest/basic/authorization"
+repo = "modelcontextprotocol/modelcontextprotocol"
+stars = 9314
+status = "Specification version 2026-07-28, which states that authorization is optional for MCP implementations. MCP is an Agentic AI Foundation project"
+[[entry]]
+layer = "L1"
+name = "Keycloak"
+url = "https://github.com/keycloak/keycloak"
+repo = "keycloak/keycloak"
+stars = 37001
+status = "Open-source identity and access management"
+[[entry]]
+layer = "L1"
+name = "Ory Hydra"
+url = "https://github.com/ory/hydra"
+repo = "ory/hydra"
+stars = 17568
+status = "OpenID Connect and OAuth 2.1 provider"
+
+# layer 2
+[[entry]]
+layer = "L2"
+name = "Open Policy Agent"
+url = "https://github.com/open-policy-agent/opa"
+repo = "open-policy-agent/opa"
+stars = 12276
+status = "CNCF Graduated (2021); Gatekeeper, its Kubernetes admission controller, 4,282 stars"
+[[entry]]
+layer = "L2"
+name = "Kyverno"
+url = "https://github.com/kyverno/kyverno"
+repo = "kyverno/kyverno"
+stars = 8184
+status = "CNCF Graduated (2026-03-16)"
+[[entry]]
+layer = "L2"
+name = "Cedar"
+url = "https://github.com/cedar-policy/cedar"
+repo = "cedar-policy/cedar"
+stars = 1748
+status = "CNCF Sandbox (2025-10-08)"
+[[entry]]
+layer = "L2"
+name = "agentgateway"
+url = "https://github.com/agentgateway/agentgateway"
+repo = "agentgateway/agentgateway"
+stars = 5052
+status = "Agentic proxy for AI agents and MCP servers; a Linux Foundation project, per its README"
+[[entry]]
+layer = "L2"
+name = "IBM ContextForge"
+url = "https://github.com/IBM/mcp-context-forge"
+repo = "IBM/mcp-context-forge"
+stars = 4534
+status = "Gateway, registry and proxy for MCP, A2A and REST or gRPC APIs"
+[[entry]]
+layer = "L2"
+name = "Stacklok ToolHive"
+url = "https://github.com/stacklok/toolhive"
+repo = "stacklok/toolhive"
+stars = 2210
+status = "Platform for running and managing MCP servers"
+[[entry]]
+layer = "L2"
+name = "Envoy AI Gateway"
+url = "https://github.com/envoyproxy/ai-gateway"
+repo = "envoyproxy/ai-gateway"
+stars = 2146
+status = "Unified access to generative AI services, built on Envoy Gateway"
+[[entry]]
+layer = "L2"
+name = "Docker MCP Gateway"
+url = "https://github.com/docker/mcp-gateway"
+repo = "docker/mcp-gateway"
+stars = 1587
+status = "The docker mcp CLI plugin and MCP gateway"
+
+# layer 3
+[[entry]]
+layer = "L3"
+name = "Firecracker"
+url = "https://firecracker-microvm.github.io/"
+repo = "firecracker-microvm/firecracker"
+stars = 36971
+status = "Secure and fast microVMs for serverless computing"
+[[entry]]
+layer = "L3"
+name = "Wasmer"
+url = "https://github.com/wasmerio/wasmer"
+repo = "wasmerio/wasmer"
+stars = 21093
+status = "WebAssembly runtime; describes itself as sandboxes for apps and AI agents"
+[[entry]]
+layer = "L3"
+name = "gVisor"
+url = "https://gvisor.dev/"
+repo = "google/gvisor"
+stars = 19423
+status = "Application kernel for containers"
+[[entry]]
+layer = "L3"
+name = "Wasmtime"
+url = "https://github.com/bytecodealliance/wasmtime"
+repo = "bytecodealliance/wasmtime"
+stars = 18660
+status = "A Bytecode Alliance project"
+[[entry]]
+layer = "L3"
+name = "E2B"
+url = "https://github.com/e2b-dev/E2B"
+repo = "e2b-dev/E2B"
+stars = 13978
+status = "Secure environments with real-world tools for agents"
+[[entry]]
+layer = "L3"
+name = "Bubblewrap"
+url = "https://github.com/containers/bubblewrap"
+repo = "containers/bubblewrap"
+stars = 8844
+status = "Unprivileged OS-level sandbox"
+[[entry]]
+layer = "L3"
+name = "Kata Containers"
+url = "https://katacontainers.io/"
+repo = "kata-containers/kata-containers"
+stars = 8801
+status = "An OpenInfra Foundation project"
+[[entry]]
+layer = "L3"
+name = "microsandbox"
+url = "https://github.com/microsandbox/microsandbox"
+repo = "microsandbox/microsandbox"
+stars = 8441
+status = "Branchable microVMs for any workload"
+[[entry]]
+layer = "L3"
+name = "Anthropic sandbox-runtime"
+url = "https://github.com/anthropic-experimental/sandbox-runtime"
+repo = "anthropic-experimental/sandbox-runtime"
+stars = 5347
+status = "Filesystem and network restrictions on arbitrary processes at the OS level, without a container"
+[[entry]]
+layer = "L3"
+name = "Kubernetes agent-sandbox"
+url = "https://github.com/kubernetes-sigs/agent-sandbox"
+repo = "kubernetes-sigs/agent-sandbox"
+stars = 4036
+status = "A Kubernetes SIG project"
+
+# layer 4
+[[entry]]
+layer = "L4"
+name = "OpenTelemetry generative-AI semantic conventions"
+url = "https://github.com/open-telemetry/semantic-conventions-genai"
+status = "OpenTelemetry is CNCF Graduated (2026-05-11); the generative-AI and agent-span conventions are marked \"Development\""
+[[entry]]
+layer = "L4"
+name = "Langfuse"
+url = "https://github.com/langfuse/langfuse"
+repo = "langfuse/langfuse"
+stars = 35082
+status = "Agent evaluation and observability platform"
+[[entry]]
+layer = "L4"
+name = "MLflow tracing"
+url = "https://github.com/mlflow/mlflow"
+repo = "mlflow/mlflow"
+stars = 28147
+status = "Tracing is one part of MLflow"
+[[entry]]
+layer = "L4"
+name = "Arize Phoenix"
+url = "https://github.com/Arize-ai/phoenix"
+repo = "Arize-ai/phoenix"
+stars = 11627
+status = "AI observability and evaluation"
+[[entry]]
+layer = "L4"
+name = "OpenTelemetry Collector"
+url = "https://github.com/open-telemetry/opentelemetry-collector"
+repo = "open-telemetry/opentelemetry-collector"
+stars = 7601
+status = "Receives, processes and exports telemetry"
+[[entry]]
+layer = "L4"
+name = "OpenLLMetry"
+url = "https://github.com/traceloop/openllmetry"
+repo = "traceloop/openllmetry"
+stars = 7453
+status = "OpenTelemetry instrumentation for LLM applications"
+
+# layer 5
+[[entry]]
+layer = "L5"
+name = "in-toto attestation framework, with the DSSE envelope"
+url = "https://github.com/in-toto/attestation"
+status = "in-toto is CNCF Graduated (2025-02-10); attestation specification v1.2; DSSE protocol version 1.0.2"
+[[entry]]
+layer = "L5"
+name = "Sigstore cosign"
+url = "https://www.sigstore.dev/"
+repo = "sigstore/cosign"
+stars = 6330
+status = "Code signing and transparency for containers and binaries; an OpenSSF project"
+[[entry]]
+layer = "L5"
+name = "Sigstore Rekor"
+url = "https://github.com/sigstore/rekor"
+repo = "sigstore/rekor"
+stars = 1212
+status = "Transparency log; Rekor v2 runs as a production instance with a 99.5% availability objective"
+[[entry]]
+layer = "L5"
+name = "Trillian"
+url = "https://github.com/google/trillian"
+repo = "google/trillian"
+stars = 3753
+status = "Cryptographically verifiable data store"
+[[entry]]
+layer = "L5"
+name = "IETF SCITT"
+url = "https://datatracker.ietf.org/wg/scitt/documents/"
+status = "RFC 9943 (architecture) and RFC 9942 (COSE receipts): Proposed Standards, June 2026"
+[[entry]]
+layer = "L5"
+name = "C2PA"
+url = "https://spec.c2pa.org/specifications/specifications/2.4/index.html"
+status = "A Joint Development Foundation project; specification 2.4 current"
+[[entry]]
+layer = "L5"
+name = "Certificate Transparency, RFC 9162"
+url = "https://www.rfc-editor.org/info/rfc9162"
+status = "Experimental RFC (2021)"
+[[entry]]
+layer = "L5"
+name = "JSON Canonicalization Scheme, RFC 8785"
+url = "https://www.rfc-editor.org/info/rfc8785"
+status = "Informational RFC; every signed JSON statement depends on agreed canonical bytes"
+
+# layer 6
+[[entry]]
+layer = "L6"
+name = "promptfoo"
+url = "https://github.com/promptfoo/promptfoo"
+repo = "promptfoo/promptfoo"
+stars = 25478
+status = "Tests and red-teams prompts, agents and retrieval pipelines"
+[[entry]]
+layer = "L6"
+name = "EleutherAI lm-evaluation-harness"
+url = "https://github.com/EleutherAI/lm-evaluation-harness"
+repo = "EleutherAI/lm-evaluation-harness"
+stars = 14082
+status = "Few-shot evaluation framework for language models"
+[[entry]]
+layer = "L6"
+name = "NVIDIA garak"
+url = "https://github.com/NVIDIA/garak"
+repo = "NVIDIA/garak"
+stars = 9366
+status = "LLM vulnerability scanner"
+[[entry]]
+layer = "L6"
+name = "Invariant mcp-scan"
+url = "https://github.com/invariantlabs-ai/mcp-scan"
+repo = "invariantlabs-ai/mcp-scan"
+stars = 3091
+status = "Security scanner for AI agents, MCP servers and agent skills"
+[[entry]]
+layer = "L6"
+name = "Inspect"
+url = "https://inspect.aisi.org.uk/"
+repo = "UKGovernmentBEIS/inspect_ai"
+stars = 2862
+status = "Developed by the UK AI Security Institute and Meridian Labs"
+[[entry]]
+layer = "L6"
+name = "AgentDojo"
+url = "https://github.com/ethz-spylab/agentdojo"
+repo = "ethz-spylab/agentdojo"
+stars = 870
+status = "Environment to evaluate attacks and defenses for LLM agents (ETH Zurich SPY Lab)"
+[[entry]]
+layer = "L6"
+name = "METR"
+url = "https://metr.org/about"
+status = "A research nonprofit that measures whether and when AI systems might pose catastrophic risks"
+[[entry]]
+layer = "L6"
+name = "NIST CAISI"
+url = "https://www.nist.gov/caisi"
+status = "US government center for AI standards and evaluation; runs an AI Agent Standards Initiative"
+[[entry]]
+layer = "L6"
+name = "MLCommons AILuminate"
+url = "https://mlcommons.org/ailuminate/"
+status = "Benchmarks covering 12 hazard categories"
+[[entry]]
+layer = "L6"
+name = "OWASP AI Testing Guide"
+url = "https://owasp.org/www-project-ai-testing-guide/"
+status = "Version 1 published November 2025"
+
+# layer 7
+[[entry]]
+layer = "L7"
+name = "EU AI Act, Regulation (EU) 2024/1689"
+url = "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng"
+status = "In force; consolidated version of 27 July 2026"
+[[entry]]
+layer = "L7"
+name = "NIST AI Risk Management Framework 1.0"
+url = "https://www.nist.gov/itl/ai-risk-management-framework"
+status = "Voluntary; under revision"
+[[entry]]
+layer = "L7"
+name = "NIST AI 600-1, Generative AI Profile"
+url = "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence"
+status = "Published July 2024"
+[[entry]]
+layer = "L7"
+name = "CEN-CENELEC JTC 21"
+url = "https://www.cencenelec.eu/areas-of-work/cen-cenelec-topics/artificial-intelligence/"
+status = "Joint technical committee; harmonised standards for the AI Act under development"
+[[entry]]
+layer = "L7"
+name = "California SB 53"
+url = "https://leginfo.legislature.ca.gov/faces/billStatusClient.xhtml?bill_id=202520260SB53"
+status = "Chaptered: Chapter 138, Statutes of 2025"
+[[entry]]
+layer = "L7"
+name = "AI Evaluator Forum, AEF-1"
+url = "https://aievaluatorforum.org/initiatives/minimum-operating-conditions"
+status = "Minimum operating conditions for independent third-party evaluation, version 1"
+[[entry]]
+layer = "L7"
+name = "OWASP Top 10 for Agentic Applications"
+url = "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/"
+status = "2026 edition, December 2025"
+[[entry]]
+layer = "L7"
+name = "Linux Foundation Agentic AI Foundation"
+url = "https://aaif.io/"
+status = "Announced December 2025; working groups include identity and trust, and observability and traceability"
+
+# ---------------------------------------------------------------- mechanisms
+# writer: who writes the record the mechanism produces, in the vocabulary's
+# witness_scope terms. SELF = the observed party (the agent, or the system that
+# runs it). PEER = a party alongside it with its own stake (a gateway operator, an
+# evaluator paid by the lab). EXTERNAL = a party outside the observed system's
+# control. The assignment is this atlas's reading of the typical deployment, not a
+# property of the software.
+[[mechanism]]
+name = "Workload identity document (for example a SPIFFE SVID)"
+layer = "L1"
+writer = "EXTERNAL issuer, about the workload"
+establishes = "The issuer attested the workload's identity at issuance"
+cannot = "Anything the workload did afterwards"
+[[mechanism]]
+name = "Delegated token (OAuth token exchange)"
+layer = "L1"
+writer = "EXTERNAL issuer"
+establishes = "Who delegated what scope to whom, as the issuer recorded it"
+cannot = "That a call used the scope for the delegated purpose"
+[[mechanism]]
+name = "Policy decision (OPA, Cedar)"
+layer = "L2"
+writer = "PEER (the decider)"
+establishes = "The decision for the input the decider was given"
+cannot = "That the input described the real action, or that the action went through the decider"
+[[mechanism]]
+name = "Gateway or proxy mediation"
+layer = "L2"
+writer = "PEER (the gateway operator)"
+establishes = "Requests and responses that crossed the gateway"
+cannot = "Traffic that took another path, or effects downstream of the response"
+[[mechanism]]
+name = "OS sandbox (seccomp, Landlock, Bubblewrap)"
+layer = "L3"
+writer = "none by default"
+establishes = "A bound on system calls and paths, if configured as claimed"
+cannot = "That it was configured as claimed for a given run"
+[[mechanism]]
+name = "User-space kernel or microVM (gVisor, Firecracker, Kata)"
+layer = "L3"
+writer = "none by default"
+establishes = "A stronger isolation boundary than a shared kernel"
+cannot = "What ran inside it"
+[[mechanism]]
+name = "Platform attestation (a TEE or measured-boot quote)"
+layer = "L3"
+writer = "EXTERNAL (the hardware root), about launch state"
+establishes = "The measured software state at launch"
+cannot = "Behavior after launch"
+[[mechanism]]
+name = "Distributed trace (OpenTelemetry)"
+layer = "L4"
+writer = "SELF"
+establishes = "What the instrumented code reported"
+cannot = "Occurrence independent of the emitter, completeness, or integrity"
+[[mechanism]]
+name = "Signed statement in an envelope (in-toto, DSSE)"
+layer = "L5"
+writer = "whoever holds the key"
+establishes = "The key holder signed exactly these bytes"
+cannot = "That the key holder observed what the bytes describe"
+[[mechanism]]
+name = "Canonicalization (RFC 8785)"
+layer = "L5"
+writer = "not a record"
+establishes = "One byte form per JSON value, so signatures agree across implementations"
+cannot = "That two parsers read the same document the same way, unless inputs with two readings are refused first"
+[[mechanism]]
+name = "Transparency log (Rekor, Certificate Transparency, SCITT)"
+layer = "L5"
+writer = "EXTERNAL log operator, about submissions"
+establishes = "An entry was included, and the log's history was not rewritten"
+cannot = "That everything that should have been submitted was"
+[[mechanism]]
+name = "Trusted timestamp (RFC 3161)"
+layer = "L5"
+writer = "EXTERNAL time authority"
+establishes = "The bytes existed before a time"
+cannot = "When the described event happened"
+[[mechanism]]
+name = "Build provenance (SLSA)"
+layer = "L5"
+writer = "the builder"
+establishes = "The builder's claims about how an artifact was built"
+cannot = "How the artifact behaves at runtime"
+[[mechanism]]
+name = "Benchmark or red-team evaluation (Inspect, garak, promptfoo)"
+layer = "L6"
+writer = "PEER or EXTERNAL evaluator"
+establishes = "Behavior of the tested version on the tested tasks"
+cannot = "That the deployed system is the tested one, or behavior on untested tasks"
+[[mechanism]]
+name = "Embedded third-party evaluator (AEF-1 conditions)"
+layer = "L6"
+writer = "EXTERNAL evaluator, with the lab's access"
+establishes = "An outside assessment of practices and incidents the evaluator could see"
+cannot = "Events for which no trustworthy record exists"
+[[mechanism]]
+name = "Conformance test vectors"
+layer = "L6"
+writer = "the corpus maintainer"
+establishes = "Independent implementations give the same answers on the same cases"
+cannot = "That an implementation computed its answers rather than printed a known key"
+[[mechanism]]
+name = "Regulatory obligation or standard"
+layer = "L7"
+writer = "not a record"
+establishes = "What must be shown, and to whom"
+cannot = "That it was shown"
+[[mechanism]]
+name = "Record from an observer outside the agent's reach (the open cell)"
+layer = "open"
+writer = "EXTERNAL"
+establishes = "An action as seen from a vantage the agent could not address, bound to what was observed"
+cannot = "Actions outside the declared coverage, or the observer's own honesty"
+
+# ---------------------------------------------------------------- artifacts
+[[artifact]]
+name = "agent-evidence-vocabulary"
+url = "https://github.com/probityai/agent-evidence-vocabulary"
+layers = "5, feeding 7"
+release = "v0.3.0"
+label = "draft"
+does = "A closed, versioned vocabulary for what an evidence claim means: observer vantage, directness, witness scope (self, peer, external), coverage denominator, and what the record does not assert"
+does_not = "It defines words. It neither verifies nor observes anything"
+[[artifact]]
+name = "agent-evidence-vectors"
+url = "https://github.com/probityai/agent-evidence-vectors"
+layers = "5 into 6"
+release = "v0.13.0"
+label = "published"
+does = "A conformance corpus of 817 vectors in 13 corpora at v0.13.0, a reference verifier, a GitHub Action and a PyPI package"
+does_not = "It does not observe execution. A clean run shows a verifier printed the right answers, not that it computed them"
+[[artifact]]
+name = "agent-evidence-admission"
+url = "https://github.com/probityai/agent-evidence-admission"
+layers = "2, consuming 5"
+release = "no release yet"
+label = "draft"
+does = "Admission rules in four policy engines (OPA, two Kyverno dialects, and Sigstore's policy-controller) that admit or refuse a workload on its execution evidence"
+does_not = "\"These rails evaluate an already-verified statement. They do not verify one.\""
+[[artifact]]
+name = "jcs-admit"
+url = "https://crates.io/crates/jcs-admit"
+layers = "5, bytes"
+release = "0.1.0 on crates.io"
+label = "published"
+does = "Refuses JSON with more than one reading (duplicate members, excess nesting, invalid strings) before RFC 8785 canonicalization"
+does_not = "It hands number formatting to another crate"
+[[artifact]]
+name = "dsse"
+url = "https://crates.io/crates/dsse"
+layers = "5, envelope"
+release = "0.1.0 on crates.io"
+label = "published"
+does = "A standalone Rust implementation of the DSSE envelope that refuses six permissive behaviors"
+does_not = "\"Implements the envelope and nothing else\"; key management is out of scope"
+
+# ---------------------------------------------------------------- corpora (agent-evidence-vectors v0.13.0)
+[[corpus]]
+dir = "vectors"
+members = 275
+split = "61 accept, 212 reject, 2 indeterminate"
+tests = "The Adversarial Execution Evidence predicate, version 0.7 (the reference verifier's own corpus)"
+[[corpus]]
+dir = "vectors-w3c-report"
+members = 232
+split = "116 accept, 116 reject"
+tests = "Version 0.1 of the per-check report format of the W3C agent-conformance community group"
+[[corpus]]
+dir = "vectors-ai-agent-action"
+members = 61
+split = "41 accept, 20 reject"
+tests = "The AI Agent Action predicate proposed in in-toto/attestation#588"
+[[corpus]]
+dir = "vectors-observed-effect"
+members = 52
+split = "9 accept, 42 reject, 1 indeterminate"
+tests = "The Observed Effect predicate (a draft): a change observed from a vantage the observed party does not control"
+[[corpus]]
+dir = "vectors-acs-core"
+members = 34
+split = "11 accept, 22 reject, 1 indeterminate"
+tests = "The mandatory profile of the OWASP Agent Control Standard"
+[[corpus]]
+dir = "vectors-ai-generation"
+members = 34
+split = "9 accept, 12 reject, 13 proposed"
+tests = "A third-party in-toto predicate recording how an artifact was produced by an AI pipeline"
+[[corpus]]
+dir = "vectors-anchor-stream"
+members = 32
+split = "12 accept, 20 reject"
+tests = "A third-party append-only anchor stream and its digest sidecar"
+[[corpus]]
+dir = "vectors-scitt-cose"
+members = 27
+split = "6 accept, 17 reject, 4 indeterminate"
+tests = "Carriage of an evidence statement as an IETF SCITT transparent statement (RFC 9943, RFC 9942)"
+[[corpus]]
+dir = "vectors-aci"
+members = 26
+split = "1 accept, 21 reject, 4 indeterminate"
+tests = "A third-party draft specification, one check per normative sentence"
+[[corpus]]
+dir = "vectors-mcp-record-contract"
+members = 15
+split = "7 accept, 8 reject"
+tests = "The run record behind a claim that two MCP implementations agree"
+[[corpus]]
+dir = "vectors-receipt-signature"
+members = 13
+split = "6 accept, 4 reject, 3 indeterminate"
+tests = "Verifiers of signed decision receipts in the shape of an individual IETF draft"
+[[corpus]]
+dir = "vectors-artifact-binding"
+members = 8
+split = "2 verified, 4 failed, 2 not established"
+tests = "Binding an evaluation result to the artifacts and grading inputs it names"
+[[corpus]]
+dir = "vectors-mcp-response-phase"
+members = 8
+split = "5 accept, 3 reject"
+tests = "Whether an MCP gateway runs its response-phase policy on an operation's completion"
+
+# ---------------------------------------------------------------- contributions
+[[contribution]]
+where = "in-toto/attestation#570"
+url = "https://github.com/in-toto/attestation/pull/570"
+what = "The Adversarial Execution Evidence predicate specification"
+label = "open"
+state = "open, unmerged; review required"
+[[contribution]]
+where = "in-toto/ITE#63"
+url = "https://github.com/in-toto/ITE/pull/63"
+what = "Tiers and an evidence criterion for vetting new predicates"
+label = "open"
+state = "open, unmerged; changes requested"
+[[contribution]]
+where = "in-toto/attestation#588"
+url = "https://github.com/in-toto/attestation/pull/588"
+what = "A proposed AI Agent Action predicate by another author, whose text names the conformance suite as its conformance corpus; the author of this site is a reviewer"
+label = "open"
+state = "open, unmerged; review required"
+[[contribution]]
+where = "OWASP/CheatSheetSeries#2332"
+url = "https://github.com/OWASP/CheatSheetSeries/pull/2332"
+what = "A cheat sheet on verifying third-party agent execution evidence"
+label = "open"
+state = "open, unmerged; changes requested"
+[[contribution]]
+where = "secure-systems-lab/dsse#82"
+url = "https://github.com/secure-systems-lab/dsse/pull/82"
+what = "A fix to the reference pre-authentication encoding for non-ASCII payload types, with test vectors"
+label = "open"
+state = "open, unmerged; review required"
+[[contribution]]
+where = "a2aproject/A2A#2246"
+url = "https://github.com/a2aproject/A2A/pull/2246"
+what = "Nesting-bound vectors for the protocol's canonicalization appendix"
+label = "open"
+state = "open, unmerged; review required"
+[[contribution]]
+where = "OWASP/Agent-Security-Regression-Harness#177"
+url = "https://github.com/OWASP/Agent-Security-Regression-Harness/pull/177"
+what = "Six MCP abuse cases, each with a passing and a failing trace"
+label = "open"
+state = "open, unmerged; no review yet"
+[[contribution]]
+where = "orcwg/cra-hub#360"
+url = "https://github.com/orcwg/cra-hub/pull/360"
+what = "How open-source stewards demonstrate they meet their Cyber Resilience Act obligations"
+label = "open"
+state = "open, unmerged; no review yet"
+[[contribution]]
+where = "enisaeu/enisa-sbd-playbook#2"
+url = "https://github.com/enisaeu/enisa-sbd-playbook/pull/2"
+what = "Attribution of actions taken by automated components, in ENISA's Secure by Design playbook"
+label = "open"
+state = "open, unmerged; no review yet"
+[[contribution]]
+where = "IETF draft-gilda-wimse-agent-audit-record"
+url = "https://datatracker.ietf.org/doc/draft-gilda-wimse-agent-audit-record/"
+what = "An audit record format for AI agent authorization decisions"
+label = "individual draft"
+state = "individual draft, not adopted by a working group"
+[[contribution]]
+where = "cncf/toc#2301"
+url = "https://github.com/cncf/toc/issues/2301"
+what = "Whether the CNCF security TAG wants automated governance back as an initiative"
+label = "proposed"
+state = "open issue, awaiting triage"
+[[contribution]]
+where = "OWASP/www-project-ai-maturity-assessment#91"
+url = "https://github.com/OWASP/www-project-ai-maturity-assessment/issues/91"
+what = "An evidence and attestation practice for the OWASP AI Maturity Assessment"
+label = "proposed"
+state = "open issue"
+[[contribution]]
+where = "C2SP/CCTV#30"
+url = "https://github.com/C2SP/CCTV/issues/30"
+what = "RFC 8785 canonicalization vectors for the community test-vector project"
+label = "proposed"
+state = "open issue"
+
+# ---------------------------------------------------------------- listings
+[[listing]]
+where = "OECD.AI Catalogue of Tools and Metrics for Trustworthy AI"
+url = "https://oecd.ai/en/catalogue/tools/agent-evidence-conformance-suite"
+what = "The conformance suite is listed as a tool"
+label = "published"
+[[listing]]
+where = "W3C public-agent-conformance mailing list"
+url = "https://lists.w3.org/Archives/Public/public-agent-conformance/2026Sep/0030.html"
+what = "The conformance-suite deliverable, posted to the community group's public list on 12 September 2026"
+label = "published"

@@ -1,0 +1,149 @@
+#!/usr/bin/env python3
+"""Check every link in the built site.
+
+    python3 tools/check_links.py                 internal links and anchors only
+    python3 tools/check_links.py --external      also fetch every external URL
+    python3 tools/check_links.py --external --live
+                                                 also fetch the site's own published URLs
+
+A link under the site's own published home (BASE_URL, such as each page's
+canonical link) is checked against the file it names under docs/, because it
+points at this build; with --live it is also fetched, which is the read-back
+after the site is published.
+
+Internal: every relative href or src must name a file under docs/, and every
+fragment must name an id on the target page. External: every http(s) URL is
+fetched (GET, redirects followed, 25 s timeout) and must answer 2xx. A URL that
+could not be fetched is reported as a failure with its reason; it is never
+treated as fine. Exit 0 only when nothing failed.
+"""
+
+from __future__ import annotations
+
+import os
+import sys
+import urllib.error
+import urllib.request
+from concurrent.futures import ThreadPoolExecutor
+from html.parser import HTMLParser
+from pathlib import Path
+from urllib.parse import urldefrag, urlparse
+
+DOCS = Path(__file__).resolve().parent.parent / "docs"
+BASE_URL = "https://probityai.github.io/agent-evidence-atlas/"
+UA = "Mozilla/5.0 (compatible; site-link-check)"
+
+
+class Collect(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self.links: list[str] = []
+        self.ids: set[str] = set()
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        for name, value in attrs:
+            if value is None:
+                continue
+            if name == "id":
+                self.ids.add(value)
+            if name in ("href", "src"):
+                self.links.append(value)
+
+
+def parse(page: Path) -> Collect:
+    c = Collect()
+    c.feed(page.read_text(encoding="utf-8"))
+    return c
+
+
+# Hosts that refuse automated page reads get an equivalent machine read of the same
+# resource. Each alternative proves the linked thing exists; it is not a looser check.
+def alternative(url: str) -> str | None:
+    p = urlparse(url)
+    if p.netloc == "crates.io" and p.path.startswith("/crates/"):
+        return "https://crates.io/api/v1/crates/" + p.path.split("/")[2]
+    if p.netloc == "doi.org":
+        return "https://doi.org/api/handles" + p.path
+    if p.netloc == "github.com" and "/blob/" in p.path:
+        owner, repo, _, ref, *rest = p.path.strip("/").split("/")
+        return f"https://api.github.com/repos/{owner}/{repo}/contents/{'/'.join(rest)}?ref={ref}"
+    return None
+
+
+# Hosts that refuse every automated read (bot walls). These links were checked by a
+# saved capture of the page or of its wire copy; the capture and its date are in the
+# claim ledger. They are reported as MANUAL, never as ok.
+MANUAL_HOSTS = {"www.reuters.com", "openai.com", "www.apnews.com"}
+
+
+def fetch(url: str) -> tuple[str, str]:
+    alt = alternative(url)
+    if urlparse(url).netloc in MANUAL_HOSTS:
+        return url, "MANUAL"
+    target = alt or url
+    headers = {"User-Agent": UA, "Accept": "text/html,application/json;q=0.9,*/*;q=0.8"}
+    token = os.environ.get("GITHUB_TOKEN")
+    if token and "api.github.com" in target:
+        headers["Authorization"] = f"Bearer {token}"
+    req = urllib.request.Request(target, headers=headers)
+    try:
+        with urllib.request.urlopen(req, timeout=25) as resp:
+            return url, f"{resp.status}"
+    except urllib.error.HTTPError as e:
+        return url, f"HTTP {e.code}"
+    except Exception as e:  # noqa: BLE001 - every failure is reported, none is swallowed
+        return url, f"ERROR {type(e).__name__}: {e}"
+
+
+def main() -> int:
+    pages = {p: parse(p) for p in DOCS.rglob("*.html")}
+    failures: list[str] = []
+    external: set[str] = set()
+    own: set[str] = set()
+    internal = 0
+    for page, c in pages.items():
+        for link in c.links:
+            scheme = urlparse(link).scheme
+            if link.startswith(BASE_URL):
+                own.add(urldefrag(link)[0])
+                rel = urldefrag(link)[0][len(BASE_URL):] or "index.html"
+                if not (DOCS / rel).is_file():
+                    failures.append(f"{page.relative_to(DOCS)}: own-site link names no built file: {link}")
+                continue
+            if scheme in ("http", "https"):
+                external.add(urldefrag(link)[0])
+                continue
+            if scheme in ("mailto",):
+                continue
+            internal += 1
+            path, frag = urldefrag(link)
+            target = (page.parent / path).resolve() if path else page
+            if not target.exists():
+                failures.append(f"{page.relative_to(DOCS)}: missing target {link}")
+                continue
+            if frag:
+                ids = pages[target].ids if target in pages else set()
+                if frag not in ids:
+                    failures.append(f"{page.relative_to(DOCS)}: missing anchor {link}")
+    print(f"internal links checked: {internal}; own-site links checked against docs/: {len(own)}")
+    if "--external" in sys.argv[1:]:
+        targets = external | (own if "--live" in sys.argv[1:] else set())
+        with ThreadPoolExecutor(max_workers=8) as pool:
+            results = sorted(pool.map(fetch, sorted(targets)))
+        for url, status in results:
+            ok = status.isdigit() and 200 <= int(status) < 300
+            if status == "MANUAL":
+                print(f"MANUAL {'':>6}  {url}")
+                continue
+            print(f"{'ok  ' if ok else 'FAIL'} {status:>8}  {url}")
+            if not ok:
+                failures.append(f"external {status}: {url}")
+        print(f"external links checked: {len(results)}")
+    for f in failures:
+        print(f"FAIL {f}")
+    print("links: PASS" if not failures else f"links: {len(failures)} failure(s)")
+    return 0 if not failures else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

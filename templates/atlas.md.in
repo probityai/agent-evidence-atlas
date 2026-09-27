@@ -1,0 +1,62 @@
+---
+title: "An atlas of agent assurance"
+subtitle: "Seven layers that make claims about AI agents, the mechanisms inside each, what each establishes, what none of them establishes alone, and where the public evidence artifacts sit"
+status: "Draft, version {{version}}. Every size, status and version below was read {{read_window}}, and each one has a row in the claim ledger. This page is generated from data/atlas.toml."
+description: "A map of the AI-agent assurance ecosystem in seven layers: identity, policy, containment, tracing, receipts, evaluation and governance."
+toc: true
+---
+
+When an AI agent does something that matters, several different systems will later have something to say about it. An identity system says who the agent was. A policy engine says the action was allowed. A sandbox says what the agent could reach. A trace says what the agent reported doing. A signed receipt says which bytes were issued. An evaluation says how the model behaved on tests. A regulation says what should have been true.
+
+Each of those statements is useful. Each answers a different question, and each is made by a different party from a different vantage. This atlas lays them side by side: {{n_layers}} layers, {{n_entries}} named projects and standards, {{n_mechanisms}} mechanisms, and the public artifacts that work in the one cell no layer fills.
+
+Every named project is either a standard from a recognized body or an organization-owned project measured at roughly 500 GitHub stars or more, and every figure carries its read date. The lists are representative, not exhaustive.
+
+## The map in one table
+
+{{layer_table}}
+
+The layers map onto the three jobs that [*Three Jobs, Not One*](https://doi.org/10.5281/zenodo.21935891) separates. Layers 1 and 2 do the policy job: deciding what may be attempted. Layer 3 does the containment job: enforcing a boundary the code does not control. Layers 4 and 5 are where the evidence job is usually attempted, and the table shows why neither finishes it: a trace is written by the party it describes, and a signature fixes bytes without saying what they describe happened. Evaluation and governance are complementary roles. They scrutinize the other layers and cannot stand in for any of them.
+
+## Who writes the record
+
+The most useful single question to ask of any assurance mechanism is who writes the record it produces. The table uses the witness-scope terms of the [agent evidence vocabulary](https://github.com/probityai/agent-evidence-vocabulary): **self** is the observed party, or the system that runs it; **peer** is a party alongside it with its own stake, such as a gateway operator or an evaluator paid by the lab; **external** is a party outside the observed system's control. The assignment is this atlas's reading of a typical deployment, not a property of the software.
+
+{{mechanism_table}}
+
+Read down the "writer" column and one pattern repeats. Every mechanism that records the agent's actions in deployment is written by the agent's own side or by a peer with a stake in the outcome. Every mechanism written from outside records something other than those actions: an identity, a launch state, a log inclusion, a timestamp, a test result. The last row is the one this site is about.
+
+{{layer_sections}}
+
+## The open cell
+
+Read the "cannot establish" column top to bottom and one question is never answered: **did this action happen as recorded, seen from a vantage the agent could not reach, and is anything missing?** Identity names the actor. Policy records the decision. Containment bounds the reach. Tracing reports what the actor said. Receipts fix the bytes. Evaluation measures a tested version. Governance says the answer should exist.
+
+That cell is not closed by signing more things. A signature over a self-report is still a self-report. It is closed, where it can be closed at all, by records made from a vantage the observed party does not control, bound to what they observed, with an explicit statement of what they do not cover and a rule for what a missing record means. The [essay](essay.html) makes the argument; the [verifier demonstration](demo.html) shows what such records do and do not establish; the [experiments](experiments.html) measure where they fail.
+
+## Where the public evidence artifacts sit
+
+Five public repositories by the author work in this cell. Each entry says which layer it serves and, in its README's own terms, what it does not do.
+
+{{artifact_table}}
+
+### The conformance corpora
+
+Release v0.13.0 of agent-evidence-vectors carries {{n_vectors}} vectors in {{n_corpora}} corpora. Each corpus tests one specification or one contract; several test specifications written by others, so that independent implementations of those specifications can be checked against the same cases.
+
+{{corpus_table}}
+
+## Standards work in review, and public listings
+
+These are the author's contributions to other bodies' texts. None is merged or adopted as of the read. Each carries its live state.
+
+{{contribution_table}}
+
+{{listing_table}}
+
+## How to read this page
+
+- A layer's "cannot establish" line is not a criticism of its projects. It is the boundary of the question the layer answers. A project that tried to answer every question would answer none of them well.
+- Sizes are GitHub stars at the read time, a rough measure of attention, not of quality or adoption. They date quickly; `python3 tools/rederive.py` re-reads every one, and the [claim ledger](claims.html) records when each was read.
+- Statuses change. Every status here was read from the body's own page or repository at the time stated.
+- The page is generated. Its data file, `data/atlas.toml`, holds every node with its type, link and measurement, so the atlas can be regenerated from any source that emits the same shape.

@@ -1,0 +1,85 @@
+name: site
+
+# Three checks keep the published site honest between releases:
+#   build     on every push and pull request: the pages rebuild from their sources with zero
+#             pandoc warnings, docs/ matches what the sources give, and every internal link
+#             and anchor resolves.
+#   links     weekly and on demand: every external URL still answers 2xx, and every page of
+#             the published site reads back.
+#   rederive  weekly and on demand: every automatable claim-ledger row is re-read. A value
+#             that moved is reported in the run summary; a row that could not be read fails.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Install pandoc 3.3
+        run: |
+          curl -sSL -o pandoc.deb https://github.com/jgm/pandoc/releases/download/3.3/pandoc-3.3-1-amd64.deb
+          echo "7a6625d5aeb6b8666375807a3e16cc00659c48fb88299707651f60d88c31a360  pandoc.deb" | sha256sum -c -
+          sudo dpkg -i pandoc.deb
+          pandoc --version | head -1
+      - name: Check the atlas page against its data
+        run: |
+          if [ -f src/atlas.md ]; then python3 tools/gen_atlas.py --check; else echo "no atlas page in this tree"; fi
+      - name: Check docs/ against its sources
+        run: python3 tools/build.py --check
+      - name: Check internal links and anchors
+        run: python3 tools/check_links.py
+
+  links:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Check every external link and read back the published site
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 tools/check_links.py --external --live
+
+  rederive:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Re-derive every automatable claim
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -o pipefail
+          status=0
+          python3 tools/rederive.py --unread-fails > rederive.txt || status=$?
+          {
+            echo "## Claim re-derive, $(date -u +%Y-%m-%dT%H:%MZ)"
+            echo
+            echo '```'
+            grep -v '^same' rederive.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit $status
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: rederive
+          path: rederive.txt

@@ -131,12 +131,17 @@ main { overflow-wrap: break-word; }
 .label.open { color: #a05a00; }
 .label.proposed { color: #6a4a8c; }
 .label.draft { color: #1f5f8b; }
+.label.stale { color: #9b1c1c; }
+tr.stale td { background: var(--status-bg); }
+.cadence { font-family: var(--sans); font-size: .8rem; color: var(--muted); white-space: nowrap; }
 @media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .label.stale { color: #f19b9b; }
   :root:not([data-theme="light"]) .label.published { color: #7fd39b; }
   :root:not([data-theme="light"]) .label.open { color: #f0b870; }
   :root:not([data-theme="light"]) .label.proposed { color: #c3a4e3; }
   :root:not([data-theme="light"]) .label.draft { color: #7db7e0; }
 }
+:root[data-theme="dark"] .label.stale { color: #f19b9b; }
 
 footer.site { margin-top: 4rem; padding-bottom: 3rem; border-top: 1px solid var(--rule); font-family: var(--sans); font-size: .85rem; color: var(--muted); }
 footer.site p { margin-top: 1rem; }

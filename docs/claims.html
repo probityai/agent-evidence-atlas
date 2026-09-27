@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Sankalp Gilda" />
+  <meta name="description" content="The source, read time, re-derive command and limit for every claim on the site." />
+  <title>Claim ledger · Independent evidence for AI agent actions</title>
+  <link rel="canonical" href="https://probityai.github.io/agent-evidence-atlas/claims.html" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <nav aria-label="Site">
+    <span class="home">Independent evidence for AI agent actions</span>
+    <span class="links">
+      <a href="claims.html">Claims</a>
+      <a href="versions.html">Versions</a>
+    </span>
+  </nav>
+</header>
+<main id="main">
+<header class="page">
+<h1>Claim ledger</h1>
+<p class="subtitle">Every number, date, status and quotation on this site, with its source, when it was read, how to re-derive it, and what it does not mean</p>
+<p class="status">Version 0.2, 27 September 2026. Automatable rows were last re-derived at 2026-09-27T09:42:25Z: 23 of 54 unchanged; the other 31 are star counts that had moved by between one and ten since the original read. The pages keep the value as read, with its read time.</p>
+</header>
+<h2 id="how-to-use-this-ledger">How to use this ledger</h2>
+<ul>
+<li><strong>Re-derive the automatable rows</strong> with <code>python3 tools/rederive.py</code> from the repository root. It needs no credentials, prints the recorded and the current value for each row, and prints <code>UNREAD</code> with a reason when a source cannot be read; an unread row is never reported as unchanged. <code>--strict</code> exits 1 on any change.</li>
+<li><strong>Read times</strong> are UTC. A row older than its cadence is stale: star counts and pull-request states have a 7-day cadence, standards statuses 30 days, and published versions and dated events do not expire.</li>
+<li><strong>Captures.</strong> Every web page cited was saved when it was read. The capture log records URL, HTTP status, UTC time and SHA-256 for each one.</li>
+</ul>
+<p>Each row’s identifier starts with the letter of the page it covers, and each page has its own section below: <code>A</code> for the atlas and <code>L</code> for the site’s links. A page’s section is added with the page.</p>
+<h2 id="atlas">Atlas</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr>
+<th>id</th>
+<th>claim as printed</th>
+<th>source</th>
+<th>read (UTC)</th>
+<th>re-derive</th>
+<th>limit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A-01</td>
+<td>SPIFFE and SPIRE: CNCF Graduated (August 2022)</td>
+<td>cncf.io project pages for SPIFFE and SPIRE</td>
+<td>2026-09-27 00:47</td>
+<td>open <a href="https://www.cncf.io/projects/spire/" class="uri">https://www.cncf.io/projects/spire/</a></td>
+<td>Maturity level, not adoption</td>
+</tr>
+<tr>
+<td>A-02</td>
+<td>SPIRE repository: 2,558 stars</td>
+<td>GitHub API <code>repos/spiffe/spire</code></td>
+<td>2026-09-27 00:40</td>
+<td><code>tools/rederive.py</code> A-stars</td>
+<td>Stars measure attention, not quality or use</td>
+</tr>
+<tr>
+<td>A-03</td>
+<td>WIMSE: active working group; seven working-group drafts, including an AI identity management draft</td>
+<td>IETF Datatracker, WIMSE documents page</td>
+<td>2026-09-27 00:47</td>
+<td>open <a href="https://datatracker.ietf.org/wg/wimse/documents/" class="uri">https://datatracker.ietf.org/wg/wimse/documents/</a></td>
+<td>Working-group drafts are not standards</td>
+</tr>
+<tr>
+<td>A-04</td>
+<td>RFC 8693 is a Proposed Standard; OAuth 2.1 is a working-group draft</td>
+<td>RFC Editor info page; Datatracker <code>draft-ietf-oauth-v2-1</code> (revision 16)</td>
+<td>2026-09-27 00:47</td>
+<td>open both pages</td>
+<td></td>
+</tr>
+<tr>
+<td>A-05</td>
+<td>MCP authorization specification version 2026-07-28 states that authorization is optional</td>
+<td>modelcontextprotocol.io, authorization page: “Authorization is OPTIONAL for MCP implementations”</td>
+<td>2026-09-27 00:47</td>
+<td>open the page</td>
+<td>Applies to that specification version</td>
+</tr>
+<tr>
+<td>A-06</td>
+<td>Open Policy Agent: CNCF Graduated (2021); 12,276 stars</td>
+<td>cncf.io; GitHub API</td>
+<td>00:47; 00:40</td>
+<td><code>rederive.py</code> A-stars</td>
+<td></td>
+</tr>
+<tr>
+<td>A-07</td>
+<td>Kyverno: CNCF Graduated (2026-03-16); 8,184 stars</td>
+<td>cncf.io; GitHub API</td>
+<td>00:47; 00:40</td>
+<td><code>rederive.py</code> A-stars</td>
+<td></td>
+</tr>
+<tr>
+<td>A-08</td>
+<td>Cedar: CNCF Sandbox (2025-10-08); 1,748 stars</td>
+<td>cncf.io; GitHub API</td>
+<td>00:47; 00:40</td>
+<td><code>rederive.py</code> A-stars</td>
+<td></td>
+</tr>
+<tr>
+<td>A-09</td>
+<td>agentgateway: a Linux Foundation project, per its README; 5,052 stars</td>
+<td>the project’s README; GitHub API</td>
+<td>00:56; 00:40</td>
+<td><code>rederive.py</code> A-stars</td>
+<td>Foundation status is the project’s own statement; the CNCF project URL returned 404</td>
+</tr>
+<tr>
+<td>A-stars</td>
+<td>Every GitHub star count on the atlas (36 entries that name a repository)</td>
+<td>GitHub API <code>repos/&lt;owner&gt;/&lt;repo&gt;</code></td>
+<td>2026-09-27 00:40 to 00:41, except where a row says otherwise</td>
+<td><code>python3 tools/rederive.py</code> reads every entry with a <code>repo</code> in <code>data/atlas.toml</code></td>
+<td>Stars measure attention, not quality or use; at 01:34 four had moved by one or two</td>
+</tr>
+<tr>
+<td>A-16</td>
+<td>OpenTelemetry: CNCF Graduated (2026-05-11); generative-AI and agent-span conventions marked “Development”</td>
+<td>cncf.io; the conventions’ own Markdown in <code>open-telemetry/semantic-conventions-genai</code></td>
+<td>00:47; 00:51</td>
+<td>open both</td>
+<td>“Development” is the conventions’ own stability label</td>
+</tr>
+<tr>
+<td>A-18</td>
+<td>in-toto: CNCF Graduated (2025-02-10); attestation specification v1.2</td>
+<td>cncf.io; the specification README (“Latest version: v1.2”)</td>
+<td>00:47; 00:49</td>
+<td>open both</td>
+<td></td>
+</tr>
+<tr>
+<td>A-19</td>
+<td>Sigstore: an OpenSSF project; Rekor v2 runs as a production instance with a 99.5% availability objective</td>
+<td>openssf.org project list; the Rekor v2 README (“a productionized instance of Rekor v2 with a 99.5% availability SLO”)</td>
+<td>00:52; 00:49</td>
+<td>open both</td>
+<td>The OpenSSF page read does not show a maturity stage</td>
+</tr>
+<tr>
+<td>A-20</td>
+<td>RFC 9943 and RFC 9942: Proposed Standards, June 2026</td>
+<td>IETF Datatracker, SCITT documents page</td>
+<td>00:47 to 00:52</td>
+<td>open the page</td>
+<td></td>
+</tr>
+<tr>
+<td>A-21</td>
+<td>C2PA: a Joint Development Foundation project; specification 2.4 current</td>
+<td>spec.c2pa.org specifications index</td>
+<td>00:49</td>
+<td>open the page</td>
+<td></td>
+</tr>
+<tr>
+<td>A-22</td>
+<td>RFC 9162: Experimental (2021)</td>
+<td>RFC Editor</td>
+<td>00:47</td>
+<td>open <a href="https://www.rfc-editor.org/info/rfc9162" class="uri">https://www.rfc-editor.org/info/rfc9162</a></td>
+<td></td>
+</tr>
+<tr>
+<td>A-23</td>
+<td>RFC 8785: Informational</td>
+<td>RFC Editor</td>
+<td>00:47</td>
+<td>open <a href="https://www.rfc-editor.org/info/rfc8785" class="uri">https://www.rfc-editor.org/info/rfc8785</a></td>
+<td></td>
+</tr>
+<tr>
+<td>A-24</td>
+<td>Inspect: developed by the UK AI Security Institute and Meridian Labs</td>
+<td>inspect.aisi.org.uk</td>
+<td>00:47</td>
+<td>open the page</td>
+<td></td>
+</tr>
+<tr>
+<td>A-25</td>
+<td>METR: a research nonprofit that measures whether and when AI systems might pose catastrophic risks</td>
+<td>metr.org/about: “a research nonprofit that scientifically measures whether and when AI systems might threaten catastrophic harm to society”</td>
+<td>00:47</td>
+<td>open the page</td>
+<td>Paraphrased on the atlas; quoted here</td>
+</tr>
+<tr>
+<td>A-26</td>
+<td>NIST CAISI runs an AI Agent Standards Initiative</td>
+<td>nist.gov/caisi and the initiative page</td>
+<td>00:47; 00:54</td>
+<td>open both</td>
+<td></td>
+</tr>
+<tr>
+<td>A-27</td>
+<td>MLCommons AILuminate covers 12 hazard categories</td>
+<td>mlcommons.org/ailuminate: “assesses genAI across 12 hazard categories”</td>
+<td>00:47</td>
+<td>open the page</td>
+<td></td>
+</tr>
+<tr>
+<td>A-28</td>
+<td>OWASP AI Testing Guide: version 1 published November 2025</td>
+<td>the project page: “Version 1 Published”, 26 November 2025</td>
+<td>00:47</td>
+<td>open the page</td>
+<td>An OWASP Incubator project</td>
+</tr>
+<tr>
+<td>A-29</td>
+<td>CEN-CENELEC lists the AI Act harmonised standards as under development</td>
+<td>cencenelec.eu AI topic page: “Key Standards Under Development”</td>
+<td>00:47</td>
+<td>open the page</td>
+<td>The JTC 21 dashboard returned HTTP 500 and supports nothing here</td>
+</tr>
+<tr>
+<td>A-30</td>
+<td>EU AI Act: in force; consolidated version of 27 July 2026</td>
+<td>EUR-Lex: “In force … Current consolidated version: 27/07/2026”</td>
+<td>00:47</td>
+<td>open the EUR-Lex page</td>
+<td></td>
+</tr>
+<tr>
+<td>A-31</td>
+<td>NIST AI RMF 1.0: voluntary; under revision</td>
+<td>nist.gov: “intended for voluntary use”; “being revised”</td>
+<td>00:47</td>
+<td>open the page</td>
+<td></td>
+</tr>
+<tr>
+<td>A-32</td>
+<td>NIST AI 600-1 published July 2024</td>
+<td>nist.gov publication page (2024-07-26)</td>
+<td>00:47</td>
+<td>open the page</td>
+<td></td>
+</tr>
+<tr>
+<td>A-33</td>
+<td>California SB 53: Chapter 138, Statutes of 2025</td>
+<td>leginfo.legislature.ca.gov bill status</td>
+<td>00:47</td>
+<td>open the page</td>
+<td></td>
+</tr>
+<tr>
+<td>A-34</td>
+<td>AEF-1: minimum operating conditions for independent third-party evaluation, version 1</td>
+<td>aievaluatorforum.org: “Version 1, updated December 4, 2025”</td>
+<td>00:58</td>
+<td>open the page</td>
+<td></td>
+</tr>
+<tr>
+<td>A-35</td>
+<td>OWASP Top 10 for Agentic Applications: 2026 edition, December 2025</td>
+<td>genai.owasp.org resource page, dated 9 December 2025</td>
+<td>00:47</td>
+<td>open the page</td>
+<td></td>
+</tr>
+<tr>
+<td>A-36</td>
+<td>Agentic AI Foundation: announced December 2025; working groups include identity and trust, and observability and traceability</td>
+<td>Linux Foundation press release (2025-12-09); aaif.io</td>
+<td>00:47</td>
+<td>open both</td>
+<td></td>
+</tr>
+<tr>
+<td>A-37</td>
+<td>Five repositories by the author</td>
+<td>GitHub; crates.io</td>
+<td>00:44</td>
+<td>open each link on the atlas</td>
+<td></td>
+</tr>
+<tr>
+<td>A-38</td>
+<td>vocabulary v0.3.0; vectors v0.13.0 with 817 vectors in 13 corpora; admission has no release; jcs-admit 0.1.0; dsse 0.1.0</td>
+<td>GitHub tags; PyPI; the 13 <code>MANIFEST.json</code> files at tag v0.13.0; crates.io</td>
+<td>00:44 to 00:46; vector total 2026-09-27 01:16</td>
+<td><code>rederive.py</code> A-38a to A-38f</td>
+<td>The vector count is the sum of manifest members at the tag, including 13 members of one corpus marked <code>proposed</code>; the repository’s main branch is ahead of the tag</td>
+</tr>
+<tr>
+<td>A-38q</td>
+<td>Quotations “These rails evaluate an already-verified statement. They do not verify one.” and “Implements the envelope and nothing else”</td>
+<td>the agent-evidence-admission and dsse READMEs, main branch (commits 1ded5b8 and 83e0477)</td>
+<td>00:44</td>
+<td>read each README</td>
+<td></td>
+</tr>
+<tr>
+<td>A-39</td>
+<td>Thirteen contributions and their states: nine pull requests open and unmerged (one of them as reviewer), one individual Internet-Draft, and three open issues, as listed on the atlas</td>
+<td>GitHub API for each pull request and issue; IETF Datatracker for the draft</td>
+<td>00:41 to 00:42</td>
+<td><code>rederive.py</code> A-39a to A-39l; Datatracker page for the draft</td>
+<td>“Open” says nothing about the likelihood of merge</td>
+</tr>
+<tr>
+<td>A-41</td>
+<td>The one-line description of each named project</td>
+<td>each repository’s own GitHub description, paraphrased; foundation membership from the project’s site or README</td>
+<td>2026-09-27 01:31</td>
+<td><code>gh api repos/&lt;owner&gt;/&lt;repo&gt; --jq .description</code></td>
+<td>Paraphrase; the repository’s wording governs</td>
+</tr>
+<tr>
+<td>A-42</td>
+<td>The mechanism table’s “writer” column (self, peer, external)</td>
+<td>the atlas’s own classification, using the witness-scope terms of agent-evidence-vocabulary</td>
+<td>2026-09-27</td>
+<td>read <code>data/atlas.toml</code></td>
+<td>A reading of a typical deployment, stated as such on the page; a given deployment can differ</td>
+</tr>
+<tr>
+<td>A-43</td>
+<td>Corpus member counts and splits (275; 232; 61; 52; 34; 34; 32; 27; 26; 15; 13; 8; 8)</td>
+<td>each corpus’s <code>MANIFEST.json</code> at tag v0.13.0</td>
+<td>2026-09-27 01:16</td>
+<td><code>rederive.py</code> A-38c for the total; <code>git show v0.13.0:&lt;corpus&gt;/MANIFEST.json</code> for each</td>
+<td></td>
+</tr>
+<tr>
+<td>A-44</td>
+<td>OECD.AI catalogue listing; W3C mailing-list post of 12 September 2026</td>
+<td>the two pages, captured</td>
+<td>2026-09-27 01:23</td>
+<td>open both</td>
+<td>A listing is not an endorsement</td>
+</tr>
+<tr>
+<td>A-40</td>
+<td>None is merged or adopted as of the read</td>
+<td>the same reads</td>
+<td>00:42</td>
+<td>the same</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="links">Links</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>id</th>
+<th>claim</th>
+<th>how it was checked</th>
+<th>read (UTC)</th>
+<th>limit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L-01</td>
+<td>Every internal link and anchor on the site resolves, and every link to the site’s own published address names a page that was built</td>
+<td><code>python3 tools/check_links.py</code></td>
+<td>2026-09-27 09:40</td>
+<td>Checks the built <code>docs/</code> directory</td>
+</tr>
+<tr>
+<td>L-02</td>
+<td>Every external link answers 2xx, except links on hosts that refuse automated reads, each of which has its own row in this section</td>
+<td><code>python3 tools/check_links.py --external</code>; crates.io, doi.org and GitHub file links are checked through the same resource’s API</td>
+<td>2026-09-27 09:40</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</main>
+<footer class="site">
+  <p>By Sankalp Gilda. Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.1-draft, 2026-09-27.</p>
+</footer>
+</body>
+</html>

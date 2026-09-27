@@ -50,31 +50,30 @@ def render(d: dict) -> str:
     names = {l["id"]: f"{i}. {l['name']}" for i, l in enumerate(layers, 1)}
 
     layer_table = table(
-        ["layer", "the question it answers", "a working instance establishes", "it cannot establish on its own"],
+        ["family", "the question it answers", "a working instance establishes", "it cannot establish on its own"],
         [[names[l["id"]], l["short_question"], l["short_establishes"], l["short_cannot"]] for l in layers])
 
     mech_rows = []
     for m in mechs:
         where = names.get(m["layer"], "the open cell")
         mech_rows.append([m["name"], where, m["writer"], m["establishes"], m["cannot"]])
-    mechanism_table = table(["mechanism", "layer", "writer", "establishes", "cannot establish"], mech_rows)
+    mechanism_table = table(["mechanism", "family", "writer", "establishes", "cannot establish"], mech_rows)
 
     sections = []
     for i, l in enumerate(layers, 1):
         rows = [[f"[{e['name']}]({e['url']})", entry_status(e)] for e in entries if e["layer"] == l["id"]]
         nxt = layers[i]["name"] if i < len(layers) else layers[0]["name"]
-        seam_title = f"Seam to layer {i + 1}" if i < len(layers) else "Seam back to layer 1"
+        seam_title = f"Seam to family {i + 1}" if i < len(layers) else "Seam back to family 1"
         sections.append("\n\n".join([
             f"## {i}. {l['name']}",
-            f"**Question.** {l['question']}",
-            f"**Establishes.** {l['establishes']}",
-            f"**Cannot establish.** {l['cannot']}",
+            f"Question\n:   {l['question']}\n\nEstablishes\n:   {l['establishes']}\n\n"
+            f"Cannot establish\n:   {l['cannot']}",
             table(["project or standard", "status or size, read 2026-09-27"], rows),
-            f"**{seam_title} ({nxt.lower()}).** {l['seam']}",
+            f"{seam_title} ({nxt.lower()})\n:   {l['seam']}",
         ]))
 
     artifact_table = table(
-        ["artifact", "layer", "release, read 2026-09-27", "what it does", "what it does not do"],
+        ["artifact", "family", "release, read 2026-09-27", "what it does", "what it does not do"],
         [[f"[{a['name']}]({a['url']})", a["layers"], f"{a['release']} {label(a['label'])}", a["does"], a["does_not"]]
          for a in d["artifact"]])
 
@@ -88,12 +87,13 @@ def render(d: dict) -> str:
         [[f"[{c['where']}]({c['url']})", c["what"], f"{label(c['label'])} {c['state']}"] for c in d["contribution"]])
 
     listing_table = table(
-        ["listing", "what", "state"],
+        ["listing", "what", "state, read 2026-09-27"],
         [[f"[{x['where']}]({x['url']})", x["what"], label(x["label"])] for x in d["listing"]])
 
     values = {
         "version": d["meta"]["version"],
         "read_window": d["meta"]["read_window"],
+        "stars_read": d["meta"]["stars_read"],
         "n_layers": str(len(layers)),
         "n_entries": str(len(entries)),
         "n_mechanisms": str(len(mechs)),
@@ -127,7 +127,7 @@ def main() -> int:
         print("src/atlas.md matches data/atlas.toml")
         return 0
     OUT.write_text(text, encoding="utf-8")
-    print(f"wrote src/atlas.md: {len(d['layer'])} layers, {len(d['entry'])} entries, "
+    print(f"wrote src/atlas.md: {len(d['layer'])} families, {len(d['entry'])} entries, "
           f"{len(d['mechanism'])} mechanisms, {len(d['corpus'])} corpora")
     return 0
 

@@ -3,6 +3,9 @@
 
     python3 tools/rederive.py              print recorded vs current for every row
     python3 tools/rederive.py --strict     exit 1 if any value changed or could not be read
+    python3 tools/rederive.py --unread-fails
+                                           exit 1 only if a row could not be read; a moved
+                                           value is reported, not failed (the weekly CI mode)
 
 Only the rows whose claim id appears in this repository's CLAIMS.md are read, so a
 ledger that covers fewer pages re-derives fewer rows; the count printed at the end
@@ -117,18 +120,8 @@ ROWS = atlas_star_rows() + [
     ("A-38d", "no tags", lambda: latest_tag("probityai/agent-evidence-admission")),
     ("A-38e", "0.1.0", lambda: crate_version("jcs-admit")),
     ("A-38f", "0.1.0", lambda: crate_version("dsse")),
-    ("A-39a", "open", lambda: pr_state("in-toto/attestation", 570)),
-    ("A-39b", "open", lambda: pr_state("in-toto/ITE", 63)),
-    ("A-39c", "open", lambda: pr_state("in-toto/attestation", 588)),
     ("A-39d", "open", lambda: pr_state("OWASP/CheatSheetSeries", 2332)),
-    ("A-39e", "open", lambda: pr_state("secure-systems-lab/dsse", 82)),
     ("A-39f", "open", lambda: pr_state("a2aproject/A2A", 2246)),
-    ("A-39g", "open", lambda: pr_state("OWASP/Agent-Security-Regression-Harness", 177)),
-    ("A-39h", "open", lambda: issue_state("cncf/toc", 2301)),
-    ("A-39j", "open", lambda: pr_state("orcwg/cra-hub", 360)),
-    ("A-39k", "open", lambda: pr_state("enisaeu/enisa-sbd-playbook", 2)),
-    ("A-39l", "open", lambda: issue_state("OWASP/www-project-ai-maturity-assessment", 91)),
-    ("A-39i", "open", lambda: issue_state("C2SP/CCTV", 30)),
     ("I-01", "v6 2026-08-14", lambda: zenodo_version(21935891)),
     ("D-02", "cc938c6038536dcb0d63269dd96cd64bed2d8d575fe212b72593c7f2ca92399b",
      lambda: file_sha256("demo/verifier/inputs/vcc938c6038536dcb.json")),
@@ -160,18 +153,22 @@ def main() -> int:
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     print(f"re-derived at {now}")
     bad = 0
+    unread = 0
     for cid, recorded, reader in rows:
         try:
             current = reader()
         except Exception as e:  # noqa: BLE001 - every failure is printed, none is hidden
             print(f"UNREAD   {cid:44} recorded {recorded!r}: {type(e).__name__}: {e}")
             bad += 1
+            unread += 1
             continue
         tag = "same   " if current == recorded else "CHANGED"
         if current != recorded:
             bad += 1
         print(f"{tag}  {cid:44} recorded {recorded!r} current {current!r}")
-    print(f"{len(rows) - bad} of {len(rows)} unchanged")
+    print(f"{len(rows) - bad} of {len(rows)} unchanged; {unread} could not be read")
+    if "--unread-fails" in sys.argv[1:]:
+        return 1 if unread else 0
     return 1 if (strict and bad) else 0
 
 

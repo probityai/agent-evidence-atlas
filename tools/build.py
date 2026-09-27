@@ -65,6 +65,36 @@ COPIES = [
 ]
 
 INCLUDE = re.compile(r"^<!-- include: (\S+) -->$", re.MULTILINE)
+TR = re.compile(r"<tr([^>]*)>(.*?)</tr>", re.DOTALL)
+CELL = re.compile(r"<t[hd][^>]*>(.*?)</t[hd]>", re.DOTALL)
+TABLE = re.compile(r"<table.*?</table>", re.DOTALL)
+DATE = re.compile(r"\d{4}-\d{2}-\d{2}")
+
+# Marks each stamped row stale once the reader's clock passes read date plus cadence. The
+# page is built without a clock, so the comparison happens where the reader is.
+STALE_SCRIPT = """<script>
+(function () {
+  var now = Date.now(), stale = 0;
+  document.querySelectorAll("tr[data-read][data-cadence-days]").forEach(function (row) {
+    var due = Date.parse(row.dataset.read + "T00:00:00Z") + Number(row.dataset.cadenceDays) * 864e5;
+    if (now > due) {
+      stale += 1;
+      row.classList.add("stale");
+      var mark = document.createElement("span");
+      mark.className = "label stale";
+      mark.textContent = "stale";
+      row.cells[0].appendChild(document.createTextNode(" "));
+      row.cells[0].appendChild(mark);
+    }
+  });
+  var note = document.getElementById("stale-count");
+  if (note) {
+    note.textContent = stale === 0 ? "Today no row is past its cadence."
+      : "Today " + stale + (stale === 1 ? " row is past its cadence" : " rows are past their cadence") + " and marked stale.";
+  }
+})();
+</script>
+"""
 FRONT_TOC = re.compile(r"^toc:\s*true\s*$", re.MULTILINE)
 
 
@@ -131,7 +161,7 @@ def versions_markdown(built: set[str]) -> str:
         "---",
         'title: "Version ledger"',
         'subtitle: "Every artifact on this site, its version, its status, and a digest of the source it was built from"',
-        f'status: "Site version {VERSION}. Rebuilt on every change; the digests let a reader check that a page matches the version recorded here."',
+        f'status: "Draft. Site version {VERSION}. Rebuilt on every change; the digests let a reader check that a page matches the version recorded here."',
         "---",
         "",
         "A digest here is the SHA-256 of the artifact's source file in the site's repository, "
@@ -141,6 +171,60 @@ def versions_markdown(built: set[str]) -> str:
         *rows,
         "",
     ])
+
+
+def plain(cell: str) -> str:
+    return re.sub(r"<[^>]+>", "", cell).strip()
+
+
+def stamp_cadence(html: str) -> str:
+    """Stamp every claim row that has a read time with its read date and cadence.
+
+    A row gets data-read (its earliest date) and, when its cadence expires, data-cadence-days;
+    its read cell gains the cadence in words. A read-dated row with no cadence entry, or a read
+    cell with no date, fails the build rather than going unmarked."""
+    cadence = tomllib.loads((ROOT / "data" / "claim_cadence.toml").read_text(encoding="utf-8"))["cadence"]
+    missing: list[str] = []
+
+    def one_table(tm: re.Match[str]) -> str:
+        table = tm.group(0)
+        rows = TR.findall(table)
+        if not rows:
+            return table
+        header = [plain(c) for c in CELL.findall(rows[0][1])]
+        if "id" not in header or "read (UTC)" not in header:
+            return table
+        i_id, i_read = header.index("id"), header.index("read (UTC)")
+
+        def one_row(rm: re.Match[str]) -> str:
+            attrs, body = rm.group(1), rm.group(2)
+            cells = CELL.findall(body)
+            if len(cells) <= max(i_id, i_read) or "<th" in body:
+                return rm.group(0)
+            cid, read = plain(cells[i_id]), plain(cells[i_read])
+            dates = sorted(DATE.findall(read))
+            if not dates or cid not in cadence:
+                missing.append(f"{cid} (read {read!r}, cadence {cadence.get(cid)!r})")
+                return rm.group(0)
+            c = cadence[cid]
+            extra = f' data-read="{dates[0]}"'
+            words = "does not expire"
+            if c != "none":
+                extra += f' data-cadence-days="{int(c)}"'
+                words = f"{int(c)}-day cadence"
+            parts = re.split(r"(<t[hd][^>]*>.*?</t[hd]>)", body, flags=re.DOTALL)
+            cell_parts = [k for k, s in enumerate(parts) if s.startswith("<td")]
+            k = cell_parts[i_read]
+            parts[k] = parts[k].replace("</td>", f' <span class="cadence">({words})</span></td>')
+            return f"<tr{attrs}{extra}>" + "".join(parts) + "</tr>"
+
+        return TR.sub(one_row, table)
+
+    html = TABLE.sub(one_table, html)
+    if missing:
+        sys.stderr.write("claim rows with a read time but no usable date or cadence:\n  " + "\n  ".join(missing) + "\n")
+        raise SystemExit(1)
+    return html.replace("</body>", STALE_SCRIPT + "</body>")
 
 
 def build(out: Path) -> None:
@@ -158,6 +242,8 @@ def build(out: Path) -> None:
     for page in pages:
         render(page, out / f"{page.stem}.html", built)
     render(ROOT / "CLAIMS.md", out / "claims.html", built)
+    claims = out / "claims.html"
+    claims.write_text(stamp_cadence(claims.read_text(encoding="utf-8")), encoding="utf-8")
     with tempfile.TemporaryDirectory() as tmp:
         ledger = Path(tmp) / "versions.md"
         ledger.write_text(versions_markdown(built), encoding="utf-8")

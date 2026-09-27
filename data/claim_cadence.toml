@@ -1,0 +1,72 @@
+# How long each claim-ledger row stays current after its read time.
+#
+# tools/build.py stamps every row of CLAIMS.md that has a read time with its cadence, and
+# the claim-ledger page marks a row stale when the reader's clock is past read date plus
+# cadence. A row with a read time and no entry here fails the build, so a new row cannot
+# go unclassified.
+#
+# The rule, as the ledger states it: star counts, pull-request and issue states and link
+# checks change weekly (7 days); standards and project statuses, descriptions and labels
+# monthly (30 days); published versions, dated events, content pinned to a tag and the
+# site's own data do not expire ("none").
+
+[cadence]
+# 7 days
+"A-02" = 7
+"A-06" = 7
+"A-07" = 7
+"A-08" = 7
+"A-09" = 7
+"A-stars" = 7
+"A-39" = 7
+"A-40" = 7
+"L-01" = 7
+"L-02" = 7
+# 30 days
+"A-01" = 30
+"A-03" = 30
+"A-04" = 30
+"A-05" = 30
+"A-16" = 30
+"A-18" = 30
+"A-19" = 30
+"A-21" = 30
+"A-24" = 30
+"A-25" = 30
+"A-26" = 30
+"A-27" = 30
+"A-29" = 30
+"A-30" = 30
+"A-31" = 30
+"A-34" = 30
+"A-36" = 30
+"A-37" = 30
+"A-38" = 30
+"A-38q" = 30
+"A-41" = 30
+"A-44" = 30
+"A-45" = 30
+"I-04" = 30
+"L-03" = 30
+"D-04" = 30
+# never expire
+"A-20" = "none"
+"A-22" = "none"
+"A-23" = "none"
+"A-28" = "none"
+"A-32" = "none"
+"A-33" = "none"
+"A-35" = "none"
+"A-42" = "none"
+"A-43" = "none"
+"I-01" = "none"
+"I-02" = "none"
+"I-03" = "none"
+"I-05" = "none"
+"I-06" = "none"
+"D-01" = "none"
+"D-02" = "none"
+"D-03" = "none"
+"D-05" = "none"
+"D-06" = "none"
+"D-07" = "none"

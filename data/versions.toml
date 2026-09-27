@@ -3,6 +3,15 @@
 # whether the page they read is the version recorded here.
 
 [[artifact]]
+name = "Home page"
+page = "index.html"
+source = "src/index.md"
+version = "1.0"
+date = "2026-09-27"
+status = "draft"
+note = "The entry point: every artifact with its version, date and status; links only to released artifacts or labelled drafts"
+
+[[artifact]]
 name = "Essay"
 page = "essay.html"
 source = "src/essay.md"
@@ -15,10 +24,10 @@ note = "Recut of the first draft: opens on one agent action; five footnote error
 name = "Atlas"
 page = "atlas.html"
 source = "data/atlas.toml"
-version = "0.2"
+version = "0.1-preview"
 date = "2026-09-27"
 status = "draft"
-note = "Generated from its data file; seven layers, the mechanism table, the corpora and the contributions"
+note = "Generated from its data file: seven families, the mechanism table, the corpora and the contributions. A preview of Atlas 0.1, which adds the property grid. Names only projects at 5,000 stars or more, or of a recognized body"
 
 [[artifact]]
 name = "Verifier demonstration"
@@ -51,7 +60,7 @@ note = "Twelve planned installments"
 name = "Claim ledger"
 page = "claims.html"
 source = "CLAIMS.md"
-version = "0.2"
+version = "0.3"
 date = "2026-09-27"
 status = "draft"
-note = "Covers every page in this repository; a held page's rows are added with the page. 0.2: re-derived at 09:42 UTC, one section per page"
+note = "Covers every page in this repository; a held page's rows are added with the page. 0.3: star counts refreshed, home-page rows completed"

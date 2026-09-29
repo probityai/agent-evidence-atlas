@@ -55,6 +55,8 @@ NAV = [
 # page is built, and a missing source for a built page fails the build.
 COPIES = [
     ("assets/site.css", "assets/site.css", None),
+    ("experiments/observer-vantage/run.py", "experiments/observer-vantage/run.py", "experiments"),
+    ("experiments/observer-vantage/recorded.json", "experiments/observer-vantage/recorded.json", "experiments"),
     ("demo/verifier/Cargo.toml", "demo/verifier/Cargo.toml", "demo"),
     ("demo/verifier/Cargo.lock", "demo/verifier/Cargo.lock", "demo"),
     ("demo/verifier/src/main.rs", "demo/verifier/src/main.rs", "demo"),
@@ -138,6 +140,11 @@ def render(source: Path, dest: Path, built: set[str]) -> None:
     if proc.returncode != 0 or proc.stderr.strip():
         sys.stderr.write(f"pandoc failed or warned on {source.relative_to(ROOT)}:\n{proc.stderr}")
         raise SystemExit(1)
+    # Pandoc 3.1 emits table-row parity classes that 3.3 omits. Keep the
+    # published HTML byte-stable across those writers; site CSS does not use
+    # these classes, and claim-ledger cadence stamping uses plain <tr> rows.
+    html = dest.read_text(encoding="utf-8")
+    dest.write_text(re.sub(r'<tr class="(?:header|odd|even)">', "<tr>", html), encoding="utf-8")
 
 
 def versions_markdown(built: set[str]) -> str:

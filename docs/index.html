@@ -16,6 +16,7 @@
     <a class="home" href="index.html">Independent evidence for AI agent actions</a>
     <span class="links">
       <a href="atlas.html">Atlas</a>
+      <a href="experiments.html">Experiments</a>
       <a href="claims.html">Claims</a>
       <a href="versions.html">Versions</a>
     </span>
@@ -25,7 +26,7 @@
 <header class="page">
 <h1>Independent evidence for AI agent actions</h1>
 <p class="subtitle">When an AI agent does something that matters, who can check what happened, without taking the word of the party that ran it?</p>
-<p class="status">Version 1.0, 27 September 2026. Each artifact below carries its own version and status. Released artifacts and labelled drafts are linked; the rest are named without a link.</p>
+<p class="status">Version 1.2, 29 September 2026. Each artifact below carries its own version and status. Released artifacts and labelled drafts are linked; the rest are named without a link.</p>
 </header>
 <p>I work on a pair of questions: what evidence should exist after an AI agent takes a consequential action, and who decides whether that evidence is enough. Independent evaluators, regulators and the parties an agent affects all need an answer that does not reduce to the account of the company that ran the agent.</p>
 <p>Where a piece has not been released, the <a href="versions.html">version ledger</a> says so, and it records what changed in each piece and when.</p>
@@ -57,15 +58,22 @@
 <tr>
 <td><a href="claims.html">Claim ledger</a></td>
 <td>The source, read time, re-derive command and limit behind the numbers, dates and statuses on this site, re-checked on every weekly re-derive</td>
-<td>0.3</td>
-<td>2026-09-27</td>
+<td>0.4</td>
+<td>2026-09-29</td>
 <td><span class="label draft">draft</span></td>
 </tr>
 <tr>
 <td><a href="versions.html">Version ledger</a></td>
 <td>Each artifact’s version, date and status, beside a digest of the source it was built from, updated with every build</td>
-<td>site build 0.1</td>
-<td>2026-09-27</td>
+<td>site build 0.2</td>
+<td>2026-09-29</td>
+<td><span class="label draft">draft</span></td>
+</tr>
+<tr>
+<td><a href="experiments.html">Experiments</a></td>
+<td>A three-interval local PEER pilot that exposes a missed transient effect, plus registered tests for below-agent observation and independently witnessed history</td>
+<td>0.1</td>
+<td>2026-09-29</td>
 <td><span class="label draft">draft</span></td>
 </tr>
 <tr>
@@ -77,7 +85,7 @@
 </tr>
 </tbody>
 </table>
-<p>Four more pieces are in preparation, each held until it passes its release checks: an essay on what independent evaluators should verify, a runnable verifier demonstration, designs for two evidence experiments, and a twelve-month series plan. The version ledger lists all four as held.</p>
+<p>Three more pieces are in preparation, each held until it passes its release checks: an essay on what independent evaluators should verify, a runnable verifier demonstration, and a twelve-month series plan. The <a href="experiments.html">experiment draft</a> publishes the local PEER pilot and two designs while withholding any claim of below-agent observation or independent history.</p>
 <h2 id="the-public-code">The public code</h2>
 <p>Three repositories and two Rust crates hold the reference work the atlas draws on.</p>
 <table>
@@ -122,11 +130,14 @@
 </tr>
 </tbody>
 </table>
+<h2 id="agent-action-assurance">Agent action assurance</h2>
+<p>The proposed consumer contract joins the checks an operator needs before relying on an agent’s action: authority, exact-call admission, invocation, observed effect, vantage and coverage, signed bytes, history, and the consumer decision. Its first test is a file write retried after a lost response. The negative cases include a duplicate effect, a missing interval, and a transient bypass that a final snapshot misses.</p>
+<p>This is a proposed end-to-end requirement, not an end-to-end conformance result. The current corpora test parts of it. The <a href="experiments.html">experiment</a> demonstrates a snapshot failure under a PEER prototype; it has no isolated agent or separate witness operator. The next result needs both a producer outside the agent’s reach and an independent consumer replay. A gate pass or a signed receipt can then be checked alongside the effect it purports to govern.</p>
 <h2 id="peer-reviewed-work">Peer-reviewed work</h2>
 <p>Sankalp Gilda and Shlok Gilda, “Position: Evaluation Scores Are Perishable Knowledge Claims”, Proceedings of the Fifth Workshop on Generation, Evaluation and Metrics (GEM), 2026. <a href="https://doi.org/10.18653/v1/2026.gem-main.80">doi:10.18653/v1/2026.gem-main.80</a></p>
 </main>
 <footer class="site">
-  <p>By Sankalp Gilda. Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.1-draft, 2026-09-27.</p>
+  <p>By Sankalp Gilda. Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.2-draft, 2026-09-29.</p>
 </footer>
 </body>
 </html>

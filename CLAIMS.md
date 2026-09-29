@@ -1,7 +1,7 @@
 ---
 title: "Claim ledger"
 subtitle: "Every number, date, status and quotation on this site, with its source, when it was read, how to re-derive it, and what it does not mean"
-status: "Draft, version 0.3, 27 September 2026. Star counts were refreshed at 2026-09-27 11:49 UTC by tools/refresh_stars.py; every other automatable row was last re-derived at 2026-09-27T09:52:44Z. The pages keep each value as read, with its read time."
+status: "Draft, version 0.4, 29 September 2026. Star counts were refreshed at 2026-09-27 11:49 UTC by tools/refresh_stars.py; earlier automatable rows were last re-derived at 2026-09-27T09:52:44Z. The experiment pilot was run on 2026-09-29. Each value keeps its read time."
 description: "The source, read time, re-derive command and limit for every claim on the site."
 ---
 
@@ -11,7 +11,7 @@ description: "The source, read time, re-derive command and limit for every claim
 - **Read times** are UTC, and each read cell states its row's cadence: star counts, pull-request states and link checks 7 days, standards and project statuses 30 days, while published versions and dated events do not expire. `data/claim_cadence.toml` holds the cadence of every row. When a row's read date plus its cadence has passed, this page marks the row stale as it loads. [With scripts off, compare each read date with its cadence.]{#stale-count}
 - **Captures.** Every web page cited was saved when it was read. The capture log records URL, HTTP status, UTC time and SHA-256 for each one.
 
-Each row's identifier starts with the letter of the page it covers, and each page has its own section below: `A` for the atlas, `I` for the home page and `L` for the site's links. A page's section is added with the page.
+Each row's identifier starts with the letter of the page it covers: `A` for the atlas, `I` for the home page, `E` for the experiments, and `L` for the site's links. Rows that cite a local unpublished source say so; they are not independently reproducible until those exact source bytes are published.
 
 ## Atlas
 
@@ -63,8 +63,19 @@ Each row's identifier starts with the letter of the page it covers, and each pag
 | I-02 | GEM 2026 paper by Sankalp Gilda and Shlok Gilda | Crossref, DOI 10.18653/v1/2026.gem-main.80 | 2026-09-27 01:10 | `curl https://api.crossref.org/works/10.18653/v1/2026.gem-main.80` | Publication, not reception |
 | I-03 | The atlas names 45 projects and standards and 18 mechanisms | `python3 tools/gen_atlas.py`, which prints the counts | 2026-09-27 17:09 | the same command | Counts of named entries, not of the field |
 | I-04 | Releases and labels of the five repositories: vocabulary v0.3.0, draft; vectors v0.13.0, published; admission no release, draft; jcs-admit and dsse 0.1.0, published | releases as A-38; labels as the atlas's artifact table in `data/atlas.toml` | 2026-09-27 11:49 | `rederive.py` A-38 | A label is this site's reading of the repository's own status, not a maturity rating |
-| I-05 | Versions, dates and statuses of the site's own artifacts | `data/versions.toml`, rendered on the version ledger page | 2026-09-27 | read the file | The site's own record of itself |
+| I-05 | Versions, dates and statuses of the site's own artifacts | `data/versions.toml`, rendered on the version ledger page | 2026-09-29 | read the file | The site's own record of itself |
 | I-06 | The claim ledger's rows are re-checked on every weekly re-derive | `.github/workflows/site.yml`, job `rederive`, schedule `17 6 * * 1` (Mondays 06:17 UTC), running `python3 tools/rederive.py --unread-fails` | 2026-09-27 19:29 | read the workflow file | Only the automatable rows are re-read; rows whose re-derive is a procedure are checked by hand |
+| I-07 | Experiment draft 0.1 has one local three-interval PEER pilot; two registered designs have no result; three other pieces remain held | `src/experiments.md`; `experiments/observer-vantage/recorded.json`; `data/versions.toml` | 2026-09-29 16:45 | read those three files and run the pilot as E-01 | The local package source is unpublished; the pilot does not demonstrate an independent vantage |
+| I-08 | The home page states the proposed action-assurance consumer contract; no end-to-end conformance is claimed | `src/index.md` | 2026-09-29 | read the action-assurance section | Component corpora and the local PEER pilot do not establish this full contract |
+
+## Experiments
+
+| id | claim as printed | source | read (UTC) | re-derive | limit |
+|---|---|---|---|---|---|
+| E-01 | Three scripted intervals: brokered write one accepted and one replay, offline verified at `PEER`; durable direct bypass succeeded and produced a known gap; transient direct bypass succeeded, was removed before snapshot, and produced `knownGaps=[]` and `noDetectedGap=true` | [`experiments/observer-vantage/recorded.json`](experiments/observer-vantage/recorded.json) from [`run.py`](experiments/observer-vantage/run.py) against local `agent-evidence-observer` source | 2026-09-29 16:45 | Run the exact command in `experiments.html` with observer source digest E-02, then `diff -u` the result | Local scripted counterexample, not a live agent or a detection rate; no independent rerun until the package source is public |
+| E-02 | The pilot used observer package metadata and Python sources with SHA-256 `273e4985cb4de671145bcd55ef85545be213e8520f766ab7692e9d05edae60d1` | `source_digest()` in `experiments/observer-vantage/run.py`; recorded JSON | 2026-09-29 16:45 | Run `run.py --observer-root` as in the experiment page and compare `observerSourceSha256` | Source tree is local and unpublished at this read; a digest makes a later comparison possible but cannot supply the bytes |
+| E-03 | The pilot's two signing keys were held by one process; there were zero isolated-agent and zero separately operated witness runs | The pilot script, the local observer `README.md`, and `src/experiments.md` | 2026-09-29 16:45 | Inspect `make_interval()` in the pilot and the E2/E3 sections; request external run evidence before promoting a claim | A tested key distinction is not an operator or privilege boundary; the zero counts describe this pilot only |
+| E-04 | E2 and E3 are registered designs without result or overhead measurement | `src/experiments.md` sections E2 and E3 | 2026-09-29 16:45 | Inspect the designs and the version ledger's draft status; later compare raw run bundles and deviations with this source digest | Registration fixes a proposed protocol; it does not validate its feasibility or claim independent evidence |
 
 ## Links
 

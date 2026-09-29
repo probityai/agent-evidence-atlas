@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Sankalp Gilda" />
+  <meta name="description" content="Reproducible pilot of a brokered write, durable bypass and transient bypass, with the next two observer experiments registered before data collection." />
+  <title>Experiments: who can observe an agent effect? · Independent evidence for AI agent actions</title>
+  <link rel="canonical" href="https://probityai.github.io/agent-evidence-atlas/experiments.html" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <nav aria-label="Site">
+    <a class="home" href="index.html">Independent evidence for AI agent actions</a>
+    <span class="links">
+      <a href="atlas.html">Atlas</a>
+      <a href="experiments.html">Experiments</a>
+      <a href="claims.html">Claims</a>
+      <a href="versions.html">Versions</a>
+    </span>
+  </nav>
+</header>
+<main id="main">
+<header class="page">
+<h1>Experiments: who can observe an agent effect?</h1>
+<p class="subtitle">A measured PEER pilot and two registered tests for the missing vantage and history</p>
+<p class="status">Draft 0.1, 29 September 2026. One local prototype pilot is measured; no below-agent or independent-operator run has occurred.</p>
+</header>
+<nav class="toc" aria-label="Contents">
+<p class="toc-title">Contents</p>
+<ul>
+<li><a href="#e1.-peer-pilot-the-snapshot-gap" id="toc-e1.-peer-pilot-the-snapshot-gap">E1. PEER pilot: the snapshot gap</a></li>
+<li><a href="#e2.-below-agent-observation-registered-design-no-result" id="toc-e2.-below-agent-observation-registered-design-no-result">E2. Below-agent observation: registered design, no result</a></li>
+<li><a href="#e3.-separately-witnessed-history-registered-design-no-result" id="toc-e3.-separately-witnessed-history-registered-design-no-result">E3. Separately witnessed history: registered design, no result</a></li>
+</ul>
+</nav>
+<p>The <a href="atlas.html#the-open-cell">atlas’s open cell</a> asks whether a record of an agent action comes from a vantage the agent cannot control, whether its evidence binds to the actual effect, and what was missed. A signature and an offline verifier answer questions about retained bytes. They do not answer who could alter or omit the underlying observations. These experiments keep those questions separate.</p>
+<h2 id="e1.-peer-pilot-the-snapshot-gap">E1. PEER pilot: the snapshot gap</h2>
+<p>The local <code>agent-evidence-observer</code> prototype mediates one file replacement, commits to the before-state, signs a bounded result, and checks a hash-chain head under a second key. It does not isolate an agent. Its own record says <code>witnessScope: PEER</code> and <code>unmediatedEffects: not-established</code>. The two keys are controlled by one local operator.</p>
+<p>I ran <a href="experiments/observer-vantage/run.py">the exact pilot script</a> against the package source identified by SHA-256 <code>273e4985cb4de671145bcd55ef85545be213e8520f766ab7692e9d05edae60d1</code>. The <a href="experiments/observer-vantage/recorded.json">recorded machine result</a> contains three scripted intervals. This source is a local prototype awaiting a public repository; an outside reader can inspect the pilot script and result now, but cannot independently rerun the same package revision until those source bytes are published. The result is a local measurement, not a claim of independent reproduction.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>interval</th>
+<th>deliberately attempted effect</th>
+<th>observed result</th>
+<th>inference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Brokered write</td>
+<td>A script says “no write,” then asks the broker to write once and repeats the same request ID</td>
+<td>One accepted write, one replayed request, offline verification passed, <code>PEER</code>, <code>noDetectedGap=true</code></td>
+<td>The retained broker record contradicts that <em>scripted</em> self-report. No unmodified agent or independent witness was tested.</td>
+</tr>
+<tr>
+<td>Durable bypass</td>
+<td>The same process writes directly to the workspace and leaves the bytes there</td>
+<td>The direct write succeeded; the next snapshot reported <code>workspace changed outside the broker</code>. Verification against the current workspace refused the stale root.</td>
+<td>The observer can detect this particular durable divergence, but did not prevent it.</td>
+</tr>
+<tr>
+<td>Transient bypass</td>
+<td>The same process creates a file and removes it before the next snapshot</td>
+<td>The direct write succeeded; <code>knownGaps=[]</code>, <code>noDetectedGap=true</code>, and offline verification against the restored workspace passed.</td>
+<td>A snapshot-only check can miss an effect that leaves no final byte difference. <code>noDetectedGap</code> is not complete coverage.</td>
+</tr>
+</tbody>
+</table>
+<p>The population for this pilot is three scripted intervals: one brokered write plus its retry, one durable direct write, and one transient direct write. The broker’s declared coverage population is calls with valid request IDs. The direct effects are <strong>outside</strong> that denominator. There is no sample of live agents, tool calls, reads, network effects, file modes, concurrent races, hostile host operators, or independent witnesses. The only tested observation point is the sequential file-tree snapshot at a broker call or seal. The test deliberately controls both sides; its contradiction is a counterexample to a claim of complete coverage, not a measured detection rate in deployment.</p>
+<p>To re-run after obtaining the matching observer source, create its Python 3.12+ environment with the dependencies in its <code>pyproject.toml</code>, then use:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/path/to/observer/.venv/bin/python</span> experiments/observer-vantage/run.py <span class="dt">\</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--observer-root</span> /path/to/agent-evidence-observer <span class="op">&gt;</span> /tmp/observer-pilot.json</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span> <span class="at">-u</span> experiments/observer-vantage/recorded.json /tmp/observer-pilot.json</span></code></pre></div>
+<p>The script hashes the package metadata and every <code>src/probity_observer/*.py</code> file before importing the package. A different digest is a different implementation, even if the three outcomes match. It prints no ephemeral signing keys or timestamps. The claim ledger records this run and its limits as E-01 through E-03.</p>
+<h2 id="e2.-below-agent-observation-registered-design-no-result">E2. Below-agent observation: registered design, no result</h2>
+<p><strong>Hypothesis.</strong> Under a pinned launch configuration, a host broker unavailable to the agent records every accepted or denied file replacement through one declared channel. A direct attempt to alter the watched tree, observer process, key, or journal fails. If any channel loses its record, the result becomes incomplete instead of an absence claim.</p>
+<p><strong>Unit and denominator.</strong> One launch interval is the unit. Before each interval, pin the agent image and policy digests, authority, allowed path scope, observer build/configuration, initial tree root, nonce, and observer key. Report counts for attempted, accepted, denied, replayed, dropped, and unresolved requests. Record the paths and privileges reachable by the agent as part of the denominator. Do not convert “no event seen” into “no effect” when reachability or liveness is unknown.</p>
+<p><strong>Interventions and controls.</strong> Run the same workload under (a) the current PEER prototype as a negative control and (b) a host-side isolation boundary whose configuration is published. Exercise a normal write, a false self-report, direct workspace write, key read, process signal, alternate channel, path traversal or symlink, lost response retry, broker death, and a missing event. Retain failed and null runs. The agent must not choose the observer’s key, journal, commitment, or before-root. A separate operator reproduces one live interval and pins the key independently.</p>
+<p><strong>Primary outcomes.</strong> For each attempted effect, report its raw trace, broker decision, resulting durable bytes, record, refusal or gap, and verification result. The threshold to claim a <em>bounded below-agent file-write observation</em> is a demonstrated inability of the tested agent to address the observer and watched tree except through the broker, no missing record for the tested channel, and a signed prior commitment bound to that interval. A single escaped effect or missing record blocks that claim. This does not establish all filesystem effects, all agent actions, or host-operator honesty.</p>
+<p>This experiment has <strong>zero isolated-agent runs</strong> and no measured overhead. The <a href="https://github.com/probityai/agent-evidence-vectors/blob/main/spec/predicates/observed-effect.md">observer acceptance criteria</a> are a target for the record format; the local prototype does not emit a conformant Observed Effect statement.</p>
+<h2 id="e3.-separately-witnessed-history-registered-design-no-result">E3. Separately witnessed history: registered design, no result</h2>
+<p><strong>Hypothesis.</strong> A witness run by a separate principal, with a pinned key and retained highest head, detects deletion, reorder, replay, divergent heads, and an absent committed interval when shown inclusion and consistency evidence. A second key held by the same operator cannot establish that property.</p>
+<p><strong>Unit and denominator.</strong> One committed interval and its checkpoint pair, plus each attempted history mutation. Publish the witness operator boundary, retention policy, head pinning method, hash/signature profile, and every accepted or refused fork attempt. Test honest append, truncation, two conflicting suffixes, withheld interval, witness unavailability, and key substitution. An offline consumer with an independently pinned head must reproduce refusals. Report mutation count, detected count, undecidable count, and time/space overhead; never recode an unavailable witness as success.</p>
+<p>There are <strong>zero separately operated witness runs</strong>. The local PEER pilot’s second key is a protocol test only. The witness experiment will remain unclaimed until a separately operated history and a second reproducer exist.</p>
+</main>
+<footer class="site">
+  <p>By Sankalp Gilda. Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.2-draft, 2026-09-29.</p>
+</footer>
+</body>
+</html>

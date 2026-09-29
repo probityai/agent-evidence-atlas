@@ -16,6 +16,7 @@
     <a class="home" href="index.html">Independent evidence for AI agent actions</a>
     <span class="links">
       <a href="atlas.html">Atlas</a>
+      <a href="experiments.html">Experiments</a>
       <a href="claims.html">Claims</a>
       <a href="versions.html">Versions</a>
     </span>
@@ -25,7 +26,7 @@
 <header class="page">
 <h1>Claim ledger</h1>
 <p class="subtitle">Every number, date, status and quotation on this site, with its source, when it was read, how to re-derive it, and what it does not mean</p>
-<p class="status">Draft, version 0.3, 27 September 2026. Star counts were refreshed at 2026-09-27 11:49 UTC by tools/refresh_stars.py; every other automatable row was last re-derived at 2026-09-27T09:52:44Z. The pages keep each value as read, with its read time.</p>
+<p class="status">Draft, version 0.4, 29 September 2026. Star counts were refreshed at 2026-09-27 11:49 UTC by tools/refresh_stars.py; earlier automatable rows were last re-derived at 2026-09-27T09:52:44Z. The experiment pilot was run on 2026-09-29. Each value keeps its read time.</p>
 </header>
 <h2 id="how-to-use-this-ledger">How to use this ledger</h2>
 <ul>
@@ -33,7 +34,7 @@
 <li><strong>Read times</strong> are UTC, and each read cell states its row’s cadence: star counts, pull-request states and link checks 7 days, standards and project statuses 30 days, while published versions and dated events do not expire. <code>data/claim_cadence.toml</code> holds the cadence of every row. When a row’s read date plus its cadence has passed, this page marks the row stale as it loads. <span id="stale-count">With scripts off, compare each read date with its cadence.</span></li>
 <li><strong>Captures.</strong> Every web page cited was saved when it was read. The capture log records URL, HTTP status, UTC time and SHA-256 for each one.</li>
 </ul>
-<p>Each row’s identifier starts with the letter of the page it covers, and each page has its own section below: <code>A</code> for the atlas, <code>I</code> for the home page and <code>L</code> for the site’s links. A page’s section is added with the page.</p>
+<p>Each row’s identifier starts with the letter of the page it covers: <code>A</code> for the atlas, <code>I</code> for the home page, <code>E</code> for the experiments, and <code>L</code> for the site’s links. Rows that cite a local unpublished source say so; they are not independently reproducible until those exact source bytes are published.</p>
 <h2 id="atlas">Atlas</h2>
 <table style="width:100%;">
 <colgroup>
@@ -406,11 +407,11 @@
 <td><code>rederive.py</code> A-38</td>
 <td>A label is this site’s reading of the repository’s own status, not a maturity rating</td>
 </tr>
-<tr data-read="2026-09-27">
+<tr data-read="2026-09-29">
 <td>I-05</td>
 <td>Versions, dates and statuses of the site’s own artifacts</td>
 <td><code>data/versions.toml</code>, rendered on the version ledger page</td>
-<td>2026-09-27 <span class="cadence">(does not expire)</span></td>
+<td>2026-09-29 <span class="cadence">(does not expire)</span></td>
 <td>read the file</td>
 <td>The site’s own record of itself</td>
 </tr>
@@ -421,6 +422,77 @@
 <td>2026-09-27 19:29 <span class="cadence">(does not expire)</span></td>
 <td>read the workflow file</td>
 <td>Only the automatable rows are re-read; rows whose re-derive is a procedure are checked by hand</td>
+</tr>
+<tr data-read="2026-09-29">
+<td>I-07</td>
+<td>Experiment draft 0.1 has one local three-interval PEER pilot; two registered designs have no result; three other pieces remain held</td>
+<td><code>src/experiments.md</code>; <code>experiments/observer-vantage/recorded.json</code>; <code>data/versions.toml</code></td>
+<td>2026-09-29 16:45 <span class="cadence">(does not expire)</span></td>
+<td>read those three files and run the pilot as E-01</td>
+<td>The local package source is unpublished; the pilot does not demonstrate an independent vantage</td>
+</tr>
+<tr data-read="2026-09-29">
+<td>I-08</td>
+<td>The home page states the proposed action-assurance consumer contract; no end-to-end conformance is claimed</td>
+<td><code>src/index.md</code></td>
+<td>2026-09-29 <span class="cadence">(does not expire)</span></td>
+<td>read the action-assurance section</td>
+<td>Component corpora and the local PEER pilot do not establish this full contract</td>
+</tr>
+</tbody>
+</table>
+<h2 id="experiments">Experiments</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr>
+<th>id</th>
+<th>claim as printed</th>
+<th>source</th>
+<th>read (UTC)</th>
+<th>re-derive</th>
+<th>limit</th>
+</tr>
+</thead>
+<tbody>
+<tr data-read="2026-09-29">
+<td>E-01</td>
+<td>Three scripted intervals: brokered write one accepted and one replay, offline verified at <code>PEER</code>; durable direct bypass succeeded and produced a known gap; transient direct bypass succeeded, was removed before snapshot, and produced <code>knownGaps=[]</code> and <code>noDetectedGap=true</code></td>
+<td><a href="experiments/observer-vantage/recorded.json"><code>experiments/observer-vantage/recorded.json</code></a> from <a href="experiments/observer-vantage/run.py"><code>run.py</code></a> against local <code>agent-evidence-observer</code> source</td>
+<td>2026-09-29 16:45 <span class="cadence">(does not expire)</span></td>
+<td>Run the exact command in <code>experiments.html</code> with observer source digest E-02, then <code>diff -u</code> the result</td>
+<td>Local scripted counterexample, not a live agent or a detection rate; no independent rerun until the package source is public</td>
+</tr>
+<tr data-read="2026-09-29">
+<td>E-02</td>
+<td>The pilot used observer package metadata and Python sources with SHA-256 <code>273e4985cb4de671145bcd55ef85545be213e8520f766ab7692e9d05edae60d1</code></td>
+<td><code>source_digest()</code> in <code>experiments/observer-vantage/run.py</code>; recorded JSON</td>
+<td>2026-09-29 16:45 <span class="cadence">(does not expire)</span></td>
+<td>Run <code>run.py --observer-root</code> as in the experiment page and compare <code>observerSourceSha256</code></td>
+<td>Source tree is local and unpublished at this read; a digest makes a later comparison possible but cannot supply the bytes</td>
+</tr>
+<tr data-read="2026-09-29">
+<td>E-03</td>
+<td>The pilot’s two signing keys were held by one process; there were zero isolated-agent and zero separately operated witness runs</td>
+<td>The pilot script, the local observer <code>README.md</code>, and <code>src/experiments.md</code></td>
+<td>2026-09-29 16:45 <span class="cadence">(does not expire)</span></td>
+<td>Inspect <code>make_interval()</code> in the pilot and the E2/E3 sections; request external run evidence before promoting a claim</td>
+<td>A tested key distinction is not an operator or privilege boundary; the zero counts describe this pilot only</td>
+</tr>
+<tr data-read="2026-09-29">
+<td>E-04</td>
+<td>E2 and E3 are registered designs without result or overhead measurement</td>
+<td><code>src/experiments.md</code> sections E2 and E3</td>
+<td>2026-09-29 16:45 <span class="cadence">(does not expire)</span></td>
+<td>Inspect the designs and the version ledger’s draft status; later compare raw run bundles and deviations with this source digest</td>
+<td>Registration fixes a proposed protocol; it does not validate its feasibility or claim independent evidence</td>
 </tr>
 </tbody>
 </table>
@@ -461,7 +533,7 @@
 </table>
 </main>
 <footer class="site">
-  <p>By Sankalp Gilda. Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.1-draft, 2026-09-27.</p>
+  <p>By Sankalp Gilda. Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.2-draft, 2026-09-29.</p>
 </footer>
 <script>
 (function () {

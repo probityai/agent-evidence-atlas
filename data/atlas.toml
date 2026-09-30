@@ -13,7 +13,7 @@
 # that has a `repo`.
 
 [meta]
-version = "0.1-preview"
+version = "0.2-preview"
 read_window = "2026-09-27 00:40 to 01:00 UTC"
 # Set by tools/refresh_stars.py when it rewrites every `stars` value below.
 stars_read = "2026-09-27 11:49 UTC"
@@ -449,13 +449,13 @@ name = "Signed statement in an envelope (in-toto, DSSE)"
 layer = "L5"
 writer = "whoever holds the key"
 establishes = "The key holder signed these bytes and no others"
-cannot = "That the key holder observed what the bytes describe"
+cannot = "That the key holder observed what the bytes describe. The [APS/PriorSeal fixture run](experiments.html#aps-priorseal-e2) leaves PriorSeal signatures unexercised and a rehashed authorization survives at that target; hashes alone do not supply the missing signature check"
 [[mechanism]]
 name = "Canonicalization (RFC 8785)"
 layer = "L5"
 writer = "not a record"
 establishes = "One byte form per JSON value, so signatures agree across implementations"
-cannot = "That two parsers read the same document the same way, unless inputs with two readings are refused first"
+cannot = "That two parsers read the same document the same way, unless inputs with two readings are refused first; or that an implementation used RFC 8785. A [pinned AGT transcript experiment](experiments.html#trace-transcript-bytes) distinguishes Unicode and numeric byte paths on six inputs"
 [[mechanism]]
 name = "Transparency log (Sigstore, Certificate Transparency, SCITT)"
 layer = "L5"

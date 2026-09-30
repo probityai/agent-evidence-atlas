@@ -57,6 +57,8 @@ COPIES = [
     ("assets/site.css", "assets/site.css", None),
     ("experiments/observer-vantage/run.py", "experiments/observer-vantage/run.py", "experiments"),
     ("experiments/observer-vantage/recorded.json", "experiments/observer-vantage/recorded.json", "experiments"),
+    ("experiments/trace-transcript/run.py", "experiments/trace-transcript/run.py", "experiments"),
+    ("experiments/trace-transcript/recorded.json", "experiments/trace-transcript/recorded.json", "experiments"),
     ("demo/verifier/Cargo.toml", "demo/verifier/Cargo.toml", "demo"),
     ("demo/verifier/Cargo.lock", "demo/verifier/Cargo.lock", "demo"),
     ("demo/verifier/src/main.rs", "demo/verifier/src/main.rs", "demo"),

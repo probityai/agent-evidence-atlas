@@ -39,6 +39,12 @@ jobs:
           if [ -f src/atlas.md ]; then python3 tools/gen_atlas.py --check; else echo "no atlas page in this tree"; fi
       - name: Check docs/ against its sources
         run: python3 tools/build.py --check
+      - name: Test the MCP effect-sink diagnostic
+        run: |
+          python3 -m pip install pytest==8.4.2 mcp==2.2.0 mcp-types==2.2.0
+          python3 -m pytest experiments/mcp-lost-response/test_run.py -q
+          python3 experiments/mcp-lost-response/run.py \
+            python3 experiments/mcp-lost-response/mcp_sdk_adapter.py
       - name: Check internal links and anchors
         run: python3 tools/check_links.py
 

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "unkeyed-retry",
+    "mode": "no-dedup",
+    "operationKey": "operation-1",
+    "protocolVersion": "2025-11-25",
+    "expectedEffects": 2
+  },
+  {
+    "id": "keyed-retry",
+    "mode": "application-dedup",
+    "operationKey": "operation-1",
+    "protocolVersion": "2025-11-25",
+    "expectedEffects": 1
+  }
+]

@@ -26,7 +26,7 @@
 <header class="page">
 <h1>Claim ledger</h1>
 <p class="subtitle">Every number, date, status and quotation on this site, with its source, when it was read, how to re-derive it, and what it does not mean</p>
-<p class="status">Draft, version 0.4, 29 September 2026. Star counts were refreshed at 2026-09-27 11:49 UTC by tools/refresh_stars.py; earlier automatable rows were last re-derived at 2026-09-27T09:52:44Z. The experiment pilot was run on 2026-09-29. Each value keeps its read time.</p>
+<p class="status">Draft, version 0.5, 30 September 2026. Star counts were refreshed at 2026-09-27 11:49 UTC by tools/refresh_stars.py; earlier automatable rows were last re-derived at 2026-09-27T09:52:44Z. The experiment pilot was run on 2026-09-29. Each value keeps its read time.</p>
 </header>
 <h2 id="how-to-use-this-ledger">How to use this ledger</h2>
 <ul>
@@ -423,13 +423,13 @@
 <td>read the workflow file</td>
 <td>Only the automatable rows are re-read; rows whose re-derive is a procedure are checked by hand</td>
 </tr>
-<tr data-read="2026-09-29">
+<tr data-read="2026-09-30">
 <td>I-07</td>
-<td>Experiment draft 0.1 has one local three-interval PEER pilot; two registered designs have no result; three other pieces remain held</td>
-<td><code>src/experiments.md</code>; <code>experiments/observer-vantage/recorded.json</code>; <code>data/versions.toml</code></td>
-<td>2026-09-29 16:45 <span class="cadence">(does not expire)</span></td>
-<td>read those three files and run the pilot as E-01</td>
-<td>The local package source is unpublished; the pilot does not demonstrate an independent vantage</td>
+<td>Experiment draft 0.2 has one local three-interval PEER pilot, two registered observer designs without results, and a local MCP Python SDK run; three other pieces remain held</td>
+<td><code>src/experiments.md</code>; <code>experiments/observer-vantage/recorded.json</code>; <code>experiments/mcp-lost-response/recorded.json</code>; <code>data/versions.toml</code></td>
+<td>2026-09-30 11:16 <span class="cadence">(does not expire)</span></td>
+<td>Read those four files; run the PEER pilot as E-01 and the MCP command as E-05</td>
+<td>The PEER pilot does not demonstrate independent vantage; the MCP run measures only the harness sink on one in-memory SDK path</td>
 </tr>
 <tr data-read="2026-09-29">
 <td>I-08</td>
@@ -494,6 +494,14 @@
 <td>Inspect the designs and the version ledger’s draft status; later compare raw run bundles and deviations with this source digest</td>
 <td>Registration fixes a proposed protocol; it does not validate its feasibility or claim independent evidence</td>
 </tr>
+<tr data-read="2026-09-30">
+<td>E-05</td>
+<td>The local E4 run of MCP Python SDK 2.2.0 produced 2 unkeyed effects and 1 with application dedup at the harness-owned sink</td>
+<td><a href="experiments/mcp-lost-response/recorded.json"><code>recorded.json</code></a>, <a href="experiments/mcp-lost-response/run.py"><code>run.py</code></a>, <a href="experiments/mcp-lost-response/mcp_sdk_adapter.py"><code>mcp_sdk_adapter.py</code></a>, <a href="experiments/mcp-lost-response/cases.json"><code>cases.json</code></a></td>
+<td>2026-09-30 11:16 <span class="cadence">(does not expire)</span></td>
+<td>Run the pinned <code>uv</code> command in the E4 README, compare the <code>results</code> in <code>recorded.json</code>, and check its three source digests</td>
+<td>In-memory transport, one SDK and one local operator; the adapter reports wire IDs and response loss; effects on other channels are outside the sink; MCP prescribes no effect count</td>
+</tr>
 </tbody>
 </table>
 <h2 id="links">Links</h2>
@@ -533,7 +541,7 @@
 </table>
 </main>
 <footer class="site">
-  <p>By Sankalp Gilda. Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.2-draft, 2026-09-29.</p>
+  <p>By Sankalp Gilda. Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.3-draft, 2026-09-30.</p>
 </footer>
 <script>
 (function () {

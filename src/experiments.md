@@ -1,8 +1,8 @@
 ---
 title: "Experiments: who can observe an agent effect?"
-subtitle: "A measured PEER pilot and two registered tests for the missing vantage and history"
-status: "Draft 0.1, 29 September 2026. One local prototype pilot is measured; no below-agent or independent-operator run has occurred."
-description: "Reproducible pilot of a brokered write, durable bypass and transient bypass, with the next two observer experiments registered before data collection."
+subtitle: "A measured PEER pilot, two observer designs and an MCP retry diagnostic"
+status: "Draft 0.2, 30 September 2026. The PEER pilot and one MCP Python SDK run are local; no below-agent or independent-operator run has occurred."
+description: "A PEER pilot, two registered observer experiments, and a measured diagnostic for effects after a lost MCP response."
 toc: true
 ---
 
@@ -51,3 +51,11 @@ This experiment has **zero isolated-agent runs** and no measured overhead. The [
 **Unit and denominator.** One committed interval and its checkpoint pair, plus each attempted history mutation. Publish the witness operator boundary, retention policy, head pinning method, hash/signature profile, and every accepted or refused fork attempt. Test honest append, truncation, two conflicting suffixes, withheld interval, witness unavailability, and key substitution. An offline consumer with an independently pinned head must reproduce refusals. Report mutation count, detected count, undecidable count, and time/space overhead; never recode an unavailable witness as success.
 
 There are **zero separately operated witness runs**. The local PEER pilot's second key is a protocol test only. The witness experiment will remain unclaimed until a separately operated history and a second reproducer exist.
+
+## E4. Lost MCP response: effect count at the sink
+
+An MCP `tools/call` can commit an effect and lose its response. A fresh-ID retry is a second request, but the first outcome is unknown to the caller. [MCP issue #3394](https://github.com/modelcontextprotocol/modelcontextprotocol/issues/3394) publishes a Python SDK reproduction: two effects without application dedup, one with it. An independent reader reproduced that narrow result on the published scripts. MCP currently requires neither count.
+
+The [diagnostic](experiments/mcp-lost-response/README.md) has two cases. It starts a loopback effect sink outside the adapter process and counts calls at that boundary. The included adapter runs the MCP Python SDK 2.2.0, drops the first reply after the effect, retries once with a fresh request ID, and reports the wire IDs. The runner compares the count at the sink with the declared scenario; it ignores any effect count printed by the adapter. The [recorded run](experiments/mcp-lost-response/recorded.json) shows 2 effects without application dedup and 1 with it. The command and source digests are beside the result.
+
+The harness tests also catch an extra effect and a reused request ID. The adapter still reports the lost response and request IDs; the sink cannot prove effects on other channels did not occur. The run used in-memory transport and one SDK, with no independent operator for this harness. The present exit status is a diagnostic of the selected scenario, not an MCP conformance verdict.

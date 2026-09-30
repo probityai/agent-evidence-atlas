@@ -1,0 +1,16 @@
+{
+  "runAtUtc": "2026-09-30T11:16:02Z",
+  "python": "3.12.14",
+  "mcp": "2.2.0",
+  "mcpTypes": "2.2.0",
+  "transport": "in-memory streams",
+  "sourcesSha256": {
+    "run.py": "ad91f05e58366db2dee875f5b43bab1447bced3e30ce261a8d3a8ad69757fa6e",
+    "mcp_sdk_adapter.py": "78923a86dca34190d5d126fd27760fc9689cf990924c12f7f0b09d74d3f9a5e7",
+    "cases.json": "40291e4a91197c244f1f916304395031bd8669403b0052b0c28c5bea8382264f"
+  },
+  "results": [
+    {"case": "unkeyed-retry", "effects": 2, "errors": []},
+    {"case": "keyed-retry", "effects": 1, "errors": []}
+  ]
+}

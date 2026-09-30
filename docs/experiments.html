@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="Sankalp Gilda" />
-  <meta name="description" content="Reproducible pilot of a brokered write, durable bypass and transient bypass, with the next two observer experiments registered before data collection." />
+  <meta name="description" content="A PEER pilot, two registered observer experiments, and a measured diagnostic for effects after a lost MCP response." />
   <title>Experiments: who can observe an agent effect? · Independent evidence for AI agent actions</title>
   <link rel="canonical" href="https://probityai.github.io/agent-evidence-atlas/experiments.html" />
   <link rel="stylesheet" href="assets/site.css" />
@@ -25,8 +25,8 @@
 <main id="main">
 <header class="page">
 <h1>Experiments: who can observe an agent effect?</h1>
-<p class="subtitle">A measured PEER pilot and two registered tests for the missing vantage and history</p>
-<p class="status">Draft 0.1, 29 September 2026. One local prototype pilot is measured; no below-agent or independent-operator run has occurred.</p>
+<p class="subtitle">A measured PEER pilot, two observer designs and an MCP retry diagnostic</p>
+<p class="status">Draft 0.2, 30 September 2026. The PEER pilot and one MCP Python SDK run are local; no below-agent or independent-operator run has occurred.</p>
 </header>
 <nav class="toc" aria-label="Contents">
 <p class="toc-title">Contents</p>
@@ -34,6 +34,7 @@
 <li><a href="#e1.-peer-pilot-the-snapshot-gap" id="toc-e1.-peer-pilot-the-snapshot-gap">E1. PEER pilot: the snapshot gap</a></li>
 <li><a href="#e2.-below-agent-observation-registered-design-no-result" id="toc-e2.-below-agent-observation-registered-design-no-result">E2. Below-agent observation: registered design, no result</a></li>
 <li><a href="#e3.-separately-witnessed-history-registered-design-no-result" id="toc-e3.-separately-witnessed-history-registered-design-no-result">E3. Separately witnessed history: registered design, no result</a></li>
+<li><a href="#e4.-lost-mcp-response-effect-count-at-the-sink" id="toc-e4.-lost-mcp-response-effect-count-at-the-sink">E4. Lost MCP response: effect count at the sink</a></li>
 </ul>
 </nav>
 <p>The <a href="atlas.html#the-open-cell">atlas’s open cell</a> asks whether a record of an agent action comes from a vantage the agent cannot control, whether its evidence binds to the actual effect, and what was missed. A signature and an offline verifier answer questions about retained bytes. They do not answer who could alter or omit the underlying observations. These experiments keep those questions separate.</p>
@@ -92,9 +93,13 @@
 <p><strong>Hypothesis.</strong> A witness run by a separate principal, with a pinned key and retained highest head, detects deletion, reorder, replay, divergent heads, and an absent committed interval when shown inclusion and consistency evidence. A second key held by the same operator cannot establish that property.</p>
 <p><strong>Unit and denominator.</strong> One committed interval and its checkpoint pair, plus each attempted history mutation. Publish the witness operator boundary, retention policy, head pinning method, hash/signature profile, and every accepted or refused fork attempt. Test honest append, truncation, two conflicting suffixes, withheld interval, witness unavailability, and key substitution. An offline consumer with an independently pinned head must reproduce refusals. Report mutation count, detected count, undecidable count, and time/space overhead; never recode an unavailable witness as success.</p>
 <p>There are <strong>zero separately operated witness runs</strong>. The local PEER pilot’s second key is a protocol test only. The witness experiment will remain unclaimed until a separately operated history and a second reproducer exist.</p>
+<h2 id="e4.-lost-mcp-response-effect-count-at-the-sink">E4. Lost MCP response: effect count at the sink</h2>
+<p>An MCP <code>tools/call</code> can commit an effect and lose its response. A fresh-ID retry is a second request, but the first outcome is unknown to the caller. <a href="https://github.com/modelcontextprotocol/modelcontextprotocol/issues/3394">MCP issue #3394</a> publishes a Python SDK reproduction: two effects without application dedup, one with it. An independent reader reproduced that narrow result on the published scripts. MCP currently requires neither count.</p>
+<p>The <a href="experiments/mcp-lost-response/README.md">diagnostic</a> has two cases. It starts a loopback effect sink outside the adapter process and counts calls at that boundary. The included adapter runs the MCP Python SDK 2.2.0, drops the first reply after the effect, retries once with a fresh request ID, and reports the wire IDs. The runner compares the count at the sink with the declared scenario; it ignores any effect count printed by the adapter. The <a href="experiments/mcp-lost-response/recorded.json">recorded run</a> shows 2 effects without application dedup and 1 with it. The command and source digests are beside the result.</p>
+<p>The harness tests also catch an extra effect and a reused request ID. The adapter still reports the lost response and request IDs; the sink cannot prove effects on other channels did not occur. The run used in-memory transport and one SDK, with no independent operator for this harness. The present exit status is a diagnostic of the selected scenario, not an MCP conformance verdict.</p>
 </main>
 <footer class="site">
-  <p>By Sankalp Gilda. Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.2-draft, 2026-09-29.</p>
+  <p>By Sankalp Gilda. Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.3-draft, 2026-09-30.</p>
 </footer>
 </body>
 </html>

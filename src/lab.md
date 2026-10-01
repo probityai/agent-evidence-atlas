@@ -1,7 +1,7 @@
 ---
 title: "Probity Open Evidence Lab"
 subtitle: "A public protocol and run register for checking specific agent-evidence claims"
-status: "Protocol draft 0.1, 1 October 2026. The initial register contains the measured E6 author fixture. External CI adoption and independently operated custody require their own evidence."
+status: "Protocol draft 0.1.1, 1 October 2026. The initial register contains the measured E6 author fixture. External CI adoption and independently operated custody require their own evidence."
 description: "Submit pinned agent-evidence runs, hostile controls, field-level comparisons and correction records to a public register."
 toc: true
 ---
@@ -9,6 +9,8 @@ toc: true
 Maintainers can use this protocol to submit a verifier run, a host-project CI integration, or an observer/witness experiment. Each record names its contract, retained inputs, implementation and operators, and reports what passed, failed or remained untested. Probity maintains this register. A listed result makes no membership, endorsement or adoption commitment on behalf of another project.
 
 [Submit a run](https://github.com/probityai/agent-evidence-atlas/issues/new?template=evidence-run.yml) or [report a correction](https://github.com/probityai/agent-evidence-atlas/issues/new?template=evidence-correction.yml). The forms request the evidence needed for review. The [machine-readable register](lab/register.json), [experiments](experiments.html) and [claim ledger](claims.html) retain the supporting records.
+
+The [APS and PriorSeal pilot status](pilot.html) tracks Probity's proposed next run, owner confirmations and open decisions. It is separate from this measured register.
 
 ## Start with a run that exists
 

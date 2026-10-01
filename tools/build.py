@@ -42,6 +42,7 @@ SITE_NAME = "Independent evidence for AI agent actions"
 # Navigation order and labels. A page appears only when it is built.
 NAV = [
     ("lab", "Open Evidence Lab"),
+    ("pilot", "Pilot status"),
     ("atlas", "Atlas"),
     ("essay", "Essay"),
     ("demo", "Verifier"),

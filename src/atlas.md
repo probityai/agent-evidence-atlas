@@ -1,7 +1,7 @@
 ---
 title: "An atlas of agent assurance"
 subtitle: "Seven families of mechanisms that make claims about AI agents, the mechanisms inside each, what each establishes, what none of them establishes alone, and where the public evidence artifacts sit"
-status: "Version 0.3-preview. GitHub star counts were read at 2026-09-27 11:49 UTC; project sizes, statuses and releases at 2026-09-27 00:40 to 01:00 UTC. Dated experiments carry separate source pins and claim-ledger rows."
+status: "Version 0.4-preview. GitHub star counts were read at 2026-10-01 07:04:40 UTC; project sizes, statuses and releases at 2026-09-27 00:40 to 01:00 UTC. Dated experiments carry separate source pins and claim-ledger rows."
 description: "A map of the AI-agent assurance ecosystem in seven families: identity, policy, containment, observation, records, evaluation and governance."
 toc: true
 ---
@@ -65,13 +65,13 @@ Establishes
 Cannot establish
 :   That the holder is the agent it claims to be once a key or token leaves its workload; what the agent did with the authority; or whether a particular action matched what the principal intended. An identity makes an actor accountable only when some other record says what the actor did.
 
-| project or standard | status or size, read 2026-09-27 |
+| project or standard | status read 2026-09-27; stars read 2026-10-01 07:04:40 UTC |
 |---|---|
 | [IETF WIMSE working group](https://datatracker.ietf.org/wg/wimse/about/) | Active working group; seven working-group drafts, including an AI identity management draft |
 | [OAuth 2.0 Token Exchange, RFC 8693](https://www.rfc-editor.org/info/rfc8693) | Proposed Standard. OAuth 2.1 is still a working-group draft |
-| [MCP authorization](https://modelcontextprotocol.io/specification/latest/basic/authorization) | Specification version 2026-07-28, which states that authorization is optional for MCP implementations. MCP is an Agentic AI Foundation project; 9,317 stars |
-| [Keycloak](https://github.com/keycloak/keycloak) | Open-source identity and access management; 37,009 stars |
-| [Ory Hydra](https://github.com/ory/hydra) | OpenID Connect and OAuth 2.1 provider; 17,571 stars |
+| [MCP authorization](https://modelcontextprotocol.io/specification/latest/basic/authorization) | Specification version 2026-07-28, which states that authorization is optional for MCP implementations. MCP is an Agentic AI Foundation project; 9,355 stars |
+| [Keycloak](https://github.com/keycloak/keycloak) | Open-source identity and access management; 37,078 stars |
+| [Ory Hydra](https://github.com/ory/hydra) | OpenID Connect and OAuth 2.1 provider; 17,581 stars |
 
 Seam to family 2 (policy, mediation and admission)
 :   The policy engine decides on the identity it is shown. That identity usually names a workload, not a task. When a user delegates to an agent, which calls a tool, which calls a sub-agent, the token at the enforcement point often carries the agent's own identity and a broad scope. The human principal, the narrowing at each hop and the purpose of the call are lost or merely asserted. The resulting decision allows "this workload may call this tool". The two families leave open whether the call was within what the user delegated for this task. No record answers that question for the user who delegated.
@@ -87,11 +87,11 @@ Establishes
 Cannot establish
 :   Anything about requests that never passed through that point, anything about what happened after an allow, or that the policy was right. The decider writes the decision log, so the log reports the decision and nothing about the effect.
 
-| project or standard | status or size, read 2026-09-27 |
+| project or standard | status read 2026-09-27; stars read 2026-10-01 07:04:40 UTC |
 |---|---|
-| [Open Policy Agent](https://github.com/open-policy-agent/opa) | CNCF Graduated (2021); Gatekeeper is its Kubernetes admission controller; 12,278 stars |
-| [Kyverno](https://github.com/kyverno/kyverno) | CNCF Graduated (2026-03-16); 8,187 stars |
-| [agentgateway](https://github.com/agentgateway/agentgateway) | Agentic proxy for AI agents and MCP servers; a Linux Foundation project, per its README; 5,059 stars |
+| [Open Policy Agent](https://github.com/open-policy-agent/opa) | CNCF Graduated (2021); Gatekeeper is its Kubernetes admission controller; 12,297 stars |
+| [Kyverno](https://github.com/kyverno/kyverno) | CNCF Graduated (2026-03-16); 8,206 stars |
+| [agentgateway](https://github.com/agentgateway/agentgateway) | Agentic proxy for AI agents and MCP servers; a Linux Foundation project, per its README; 5,111 stars |
 
 Seam to family 3 (containment)
 :   The policy engine evaluates the action as declared at the gateway. Containment governs what the process can actually reach. Whatever the agent does without crossing the gateway, such as code it runs inside an allowed tool, a direct socket, or a file a later step reads, is invisible to the policy engine. The decision and the effect happen in different places at different times, and nothing binds one to the other, so a decision log cannot tell anyone what an allowed action did.
@@ -107,17 +107,17 @@ Establishes
 Cannot establish
 :   What happened inside the allowed boundary. A sandbox limits what a process can reach and keeps no record of what it did. It cannot show by itself that it was in place for a particular run; that needs attestation by a party outside it. An escape it did not detect looks the same as no escape.
 
-| project or standard | status or size, read 2026-09-27 |
+| project or standard | status read 2026-09-27; stars read 2026-10-01 07:04:40 UTC |
 |---|---|
-| [Firecracker](https://firecracker-microvm.github.io/) | Secure and fast microVMs for serverless computing; 36,972 stars |
-| [Wasmer](https://github.com/wasmerio/wasmer) | WebAssembly runtime; describes itself as sandboxes for apps and AI agents; 21,095 stars |
-| [gVisor](https://gvisor.dev/) | Application kernel for containers; 19,427 stars |
-| [Wasmtime](https://github.com/bytecodealliance/wasmtime) | A Bytecode Alliance project; 18,659 stars |
-| [E2B](https://github.com/e2b-dev/E2B) | Secure environments with real-world tools for agents; 13,983 stars |
-| [Bubblewrap](https://github.com/containers/bubblewrap) | Unprivileged OS-level sandbox; 8,846 stars |
-| [Kata Containers](https://katacontainers.io/) | An OpenInfra Foundation project; 8,803 stars |
-| [microsandbox](https://github.com/microsandbox/microsandbox) | Branchable microVMs for any workload; 8,445 stars |
-| [Anthropic sandbox-runtime](https://github.com/anthropic-experimental/sandbox-runtime) | Filesystem and network restrictions on arbitrary processes at the OS level, without a container; 5,354 stars |
+| [Firecracker](https://firecracker-microvm.github.io/) | Secure and fast microVMs for serverless computing; 37,082 stars |
+| [Wasmer](https://github.com/wasmerio/wasmer) | WebAssembly runtime; describes itself as sandboxes for apps and AI agents; 21,110 stars |
+| [gVisor](https://gvisor.dev/) | Application kernel for containers; 19,471 stars |
+| [Wasmtime](https://github.com/bytecodealliance/wasmtime) | A Bytecode Alliance project; 18,674 stars |
+| [E2B](https://github.com/e2b-dev/E2B) | Secure environments with real-world tools for agents; 14,066 stars |
+| [Bubblewrap](https://github.com/containers/bubblewrap) | Unprivileged OS-level sandbox; 8,884 stars |
+| [Kata Containers](https://katacontainers.io/) | An OpenInfra Foundation project; 8,848 stars |
+| [microsandbox](https://github.com/microsandbox/microsandbox) | Branchable microVMs for any workload; 8,491 stars |
+| [Anthropic sandbox-runtime](https://github.com/anthropic-experimental/sandbox-runtime) | Filesystem and network restrictions on arbitrary processes at the OS level, without a container; 5,406 stars |
 
 Seam to family 4 (observation and tracing)
 :   The contained process is also the process that reports on itself. Traces come from instrumentation inside the sandboxed workload, so a denied connection, a killed process, or a tool that did something other than what it logged produces no span. The trace still looks complete. Containment and observation sit at different vantage points, and the operator running both has to reconcile two partial views by hand.
@@ -133,14 +133,14 @@ Establishes
 Cannot establish
 :   That the events happened independently of the party emitting them; that nothing is missing, since tracing has no concept of a missing span and sampling drops spans by design; or that the record is intact, since spans are unsigned and can change anywhere in the collection pipeline.
 
-| project or standard | status or size, read 2026-09-27 |
+| project or standard | status read 2026-09-27; stars read 2026-10-01 07:04:40 UTC |
 |---|---|
 | [OpenTelemetry generative-AI semantic conventions](https://github.com/open-telemetry/semantic-conventions-genai) | OpenTelemetry is CNCF Graduated (2026-05-11); the generative-AI and agent-span conventions are marked "Development" |
-| [Langfuse](https://github.com/langfuse/langfuse) | Agent evaluation and observability platform; 35,097 stars |
-| [MLflow tracing](https://github.com/mlflow/mlflow) | Tracing is one part of MLflow; 28,147 stars |
-| [Arize Phoenix](https://github.com/Arize-ai/phoenix) | AI observability and evaluation; 11,629 stars |
-| [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector) | Receives, processes and exports telemetry; 7,602 stars |
-| [OpenLLMetry](https://github.com/traceloop/openllmetry) | OpenTelemetry instrumentation for LLM applications; 7,453 stars |
+| [Langfuse](https://github.com/langfuse/langfuse) | Agent evaluation and observability platform; 35,253 stars |
+| [MLflow tracing](https://github.com/mlflow/mlflow) | Tracing is one part of MLflow; 28,205 stars |
+| [Arize Phoenix](https://github.com/Arize-ai/phoenix) | AI observability and evaluation; 11,668 stars |
+| [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector) | Receives, processes and exports telemetry; 7,623 stars |
+| [OpenLLMetry](https://github.com/traceloop/openllmetry) | OpenTelemetry instrumentation for LLM applications; 7,463 stars |
 
 Seam to family 5 (records, receipts and transparency)
 :   Signing a trace fixes its bytes and changes nothing about whether the trace is true or complete. Whatever the emitter omitted before signing remains omitted. The signed version now carries more authority than the unsigned one did.
@@ -156,10 +156,10 @@ Establishes
 Cannot establish
 :   That what the bytes describe occurred; that the set of records is complete; that their content is true; or that the signer observed anything at all.
 
-| project or standard | status or size, read 2026-09-27 |
+| project or standard | status read 2026-09-27; stars read 2026-10-01 07:04:40 UTC |
 |---|---|
 | [in-toto attestation framework, with the DSSE envelope](https://github.com/in-toto/attestation) | in-toto is CNCF Graduated (2025-02-10); attestation specification v1.2; DSSE protocol version 1.0.2 |
-| [Sigstore cosign](https://www.sigstore.dev/) | Code signing and transparency for containers and binaries; an OpenSSF project; 6,332 stars |
+| [Sigstore cosign](https://www.sigstore.dev/) | Code signing and transparency for containers and binaries; an OpenSSF project; 6,340 stars |
 | [IETF SCITT](https://datatracker.ietf.org/wg/scitt/documents/) | RFC 9943 (architecture) and RFC 9942 (COSE receipts): Proposed Standards, June 2026 |
 | [C2PA](https://spec.c2pa.org/specifications/specifications/2.4/index.html) | A Joint Development Foundation project; specification 2.4 current |
 | [Certificate Transparency, RFC 9162](https://www.rfc-editor.org/info/rfc9162) | Experimental RFC (2021) |
@@ -179,12 +179,12 @@ Establishes
 Cannot establish
 :   Behavior in deployment; that the evaluated system is the deployed one, unless the two are bound by digest; the absence of capabilities it did not test; or the soundness of its own result, unless someone else can recompute it from preserved inputs.
 
-| project or standard | status or size, read 2026-09-27 |
+| project or standard | status read 2026-09-27; stars read 2026-10-01 07:04:40 UTC |
 |---|---|
-| [promptfoo](https://github.com/promptfoo/promptfoo) | Tests and red-teams prompts, agents and retrieval pipelines; 25,491 stars |
-| [EleutherAI lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) | Few-shot evaluation framework for language models; 14,084 stars |
-| [NVIDIA garak](https://github.com/NVIDIA/garak) | LLM vulnerability scanner; 9,368 stars |
-| [Inspect](https://inspect.aisi.org.uk/) | Developed by the UK AI Security Institute (a government body) with Meridian Labs; 2,863 stars |
+| [promptfoo](https://github.com/promptfoo/promptfoo) | Tests and red-teams prompts, agents and retrieval pipelines; 25,605 stars |
+| [EleutherAI lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) | Few-shot evaluation framework for language models; 14,105 stars |
+| [NVIDIA garak](https://github.com/NVIDIA/garak) | LLM vulnerability scanner; 9,395 stars |
+| [Inspect](https://inspect.aisi.org.uk/) | Developed by the UK AI Security Institute (a government body) with Meridian Labs; 2,904 stars |
 | [METR](https://metr.org/about) | A research nonprofit that measures whether and when AI systems might pose catastrophic risks |
 | [NIST CAISI](https://www.nist.gov/caisi) | US government center for AI standards and evaluation; runs an AI Agent Standards Initiative |
 | [MLCommons AILuminate](https://mlcommons.org/ailuminate/) | Benchmarks covering 12 hazard categories |
@@ -204,7 +204,7 @@ Establishes
 Cannot establish
 :   That any obligation was met. Several instruments are voluntary, and several rest on standards not yet published. None specifies evidence that a distrusting party could re-check.
 
-| project or standard | status or size, read 2026-09-27 |
+| project or standard | status read 2026-09-27; stars read 2026-10-01 07:04:40 UTC |
 |---|---|
 | [EU AI Act, Regulation (EU) 2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng) | In force; consolidated version of 27 July 2026 |
 | [NIST AI Risk Management Framework 1.0](https://www.nist.gov/itl/ai-risk-management-framework) | Voluntary; under revision |
@@ -228,17 +228,17 @@ Signing more records does not close that cell; the seam between tracing and rece
 
 My vocabulary, conformance corpus and admission rules address that cell. Two Rust crates supply the byte handling of family 5 that they rest on. The last column follows each README's statement of what the repository does not do.
 
-| artifact | family | release, read 2026-09-27 | what it does | what it does not do |
+| artifact | family | release and read time; status label | what it does | what it does not do |
 |---|---|---|---|---|
-| [agent-evidence-vocabulary](https://github.com/probityai/agent-evidence-vocabulary) | 5, feeding 7 | v0.3.0 [draft]{.label .draft} | A closed, versioned vocabulary for what an evidence claim means: observer vantage, directness, witness scope (self, peer, external), coverage denominator, and what the record does not assert | It defines words. It neither verifies nor observes anything |
-| [agent-evidence-vectors](https://github.com/probityai/agent-evidence-vectors) | 5 into 6 | v0.13.0 [published]{.label .published} | A conformance corpus of 817 vectors in 13 corpora at v0.13.0, a reference verifier, a GitHub Action and a PyPI package | It does not observe execution. A clean run shows a verifier printed the right answers, not that it computed them |
-| [agent-evidence-admission](https://github.com/probityai/agent-evidence-admission) | 2, consuming 5 | no release yet [draft]{.label .draft} | Admission rules in four policy engines (OPA, two Kyverno dialects, and Sigstore's policy-controller) that admit or refuse a workload on its execution evidence | "These rails evaluate an already-verified statement. They do not verify one." |
-| [jcs-admit](https://crates.io/crates/jcs-admit) | 5, bytes | 0.1.0 on crates.io [published]{.label .published} | Refuses JSON with more than one reading (duplicate members, excess nesting, invalid strings) before RFC 8785 canonicalization | It hands number formatting to another crate |
-| [dsse](https://crates.io/crates/dsse) | 5, envelope | 0.1.0 on crates.io [published]{.label .published} | A standalone Rust implementation of the DSSE envelope that refuses six permissive behaviors | "Implements the envelope and nothing else"; key management is out of scope |
+| [agent-evidence-vocabulary](https://github.com/probityai/agent-evidence-vocabulary) | 5, feeding 7 | v0.3.0; read 2026-10-01 07:04:40 UTC [draft]{.label .draft} | A closed, versioned vocabulary for what an evidence claim means: observer vantage, directness, witness scope (self, peer, external), coverage denominator, and what the record does not assert | It defines words. It neither verifies nor observes anything |
+| [agent-evidence-vectors](https://github.com/probityai/agent-evidence-vectors) | 5 into 6 | v0.16.0; read 2026-10-01 07:04:40 UTC [published]{.label .published} | A conformance corpus, reference verifier, GitHub Action and PyPI package. The historical v0.13.0 baseline below contains 817 vectors in 13 corpora; that count is not a v0.16.0 census | It does not observe execution. A clean run shows a verifier printed the right answers, not that it computed them |
+| [agent-evidence-admission](https://github.com/probityai/agent-evidence-admission) | 2, consuming 5 | no release yet; read 2026-10-01 07:04:40 UTC [draft]{.label .draft} | Admission rules in four policy engines (OPA, two Kyverno dialects, and Sigstore's policy-controller) that admit or refuse a workload on its execution evidence | "These rails evaluate an already-verified statement. They do not verify one." |
+| [jcs-admit](https://crates.io/crates/jcs-admit) | 5, bytes | 0.1.1 on crates.io; read 2026-10-01 07:04:40 UTC [published]{.label .published} | Refuses JSON with more than one reading (duplicate members, excess nesting, invalid strings) before RFC 8785 canonicalization | It hands number formatting to another crate |
+| [dsse](https://crates.io/crates/dsse) | 5, envelope | 0.1.1 on crates.io; read 2026-10-01 07:04:40 UTC [published]{.label .published} | A standalone Rust implementation of the DSSE envelope that refuses six permissive behaviors | "Implements the envelope and nothing else"; key management is out of scope |
 
 ### The conformance corpora
 
-Release v0.13.0 of agent-evidence-vectors carries 817 vectors in 13 corpora. Each corpus tests one specification or one contract; several test specifications written by others, so that anyone can check independent implementations of those specifications against the same cases.
+The historical baseline at release v0.13.0 of agent-evidence-vectors carries 817 vectors in 13 corpora. Each corpus tests one specification or one contract; several test specifications written by others, so that anyone can check independent implementations of those specifications against the same cases.
 
 | corpus | members | split | what it tests |
 |---|---|---|---|

@@ -13,10 +13,10 @@
 # that has a `repo`.
 
 [meta]
-version = "0.3-preview"
+version = "0.4-preview"
 read_window = "2026-09-27 00:40 to 01:00 UTC"
 # Set by tools/refresh_stars.py when it rewrites every `stars` value below.
-stars_read = "2026-09-27 11:49 UTC"
+stars_read = "2026-10-01 07:04:40 UTC"
 
 # ---------------------------------------------------------------- layers
 [[layer]]
@@ -120,21 +120,21 @@ layer = "L1"
 name = "MCP authorization"
 url = "https://modelcontextprotocol.io/specification/latest/basic/authorization"
 repo = "modelcontextprotocol/modelcontextprotocol"
-stars = 9317
+stars = 9355
 status = "Specification version 2026-07-28, which states that authorization is optional for MCP implementations. MCP is an Agentic AI Foundation project"
 [[entry]]
 layer = "L1"
 name = "Keycloak"
 url = "https://github.com/keycloak/keycloak"
 repo = "keycloak/keycloak"
-stars = 37009
+stars = 37078
 status = "Open-source identity and access management"
 [[entry]]
 layer = "L1"
 name = "Ory Hydra"
 url = "https://github.com/ory/hydra"
 repo = "ory/hydra"
-stars = 17571
+stars = 17581
 status = "OpenID Connect and OAuth 2.1 provider"
 
 # layer 2
@@ -143,84 +143,84 @@ layer = "L2"
 name = "Open Policy Agent"
 url = "https://github.com/open-policy-agent/opa"
 repo = "open-policy-agent/opa"
-stars = 12278
+stars = 12297
 status = "CNCF Graduated (2021); Gatekeeper is its Kubernetes admission controller"
 [[entry]]
 layer = "L2"
 name = "Kyverno"
 url = "https://github.com/kyverno/kyverno"
 repo = "kyverno/kyverno"
-stars = 8187
+stars = 8206
 status = "CNCF Graduated (2026-03-16)"
 [[entry]]
 layer = "L2"
 name = "agentgateway"
 url = "https://github.com/agentgateway/agentgateway"
 repo = "agentgateway/agentgateway"
-stars = 5059
+stars = 5111
 status = "Agentic proxy for AI agents and MCP servers; a Linux Foundation project, per its README"
 [[entry]]
 layer = "L3"
 name = "Firecracker"
 url = "https://firecracker-microvm.github.io/"
 repo = "firecracker-microvm/firecracker"
-stars = 36972
+stars = 37082
 status = "Secure and fast microVMs for serverless computing"
 [[entry]]
 layer = "L3"
 name = "Wasmer"
 url = "https://github.com/wasmerio/wasmer"
 repo = "wasmerio/wasmer"
-stars = 21095
+stars = 21110
 status = "WebAssembly runtime; describes itself as sandboxes for apps and AI agents"
 [[entry]]
 layer = "L3"
 name = "gVisor"
 url = "https://gvisor.dev/"
 repo = "google/gvisor"
-stars = 19427
+stars = 19471
 status = "Application kernel for containers"
 [[entry]]
 layer = "L3"
 name = "Wasmtime"
 url = "https://github.com/bytecodealliance/wasmtime"
 repo = "bytecodealliance/wasmtime"
-stars = 18659
+stars = 18674
 status = "A Bytecode Alliance project"
 [[entry]]
 layer = "L3"
 name = "E2B"
 url = "https://github.com/e2b-dev/E2B"
 repo = "e2b-dev/E2B"
-stars = 13983
+stars = 14066
 status = "Secure environments with real-world tools for agents"
 [[entry]]
 layer = "L3"
 name = "Bubblewrap"
 url = "https://github.com/containers/bubblewrap"
 repo = "containers/bubblewrap"
-stars = 8846
+stars = 8884
 status = "Unprivileged OS-level sandbox"
 [[entry]]
 layer = "L3"
 name = "Kata Containers"
 url = "https://katacontainers.io/"
 repo = "kata-containers/kata-containers"
-stars = 8803
+stars = 8848
 status = "An OpenInfra Foundation project"
 [[entry]]
 layer = "L3"
 name = "microsandbox"
 url = "https://github.com/microsandbox/microsandbox"
 repo = "microsandbox/microsandbox"
-stars = 8445
+stars = 8491
 status = "Branchable microVMs for any workload"
 [[entry]]
 layer = "L3"
 name = "Anthropic sandbox-runtime"
 url = "https://github.com/anthropic-experimental/sandbox-runtime"
 repo = "anthropic-experimental/sandbox-runtime"
-stars = 5354
+stars = 5406
 status = "Filesystem and network restrictions on arbitrary processes at the OS level, without a container"
 [[entry]]
 layer = "L4"
@@ -232,35 +232,35 @@ layer = "L4"
 name = "Langfuse"
 url = "https://github.com/langfuse/langfuse"
 repo = "langfuse/langfuse"
-stars = 35097
+stars = 35253
 status = "Agent evaluation and observability platform"
 [[entry]]
 layer = "L4"
 name = "MLflow tracing"
 url = "https://github.com/mlflow/mlflow"
 repo = "mlflow/mlflow"
-stars = 28147
+stars = 28205
 status = "Tracing is one part of MLflow"
 [[entry]]
 layer = "L4"
 name = "Arize Phoenix"
 url = "https://github.com/Arize-ai/phoenix"
 repo = "Arize-ai/phoenix"
-stars = 11629
+stars = 11668
 status = "AI observability and evaluation"
 [[entry]]
 layer = "L4"
 name = "OpenTelemetry Collector"
 url = "https://github.com/open-telemetry/opentelemetry-collector"
 repo = "open-telemetry/opentelemetry-collector"
-stars = 7602
+stars = 7623
 status = "Receives, processes and exports telemetry"
 [[entry]]
 layer = "L4"
 name = "OpenLLMetry"
 url = "https://github.com/traceloop/openllmetry"
 repo = "traceloop/openllmetry"
-stars = 7453
+stars = 7463
 status = "OpenTelemetry instrumentation for LLM applications"
 
 # layer 5
@@ -274,7 +274,7 @@ layer = "L5"
 name = "Sigstore cosign"
 url = "https://www.sigstore.dev/"
 repo = "sigstore/cosign"
-stars = 6332
+stars = 6340
 status = "Code signing and transparency for containers and binaries; an OpenSSF project"
 [[entry]]
 layer = "L5"
@@ -303,28 +303,28 @@ layer = "L6"
 name = "promptfoo"
 url = "https://github.com/promptfoo/promptfoo"
 repo = "promptfoo/promptfoo"
-stars = 25491
+stars = 25605
 status = "Tests and red-teams prompts, agents and retrieval pipelines"
 [[entry]]
 layer = "L6"
 name = "EleutherAI lm-evaluation-harness"
 url = "https://github.com/EleutherAI/lm-evaluation-harness"
 repo = "EleutherAI/lm-evaluation-harness"
-stars = 14084
+stars = 14105
 status = "Few-shot evaluation framework for language models"
 [[entry]]
 layer = "L6"
 name = "NVIDIA garak"
 url = "https://github.com/NVIDIA/garak"
 repo = "NVIDIA/garak"
-stars = 9368
+stars = 9395
 status = "LLM vulnerability scanner"
 [[entry]]
 layer = "L6"
 name = "Inspect"
 url = "https://inspect.aisi.org.uk/"
 repo = "UKGovernmentBEIS/inspect_ai"
-stars = 2863
+stars = 2904
 status = "Developed by the UK AI Security Institute (a government body) with Meridian Labs"
 [[entry]]
 layer = "L6"
@@ -511,6 +511,7 @@ name = "agent-evidence-vocabulary"
 url = "https://github.com/probityai/agent-evidence-vocabulary"
 layers = "5, feeding 7"
 release = "v0.3.0"
+read = "2026-10-01 07:04:40 UTC"
 label = "draft"
 does = "A closed, versioned vocabulary for what an evidence claim means: observer vantage, directness, witness scope (self, peer, external), coverage denominator, and what the record does not assert"
 does_not = "It defines words. It neither verifies nor observes anything"
@@ -518,15 +519,17 @@ does_not = "It defines words. It neither verifies nor observes anything"
 name = "agent-evidence-vectors"
 url = "https://github.com/probityai/agent-evidence-vectors"
 layers = "5 into 6"
-release = "v0.13.0"
+release = "v0.16.0"
+read = "2026-10-01 07:04:40 UTC"
 label = "published"
-does = "A conformance corpus of 817 vectors in 13 corpora at v0.13.0, a reference verifier, a GitHub Action and a PyPI package"
+does = "A conformance corpus, reference verifier, GitHub Action and PyPI package. The historical v0.13.0 baseline below contains 817 vectors in 13 corpora; that count is not a v0.16.0 census"
 does_not = "It does not observe execution. A clean run shows a verifier printed the right answers, not that it computed them"
 [[artifact]]
 name = "agent-evidence-admission"
 url = "https://github.com/probityai/agent-evidence-admission"
 layers = "2, consuming 5"
 release = "no release yet"
+read = "2026-10-01 07:04:40 UTC"
 label = "draft"
 does = "Admission rules in four policy engines (OPA, two Kyverno dialects, and Sigstore's policy-controller) that admit or refuse a workload on its execution evidence"
 does_not = "\"These rails evaluate an already-verified statement. They do not verify one.\""
@@ -534,7 +537,8 @@ does_not = "\"These rails evaluate an already-verified statement. They do not ve
 name = "jcs-admit"
 url = "https://crates.io/crates/jcs-admit"
 layers = "5, bytes"
-release = "0.1.0 on crates.io"
+release = "0.1.1 on crates.io"
+read = "2026-10-01 07:04:40 UTC"
 label = "published"
 does = "Refuses JSON with more than one reading (duplicate members, excess nesting, invalid strings) before RFC 8785 canonicalization"
 does_not = "It hands number formatting to another crate"
@@ -542,7 +546,8 @@ does_not = "It hands number formatting to another crate"
 name = "dsse"
 url = "https://crates.io/crates/dsse"
 layers = "5, envelope"
-release = "0.1.0 on crates.io"
+release = "0.1.1 on crates.io"
+read = "2026-10-01 07:04:40 UTC"
 label = "published"
 does = "A standalone Rust implementation of the DSSE envelope that refuses six permissive behaviors"
 does_not = "\"Implements the envelope and nothing else\"; key management is out of scope"

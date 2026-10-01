@@ -42,7 +42,7 @@ My vocabulary, conformance corpus and admission rules address that cell. Two Rus
 
 ### The conformance corpora
 
-Release v0.13.0 of agent-evidence-vectors carries {{n_vectors}} vectors in {{n_corpora}} corpora. Each corpus tests one specification or one contract; several test specifications written by others, so that anyone can check independent implementations of those specifications against the same cases.
+The historical baseline at release v0.13.0 of agent-evidence-vectors carries {{n_vectors}} vectors in {{n_corpora}} corpora. Each corpus tests one specification or one contract; several test specifications written by others, so that anyone can check independent implementations of those specifications against the same cases.
 
 {{corpus_table}}
 

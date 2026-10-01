@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Sankalp Gilda" />
+  <meta name="description" content="Submit pinned agent-evidence runs, hostile controls, field-level comparisons and correction records to a public register." />
+  <title>Probity Open Evidence Lab · Independent evidence for AI agent actions</title>
+  <link rel="canonical" href="https://probityai.github.io/agent-evidence-atlas/lab.html" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <nav aria-label="Site">
+    <a class="home" href="index.html">Independent evidence for AI agent actions</a>
+    <span class="links">
+      <a href="lab.html">Open Evidence Lab</a>
+      <a href="atlas.html">Atlas</a>
+      <a href="experiments.html">Experiments</a>
+      <a href="claims.html">Claims</a>
+      <a href="versions.html">Versions</a>
+    </span>
+  </nav>
+</header>
+<main id="main">
+<header class="page">
+<h1>Probity Open Evidence Lab</h1>
+<p class="subtitle">A public protocol and run register for checking specific agent-evidence claims</p>
+<p class="status">Protocol draft 0.1, 1 October 2026. The initial register contains the measured E6 author fixture. External CI adoption and independently operated custody require their own evidence.</p>
+</header>
+<nav class="toc" aria-label="Contents">
+<p class="toc-title">Contents</p>
+<ul>
+<li><a href="#start-with-a-run-that-exists" id="toc-start-with-a-run-that-exists">Start with a run that exists</a></li>
+<li><a href="#choose-the-claim-you-are-submitting" id="toc-choose-the-claim-you-are-submitting">Choose the claim you are submitting</a></li>
+<li><a href="#submit-a-reproducible-evidence-packet" id="toc-submit-a-reproducible-evidence-packet">Submit a reproducible evidence packet</a></li>
+<li><a href="#controls-a-reviewed-result-must-survive" id="toc-controls-a-reviewed-result-must-survive">Controls a reviewed result must survive</a></li>
+<li><a href="#review-rejection-and-correction" id="toc-review-rejection-and-correction">Review, rejection and correction</a></li>
+<li><a href="#connections-to-current-upstream-work" id="toc-connections-to-current-upstream-work">Connections to current upstream work</a></li>
+</ul>
+</nav>
+<p>Maintainers can use this protocol to submit a verifier run, a host-project CI integration, or an observer/witness experiment. Each record names its contract, retained inputs, implementation and operators, and reports what passed, failed or remained untested. Probity maintains this register. A listed result makes no membership, endorsement or adoption commitment on behalf of another project.</p>
+<p><a href="https://github.com/probityai/agent-evidence-atlas/issues/new?template=evidence-run.yml">Submit a run</a> or <a href="https://github.com/probityai/agent-evidence-atlas/issues/new?template=evidence-correction.yml">report a correction</a>. The forms request the evidence needed for review. The <a href="lab/register.json">machine-readable register</a>, <a href="experiments.html">experiments</a> and <a href="claims.html">claim ledger</a> retain the supporting records.</p>
+<h2 id="start-with-a-run-that-exists">Start with a run that exists</h2>
+<p>The first register entry is <a href="experiments.html#observer-consumer-admission">E6: observer declaration, admission and replay</a>. It joins one prior declaration, one brokered durable file effect, signed history and a persisted consumer admission. Replaying the interval, changing consumer authority and altering a signed claim all refuse with exact reasons and unchanged consumer state.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>item</th>
+<th>retained evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Observer implementation</td>
+<td><a href="https://github.com/probityai/agent-evidence-observer/tree/8562c25fb7ec97596ea9d0297c495340298914b6">Exact revision 8562c25fb7ec97596ea9d0297c495340298914b6</a></td>
+</tr>
+<tr>
+<td>Checked source bytes</td>
+<td><a href="experiments/observer-admission/source-pins.json">Git blob pins</a> and per-source SHA-256 values in the <a href="experiments/observer-admission/recorded.json">result</a></td>
+</tr>
+<tr>
+<td>Original CI artifact</td>
+<td><a href="experiments/observer-admission/provenance.json">Provenance and file manifest</a>; original archive SHA-256 <code>bcc22cd27b1f9404e961f7329770620994a76348d085b7b711ab586986493892</code></td>
+</tr>
+<tr>
+<td>Actual runs</td>
+<td><a href="https://github.com/probityai/agent-evidence-observer/actions/runs/36808961399">Original PR-tree run</a> and <a href="https://github.com/probityai/agent-evidence-observer/actions/runs/36825509807">exact-main run</a></td>
+</tr>
+<tr>
+<td>Execution and comparison</td>
+<td><a href="experiments/observer-admission/run.py">Atlas runner</a>, <a href="experiments/observer-admission/recorded.json">complete recorded outcomes</a>, and the E6 procedure</td>
+</tr>
+<tr>
+<td>Claim ceiling</td>
+<td>Author-produced same-operator fixture; <code>PEER</code>; <code>evidence_vantage: artifact</code>; unmediated effects and independent custody remain unestablished</td>
+</tr>
+</tbody>
+</table>
+<p>On Linux, use the actual checked-in runner and retained bytes:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/probityai/agent-evidence-atlas atlas</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> atlas</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">--detach</span> 91a0759e459acee8355e2f9aba34f8e80d19e038</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/probityai/agent-evidence-observer .observer-source</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">-C</span> .observer-source checkout <span class="at">--detach</span> 8562c25fb7ec97596ea9d0297c495340298914b6</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run <span class="at">--no-project</span> <span class="at">--python</span> 3.12.14 <span class="at">--with</span> cryptography==46.0.7 <span class="dt">\</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  python experiments/observer-admission/run.py <span class="at">--observer-root</span> .observer-source <span class="dt">\</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">--bundle</span> experiments/observer-admission/retained <span class="dt">\</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">--manifest</span> experiments/observer-admission/provenance.json <span class="dt">\</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">--expect</span> experiments/observer-admission/recorded.json</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run <span class="at">--no-project</span> <span class="at">--python</span> 3.12.14 <span class="at">--with</span> cryptography==46.0.7 <span class="dt">\</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  python experiments/observer-admission/run.py <span class="at">--observer-root</span> .observer-source <span class="dt">\</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">--output</span> /tmp/observer-admission-new <span class="dt">\</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">--expect</span> experiments/observer-admission/recorded.json</span></code></pre></div>
+<p>The output directory must be empty. Source blobs are checked before private-copy import. The first command checks the original artifact’s exact retained bytes; the second generates new keys and signatures and requires the same complete semantic outcomes. Running this fixture in another CI system supplies a new execution record. An independently operated witness still needs a separately justified operator and trust boundary.</p>
+<p>The E6 implementation, demo and retained expected outcomes were available to the atlas runner. This is a retrospective fixture comparison; it does not establish an answer-blind replication or a result frozen before expected-answer comparison.</p>
+<h2 id="choose-the-claim-you-are-submitting">Choose the claim you are submitting</h2>
+<p>These are separate claims. A submission may establish more than one, with separate evidence for each.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>claim</th>
+<th>evidence needed</th>
+<th>ceiling</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Retained-byte integrity</td>
+<td>Raw input bytes, retrieval record, algorithm, digest, byte size and verification outcome</td>
+<td>Identifies a representation; does not establish execution, authority or an effect</td>
+</tr>
+<tr>
+<td>Verifier behavior on a fixture</td>
+<td>Pinned contract and reader, explicit mapping, complete input/result manifests and hostile controls</td>
+<td>Applies to the selected inputs; implementation independence and operator independence are separate</td>
+</tr>
+<tr>
+<td>Host-project CI dependency</td>
+<td>A host-owned workflow at an exact commit imports or invokes the pinned package/adapter, a completed host run, retained outputs, and a maintainer-owned merge or dependency decision</td>
+<td>A fixture rerun, development-only byte library and production runtime dependency are different uses; record the actual use</td>
+</tr>
+<tr>
+<td>Observed bounded effect</td>
+<td>Prior authority, actual effect bytes or service observations, observer reachability boundary, coverage denominator, gaps and failure behavior</td>
+<td>Covers only the declared channel and interval</td>
+</tr>
+<tr>
+<td>Independent witness or consumer operation</td>
+<td>Named producer, runner, policy owner and key custodians; how the consumer acquired keys/head outside the candidate bundle; retained history and evidence of separate operational control</td>
+<td>Separate signing keys, repositories, containers or directories alone do not establish custody independence</td>
+</tr>
+</tbody>
+</table>
+<p>Use claim-level results: <code>pass</code>, <code>fail</code>, <code>unknown</code>, <code>not-exercised</code> or <code>out-of-scope</code>. State the rule producing each result. Unsupported checks and unavailable observations remain visible. A signature verdict, service correlation, policy admission and observed effect must have separate fields even when their outcomes agree.</p>
+<h2 id="submit-a-reproducible-evidence-packet">Submit a reproducible evidence packet</h2>
+<ol type="1">
+<li><strong>Fix the question before scoring.</strong> Name the exact specification/profile revision, claim and expected scope. Pin the producer, reader/adapter, configuration, policy and input manifests. Identify any local interpretation of an unresolved contract. Record who chose the keys and witness head, and when.</li>
+<li><strong>Preserve the delivered evidence.</strong> Retain the original byte stream, its SHA-256, length, media type and immutable source. Record retrieval failures. Keep any normalized or redacted derivative separately, with its own digest and an explanation of what changed. Never substitute a reserialized document for a raw-byte integrity check.</li>
+<li><strong>Record the roles and exposure.</strong> Name the implementation author, runner, policy owner, signer and custodian for each claim. State whether they share operational control. Record which producer code, expected files, README outcomes or earlier answers the reader author and runner knew. Expected-file-blind is narrower than answer-blind.</li>
+<li><strong>Execute the positive and hostile cases.</strong> Retain commands, runtime/dependency pins, stdout, stderr, exit status, every attempted case and its denominator. Report missing, partial, failed and unscored checks. Do not infer a zero effect count from missing records.</li>
+<li><strong>Freeze results before comparison.</strong> Commit or publish the complete raw report and manifest, then publish the expected-answer comparison in a separate revision. Supply both immutable links and their order. If answers were already known, say so; freezing a report does not undo that exposure. A report signature binds the report bytes and signer, without upgrading the observations’ custody.</li>
+<li><strong>Submit the packet.</strong> Use the run form and link the retained files. A maintainer review records the supported claims, ceilings and unresolved gaps. A register addition is proposed by pull request with its reviewed evidence links; the intake issue remains the public discussion and decision trail.</li>
+</ol>
+<p>For a live capture, classify each gap as unsupported behavior, instrumentation gap, interpretation/guidance gap, missing convention, or unavailable evidence. Keep the raw capture and mapping with the gap. A proposed fix needs a later run showing what changed.</p>
+<h2 id="controls-a-reviewed-result-must-survive">Controls a reviewed result must survive</h2>
+<p>Select controls for the submitted claim and explain any that do not apply. Keep the positive control and all refused, failed or unknown controls in the record.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>claim under test</th>
+<th>required discriminating control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fixture reader</td>
+<td>An accept-all or naive adapter must fail at least one declared negative; missing and out-of-scope cases cannot silently pass</td>
+</tr>
+<tr>
+<td>Representation integrity</td>
+<td>Change an octet; reserialize unchanged JSON; omit the digest; supply an unsupported algorithm or unavailable retrieval. Report each according to the pinned raw-byte contract</td>
+</tr>
+<tr>
+<td>Authority or signature</td>
+<td>Change the declared scope/operation, substitute an untrusted key, or alter signed bytes. Supply the exact refusal and unchanged prior consumer state where that state is part of the contract</td>
+</tr>
+<tr>
+<td>Admission/history</td>
+<td>Replay after persistence, truncate or fork history, omit a committed interval, or reset/roll back the consumer store. Report which trust assumptions make rollback detectable</td>
+</tr>
+<tr>
+<td>Bounded effects</td>
+<td>Exercise a bypass and missing observation relative to the declared channel. Retain the effect or attempted effect, record liveness and coverage gaps, and refuse an absence claim when coverage is unknown</td>
+</tr>
+<tr>
+<td>Claimed independent operation</td>
+<td>Attempt candidate-supplied trust replacement and publish who can address or replace the observer, keys, journal and retained head</td>
+</tr>
+</tbody>
+</table>
+<p>Passing these selected controls is a result for that contract and run. The register records their count and scope; it does not treat a test score as a production guarantee.</p>
+<h2 id="review-rejection-and-correction">Review, rejection and correction</h2>
+<p>A submission starts as <strong>submitted</strong>. Review can classify individual claims as <strong>supported with stated limits</strong>, <strong>needs evidence</strong>, <strong>unsupported</strong> or <strong>out-of-scope</strong>. These review states are separate from the measured pass/fail outcomes. Only a reviewed pull request changes the register. There is no automatic certification or promotion to independent custody.</p>
+<p>Review returns an explicit missing field, unresolved rule, counterexample or evidence mismatch. Changed source bytes without a new revision, missing raw outputs, answer-key exposure described as blind, an accept-all control that succeeds, bundled keys described as independently pinned, and missing observations counted as success block the affected claim. A useful failed or partial run can still be retained as a gap record.</p>
+<p>Use the <a href="https://github.com/probityai/agent-evidence-atlas/issues/new?template=evidence-correction.yml">correction form</a> with the record ID, challenged claim, immutable counterevidence and proposed correction. A corrective pull request marks the affected claim disputed or superseded, links the replacement record and preserves the original result and review trail. Do not rewrite an old run to look like the corrected experiment. Scope or contract disagreements remain named until the relevant specification owner resolves them.</p>
+<h2 id="connections-to-current-upstream-work">Connections to current upstream work</h2>
+<p>The <a href="https://github.com/aaif/wg-observability-and-traceability/blob/99d72c8484ac82f2c7128f2cb3b09e2971f8f234/working-documents/AGENT-BEHAVIOR-TRACE-MODEL-EXECUTION-PLAN.md">AAIF execution-plan proposal at 99d72c8</a> puts agree, evidence, interpret and contribute in sequence, with actual captures and an observed-gap register guiding later work. This lab uses that evidence-first sequence for its own submissions. <a href="https://github.com/aaif/wg-observability-and-traceability/pull/60">PR #60</a> is a proposed direction; it does not commit AAIF or any agent to this lab.</p>
+<p>The <a href="https://github.com/gemaraproj/gemara/blob/a3016f4ddadda4e2d4a68ab353ce430fdb62b6bf/evidence.cue">Gemara evidence proposal at a3016f4</a> defines a citation digest over the full octet stream delivered, including a required SHA-256 support floor. Coordinates and entry IDs are lookup hints, rather than digest inputs. Its citation-integrity outcomes are <code>verified</code>, <code>integrity-failure</code> and <code>unverifiable</code>; absence of a digest makes no integrity claim. These are byte-integrity results, separate from the claim-level outcomes above. <a href="https://github.com/gemaraproj/gemara/pull/507">PR #507</a> remains a pinned proposal here. A raw-octet adapter run is an open contribution route, with no completed lab result or Gemara commitment claimed.</p>
+<p>The initial E6 record exercises the existing observer contract. Future records can connect these proposed upstream contracts only after their exact rules, inputs and measured limits are supplied. The register records adoption when a host project owns and retains the dependency run, and records independent operation only when its distinct trust requirements are demonstrated.</p>
+</main>
+<footer class="site">
+  <p>Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.5-draft, 2026-10-01.</p>
+</footer>
+</body>
+</html>

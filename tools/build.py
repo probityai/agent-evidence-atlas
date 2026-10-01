@@ -41,6 +41,7 @@ SITE_NAME = "Independent evidence for AI agent actions"
 
 # Navigation order and labels. A page appears only when it is built.
 NAV = [
+    ("lab", "Open Evidence Lab"),
     ("atlas", "Atlas"),
     ("essay", "Essay"),
     ("demo", "Verifier"),
@@ -54,6 +55,8 @@ NAV = [
 # page whose links need it, or None for every page). A copy is made exactly when its
 # page is built, and a missing source for a built page fails the build.
 COPIES = [
+    ("data/readouts/rederive-2026-10-01.txt", "readouts/rederive-2026-10-01.txt", "claims"),
+    ("data/lab-register.json", "lab/register.json", "lab"),
     ("assets/site.css", "assets/site.css", None),
     ("experiments/observer-vantage/run.py", "experiments/observer-vantage/run.py", "experiments"),
     ("experiments/observer-vantage/recorded.json", "experiments/observer-vantage/recorded.json", "experiments"),
@@ -250,6 +253,12 @@ def stamp_cadence(html: str) -> str:
 
 def build(out: Path) -> None:
     pages = sorted(SRC.glob("*.md"))
+    if (SRC / "lab.md").exists():
+        registry = subprocess.run([sys.executable, str(ROOT / "tools" / "check_lab.py")],
+                                  capture_output=True, text=True, check=False)
+        if registry.returncode != 0:
+            sys.stderr.write(registry.stdout + registry.stderr)
+            raise SystemExit(1)
     if (SRC / "atlas.md").exists():
         gen = subprocess.run([sys.executable, str(ROOT / "tools" / "gen_atlas.py"), "--check"],
                              capture_output=True, text=True, check=False)

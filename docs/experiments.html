@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="Sankalp Gilda" />
-  <meta name="description" content="Reproducible pilot of a brokered write, durable bypass and transient bypass, with the next two observer experiments registered before data collection." />
-  <title>Experiments: who can observe an agent effect? · Independent evidence for AI agent actions</title>
+  <meta name="description" content="A snapshot-gap pilot, APS/PriorSeal fixture outcomes and limits, and a source-pinned AGT transcript-byte reproduction." />
+  <title>Experiments: evidence, effects and bytes · Independent evidence for AI agent actions</title>
   <link rel="canonical" href="https://probityai.github.io/agent-evidence-atlas/experiments.html" />
   <link rel="stylesheet" href="assets/site.css" />
 </head>
@@ -24,9 +24,9 @@
 </header>
 <main id="main">
 <header class="page">
-<h1>Experiments: who can observe an agent effect?</h1>
-<p class="subtitle">A measured PEER pilot and two registered tests for the missing vantage and history</p>
-<p class="status">Draft 0.1, 29 September 2026. One local prototype pilot is measured; no below-agent or independent-operator run has occurred.</p>
+<h1>Experiments: evidence, effects and bytes</h1>
+<p class="subtitle">A PEER pilot, pinned decision-call and byte experiments, and two registered observer designs</p>
+<p class="status">Draft 0.2, 30 September 2026. The retained pilot and two fixture experiments have results; they do not establish below-agent observation or independently operated custody.</p>
 </header>
 <nav class="toc" aria-label="Contents">
 <p class="toc-title">Contents</p>
@@ -34,6 +34,8 @@
 <li><a href="#e1.-peer-pilot-the-snapshot-gap" id="toc-e1.-peer-pilot-the-snapshot-gap">E1. PEER pilot: the snapshot gap</a></li>
 <li><a href="#e2.-below-agent-observation-registered-design-no-result" id="toc-e2.-below-agent-observation-registered-design-no-result">E2. Below-agent observation: registered design, no result</a></li>
 <li><a href="#e3.-separately-witnessed-history-registered-design-no-result" id="toc-e3.-separately-witnessed-history-registered-design-no-result">E3. Separately witnessed history: registered design, no result</a></li>
+<li><a href="#aps-priorseal-e2" id="toc-aps-priorseal-e2">E4. APS/PriorSeal E2: decision evidence and exact-call fixtures</a></li>
+<li><a href="#trace-transcript-bytes" id="toc-trace-transcript-bytes">E5. AGT TRACE transcript bytes: a source-pinned reproduction</a></li>
 </ul>
 </nav>
 <p>The <a href="atlas.html#the-open-cell">atlas’s open cell</a> asks whether a record of an agent action comes from a vantage the agent cannot control, whether its evidence binds to the actual effect, and what was missed. A signature and an offline verifier answer questions about retained bytes. They do not answer who could alter or omit the underlying observations. These experiments keep those questions separate.</p>
@@ -92,9 +94,155 @@
 <p><strong>Hypothesis.</strong> A witness run by a separate principal, with a pinned key and retained highest head, detects deletion, reorder, replay, divergent heads, and an absent committed interval when shown inclusion and consistency evidence. A second key held by the same operator cannot establish that property.</p>
 <p><strong>Unit and denominator.</strong> One committed interval and its checkpoint pair, plus each attempted history mutation. Publish the witness operator boundary, retention policy, head pinning method, hash/signature profile, and every accepted or refused fork attempt. Test honest append, truncation, two conflicting suffixes, withheld interval, witness unavailability, and key substitution. An offline consumer with an independently pinned head must reproduce refusals. Report mutation count, detected count, undecidable count, and time/space overhead; never recode an unavailable witness as success.</p>
 <p>There are <strong>zero separately operated witness runs</strong>. The local PEER pilot’s second key is a protocol test only. The witness experiment will remain unclaimed until a separately operated history and a second reproducer exist.</p>
+<h2 id="aps-priorseal-e2">E4. APS/PriorSeal E2: decision evidence and exact-call fixtures</h2>
+<p>The <a href="https://github.com/probityai/agent-evidence-vectors/tree/00f5acab880bffc5ee8fe124f3a015d3ed970514/interop/aps-priorseal-e2-2026-09-30">immutable run record</a> checks APS decision evidence against PriorSeal’s exact-call examples. Its checker imports no APS or PriorSeal implementation. It uses draft-pidlisnyi-aps-03, the fixture documentation, pinned public test keys, and a fixed reference time of <code>2026-09-19T10:05:00.000Z</code>. Implementation independence does not establish independent custody of an action observation.</p>
+<p>The fetch script pins 31 files from APS <code>948f99b85343bef2c6fa677c8543965caacfc087</code> and PriorSeal <code>d749d2691c3e6be139de4020e7b27cdafca2c428</code>. <a href="https://github.com/probityai/agent-evidence-vectors/blob/00f5acab880bffc5ee8fe124f3a015d3ed970514/interop/aps-priorseal-e2-2026-09-30/RESULTS.json">RESULTS.json</a> contains 96 rows, one per claim per input: 86 <code>pass</code>, four <code>fail</code>, and six <code>not-exercised</code>. These are fixture outcomes, not a deployment success rate. The four failures are the denied APS dispatch, the expired APS reference-time check, and the over-limit pair’s call-value and per-action-cap checks.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>claim</th>
+<th>within-limit pair</th>
+<th>over-limit pair</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>APS decision-ref correlation</td>
+<td>pass</td>
+<td>pass</td>
+</tr>
+<tr>
+<td>Exact call against the supplied observation</td>
+<td>pass</td>
+<td>fail: intent value 1e15, observation value 6e15</td>
+</tr>
+<tr>
+<td>APS per-action cap, using the checker’s declared asset mapping</td>
+<td>pass</td>
+<td>fail: 6e15 exceeds 5e15</td>
+</tr>
+<tr>
+<td>PriorSeal principal, acceptance and receipt signatures</td>
+<td>not-exercised: out_of_scope</td>
+<td>not-exercised: out_of_scope</td>
+</tr>
+</tbody>
+</table>
+<p>The report’s 22 recomputable values agree, and three quoted fixture values agree. Report assertions about PriorSeal receipt validity remain unexercised. <a href="https://github.com/probityai/agent-evidence-vectors/blob/00f5acab880bffc5ee8fe124f3a015d3ed970514/interop/aps-priorseal-e2-2026-09-30/SPEC-GAPS.md">SPEC-GAPS.md</a> records the missing written PriorSeal signing profile, hash constructions recovered by trial, and the checker’s mapping from APS spend units to the PriorSeal asset. No result evaluated by this checker differs from the producer’s stated outcome.</p>
+<p><a href="https://github.com/probityai/agent-evidence-vectors/blob/00f5acab880bffc5ee8fe124f3a015d3ed970514/interop/aps-priorseal-e2-2026-09-30/NEGATIVES.json">NEGATIVES.json</a> records five variants and two controls:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>variant or control</th>
+<th>measured outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Invalid APS signature</td>
+<td>Decision signature fails; dependent composition claims become void</td>
+</tr>
+<tr>
+<td>Re-signed APS receipt with an unpinned key offered by adjacent keys.json</td>
+<td>Decision signature fails under the checker’s pinned configuration</td>
+</tr>
+<tr>
+<td>Altered authorization with unchanged hashes</td>
+<td>Intent-hash consistency fails</td>
+</tr>
+<tr>
+<td>Altered authorization with every carried intentHash recomputed</td>
+<td>Survives at the targeted PriorSeal signature claim, which is unexercised; exact-call comparison changes to pass, while the cross-check against APS requested_call changes to fail</td>
+</tr>
+<tr>
+<td>Unbound decision_ref, paired with the narrow APS case</td>
+<td>Correlation fails on both payments</td>
+</tr>
+<tr>
+<td>Changed issued_at without re-signing</td>
+<td>Receipt identifier and signature checks fail</td>
+</tr>
+<tr>
+<td>Re-serialization with unchanged JSON value</td>
+<td>No state changes</td>
+</tr>
+</tbody>
+</table>
+<p>The surviving rehashed variant is not a whole-case acceptance: the APS cross-check still refuses it. It demonstrates the precise limit of this checker at an unexercised principal-signature claim. The fixtures do not establish chain execution, live authorization currency, live revocation, decision-level single use, cumulative spend, independently operated custody, or production usage.</p>
+<p>To reproduce, check out the immutable vectors revision above and run the commands in its <a href="https://github.com/probityai/agent-evidence-vectors/blob/00f5acab880bffc5ee8fe124f3a015d3ed970514/interop/aps-priorseal-e2-2026-09-30/README.md">README</a>. The checker pins agent-evidence-vectors 0.15.0 and pycryptodome 3.23.0; mutation generation additionally pins cryptography 44.0.2. The corpus package supplies byte and Ed25519 primitives, not APS or PriorSeal policy decisions. The ledger records the outputs and ceilings as E-05 through E-07.</p>
+<h2 id="trace-transcript-bytes">E5. AGT TRACE transcript bytes: a source-pinned reproduction</h2>
+<p>The <a href="experiments/trace-transcript/run.py">runner</a> calls the real AuditEntry, MerkleAuditChain, and both AGT session mappers at <a href="https://github.com/microsoft/agent-governance-toolkit/tree/60931ce0c65db144032cdc8e8f342c66cbb1201c">AGT 60931ce</a>. Before import, it verifies each retrieved source against its exact Git tree blob. Its byte oracle is <a href="https://github.com/trailofbits/rfc8785.py/tree/655cbe02b8761208e3f4cc49e879ab1e328a7dca">rfc8785.py 655cbe0</a>. IDs, times and contexts are fixed. The <a href="experiments/trace-transcript/recorded.json">recorded result</a> includes all six inputs, digests, source SHA-256 values, Python 3.12.14, and Pydantic 2.13.5.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>AuditEntry.data input</th>
+<th>model equals sink</th>
+<th>model equals RFC 8785</th>
+<th>sink equals RFC 8785</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ASCII strings</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>U+00E9 value</td>
+<td>no</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr>
+<td>U+E000 and U+10000 keys</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td>Float 1.0</td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td>Negative zero -0.0</td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td>Float 0.000001</td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<p>The sink escapes non-ASCII characters while the model emits UTF-8 characters. Both sort keys by Unicode code point and use Python’s number spelling; RFC 8785 requires UTF-16 code-unit ordering and ECMAScript number serialization. A JSON-value match therefore does not establish a transcript-byte match. These results concern the pinned AGT implementation’s transcript hash, not the current TRACE library’s separate reverse adapter or an entire protocol-conformance claim.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run <span class="at">--no-project</span> <span class="at">--python</span> 3.12.14 <span class="at">--with</span> pydantic==2.13.5 <span class="dt">\</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  python experiments/trace-transcript/run.py <span class="op">&gt;</span> /tmp/trace-transcript.json</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span> <span class="at">-u</span> experiments/trace-transcript/recorded.json /tmp/trace-transcript.json</span></code></pre></div>
+<p>The runner also accepts <code>--source-dir</code> for an offline rerun from cached source blobs; it checks the same immutable pins. This experiment signs no record and executes no live agent. It establishes byte disagreements on the selected inputs, with no measured claim about effect capture, coverage, custody, or production failures. The ledger records its provenance and results as E-08 and E-09.</p>
 </main>
 <footer class="site">
-  <p>By Sankalp Gilda. Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.2-draft, 2026-09-29.</p>
+  <p>By Sankalp Gilda. Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.3-draft, 2026-09-30.</p>
 </footer>
 </body>
 </html>

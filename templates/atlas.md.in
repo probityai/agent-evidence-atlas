@@ -1,7 +1,7 @@
 ---
 title: "An atlas of agent assurance"
 subtitle: "Seven families of mechanisms that make claims about AI agents, the mechanisms inside each, what each establishes, what none of them establishes alone, and where the public evidence artifacts sit"
-status: "Version {{version}}. I read the GitHub star counts at {{stars_read}} and every other size, status and version at {{read_window}}. Each one has a row in the claim ledger."
+status: "Version {{version}}. GitHub star counts were read at {{stars_read}}; project sizes, statuses and releases at {{read_window}}. Dated experiments carry separate source pins and claim-ledger rows."
 description: "A map of the AI-agent assurance ecosystem in seven families: identity, policy, containment, observation, records, evaluation and governance."
 toc: true
 ---

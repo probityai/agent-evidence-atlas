@@ -19,7 +19,7 @@ Every number, date and status the framework prints has a row in a claim ledger, 
 
 ## Release rule
 
-Each artifact has its own release contract, and an artifact is added here when it passes that contract, not before. The version ledger lists every artifact of the framework; one that has not passed yet is shown there as held. The experiment draft includes a local PEER pilot with its script and recorded result, plus designs for below-agent observation and independent history. The essay, runnable verifier demonstration and twelve-month series plan remain held.
+Each artifact has its own release contract, and an artifact is added here when it passes that contract, not before. The version ledger lists every artifact of the framework; one that has not passed yet is shown there as held. The experiment draft retains the local PEER pilot and adds an immutable APS/PriorSeal fixture record and a source-pinned AGT transcript-byte runner and result. Below-agent observation and independent history remain registered designs without a result. The essay, runnable verifier demonstration and twelve-month series plan remain held.
 
 ## Re-derive and build
 

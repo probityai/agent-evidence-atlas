@@ -26,7 +26,7 @@
 <header class="page">
 <h1>Claim ledger</h1>
 <p class="subtitle">Every number, date, status and quotation on this site, with its source, when it was read, how to re-derive it, and what it does not mean</p>
-<p class="status">Draft, version 0.4, 29 September 2026. Star counts were refreshed at 2026-09-27 11:49 UTC by tools/refresh_stars.py; earlier automatable rows were last re-derived at 2026-09-27T09:52:44Z. The experiment pilot was run on 2026-09-29. Each value keeps its read time.</p>
+<p class="status">Draft, version 0.5, 30 September 2026. Star counts were refreshed at 2026-09-27 11:49 UTC; earlier automatable rows were last re-derived at 2026-09-27T09:52:44Z. The retained pilot was run on 2026-09-29; the E2 fixture record and AGT byte experiment were read or run on 2026-09-30. Each value keeps its read time.</p>
 </header>
 <h2 id="how-to-use-this-ledger">How to use this ledger</h2>
 <ul>
@@ -336,6 +336,14 @@
 <td><code>rederive.py</code> A-38c for the total; <code>git show v0.13.0:&lt;corpus&gt;/MANIFEST.json</code> for each</td>
 <td>Counts at the tag, not on the main branch</td>
 </tr>
+<tr data-read="2026-09-30">
+<td>A-46</td>
+<td>Signature and canonicalization mechanism rows link measured APS/PriorSeal E2 limits and six AGT transcript-byte cases</td>
+<td><code>data/atlas.toml</code>; experiment records E-05 through E-09</td>
+<td>2026-09-30 <span class="cadence">(does not expire)</span></td>
+<td>Generate the atlas; reproduce E4 and E5 as documented in <code>experiments.html</code></td>
+<td>Two pinned fixture experiments, not new family entries, production measurements, or evidence of independent custody</td>
+</tr>
 <tr data-read="2026-09-27" data-cadence-days="30">
 <td>A-44</td>
 <td>OECD.AI catalogue listing; W3C mailing-list post of 12 September 2026</td>
@@ -407,11 +415,11 @@
 <td><code>rederive.py</code> A-38</td>
 <td>A label is this site’s reading of the repository’s own status, not a maturity rating</td>
 </tr>
-<tr data-read="2026-09-29">
+<tr data-read="2026-09-30">
 <td>I-05</td>
 <td>Versions, dates and statuses of the site’s own artifacts</td>
 <td><code>data/versions.toml</code>, rendered on the version ledger page</td>
-<td>2026-09-29 <span class="cadence">(does not expire)</span></td>
+<td>2026-09-30 <span class="cadence">(does not expire)</span></td>
 <td>read the file</td>
 <td>The site’s own record of itself</td>
 </tr>
@@ -423,13 +431,13 @@
 <td>read the workflow file</td>
 <td>Only the automatable rows are re-read; rows whose re-derive is a procedure are checked by hand</td>
 </tr>
-<tr data-read="2026-09-29">
+<tr data-read="2026-09-30">
 <td>I-07</td>
-<td>Experiment draft 0.1 has one local three-interval PEER pilot; two registered designs have no result; three other pieces remain held</td>
-<td><code>src/experiments.md</code>; <code>experiments/observer-vantage/recorded.json</code>; <code>data/versions.toml</code></td>
-<td>2026-09-29 16:45 <span class="cadence">(does not expire)</span></td>
-<td>read those three files and run the pilot as E-01</td>
-<td>The local package source is unpublished; the pilot does not demonstrate an independent vantage</td>
+<td>Experiment draft 0.2 retains the local PEER pilot and adds the APS/PriorSeal fixture record and six-case AGT byte reproduction; two observer designs have no result; three other pieces remain held</td>
+<td><code>src/experiments.md</code>; the recorded experiment outputs; <code>data/versions.toml</code></td>
+<td>2026-09-30 <span class="cadence">(does not expire)</span></td>
+<td>Read the experiment page and reproduce each measured record by its pinned procedure</td>
+<td>The added runs check retained fixture evidence and bytes; they do not establish independent custody or production usage</td>
 </tr>
 <tr data-read="2026-09-29">
 <td>I-08</td>
@@ -494,6 +502,46 @@
 <td>Inspect the designs and the version ledger’s draft status; later compare raw run bundles and deviations with this source digest</td>
 <td>Registration fixes a proposed protocol; it does not validate its feasibility or claim independent evidence</td>
 </tr>
+<tr data-read="2026-09-30">
+<td>E-05</td>
+<td>APS/PriorSeal E2 has 96 claim/input rows: 86 pass, four fail, six not-exercised; the fetch script pins 31 input files</td>
+<td><a href="https://github.com/probityai/agent-evidence-vectors/blob/00f5acab880bffc5ee8fe124f3a015d3ed970514/interop/aps-priorseal-e2-2026-09-30/RESULTS.json">RESULTS.json</a> and adjacent fetch_inputs.sh</td>
+<td>2026-09-30 <span class="cadence">(does not expire)</span></td>
+<td>Check out vectors 00f5acab880bffc5ee8fe124f3a015d3ed970514 and run the pinned README commands; count rows by state</td>
+<td>Fixtures at a fixed reference time; the counts are not a deployment success rate</td>
+</tr>
+<tr data-read="2026-09-30">
+<td>E-06</td>
+<td>Both payment cases correlate to the APS decision_ref; the over-limit observation fails the exact-call value and per-action cap; 22 recomputed report values and three quoted values agree</td>
+<td>The E-05 result and adjacent DISAGREEMENTS.md, pins.json and SPEC-GAPS.md</td>
+<td>2026-09-30 <span class="cadence">(does not expire)</span></td>
+<td>Recompute E-05; inspect the named comparison and report rows</td>
+<td>Asset mapping and two hash constructions are the checker’s documented readings; PriorSeal signature assertions remain unexercised</td>
+</tr>
+<tr data-read="2026-09-30">
+<td>E-07</td>
+<td>Seven negative/control records include a rehashed authorization that survives at the unexercised PriorSeal-signature target; its APS requested_call cross-check fails</td>
+<td><a href="https://github.com/probityai/agent-evidence-vectors/blob/00f5acab880bffc5ee8fe124f3a015d3ed970514/interop/aps-priorseal-e2-2026-09-30/NEGATIVES.json">NEGATIVES.json</a>, build_and_run.py and SPEC-GAPS.md</td>
+<td>2026-09-30 <span class="cadence">(does not expire)</span></td>
+<td>Run the pinned mutation procedure and inspect targetedFlips, changed states, and the two controls</td>
+<td>Not whole-case acceptance; no chain execution, live currency or revocation, decision-level single use, cumulative spend, independent custody, or production usage is established</td>
+</tr>
+<tr data-read="2026-09-30">
+<td>E-08</td>
+<td>AGT transcript experiment pins source at 60931ce0c65db144032cdc8e8f342c66cbb1201c and the RFC 8785 oracle at 655cbe02b8761208e3f4cc49e879ab1e328a7dca; Python 3.12.14 and Pydantic 2.13.5</td>
+<td><a href="experiments/trace-transcript/run.py">runner</a> and <a href="experiments/trace-transcript/recorded.json">recorded result</a></td>
+<td>2026-09-30 <span class="cadence">(does not expire)</span></td>
+<td>Run the E5 command; source Git blob IDs must match before import; compare the result byte for byte</td>
+<td>Calls real AuditEntry and mapper code with fixed inputs; no signed record or live agent execution</td>
+</tr>
+<tr data-read="2026-09-30">
+<td>E-09</td>
+<td>Six selected inputs: ASCII agrees across both AGT mappers and RFC 8785; non-ASCII values split the mappers; UTF-16 ordering and three numeric cases disagree with RFC 8785 in both</td>
+<td>E-08 recorded cases and pinned trace_model.py/trace_sink.py source</td>
+<td>2026-09-30 <span class="cadence">(does not expire)</span></td>
+<td>Reproduce E-08 and inspect each digest and agreement flag</td>
+<td>A transcript-byte result for the pinned implementation, not a claim about all TRACE adapters, production failures, effect capture, or custody</td>
+</tr>
 </tbody>
 </table>
 <h2 id="links">Links</h2>
@@ -533,7 +581,7 @@
 </table>
 </main>
 <footer class="site">
-  <p>By Sankalp Gilda. Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.2-draft, 2026-09-29.</p>
+  <p>By Sankalp Gilda. Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.3-draft, 2026-09-30.</p>
 </footer>
 <script>
 (function () {

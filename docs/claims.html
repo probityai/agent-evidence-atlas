@@ -16,6 +16,7 @@
     <a class="home" href="index.html">Independent evidence for AI agent actions</a>
     <span class="links">
       <a href="lab.html">Open Evidence Lab</a>
+      <a href="pilot.html">Pilot status</a>
       <a href="atlas.html">Atlas</a>
       <a href="experiments.html">Experiments</a>
       <a href="claims.html">Claims</a>
@@ -27,7 +28,7 @@
 <header class="page">
 <h1>Claim ledger</h1>
 <p class="subtitle">Every number, date, status and quotation on this site, with its source, when it was read, how to re-derive it, and what it does not mean</p>
-<p class="status">Draft, version 0.7, 1 October 2026. Star counts and current package releases were read by native CI at 2026-10-01T07:04:40Z; historical corpus and experiment values retain their earlier reads. The retained pilot was run on 2026-09-29; the E2 fixture record and AGT byte experiment were read or run on 2026-09-30. The pinned observer admission bundle and replay controls were read or run on 2026-10-01. Each value keeps its read time.</p>
+<p class="status">Draft, version 0.8, 1 October 2026. Star counts and current package releases were read by native CI at 2026-10-01T07:04:40Z; historical corpus and experiment values retain their earlier reads. The retained pilot was run on 2026-09-29; the E2 fixture record and AGT byte experiment were read or run on 2026-09-30. The pinned observer admission bundle, replay controls, and APS and PriorSeal source replay were read or run on 2026-10-01. Each value keeps its read time.</p>
 </header>
 <h2 id="how-to-use-this-ledger">How to use this ledger</h2>
 <ul>
@@ -600,7 +601,7 @@
 <tbody>
 <tr data-read="2026-10-01">
 <td>P-01</td>
-<td>Protocol 0.1 has one initial E6 record, a run form and correction form; artifact hashes and measured JSON-pointer bindings are checked before build</td>
+<td>Protocol 0.1.1 has one initial E6 record, a run form and correction form; artifact hashes and measured JSON-pointer bindings are checked before build</td>
 <td><a href="lab.html">Lab</a>, <a href="lab/register.json">register</a>, <code>tools/check_lab.py</code> and <code>.github/ISSUE_TEMPLATE/</code></td>
 <td>2026-10-01 <span class="cadence">(does not expire)</span></td>
 <td><code>python3 tools/check_lab.py</code>; inspect forms and build job</td>
@@ -621,6 +622,30 @@
 <td>2026-10-01 <span class="cadence">(does not expire)</span></td>
 <td>Inspect #Digest and source mapping comments</td>
 <td>Proposed raw-byte integrity contract; no completed lab adapter result, Gemara adoption or effect/custody claim</td>
+</tr>
+<tr data-read="2026-10-01">
+<td>P-04</td>
+<td>PR #5’s pinned source replay checks 17 owner/copy files, reports 14 established, 3 contradicted, 5 not established claims, and refuses substituted copy, missing owner, omitted flag and stale report</td>
+<td><a href="https://github.com/probityai/agent-evidence-atlas/tree/516bd0aa0f93e94ee6877f64dbd122c52545f388/experiments/aps-priorseal-source-replay">Pinned runner, procedure and recorded outcomes</a>; <a href="https://github.com/probityai/agent-evidence-atlas/actions/runs/36910480718">CI run 36910480718</a></td>
+<td>2026-10-01 <span class="cadence">(does not expire)</span></td>
+<td>Run the pinned procedure from fresh source checkouts; compare the 22 claim results and five cases with <code>recorded.json</code></td>
+<td>Frequency’s unmodified review adapter on public fixtures, with known expected outcomes; no mutation adequacy, live effect, independent custody or formal acceptance</td>
+</tr>
+<tr data-read="2026-10-01" data-cadence-days="7">
+<td>P-05</td>
+<td>PR #5 was open at this read; APS, PriorSeal and Frequency owner confirmations are not recorded in Probity’s proposed pilot page</td>
+<td><a href="https://github.com/probityai/agent-evidence-atlas/pull/5">PR #5</a>; <a href="pilot.html">pilot status</a></td>
+<td>2026-10-01 <span class="cadence">(7-day cadence)</span></td>
+<td>Check PR state and the pilot page’s owner confirmation links at the next review</td>
+<td>This is Probity’s work status, not a claim that no external conversation exists</td>
+</tr>
+<tr data-read="2026-10-01">
+<td>P-06</td>
+<td>Frequency’s pinned capsule carries a review-only notice that withholds commercial incorporation and redistribution of modified or derivative implementations</td>
+<td><a href="https://github.com/altrudev/Frequency-Federation-Review/blob/4162622af24c94efb843f53aa27940ffd1256ad6/REVIEW-ONLY-NOTICE.md">Pinned notice</a></td>
+<td>2026-10-01 <span class="cadence">(does not expire)</span></td>
+<td>Inspect the pinned notice; any later permission needs its own evidence</td>
+<td>Technical reproduction by reference is separate from a commercial license or shared-schema grant</td>
 </tr>
 </tbody>
 </table>
@@ -661,7 +686,7 @@
 </table>
 </main>
 <footer class="site">
-  <p>Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.5-draft, 2026-10-01.</p>
+  <p>Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.6-draft, 2026-10-01.</p>
 </footer>
 <script>
 (function () {

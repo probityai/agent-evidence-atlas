@@ -13,6 +13,7 @@ Every number, date and status the framework prints has a row in a claim ledger, 
 | `tools/rederive.py` | Re-derives every automatable row of the claim ledger and prints the recorded and the current value side by side. |
 | `data/versions.toml` | The version ledger: every artifact, its version, date and status. The build adds the SHA-256 of each artifact's source. |
 | `src/lab.md`, `data/lab-register.json` | The Probity Open Evidence Lab protocol, intake/correction routes and retained run register. |
+| `src/pilot.md` | Probity's proposed APS and PriorSeal pilot status, acceptance gates and open decisions; separate from measured Lab records. |
 | `tools/check_lab.py` | Checks register artifact hashes and measured-field bindings before the site builds. Review of claim meaning and operational independence remains explicit. |
 | `tools/build.py`, `tools/template.html`, `assets/site.css` | The site build: Markdown to HTML with pandoc, failing on any warning. |
 | `tools/gen_atlas.py`, `templates/atlas.md.in` | Renders the atlas page from `data/atlas.toml`. |

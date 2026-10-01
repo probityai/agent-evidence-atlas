@@ -19,7 +19,7 @@ Every number, date and status the framework prints has a row in a claim ledger, 
 
 ## Release rule
 
-Each artifact has its own release contract, and an artifact is added here when it passes that contract, not before. The version ledger lists every artifact of the framework; one that has not passed yet is shown there as held. The experiment draft retains the local PEER pilot and adds an immutable APS/PriorSeal fixture record and a source-pinned AGT transcript-byte runner and result. Below-agent observation and independent history remain registered designs without a result. The essay, runnable verifier demonstration and twelve-month series plan remain held.
+Each artifact has its own release contract, and an artifact is added here when it passes that contract, not before. The version ledger lists every artifact of the framework; one that has not passed yet is shown there as held. The experiment draft retains the local PEER pilot, an immutable APS/PriorSeal fixture record, a source-pinned AGT transcript-byte result, and the public observer declaration-to-admission demo with its original CI bundle and replay controls. Separately reproduced below-agent observation and independent history remain registered designs without a qualifying result. The essay, runnable verifier demonstration and twelve-month series plan remain held.
 
 ## Re-derive and build
 
@@ -33,6 +33,13 @@ python3 tools/check_links.py --external
 ```
 
 A read that fails is printed as `UNREAD` with its reason and is never counted as unchanged. GitHub's unauthenticated API allows 60 requests an hour, which covers one run; set `GITHUB_TOKEN` to raise the limit.
+
+The `observer-admission` CI job checks the original pinned observer demo and the
+retained signed bundle on every push and pull request. Reproduce it using the
+E6 commands in `src/experiments.md`. It requires the exact source blobs, Python
+3.12.14 and cryptography 46.0.7, and refuses changed authority, signed-claim
+tampering and a second admission. The result remains an author-produced
+same-operator PEER/artifact fixture.
 
 ## The public code the framework uses
 

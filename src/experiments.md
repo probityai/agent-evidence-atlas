@@ -1,8 +1,8 @@
 ---
 title: "Experiments: evidence, effects and bytes"
-subtitle: "A PEER pilot, pinned decision-call and byte experiments, and two registered observer designs"
-status: "Draft 0.2, 30 September 2026. The retained pilot and two fixture experiments have results; they do not establish below-agent observation or independently operated custody."
-description: "A snapshot-gap pilot, APS/PriorSeal fixture outcomes and limits, and a source-pinned AGT transcript-byte reproduction."
+subtitle: "A PEER pilot, pinned decision-call, byte and consumer-admission experiments, and two registered observer designs"
+status: "Draft 0.3, 1 October 2026. The retained pilot and three fixture experiments have results; independent operation and custody remain unestablished."
+description: "A snapshot-gap pilot, APS/PriorSeal limits, AGT transcript bytes, and a pinned observer declaration-to-admission replay."
 toc: true
 ---
 
@@ -12,7 +12,7 @@ The [atlas's open cell](atlas.html#the-open-cell) asks whether a record of an ag
 
 The local `agent-evidence-observer` prototype mediates one file replacement, commits to the before-state, signs a bounded result, and checks a hash-chain head under a second key. It does not isolate an agent. Its own record says `witnessScope: PEER` and `unmediatedEffects: not-established`. The two keys are controlled by one local operator.
 
-I ran [the exact pilot script](experiments/observer-vantage/run.py) against the package source identified by SHA-256 `273e4985cb4de671145bcd55ef85545be213e8520f766ab7692e9d05edae60d1`. The [recorded machine result](experiments/observer-vantage/recorded.json) contains three scripted intervals. This source is a local prototype awaiting a public repository; an outside reader can inspect the pilot script and result now, but cannot independently rerun the same package revision until those source bytes are published. The result is a local measurement, not a claim of independent reproduction.
+I ran [the exact pilot script](experiments/observer-vantage/run.py) against the package source identified by SHA-256 `273e4985cb4de671145bcd55ef85545be213e8520f766ab7692e9d05edae60d1`. The [recorded machine result](experiments/observer-vantage/recorded.json) contains three scripted intervals. At that read, the package source was a local unpublished prototype. The observer now has public source, used at a different pin in E6; that does not supply or identify the exact older source bytes for this pilot. Its original result remains a local measurement without an independent reproduction.
 
 | interval | deliberately attempted effect | observed result | inference |
 |---|---|---|---|
@@ -42,7 +42,7 @@ The script hashes the package metadata and every `src/probity_observer/*.py` fil
 
 **Primary outcomes.** For each attempted effect, report its raw trace, broker decision, resulting durable bytes, record, refusal or gap, and verification result. The threshold to claim a *bounded below-agent file-write observation* is a demonstrated inability of the tested agent to address the observer and watched tree except through the broker, no missing record for the tested channel, and a signed prior commitment bound to that interval. A single escaped effect or missing record blocks that claim. This does not establish all filesystem effects, all agent actions, or host-operator honesty.
 
-This experiment has **zero isolated-agent runs** and no measured overhead. The [observer acceptance criteria](https://github.com/probityai/agent-evidence-vectors/blob/main/spec/predicates/observed-effect.md) are a target for the record format; the local prototype does not emit a conformant Observed Effect statement.
+This registered design has no separately reproduced isolated-agent result or measured overhead here. Upstream now runs an author-operated Linux boundary probe, whose CI provenance is recorded in E6. That artifact does not satisfy this design's separate-operator requirement. The [observer acceptance criteria](https://github.com/probityai/agent-evidence-vectors/blob/main/spec/predicates/observed-effect.md) remain a target; no conformant Observed Effect statement is established by the retained pilot or E6.
 
 ## E3. Separately witnessed history: registered design, no result
 
@@ -105,3 +105,48 @@ diff -u experiments/trace-transcript/recorded.json /tmp/trace-transcript.json
 ```
 
 The runner also accepts `--source-dir` for an offline rerun from cached source blobs; it checks the same immutable pins. This experiment signs no record and executes no live agent. It establishes byte disagreements on the selected inputs, with no measured claim about effect capture, coverage, custody, or production failures. The ledger records its provenance and results as E-08 and E-09.
+
+## E6. Observer declaration, admission and replay {#observer-consumer-admission}
+
+The [runner](experiments/observer-admission/run.py) executes the unchanged public observer demo at [8562c25](https://github.com/probityai/agent-evidence-observer/tree/8562c25fb7ec97596ea9d0297c495340298914b6). It checks [12 Git blob pins](experiments/observer-admission/source-pins.json), privately copies the verified sources, and only then imports them. The declaration fixes interval `admission-demo-1`, scope `/work`, and operation `write-file`. The consumer records those expectations and a signed witness head before the broker begins. The broker performs one durable file replacement, seals its history, and the consumer persists its admission before returning success.
+
+The [retained bundle](experiments/observer-admission/provenance.json) is the original `admission-run` artifact from [observer CI run 36808961399](https://github.com/probityai/agent-evidence-observer/actions/runs/36808961399), downloaded and hash-checked. Its archive SHA-256 is `bcc22cd27b1f9404e961f7329770620994a76348d085b7b711ab586986493892`. The provenance record supplies a digest for each of the eight retained evidence files and records the omission of two empty lock files, so the evidence survives the original artifact's expiry. The PR run reports head `cc7191e344aabcd26baec8cbac922050ad1420b2`; its logs show checkout of synthetic merge `e8040a8032ea197ea7a185a832808c5fb9ee9355`. The tested tree matches the pinned observer revision. That original archive records the tested PR tree. A later [native main run 36825509807](https://github.com/probityai/agent-evidence-observer/actions/runs/36825509807) checked out exact revision `8562c25fb7ec97596ea9d0297c495340298914b6` and passed the same 148 tests, admission demo and eight Linux boundary-probe checks. The provenance record includes this additional run and its distinct artifact digests. None was independently operated.
+
+| retained file | what is checked |
+|---|---|
+| [Policy](experiments/observer-admission/retained/consumer/policy.json) | Fixture authority, interval, public keys, and signed witness head |
+| [Packet](experiments/observer-admission/retained/producer/packet.json) and [broker history](experiments/observer-admission/retained/producer/history.jsonl) | Prior commitment, signatures, roots, request history and bounded coverage |
+| [Witness receipt log](experiments/observer-admission/retained/producer/ledger.jsonl) | Two authenticated checkpoint receipts and retained-head continuity |
+| [Durable file](experiments/observer-admission/retained/producer/workspace/result.txt) | Exact bytes `one durable effect` followed by a newline, and the current retained tree root |
+| [Decision](experiments/observer-admission/retained/consumer/decision.json) and [consumer state](experiments/observer-admission/retained/consumer/state.json) | One admission, bound to authority, claim digest, effect root and receipt-log head |
+| [Original demo report](experiments/observer-admission/retained/demo-report.json) | Successful first admission and the exact replay refusal |
+
+The atlas re-admits those signed bytes in a fresh scratch consumer store and requires its decision and durable state to equal the retained records. Its [deterministic result](experiments/observer-admission/recorded.json) also records three controls:
+
+| intervention | required outcome |
+|---|---|
+| Repeat the admitted interval | Refuse: `interval was already admitted by this consumer` |
+| Change the consumer's expected authority scope to `/other`, in a fresh store | Refuse: `packet authority differs from consumer policy` |
+| Change the signed claim's after-root without re-signing, in another fresh store | Refuse: `signature does not verify under the pinned key` |
+
+Every refusal must leave consumer state unchanged. Fresh stores for the latter controls ensure replay protection cannot mask a missing authority or signature check. A newly executed demo generates new keys, nonces and signatures; the comparison checks complete semantic outcomes and source digests, while the original bundle has its own exact file manifest.
+
+To reproduce on Linux:
+
+```sh
+git clone https://github.com/probityai/agent-evidence-observer observer-source
+git -C observer-source checkout --detach 8562c25fb7ec97596ea9d0297c495340298914b6
+uv run --no-project --python 3.12.14 --with cryptography==46.0.7 \
+  python experiments/observer-admission/run.py --observer-root observer-source \
+  --bundle experiments/observer-admission/retained \
+  --manifest experiments/observer-admission/provenance.json \
+  --expect experiments/observer-admission/recorded.json
+uv run --no-project --python 3.12.14 --with cryptography==46.0.7 \
+  python experiments/observer-admission/run.py --observer-root observer-source \
+  --output /tmp/observer-admission-new \
+  --expect experiments/observer-admission/recorded.json
+```
+
+The output directory must be empty. After the exact source checkout and runtime are available, neither command fetches sources or contacts a witness. The atlas CI job runs both commands and the source-pin/refusal attack tests on every push and pull request, retaining each fresh bundle.
+
+This is an **author-produced same-operator fixture**, with `witnessScope: PEER` and `evidence_vantage: artifact`. Its public keys and head are fixture expectations, not externally acquired trust. It establishes the tested declaration-to-admission ordering, signed-byte checks and local at-most-once admission. Its coverage remains `broker-write-calls-with-valid-request-id`, with `unmediatedEffects: not-established`. It does not establish independent custody, live-agent behavior, wall-clock freshness, complete effect capture, production isolation, cross-host consensus, or exactly-once downstream effects. Deleting or rolling back consumer state can erase replay protection. The ledger records these outcomes and ceilings as E-10 through E-13.

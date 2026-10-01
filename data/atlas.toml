@@ -13,7 +13,7 @@
 # that has a `repo`.
 
 [meta]
-version = "0.2-preview"
+version = "0.3-preview"
 read_window = "2026-09-27 00:40 to 01:00 UTC"
 # Set by tools/refresh_stars.py when it rewrites every `stars` value below.
 stars_read = "2026-09-27 11:49 UTC"
@@ -449,7 +449,7 @@ name = "Signed statement in an envelope (in-toto, DSSE)"
 layer = "L5"
 writer = "whoever holds the key"
 establishes = "The key holder signed these bytes and no others"
-cannot = "That the key holder observed what the bytes describe. The [APS/PriorSeal fixture run](experiments.html#aps-priorseal-e2) leaves PriorSeal signatures unexercised and a rehashed authorization survives at that target; hashes alone do not supply the missing signature check"
+cannot = "That the key holder observed what the bytes describe. The [APS/PriorSeal fixture run](experiments.html#aps-priorseal-e2) leaves PriorSeal signatures unexercised and a rehashed authorization survives at that target. The [observer consumer replay](experiments.html#observer-consumer-admission) checks signed history, authority and replay before admission, under author-produced PEER fixture pins; it establishes no independent custody"
 [[mechanism]]
 name = "Canonicalization (RFC 8785)"
 layer = "L5"

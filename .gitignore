@@ -3,3 +3,6 @@ demo/verifier/target/
 *.pyc
 __pycache__/
 *.ledger.json
+.observer-source/
+observer-admission-run/
+observer-admission-report.json

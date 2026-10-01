@@ -12,9 +12,9 @@ Where a piece has not been released, the [version ledger](versions.html) says so
 | artifact | what it is | version | date | status |
 |---|---|---|---|---|
 | [Probity Open Evidence Lab](lab.html) | Run register, reproducible E6 starting point, evidence submissions, hostile controls and correction protocol | 0.1.1 | 2026-10-01 | [draft]{.label .draft} |
-| [APS and PriorSeal pilot status](pilot.html) | One proposed source-bound run, the open technical replay, confirmation slots, acceptance gates and decisions still to make | 0.1 | 2026-10-01 | [proposed]{.label .proposed} |
+| [APS and PriorSeal pilot status](pilot.html) | One proposed source-bound run, the merged technical replay, confirmation slots, acceptance gates and decisions still to make | 0.1.1 | 2026-10-01 | [proposed]{.label .proposed} |
 | [Atlas](atlas.html) | Seven families, 45 named projects and standards, 18 mechanisms, and pinned signature, transcript-byte and consumer-admission limits | 0.4 preview | 2026-10-01 | [draft]{.label .draft} |
-| [Claim ledger](claims.html) | The source, read time, re-derive command and limit behind the numbers, dates and statuses on this site, re-checked on every weekly re-derive | 0.8 | 2026-10-01 | [draft]{.label .draft} |
+| [Claim ledger](claims.html) | The source, read time, re-derive command and limit behind the numbers, dates and statuses on this site, re-checked on every weekly re-derive | 0.8.1 | 2026-10-01 | [draft]{.label .draft} |
 | [Version ledger](versions.html) | Each artifact's version, date and status, beside a digest of the source it was built from, updated with every build | site build 0.6 | 2026-10-01 | [draft]{.label .draft} |
 | [Experiments](experiments.html) | The PEER pilot, APS/PriorSeal limits, AGT byte reproduction, pinned observer admission/replay and two registered designs | 0.3 | 2026-10-01 | [draft]{.label .draft} |
 | [*Three Jobs, Not One*](https://doi.org/10.5281/zenodo.21935891) | The paper behind the framework: why policy, containment and evidence are separate jobs, each needing its own mechanism | Zenodo version 6 | 2026-08-14 | [published]{.label .published} on Zenodo |

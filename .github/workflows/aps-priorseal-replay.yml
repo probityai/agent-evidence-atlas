@@ -32,6 +32,13 @@ jobs:
           persist-credentials: false
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          repository: altrudev/Frequency-Federation-Review
+          ref: b12879d5878991d9c3ed260d06ee11716eb99d33
+          path: .build/aps-priorseal-replay/review-wrapper
+          sparse-checkout: capsules/aps-priorseal-v0.1
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
           repository: aeoess/agent-passport-system
           ref: 948f99b85343bef2c6fa677c8543965caacfc087
           path: .build/aps-priorseal-replay/aps
@@ -57,10 +64,21 @@ jobs:
             .build/aps-priorseal-replay/aps \
             .build/aps-priorseal-replay/priorseal \
             .build/aps-priorseal-replay/result
-      - name: Retain the Probity receipt
-        run: cp .build/aps-priorseal-replay/result/receipt.json aps-priorseal-receipt.json
+      - name: Check the pinned wrapper's run contract
+        run: |
+          node experiments/aps-priorseal-source-replay/check-run-contract.mjs \
+            .build/aps-priorseal-replay/review-wrapper \
+            .build/aps-priorseal-replay/aps \
+            .build/aps-priorseal-replay/priorseal \
+            .build/aps-priorseal-replay/contract-result
+      - name: Retain the Probity records
+        run: |
+          cp .build/aps-priorseal-replay/result/receipt.json aps-priorseal-receipt.json
+          cp .build/aps-priorseal-replay/contract-result/record.json aps-priorseal-run-contract.json
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: aps-priorseal-source-replay
-          path: aps-priorseal-receipt.json
+          path: |
+            aps-priorseal-receipt.json
+            aps-priorseal-run-contract.json
           if-no-files-found: error

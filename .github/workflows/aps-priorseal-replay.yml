@@ -1,0 +1,66 @@
+name: APS and PriorSeal source replay
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - experiments/aps-priorseal-source-replay/**
+      - .github/workflows/aps-priorseal-replay.yml
+  pull_request:
+    paths:
+      - experiments/aps-priorseal-source-replay/**
+      - .github/workflows/aps-priorseal-replay.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: altrudev/Frequency-Federation-Review
+          ref: 4162622af24c94efb843f53aa27940ffd1256ad6
+          path: .build/aps-priorseal-replay/capsule
+          sparse-checkout: capsules/aps-priorseal-v0.1
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: aeoess/agent-passport-system
+          ref: 948f99b85343bef2c6fa677c8543965caacfc087
+          path: .build/aps-priorseal-replay/aps
+          sparse-checkout: fixtures/priorseal-decision-binding
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: imokokok/PriorSeal
+          ref: d749d2691c3e6be139de4020e7b27cdafca2c428
+          path: .build/aps-priorseal-replay/priorseal
+          sparse-checkout: examples/aps-priorseal-decision-binding-v1
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: "20"
+      - name: Install the review adapter's locked dependencies
+        working-directory: .build/aps-priorseal-replay/capsule/capsules/aps-priorseal-v0.1/adapter
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Check the pinned sources, claims and failed controls
+        run: |
+          node experiments/aps-priorseal-source-replay/run.mjs \
+            .build/aps-priorseal-replay/capsule \
+            .build/aps-priorseal-replay/aps \
+            .build/aps-priorseal-replay/priorseal \
+            .build/aps-priorseal-replay/result
+      - name: Retain the Probity receipt
+        run: cp .build/aps-priorseal-replay/result/receipt.json aps-priorseal-receipt.json
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: aps-priorseal-source-replay
+          path: aps-priorseal-receipt.json
+          if-no-files-found: error

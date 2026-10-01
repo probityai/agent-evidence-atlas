@@ -43,7 +43,25 @@ node experiments/aps-priorseal-source-replay/run.mjs \
 
 `recorded.json` contains the SHA-256 of one locally generated report. The adapter includes a generation time, so a fresh run's report digest changes; the replay compares claim results and case outcomes, not that historical digest. The runner pins the adapter source and lockfile, while the documented `npm ci` installs dependencies. It does not independently attest the installed `node_modules` tree or Node runtime bytes.
 
-The dedicated GitHub workflow repeats this procedure with Node 20 when this experiment changes. It retains only Probity's `receipt.json` as a CI artifact; the source checkouts and full generated adapter report stay within that job.
+The dedicated GitHub workflow repeats this procedure with Node 20 when this experiment changes. It retains Probity's `receipt.json` and a separate run-contract record as CI artifacts; the source checkouts and full generated adapter report stay within that job.
+
+## Pinned run contract
+
+The [Frequency review wrapper at `b12879d`](https://github.com/altrudev/Frequency-Federation-Review/blob/b12879d5878991d9c3ed260d06ee11716eb99d33/capsules/aps-priorseal-v0.1/run-pinned.sh) is a separate execution path from the adapter replay above. `check-run-contract.mjs` pins the wrapper bytes and runs it against the same pinned producer checkouts with stubbed `npm` and `node` commands. In three controls, a failed Node command, a failed dependency install and a successful command that writes no report, the wrapper exits zero, records zero and prints `PASS` without a report. Probity rejects each as a usable run because there is no fresh report. The record includes the injected exits and observed wrapper behavior. No adapter assertion or producer claim is evaluated by these stubs.
+
+To reproduce from the repository root, use the APS and PriorSeal checkouts from the command above:
+
+```sh
+git clone https://github.com/altrudev/Frequency-Federation-Review.git "$replay_dir/review-wrapper"
+git -C "$replay_dir/review-wrapper" checkout --detach b12879d5878991d9c3ed260d06ee11716eb99d33
+node experiments/aps-priorseal-source-replay/check-run-contract.mjs \
+  "$replay_dir/review-wrapper" \
+  "$replay_dir/aps" \
+  "$replay_dir/priorseal" \
+  "$replay_dir/contract-result"
+```
+
+The output directory must be new. This control describes the pinned wrapper only. The main replay invokes the adapter directly and requires a zero exit and a newly written report before it accepts any result.
 
 ## Limits and next decisions
 

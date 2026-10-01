@@ -115,11 +115,11 @@ def atlas_star_rows() -> list:
 
 ROWS = atlas_star_rows() + [
     ("A-38a", "v0.3.0", lambda: latest_tag("probityai/agent-evidence-vocabulary")),
-    ("A-38b", "0.13.0", lambda: pypi_version("agent-evidence-vectors")),
+    ("A-38b", "0.16.0", lambda: pypi_version("agent-evidence-vectors")),
     ("A-38c", "817 in 13", lambda: vector_total("v0.13.0")),
     ("A-38d", "no tags", lambda: latest_tag("probityai/agent-evidence-admission")),
-    ("A-38e", "0.1.0", lambda: crate_version("jcs-admit")),
-    ("A-38f", "0.1.0", lambda: crate_version("dsse")),
+    ("A-38e", "0.1.1", lambda: crate_version("jcs-admit")),
+    ("A-38f", "0.1.1", lambda: crate_version("dsse")),
     ("A-39d", "open", lambda: pr_state("OWASP/CheatSheetSeries", 2332)),
     ("A-39f", "open", lambda: pr_state("a2aproject/A2A", 2246)),
     ("I-01", "v6 2026-08-14", lambda: zenodo_version(21935891)),

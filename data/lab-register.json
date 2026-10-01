@@ -1,0 +1,85 @@
+{
+  "maintainer": "Probity",
+  "protocolVersion": "0.1",
+  "records": [
+    {
+      "answerExposure": "Implementation, demo and retained expected outcomes were available to the atlas runner; not an answer-blind replication",
+      "artifacts": [
+        {
+          "path": "../experiments/observer-admission/source-pins.json",
+          "sha256": "2ffd87708075c0dd7b230336fdfd72c93bd2fbf3eded37ee632f75ad735418ec"
+        },
+        {
+          "path": "../experiments/observer-admission/recorded.json",
+          "sha256": "c8d9675ac0ff5fccd6545b6e6bb6ab5ac3bcc14b313d7087b253bab1f7f0f1eb"
+        },
+        {
+          "path": "../experiments/observer-admission/provenance.json",
+          "sha256": "8ea7581c5555e135963fc1419979157360acc724be7c17c2784136e29ce691f0"
+        }
+      ],
+      "atlasRevision": "91a0759e459acee8355e2f9aba34f8e80d19e038",
+      "claimResults": [
+        {
+          "claim": "consumer-authority-binding",
+          "expectedValue": "packet authority differs from consumer policy",
+          "recordedField": "/outcomes/authorityRefusal",
+          "result": "pass"
+        },
+        {
+          "claim": "durable-consumer-admission",
+          "expectedValue": "admitted",
+          "recordedField": "/outcomes/admissionStatus",
+          "result": "pass"
+        },
+        {
+          "claim": "persisted-replay-refusal",
+          "expectedValue": "interval was already admitted by this consumer",
+          "recordedField": "/outcomes/replayRefusal",
+          "result": "pass"
+        },
+        {
+          "claim": "signed-claim-tamper-refusal",
+          "expectedValue": "signature does not verify under the pinned key",
+          "recordedField": "/outcomes/tamperRefusal",
+          "result": "pass"
+        },
+        {
+          "claim": "independent-custody",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "external-host-ci-adoption",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "unmediated-effect-capture",
+          "result": "not-exercised"
+        }
+      ],
+      "contract": "https://github.com/probityai/agent-evidence-observer/blob/8562c25fb7ec97596ea9d0297c495340298914b6/docs/CONSUMER-ADMISSION.md",
+      "comparisonOrder": "Retrospective retained-fixture comparison; not a result frozen before expected-answer comparison",
+      "evidenceClaim": "verifier-behavior-on-author-fixture",
+      "experiment": "../experiments.html#observer-consumer-admission",
+      "id": "E6-observer-admission",
+      "limits": [
+        "One declared broker file write and one local consumer admission",
+        "No live-agent or production-isolation measurement",
+        "No independently operated witness or consumer",
+        "Consumer-state rollback can erase replay protection",
+        "No exactly-once downstream-effect claim"
+      ],
+      "observerRevision": "8562c25fb7ec97596ea9d0297c495340298914b6",
+      "provenance": "../experiments/observer-admission/provenance.json",
+      "report": "../experiments/observer-admission/recorded.json",
+      "reviewState": "retained-measured-record",
+      "roles": {
+        "atlasReplay": "author-produced",
+        "evidenceVantage": "artifact",
+        "fixtureOperator": "same-operator-fixture",
+        "independentOperation": "not-established",
+        "witnessScope": "PEER"
+      }
+    }
+  ]
+}

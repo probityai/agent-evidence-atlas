@@ -68,13 +68,13 @@ def render(d: dict) -> str:
             f"## {i}. {l['name']}",
             f"Question\n:   {l['question']}\n\nEstablishes\n:   {l['establishes']}\n\n"
             f"Cannot establish\n:   {l['cannot']}",
-            table(["project or standard", "status or size, read 2026-09-27"], rows),
+            table(["project or standard", f"status read 2026-09-27; stars read {d['meta']['stars_read']}"], rows),
             f"{seam_title} ({nxt.lower()})\n:   {l['seam']}",
         ]))
 
     artifact_table = table(
-        ["artifact", "family", "release, read 2026-09-27", "what it does", "what it does not do"],
-        [[f"[{a['name']}]({a['url']})", a["layers"], f"{a['release']} {label(a['label'])}", a["does"], a["does_not"]]
+        ["artifact", "family", "release and read time; status label", "what it does", "what it does not do"],
+        [[f"[{a['name']}]({a['url']})", a["layers"], f"{a['release']}; read {a.get('read', '2026-09-27')} {label(a['label'])}", a["does"], a["does_not"]]
          for a in d["artifact"]])
 
     corpora = d["corpus"]

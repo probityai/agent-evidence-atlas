@@ -15,6 +15,7 @@
   <nav aria-label="Site">
     <a class="home" href="index.html">Independent evidence for AI agent actions</a>
     <span class="links">
+      <a href="lab.html">Open Evidence Lab</a>
       <a href="atlas.html">Atlas</a>
       <a href="experiments.html">Experiments</a>
       <a href="claims.html">Claims</a>
@@ -26,7 +27,7 @@
 <header class="page">
 <h1>Claim ledger</h1>
 <p class="subtitle">Every number, date, status and quotation on this site, with its source, when it was read, how to re-derive it, and what it does not mean</p>
-<p class="status">Draft, version 0.6, 1 October 2026. Star counts were refreshed at 2026-09-27 11:49 UTC; earlier automatable rows were last re-derived at 2026-09-27T09:52:44Z. The retained pilot was run on 2026-09-29; the E2 fixture record and AGT byte experiment were read or run on 2026-09-30. The pinned observer admission bundle and replay controls were read or run on 2026-10-01. Each value keeps its read time.</p>
+<p class="status">Draft, version 0.7, 1 October 2026. Star counts and current package releases were read by native CI at 2026-10-01T07:04:40Z; historical corpus and experiment values retain their earlier reads. The retained pilot was run on 2026-09-29; the E2 fixture record and AGT byte experiment were read or run on 2026-09-30. The pinned observer admission bundle and replay controls were read or run on 2026-10-01. Each value keeps its read time.</p>
 </header>
 <h2 id="how-to-use-this-ledger">How to use this ledger</h2>
 <ul>
@@ -34,7 +35,7 @@
 <li><strong>Read times</strong> are UTC, and each read cell states its row’s cadence: star counts, pull-request states and link checks 7 days, standards and project statuses 30 days, while published versions and dated events do not expire. <code>data/claim_cadence.toml</code> holds the cadence of every row. When a row’s read date plus its cadence has passed, this page marks the row stale as it loads. <span id="stale-count">With scripts off, compare each read date with its cadence.</span></li>
 <li><strong>Captures.</strong> Every web page cited was saved when it was read. The capture log records URL, HTTP status, UTC time and SHA-256 for each one.</li>
 </ul>
-<p>Each row’s identifier starts with the letter of the page it covers: <code>A</code> for the atlas, <code>I</code> for the home page, <code>E</code> for the experiments, and <code>L</code> for the site’s links. Rows that cite a local unpublished source say so; they are not independently reproducible until those exact source bytes are published.</p>
+<p>Each row’s identifier starts with the letter of the page it covers: <code>A</code> for the atlas, <code>I</code> for the home page, <code>E</code> for the experiments, <code>P</code> for the lab protocol, and <code>L</code> for the site’s links. Rows that cite a local unpublished source say so; they are not independently reproducible until those exact source bytes are published.</p>
 <h2 id="atlas">Atlas</h2>
 <table style="width:100%;">
 <colgroup>
@@ -90,33 +91,33 @@
 </tr>
 <tr data-read="2026-09-27" data-cadence-days="7">
 <td>A-06</td>
-<td>Open Policy Agent: CNCF Graduated (2021); 12,278 stars</td>
+<td>Open Policy Agent: CNCF Graduated (2021); 12,297 stars</td>
 <td>cncf.io; GitHub API</td>
-<td>2026-09-27 00:47; 11:49 <span class="cadence">(7-day cadence)</span></td>
+<td>Status 2026-09-27 00:47; stars 2026-10-01 07:04:40 <span class="cadence">(7-day cadence)</span></td>
 <td><code>rederive.py</code> A-stars</td>
 <td>Maturity level and attention, not adoption or quality</td>
 </tr>
 <tr data-read="2026-09-27" data-cadence-days="7">
 <td>A-07</td>
-<td>Kyverno: CNCF Graduated (2026-03-16); 8,187 stars</td>
+<td>Kyverno: CNCF Graduated (2026-03-16); 8,206 stars</td>
 <td>cncf.io; GitHub API</td>
-<td>2026-09-27 00:47; 11:49 <span class="cadence">(7-day cadence)</span></td>
+<td>Status 2026-09-27 00:47; stars 2026-10-01 07:04:40 <span class="cadence">(7-day cadence)</span></td>
 <td><code>rederive.py</code> A-stars</td>
 <td>Maturity level and attention, not adoption or quality</td>
 </tr>
 <tr data-read="2026-09-27" data-cadence-days="7">
 <td>A-09</td>
-<td>agentgateway: a Linux Foundation project, per its README; 5,059 stars</td>
+<td>agentgateway: a Linux Foundation project, per its README; 5,111 stars</td>
 <td>the project’s README; GitHub API</td>
-<td>2026-09-27 00:56; 11:49 <span class="cadence">(7-day cadence)</span></td>
+<td>Status 2026-09-27 00:56; stars 2026-10-01 07:04:40 <span class="cadence">(7-day cadence)</span></td>
 <td><code>rederive.py</code> A-stars</td>
 <td>Foundation status is the project’s own statement; the CNCF project URL returned 404</td>
 </tr>
-<tr data-read="2026-09-27" data-cadence-days="7">
+<tr data-read="2026-10-01" data-cadence-days="7">
 <td>A-stars</td>
 <td>Every GitHub star count on the atlas (25 entries that name a repository)</td>
-<td>GitHub API <code>repos/&lt;owner&gt;/&lt;repo&gt;</code></td>
-<td>2026-09-27 11:49, recorded as <code>stars_read</code> in <code>data/atlas.toml</code> <span class="cadence">(7-day cadence)</span></td>
+<td>GitHub API <code>repos/&lt;owner&gt;/&lt;repo&gt;</code>; <a href="readouts/rederive-2026-10-01.txt">native CI readout</a></td>
+<td>2026-10-01 07:04:40, recorded as <code>stars_read</code> in <code>data/atlas.toml</code> <span class="cadence">(7-day cadence)</span></td>
 <td><code>python3 tools/rederive.py</code> reads every entry with a <code>repo</code> in <code>data/atlas.toml</code>; <code>python3 tools/refresh_stars.py</code> rewrites them all with one read time</td>
 <td>Stars measure attention, not quality or use</td>
 </tr>
@@ -290,11 +291,11 @@
 </tr>
 <tr data-read="2026-09-27" data-cadence-days="30">
 <td>A-38</td>
-<td>vocabulary v0.3.0; vectors v0.13.0 with 817 vectors in 13 corpora; admission has no release; jcs-admit 0.1.0; dsse 0.1.0</td>
-<td>GitHub tags; PyPI; the 13 <code>MANIFEST.json</code> files at tag v0.13.0; crates.io</td>
-<td>00:44 to 00:46; vector total 2026-09-27 01:16 <span class="cadence">(30-day cadence)</span></td>
+<td>Current releases: vocabulary v0.3.0; vectors v0.16.0; admission no tags; jcs-admit and dsse 0.1.1. Historical v0.13.0 baseline: 817 vectors in 13 corpora</td>
+<td>GitHub tags; PyPI; crates.io; <a href="readouts/rederive-2026-10-01.txt">native CI readout</a>; original 13 <code>MANIFEST.json</code> files at v0.13.0</td>
+<td>Current releases 2026-10-01 07:04:40; historical vector total 2026-09-27 01:16 <span class="cadence">(30-day cadence)</span></td>
 <td><code>rederive.py</code> A-38a to A-38f</td>
-<td>The vector count is the sum of manifest members at the tag, including 13 members of one corpus marked <code>proposed</code>; the repository’s main branch is ahead of the tag</td>
+<td>Current release versions and the historical tagged corpus census are separate measurements; the old count is not a v0.16.0 total</td>
 </tr>
 <tr data-read="2026-09-27" data-cadence-days="30">
 <td>A-38q</td>
@@ -409,11 +410,11 @@
 </tr>
 <tr data-read="2026-09-27" data-cadence-days="30">
 <td>I-04</td>
-<td>Releases and labels of the five repositories: vocabulary v0.3.0, draft; vectors v0.13.0, published; admission no release, draft; jcs-admit and dsse 0.1.0, published</td>
-<td>releases as A-38; labels as the atlas’s artifact table in <code>data/atlas.toml</code></td>
-<td>2026-09-27 11:49 <span class="cadence">(30-day cadence)</span></td>
+<td>Current releases: vocabulary v0.3.0; vectors v0.16.0; admission no tags; jcs-admit and dsse 0.1.1. Draft/published labels retain their original reading</td>
+<td>Releases as A-38; labels in <code>data/atlas.toml</code></td>
+<td>Releases 2026-10-01 07:04:40; labels 2026-09-27 11:49 <span class="cadence">(30-day cadence)</span></td>
 <td><code>rederive.py</code> A-38</td>
-<td>A label is this site’s reading of the repository’s own status, not a maturity rating</td>
+<td>A label is this site’s reading, not a maturity rating; release refresh does not re-audit the label</td>
 </tr>
 <tr data-read="2026-10-01">
 <td>I-05</td>
@@ -576,6 +577,53 @@
 </tr>
 </tbody>
 </table>
+<h2 id="open-evidence-lab">Open Evidence Lab</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr>
+<th>id</th>
+<th>claim as printed</th>
+<th>source</th>
+<th>read (UTC)</th>
+<th>re-derive</th>
+<th>limit</th>
+</tr>
+</thead>
+<tbody>
+<tr data-read="2026-10-01">
+<td>P-01</td>
+<td>Protocol 0.1 has one initial E6 record, a run form and correction form; artifact hashes and measured JSON-pointer bindings are checked before build</td>
+<td><a href="lab.html">Lab</a>, <a href="lab/register.json">register</a>, <code>tools/check_lab.py</code> and <code>.github/ISSUE_TEMPLATE/</code></td>
+<td>2026-10-01 <span class="cadence">(does not expire)</span></td>
+<td><code>python3 tools/check_lab.py</code>; inspect forms and build job</td>
+<td>Owned submission protocol and retained fixture record; no external members, host adoption, certification or independent custody is established</td>
+</tr>
+<tr data-read="2026-10-01">
+<td>P-02</td>
+<td>AAIF PR #60 at 99d72c8484ac82f2c7128f2cb3b09e2971f8f234 proposes agree/evidence/interpret/contribute phases and an observed-gap register</td>
+<td><a href="https://github.com/aaif/wg-observability-and-traceability/blob/99d72c8484ac82f2c7128f2cb3b09e2971f8f234/working-documents/AGENT-BEHAVIOR-TRACE-MODEL-EXECUTION-PLAN.md">Pinned execution-plan proposal</a></td>
+<td>2026-10-01 <span class="cadence">(does not expire)</span></td>
+<td>Read the pinned plan and PR #60 review state</td>
+<td>A cited proposal informs this owned protocol; it supplies no AAIF commitment to the lab</td>
+</tr>
+<tr data-read="2026-10-01">
+<td>P-03</td>
+<td>Gemara PR #507 at a3016f4ddadda4e2d4a68ab353ce430fdb62b6bf specifies full delivered-octet digests, SHA-256 support and citation-integrity outcomes verified/integrity-failure/unverifiable</td>
+<td><a href="https://github.com/gemaraproj/gemara/blob/a3016f4ddadda4e2d4a68ab353ce430fdb62b6bf/evidence.cue">Pinned evidence.cue</a></td>
+<td>2026-10-01 <span class="cadence">(does not expire)</span></td>
+<td>Inspect #Digest and source mapping comments</td>
+<td>Proposed raw-byte integrity contract; no completed lab adapter result, Gemara adoption or effect/custody claim</td>
+</tr>
+</tbody>
+</table>
 <h2 id="links">Links</h2>
 <table>
 <colgroup>
@@ -613,7 +661,7 @@
 </table>
 </main>
 <footer class="site">
-  <p>By Sankalp Gilda. Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.4-draft, 2026-10-01.</p>
+  <p>Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.5-draft, 2026-10-01.</p>
 </footer>
 <script>
 (function () {

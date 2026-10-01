@@ -12,6 +12,8 @@ Every number, date and status the framework prints has a row in a claim ledger, 
 | `CLAIMS.md` | The claim ledger. |
 | `tools/rederive.py` | Re-derives every automatable row of the claim ledger and prints the recorded and the current value side by side. |
 | `data/versions.toml` | The version ledger: every artifact, its version, date and status. The build adds the SHA-256 of each artifact's source. |
+| `src/lab.md`, `data/lab-register.json` | The Probity Open Evidence Lab protocol, intake/correction routes and retained run register. |
+| `tools/check_lab.py` | Checks register artifact hashes and measured-field bindings before the site builds. Review of claim meaning and operational independence remains explicit. |
 | `tools/build.py`, `tools/template.html`, `assets/site.css` | The site build: Markdown to HTML with pandoc, failing on any warning. |
 | `tools/gen_atlas.py`, `templates/atlas.md.in` | Renders the atlas page from `data/atlas.toml`. |
 | `tools/check_links.py` | Checks every internal link and anchor and, with `--external`, every external URL. |
@@ -40,6 +42,14 @@ E6 commands in `src/experiments.md`. It requires the exact source blobs, Python
 3.12.14 and cryptography 46.0.7, and refuses changed authority, signed-claim
 tampering and a second admission. The result remains an author-produced
 same-operator PEER/artifact fixture.
+
+The [Open Evidence Lab](https://probityai.github.io/agent-evidence-atlas/lab.html)
+accepts pinned run submissions through the repository's evidence-run issue form
+and corrections through the evidence-correction form. Its initial E6 record
+retains the fixture's limits. Host-project CI dependence and independently
+operated witnesses are separate evidence claims; listing a record supplies no
+membership or endorsement. Run `python3 tools/check_lab.py` to check its local
+integrity and measured-field bindings.
 
 ## The public code the framework uses
 

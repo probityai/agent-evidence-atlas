@@ -26,7 +26,7 @@
 <header class="page">
 <h1>Claim ledger</h1>
 <p class="subtitle">Every number, date, status and quotation on this site, with its source, when it was read, how to re-derive it, and what it does not mean</p>
-<p class="status">Draft, version 0.5, 30 September 2026. Star counts were refreshed at 2026-09-27 11:49 UTC; earlier automatable rows were last re-derived at 2026-09-27T09:52:44Z. The retained pilot was run on 2026-09-29; the E2 fixture record and AGT byte experiment were read or run on 2026-09-30. Each value keeps its read time.</p>
+<p class="status">Draft, version 0.6, 1 October 2026. Star counts were refreshed at 2026-09-27 11:49 UTC; earlier automatable rows were last re-derived at 2026-09-27T09:52:44Z. The retained pilot was run on 2026-09-29; the E2 fixture record and AGT byte experiment were read or run on 2026-09-30. The pinned observer admission bundle and replay controls were read or run on 2026-10-01. Each value keeps its read time.</p>
 </header>
 <h2 id="how-to-use-this-ledger">How to use this ledger</h2>
 <ul>
@@ -336,13 +336,13 @@
 <td><code>rederive.py</code> A-38c for the total; <code>git show v0.13.0:&lt;corpus&gt;/MANIFEST.json</code> for each</td>
 <td>Counts at the tag, not on the main branch</td>
 </tr>
-<tr data-read="2026-09-30">
+<tr data-read="2026-10-01">
 <td>A-46</td>
-<td>Signature and canonicalization mechanism rows link measured APS/PriorSeal E2 limits and six AGT transcript-byte cases</td>
-<td><code>data/atlas.toml</code>; experiment records E-05 through E-09</td>
-<td>2026-09-30 <span class="cadence">(does not expire)</span></td>
-<td>Generate the atlas; reproduce E4 and E5 as documented in <code>experiments.html</code></td>
-<td>Two pinned fixture experiments, not new family entries, production measurements, or evidence of independent custody</td>
+<td>Signature and canonicalization rows link APS/PriorSeal limits, six AGT byte cases, and the pinned observer consumer admission/replay</td>
+<td><code>data/atlas.toml</code>; experiment records E-05 through E-13</td>
+<td>2026-10-01 <span class="cadence">(does not expire)</span></td>
+<td>Generate the atlas; reproduce E4, E5 and E6 as documented in <code>experiments.html</code></td>
+<td>Pinned fixture experiments, not new family entries, production measurements, or independent custody</td>
 </tr>
 <tr data-read="2026-09-27" data-cadence-days="30">
 <td>A-44</td>
@@ -415,11 +415,11 @@
 <td><code>rederive.py</code> A-38</td>
 <td>A label is this site’s reading of the repository’s own status, not a maturity rating</td>
 </tr>
-<tr data-read="2026-09-30">
+<tr data-read="2026-10-01">
 <td>I-05</td>
 <td>Versions, dates and statuses of the site’s own artifacts</td>
 <td><code>data/versions.toml</code>, rendered on the version ledger page</td>
-<td>2026-09-30 <span class="cadence">(does not expire)</span></td>
+<td>2026-10-01 <span class="cadence">(does not expire)</span></td>
 <td>read the file</td>
 <td>The site’s own record of itself</td>
 </tr>
@@ -431,13 +431,13 @@
 <td>read the workflow file</td>
 <td>Only the automatable rows are re-read; rows whose re-derive is a procedure are checked by hand</td>
 </tr>
-<tr data-read="2026-09-30">
+<tr data-read="2026-10-01">
 <td>I-07</td>
-<td>Experiment draft 0.2 retains the local PEER pilot and adds the APS/PriorSeal fixture record and six-case AGT byte reproduction; two observer designs have no result; three other pieces remain held</td>
-<td><code>src/experiments.md</code>; the recorded experiment outputs; <code>data/versions.toml</code></td>
-<td>2026-09-30 <span class="cadence">(does not expire)</span></td>
-<td>Read the experiment page and reproduce each measured record by its pinned procedure</td>
-<td>The added runs check retained fixture evidence and bytes; they do not establish independent custody or production usage</td>
+<td>Experiment draft 0.3 retains the PEER pilot, APS/PriorSeal and AGT results, and adds source-pinned observer admission/replay; two designs have no qualifying independent result; three other pieces remain held</td>
+<td><code>src/experiments.md</code>; recorded outputs; <code>data/versions.toml</code></td>
+<td>2026-10-01 <span class="cadence">(does not expire)</span></td>
+<td>Reproduce each measured record by its pinned procedure, including the observer CI gate</td>
+<td>Author-produced fixtures and byte checks do not establish independent custody or production usage</td>
 </tr>
 <tr data-read="2026-09-29">
 <td>I-08</td>
@@ -542,6 +542,38 @@
 <td>Reproduce E-08 and inspect each digest and agreement flag</td>
 <td>A transcript-byte result for the pinned implementation, not a claim about all TRACE adapters, production failures, effect capture, or custody</td>
 </tr>
+<tr data-read="2026-10-01">
+<td>E-10</td>
+<td>Observer source revision 8562c25fb7ec97596ea9d0297c495340298914b6 is bound by 12 exact Git blob pins; experiment runtime is Python 3.12.14 and cryptography 46.0.7</td>
+<td><a href="experiments/observer-admission/source-pins.json">Source pins</a>, <a href="experiments/observer-admission/run.py">runner</a> and <a href="experiments/observer-admission/recorded.json">recorded report</a></td>
+<td>2026-10-01 <span class="cadence">(does not expire)</span></td>
+<td>Run E6; every source blob must match before private-copy import</td>
+<td>Real pinned demo and admission code; same-operator fixture, no live agent or independent custody</td>
+</tr>
+<tr data-read="2026-10-01">
+<td>E-11</td>
+<td>Original admission artifact 11138571560 from successful PR run 36808961399 has archive SHA-256 bcc22cd27b1f9404e961f7329770620994a76348d085b7b711ab586986493892; its job passed 148 tests, demo and eight boundary-probe checks</td>
+<td><a href="https://github.com/probityai/agent-evidence-observer/actions/runs/36808961399">CI run</a>, <a href="experiments/observer-admission/provenance.json">retained file manifest and provenance</a></td>
+<td>2026-10-01 <span class="cadence">(does not expire)</span></td>
+<td>Check run logs and artifact digest; run E6 with <code>--manifest</code> to check every retained file</td>
+<td>PR head cc7191e and synthetic checkout e8040a8 have the pinned tree; additional native main run 36825509807 checked out 8562c25 and passed the same checks. Both are author-produced, not independent operation</td>
+</tr>
+<tr data-read="2026-10-01">
+<td>E-12</td>
+<td>One declared broker effect leads to one durable consumer admission and two witness receipts; replay, changed consumer authority and altered signed claim refuse with exact reasons; all refusals preserve consumer state</td>
+<td><a href="experiments/observer-admission/recorded.json">Recorded result</a>, retained policy, packet, history, receipt log, effect, decision and state</td>
+<td>2026-10-01 <span class="cadence">(does not expire)</span></td>
+<td>E6 re-admits the original bundle, compares decision/state bytes, exercises three controls in appropriate stores, then requires a fresh demo to match</td>
+<td>Local at-most-once admission; no exactly-once application effects, wall-clock freshness, complete capture or cross-host consensus</td>
+</tr>
+<tr data-read="2026-10-01">
+<td>E-13</td>
+<td>Observer demo and atlas replay remain PEER/artifact and author-produced same-operator fixtures; unmediatedEffects is not-established</td>
+<td>E-10 through E-12, <a href="https://github.com/probityai/agent-evidence-observer/blob/8562c25fb7ec97596ea9d0297c495340298914b6/docs/CONSUMER-ADMISSION.md">pinned consumer contract</a>, E6 limits</td>
+<td>2026-10-01 <span class="cadence">(does not expire)</span></td>
+<td>Inspect source, retained fixture pins and report scope; require external operator evidence before promotion</td>
+<td>Different directories and signing keys do not establish separate operation or custody; consumer-state rollback can erase replay protection</td>
+</tr>
 </tbody>
 </table>
 <h2 id="links">Links</h2>
@@ -581,7 +613,7 @@
 </table>
 </main>
 <footer class="site">
-  <p>By Sankalp Gilda. Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.3-draft, 2026-09-30.</p>
+  <p>By Sankalp Gilda. Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.4-draft, 2026-10-01.</p>
 </footer>
 <script>
 (function () {

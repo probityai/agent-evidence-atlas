@@ -1,7 +1,7 @@
 ---
 title: "Independent evidence for AI agent actions"
 subtitle: "When an AI agent does something that matters, who can check what happened, without taking the word of the party that ran it?"
-status: "Version 1.3, 30 September 2026. Each artifact below carries its own version and status. Released artifacts and labelled drafts are linked; the rest are named without a link."
+status: "Version 1.4, 1 October 2026. Each artifact below carries its own version and status. Released artifacts and labelled drafts are linked; the rest are named without a link."
 description: "Sankalp Gilda's working framework on independently checkable evidence for AI agent actions: an atlas of agent assurance, a claim ledger and the public code behind them."
 ---
 
@@ -11,13 +11,13 @@ Where a piece has not been released, the [version ledger](versions.html) says so
 
 | artifact | what it is | version | date | status |
 |---|---|---|---|---|
-| [Atlas](atlas.html) | Seven families, 45 named projects and standards, 18 mechanisms, and source-pinned signature and transcript-byte limits | 0.2 preview | 2026-09-30 | [draft]{.label .draft} |
-| [Claim ledger](claims.html) | The source, read time, re-derive command and limit behind the numbers, dates and statuses on this site, re-checked on every weekly re-derive | 0.5 | 2026-09-30 | [draft]{.label .draft} |
-| [Version ledger](versions.html) | Each artifact's version, date and status, beside a digest of the source it was built from, updated with every build | site build 0.3 | 2026-09-30 | [draft]{.label .draft} |
-| [Experiments](experiments.html) | The retained PEER pilot, APS/PriorSeal fixture outcomes and ceilings, a six-case AGT byte reproduction, and two registered observer designs | 0.2 | 2026-09-30 | [draft]{.label .draft} |
+| [Atlas](atlas.html) | Seven families, 45 named projects and standards, 18 mechanisms, and pinned signature, transcript-byte and consumer-admission limits | 0.3 preview | 2026-10-01 | [draft]{.label .draft} |
+| [Claim ledger](claims.html) | The source, read time, re-derive command and limit behind the numbers, dates and statuses on this site, re-checked on every weekly re-derive | 0.6 | 2026-10-01 | [draft]{.label .draft} |
+| [Version ledger](versions.html) | Each artifact's version, date and status, beside a digest of the source it was built from, updated with every build | site build 0.4 | 2026-10-01 | [draft]{.label .draft} |
+| [Experiments](experiments.html) | The PEER pilot, APS/PriorSeal limits, AGT byte reproduction, pinned observer admission/replay and two registered designs | 0.3 | 2026-10-01 | [draft]{.label .draft} |
 | [*Three Jobs, Not One*](https://doi.org/10.5281/zenodo.21935891) | The paper behind the framework: why policy, containment and evidence are separate jobs, each needing its own mechanism | Zenodo version 6 | 2026-08-14 | [published]{.label .published} on Zenodo |
 
-Three more pieces are in preparation, each held until it passes its release checks: an essay on what independent evaluators should verify, a runnable verifier demonstration, and a twelve-month series plan. The [experiment draft](experiments.html) retains the local PEER pilot, adds pinned decision-call and byte results, and keeps the two observer designs without a result. None establishes below-agent observation or independent history.
+Three more pieces are in preparation, each held until it passes its release checks: an essay on what independent evaluators should verify, a runnable verifier demonstration, and a twelve-month series plan. The [experiment draft](experiments.html) adds source-pinned decision-call, byte and consumer-admission results to the local PEER pilot. Separately reproduced below-agent observation and independently operated history remain registered designs without a qualifying result.
 
 ## The public code
 
@@ -34,7 +34,7 @@ Three repositories and two Rust crates hold the reference work the atlas draws o
 
 The proposed consumer contract joins the checks an operator needs before relying on an agent's action: authority, exact-call admission, invocation, observed effect, vantage and coverage, signed bytes, history, and the consumer decision. Its first test is a file write retried after a lost response. The negative cases include a duplicate effect, a missing interval, and a transient bypass that a final snapshot misses.
 
-This is a proposed end-to-end requirement, not an end-to-end conformance result. The current corpora test parts of it. The [experiment](experiments.html) demonstrates a snapshot failure under a PEER prototype; it has no isolated agent or separate witness operator. The next result needs both a producer outside the agent's reach and an independent consumer replay. A gate pass or a signed receipt can then be checked alongside the effect it purports to govern.
+This is a proposed end-to-end requirement, not an end-to-end conformance result. The corpora test parts of it. The retained PEER pilot demonstrates a snapshot failure. The [pinned observer admission demo](experiments.html#observer-consumer-admission) now joins a prior declaration, one brokered durable effect, signed history and a persisted consumer decision; its replay, changed-authority and signed-claim controls refuse. This author-produced artifact has no separate witness or consumer operator. The next qualifying result still needs a producer outside the agent's reach and an independently operated consumer replay.
 
 ## Peer-reviewed work
 

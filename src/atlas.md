@@ -1,7 +1,7 @@
 ---
 title: "An atlas of agent assurance"
 subtitle: "Seven families of mechanisms that make claims about AI agents, the mechanisms inside each, what each establishes, what none of them establishes alone, and where the public evidence artifacts sit"
-status: "Version 0.2-preview. GitHub star counts were read at 2026-09-27 11:49 UTC; project sizes, statuses and releases at 2026-09-27 00:40 to 01:00 UTC. Dated experiments carry separate source pins and claim-ledger rows."
+status: "Version 0.3-preview. GitHub star counts were read at 2026-09-27 11:49 UTC; project sizes, statuses and releases at 2026-09-27 00:40 to 01:00 UTC. Dated experiments carry separate source pins and claim-ledger rows."
 description: "A map of the AI-agent assurance ecosystem in seven families: identity, policy, containment, observation, records, evaluation and governance."
 toc: true
 ---
@@ -41,7 +41,7 @@ One question separates these mechanisms: who writes the record each one produces
 | User-space kernel or microVM (gVisor, Firecracker, Kata) | 3. Containment | none by default | A stronger isolation boundary than a shared kernel | What ran inside it |
 | Platform attestation (a TEE or measured-boot quote) | 3. Containment | external (the hardware root), about launch state | The measured software state at launch | Behavior after launch |
 | Distributed trace (OpenTelemetry) | 4. Observation and tracing | self | What the instrumented code reported | Occurrence independent of the emitter, completeness, or integrity |
-| Signed statement in an envelope (in-toto, DSSE) | 5. Records, receipts and transparency | whoever holds the key | The key holder signed these bytes and no others | That the key holder observed what the bytes describe. The [APS/PriorSeal fixture run](experiments.html#aps-priorseal-e2) leaves PriorSeal signatures unexercised and a rehashed authorization survives at that target; hashes alone do not supply the missing signature check |
+| Signed statement in an envelope (in-toto, DSSE) | 5. Records, receipts and transparency | whoever holds the key | The key holder signed these bytes and no others | That the key holder observed what the bytes describe. The [APS/PriorSeal fixture run](experiments.html#aps-priorseal-e2) leaves PriorSeal signatures unexercised and a rehashed authorization survives at that target. The [observer consumer replay](experiments.html#observer-consumer-admission) checks signed history, authority and replay before admission, under author-produced PEER fixture pins; it establishes no independent custody |
 | Canonicalization (RFC 8785) | 5. Records, receipts and transparency | not a record | One byte form per JSON value, so signatures agree across implementations | That two parsers read the same document the same way, unless inputs with two readings are refused first; or that an implementation used RFC 8785. A [pinned AGT transcript experiment](experiments.html#trace-transcript-bytes) distinguishes Unicode and numeric byte paths on six inputs |
 | Transparency log (Sigstore, Certificate Transparency, SCITT) | 5. Records, receipts and transparency | external log operator, about submissions | An entry was included, and the log's history was not rewritten | That everything that should have been submitted was |
 | Trusted timestamp (RFC 3161) | 5. Records, receipts and transparency | external time authority | The bytes existed before a time | When the described event happened |

@@ -1,0 +1,41 @@
+name: Approved pull request landing
+on:
+  push:
+    branches: ['ops/land-atlas-1e45f8e']
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: approved-landing-atlas-2
+  cancel-in-progress: false
+jobs:
+  land:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: landing-tools
+      - uses: actions/checkout@v4
+        with:
+          ref: '1e45f8e6fa8ffa1a4dea1860ebc27a96b1f3f926'
+          path: target
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run unchanged guards for the approved head
+        run: |
+          gh --version
+          python landing-tools/ops/pr-completion/run_landing.py \
+            --repository "$GITHUB_WORKSPACE/target" \
+            --helper "$GITHUB_WORKSPACE/landing-tools/ops/pr-completion/pr_land.py" \
+            --pr 'https://github.com/probityai/agent-evidence-atlas/pull/2' \
+            --head '1e45f8e6fa8ffa1a4dea1860ebc27a96b1f3f926' \
+            --audit "$GITHUB_WORKSPACE/landing-audit"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: landing-audit-atlas
+          path: landing-audit/

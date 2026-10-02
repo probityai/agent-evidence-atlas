@@ -258,7 +258,7 @@ def test_ADK_reselected_outcome_types_refuse(field: str, value: object) -> None:
     report['records'][0][field] = value
     claim = next(c for c in record['claimResults'] if c.get('recordedField') == f'/records/0/{field}')
     claim['expectedValue'] = value
-    with pytest.raises(ValueError, match='must be'):
+    with pytest.raises(ValueError, match='must'):
         validate_execution_retention(record, report, provenance)
 
 

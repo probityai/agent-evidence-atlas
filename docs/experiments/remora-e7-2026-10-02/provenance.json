@@ -6,9 +6,9 @@
   "artifactId": 11237158552,
   "archiveSha256": "079a27b72aebb3252546233a5b9a1c3a7400c6f19e2251773520db0350125e1f",
   "archiveBytes": 3343,
-  "reviewState": "submitted-producer-review-not-started",
-  "producerReviewStartedAt": null,
-  "producerReviewEndsAt": null,
+  "reviewState": "producer-review-open",
+  "producerReviewStartedAt": "2026-10-02T17:04:37Z",
+  "producerReviewEndsAt": "2026-10-09T17:04:37Z",
   "hostCiAdoption": "not-established",
   "roles": {
     "readerAuthor": "Probity",
@@ -35,5 +35,6 @@
       "bytes": 4988
     }
   },
-  "retrievedDate": "2026-10-02"
+  "retrievedDate": "2026-10-02",
+  "producerSubmission": "https://github.com/darklordVirtual/REMORA-research/issues/707#issuecomment-5957358281"
 }

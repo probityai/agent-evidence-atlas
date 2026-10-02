@@ -1,66 +1,48 @@
 # Independent evidence for AI agent actions
 
-When an AI agent does something that matters, who can check what happened without taking the word of the party that ran it? This repository is the working framework for that question. Its centre is an atlas of agent assurance: seven layers that make claims about agents (identity and authorization, policy and runtime control, containment, tracing, receipts and transparency, evaluation, and governance and standards), what a working instance of each layer establishes, what it cannot establish on its own, and what falls between the layers.
+An atlas of agent assurance, with a claim ledger that re-derives every number it prints.
 
-Every number, date and status the framework prints has a row in a claim ledger, with its source, the time it was read, a command that re-derives it, and the limit of what it means.
+It is for evaluators, standards authors and regulators who need to know what an agent's record can show without trusting the party that ran the agent.
 
-## What is here
+The atlas covers seven layers that make claims about agents: identity and authorization, policy and runtime control, containment, tracing, receipts and transparency, evaluation, and governance and standards. For each it says what a working instance establishes, what it cannot establish alone, and what falls between the layers. Every number, date and status has a row in [CLAIMS.md](CLAIMS.md) with its source, the time it was read, a command that re-derives it, and the limit of what it means.
 
-| path | what it is |
-|---|---|
-| `data/atlas.toml` | The atlas as data: the layers, the named projects and standards with their measured sizes, the mechanisms classified by who writes their record, and the seams between layers. Every atlas fact is written here and only here. |
-| `CLAIMS.md` | The claim ledger. |
-| `tools/rederive.py` | Re-derives every automatable row of the claim ledger and prints the recorded and the current value side by side. |
-| `data/versions.toml` | The version ledger: every artifact, its version, date and status. The build adds the SHA-256 of each artifact's source. |
-| `src/lab.md`, `data/lab-register.json` | The Probity Open Evidence Lab protocol, intake/correction routes and retained run register. |
-| `src/pilot.md` | Probity's proposed APS and PriorSeal pilot status, acceptance gates and open decisions; separate from measured Lab records. |
-| `tools/check_lab.py` | Checks register artifact hashes and measured-field bindings before the site builds. Review of claim meaning and operational independence remains explicit. |
-| `tools/build.py`, `tools/template.html`, `assets/site.css` | The site build: Markdown to HTML with pandoc, failing on any warning. |
-| `tools/gen_atlas.py`, `templates/atlas.md.in` | Renders the atlas page from `data/atlas.toml`. |
-| `tools/check_links.py` | Checks every internal link and anchor and, with `--external`, every external URL. |
-| `docs/` | The built site, for GitHub Pages to serve from this directory. |
+## Quick start
 
-## Release rule
-
-Each artifact has its own release contract, and an artifact is added here when it passes that contract, not before. The version ledger lists every artifact of the framework; one that has not passed yet is shown there as held. The experiment draft retains the local PEER pilot, an immutable APS/PriorSeal fixture record, a source-pinned AGT transcript-byte result, and the public observer declaration-to-admission demo with its original CI bundle and replay controls. Separately reproduced below-agent observation and independent history remain registered designs without a qualifying result. The essay, runnable verifier demonstration and twelve-month series plan remain held.
-
-## Re-derive and build
+Pin the repository to a commit and re-derive the ledger. It needs Python 3.11 or later and no credentials:
 
 ```sh
-python3 tools/rederive.py            # recorded vs current value for every automatable claim; no credentials
-python3 tools/rederive.py --strict   # exit 1 if any value moved or could not be read
-python3 tools/gen_atlas.py           # render the atlas page from data/atlas.toml into src/atlas.md
-python3 tools/build.py               # build docs/ (pandoc 3.x); any pandoc warning fails the build
-python3 tools/build.py --check       # fail if docs/ differs from what the sources give
-python3 tools/check_links.py --external
+git clone https://github.com/probityai/agent-evidence-atlas && cd agent-evidence-atlas
+git checkout e741c06575011e5899902d3f8c6994dc7bfe975a
+python3 tools/rederive.py
 ```
 
-A read that fails is printed as `UNREAD` with its reason and is never counted as unchanged. GitHub's unauthenticated API allows 60 requests an hour, which covers one run; set `GITHUB_TOKEN` to raise the limit.
+It prints the recorded and the current value of each row, then a count. On 2 October 2026 it printed, in part:
 
-The `observer-admission` CI job checks the original pinned observer demo and the
-retained signed bundle on every push and pull request. Reproduce it using the
-E6 commands in `src/experiments.md`. It requires the exact source blobs, Python
-3.12.14 and cryptography 46.0.7, and refuses changed authority, signed-claim
-tampering and a second admission. The result remains an author-produced
-same-operator PEER/artifact fixture.
+```text
+re-derived at 2026-10-02T11:04:50Z
+CHANGED  A-stars modelcontextprotocol/modelcontextprotocol recorded '9355' current '9361'
+CHANGED  A-stars open-policy-agent/opa                recorded '12297' current '12304'
+same     A-39d                                        recorded 'open' current 'open'
+same     I-01                                         recorded 'v6 2026-08-14' current 'v6 2026-08-14'
+9 of 34 unchanged; 0 could not be read
+```
 
-The [Open Evidence Lab](https://probityai.github.io/agent-evidence-atlas/lab.html)
-accepts pinned run submissions through the repository's evidence-run issue form
-and corrections through the evidence-correction form. Its initial E6 record
-retains the fixture's limits. Host-project CI dependence and independently
-operated witnesses are separate evidence claims; listing a record supplies no
-membership or endorsement. Run `python3 tools/check_lab.py` to check its local
-integrity and measured-field bindings.
+Star counts move daily, so your counts will differ. A row that cannot be read prints as `UNREAD` and is never counted as unchanged; `--strict` exits 1 on any moved or unread value.
 
-## The public code the framework uses
+## Status
 
-- [agent-evidence-vocabulary](https://github.com/probityai/agent-evidence-vocabulary): what an evidence claim means, and what it withholds.
-- [agent-evidence-vectors](https://github.com/probityai/agent-evidence-vectors): a conformance corpus and reference verifier.
-- [agent-evidence-admission](https://github.com/probityai/agent-evidence-admission): policy rules that turn verified evidence into a deployment decision.
-- [jcs-admit](https://github.com/probityai/jcs-admit) and [dsse](https://github.com/probityai/dsse): Rust crates for canonical JSON and the signature envelope, published on crates.io.
+Version 0.6-draft, 1 October 2026 (`VERSION`). Each artifact carries its own version and status in [data/versions.toml](data/versions.toml); one that has not passed its release contract is listed as held.
 
-The paper behind the framework is *Three Jobs, Not One* ([doi:10.5281/zenodo.21935891](https://doi.org/10.5281/zenodo.21935891)).
+## Docs
 
-## Author
+| Page | What it covers |
+|---|---|
+| [Site](https://probityai.github.io/agent-evidence-atlas/) | The framework, the atlas and the version ledger |
+| <a name="what-is-here"></a><a name="release-rule"></a><a name="re-derive-and-build"></a>[Working in the repository](https://probityai.github.io/agent-evidence-atlas/repository.html) | What each file is, the release rule, and the build and re-derive commands |
+| [Experiments](https://probityai.github.io/agent-evidence-atlas/experiments.html) | The registered experiments and their results |
+| [Open Evidence Lab](https://probityai.github.io/agent-evidence-atlas/lab.html) | Submitting a pinned run or a correction |
+| [Claim ledger](https://probityai.github.io/agent-evidence-atlas/claims.html) | Every claim with its source and re-derive command |
 
-Sankalp Gilda.
+<a name="the-public-code-the-framework-uses"></a>The public code the framework uses: [agent-evidence-vocabulary](https://github.com/probityai/agent-evidence-vocabulary) (what an evidence claim means), [agent-evidence-vectors](https://github.com/probityai/agent-evidence-vectors) (a conformance corpus and reference verifier), [agent-evidence-admission](https://github.com/probityai/agent-evidence-admission) (policy rules that turn verified evidence into a deployment decision), and the Rust crates [jcs-admit](https://github.com/probityai/jcs-admit) and [dsse](https://github.com/probityai/dsse). The paper behind it is *Three Jobs, Not One* ([doi:10.5281/zenodo.21935891](https://doi.org/10.5281/zenodo.21935891)).
+
+<a name="author"></a>Author: Sankalp Gilda.

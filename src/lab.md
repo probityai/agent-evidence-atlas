@@ -16,8 +16,8 @@ The [APS and PriorSeal pilot status](pilot.html) tracks Probity's proposed next 
 
 The separate Probity readers have executed the accepted pinned fixture populations.
 These submissions retain the original CI archives, raw exchanges, environment,
-reader hashes and source pins. Producer review has not started and host CI adoption
-is not established.
+reader hashes and source pins. REMORA producer review is open; JEP has received an
+implementation report. Host CI adoption is not established.
 
 | Submission | Recorded result | Evidence and limits |
 |---|---|---|
@@ -26,8 +26,11 @@ is not established.
 
 REMORA's native `INDEPENDENT` classification uses its package's external-operator
 and implementation criteria. Probity controls its reader and run; independent
-effect custody remains unestablished. The seven-day producer review window starts
-only after the actual record is shared with REMORA. No start or end date is recorded.
+effect custody remains unestablished. Its [seven-day producer review](https://github.com/darklordVirtual/REMORA-research/issues/707#issuecomment-5957358281)
+runs from October 2, 2026 at 17:04:37 UTC through October 9 at 17:04:37 UTC.
+Any unresolved disagreement will remain attached to the result. The
+[JEP implementation report](https://github.com/hjs-spec/jep-core/issues/47) requests
+a producer-owned CI reproduction; no producer response is recorded yet.
 JEP's acceptance effects are synthetic local SQLite rows; they establish no external
 act, power-loss recovery or distributed failover. Both studies used exposed expected
 answers. The reports retain actual outputs before comparison but publish them together;

@@ -87,7 +87,7 @@
       "contract": "https://github.com/probityai/agent-evidence-vectors/blob/4f344209c8ea65f60bab0f51747ae4f80346181d/interop/jep-core07-reader/PROTOCOL.md",
       "report": "../experiments/jep-core07-2026-10-02/report.json",
       "provenance": "../experiments/jep-core07-2026-10-02/provenance.json",
-      "reviewState": "submitted-producer-review-not-started",
+      "reviewState": "submitted-awaiting-producer-response",
       "evidenceClaim": "verifier-behavior-on-public-producer-fixtures",
       "roles": {
         "readerAuthor": "Probity",
@@ -95,7 +95,7 @@
         "producer": "JEP",
         "independentEffectCustody": "not-established"
       },
-      "answerExposure": "Published expected outcomes were available before implementation; not answer-blind. REMORA reference-verifier text was also exposed during lint diagnostics after implementation.",
+      "answerExposure": "Published expected outcomes were available before implementation; not answer-blind.",
       "comparisonOrder": "Actual per-case outputs retained before comparison in memory; raw output and comparison published together, not separate revisions.",
       "limits": [
         "Pinned manifest coverage only, not complete JEP Core coverage.",
@@ -146,13 +146,14 @@
         },
         {
           "path": "../experiments/jep-core07-2026-10-02/provenance.json",
-          "sha256": "790e16ec539fe36fb761b57490a82ecc0ec95b9b7afc78bd9050d7a87eeeb863"
+          "sha256": "1526f25715de06be9432df0a0097fa78f77c4d4bba03cea55ff89341be368331"
         },
         {
           "path": "../experiments/jep-core07-2026-10-02/report.json",
           "sha256": "4f92e1bc30c8ff6c8f89819d9fbcbd7ef42dce0d46f40712c095f10b7d9ca574"
         }
-      ]
+      ],
+      "producerSubmission": "https://github.com/hjs-spec/jep-core/issues/47"
     },
     {
       "id": "remora-e7-2026-10-02",
@@ -160,7 +161,7 @@
       "contract": "https://github.com/darklordVirtual/REMORA-research/tree/e4fe474f488c3047b346abb01cbfd77ab447ad69/artifacts/interop/runtime-surface-e7-v0.1",
       "report": "../experiments/remora-e7-2026-10-02/report.json",
       "provenance": "../experiments/remora-e7-2026-10-02/provenance.json",
-      "reviewState": "submitted-producer-review-not-started",
+      "reviewState": "producer-review-open",
       "evidenceClaim": "verifier-behavior-on-public-producer-fixtures",
       "roles": {
         "readerAuthor": "Probity",
@@ -173,7 +174,7 @@
       "limits": [
         "Native INDEPENDENT means the external operator and separate implementation satisfy REMORA package criteria; it establishes no independent effect custody.",
         "Global runtime_capability_surface_completeness remains NOT_ESTABLISHED.",
-        "Producer review begins only after the actual record is shared; no timer is running."
+        "Producer review is open; it does not establish producer acceptance, final verification or CI adoption."
       ],
       "claimResults": [
         {
@@ -230,13 +231,16 @@
         },
         {
           "path": "../experiments/remora-e7-2026-10-02/provenance.json",
-          "sha256": "ee02b41b78785478c4c208c3ff10d1c8db107739be5160e343aab748e3341405"
+          "sha256": "b7906952ba8bcccf3a0b9d2ddf7b4c8628d04a3498f61ed7ccf49f49e6e236a8"
         },
         {
           "path": "../experiments/remora-e7-2026-10-02/report.json",
           "sha256": "8cab9f748fb17ba3bd2c20ca1896b1b50be96120e53a1e6c5394aa404a26bca1"
         }
-      ]
+      ],
+      "producerSubmission": "https://github.com/darklordVirtual/REMORA-research/issues/707#issuecomment-5957358281",
+      "producerReviewStartedAt": "2026-10-02T17:04:37Z",
+      "producerReviewEndsAt": "2026-10-09T17:04:37Z"
     }
   ]
 }

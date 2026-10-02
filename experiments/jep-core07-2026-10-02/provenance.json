@@ -6,7 +6,7 @@
   "artifactId": 11238045582,
   "archiveSha256": "2d6271bf522c2975fc5efc6af59c739df5ae777a39f4893025de756d6137346c",
   "archiveBytes": 13630,
-  "reviewState": "submitted-producer-review-not-started",
+  "reviewState": "submitted-awaiting-producer-response",
   "producerReviewStartedAt": null,
   "producerReviewEndsAt": null,
   "hostCiAdoption": "not-established",
@@ -31,5 +31,6 @@
       "bytes": 204927
     }
   },
-  "retrievedDate": "2026-10-02"
+  "retrievedDate": "2026-10-02",
+  "producerSubmission": "https://github.com/hjs-spec/jep-core/issues/47"
 }

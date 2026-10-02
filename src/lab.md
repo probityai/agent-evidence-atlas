@@ -1,7 +1,7 @@
 ---
 title: "Probity Open Evidence Lab"
 subtitle: "A public protocol and run register for checking specific agent-evidence claims"
-status: "Protocol draft 0.1.1, 1 October 2026. The register contains E6, submitted REMORA/JEP readers, native recovery/failure controls and a bounded actual-weight microtask result. External CI adoption and independently operated custody require their own evidence."
+status: "Protocol draft 0.1.1, 1 October 2026. The register contains E6, submitted REMORA/JEP readers, native recovery/failure/SDK controls and bounded actual-weight microtask results. External CI adoption and independently operated custody require their own evidence."
 description: "Submit pinned agent-evidence runs, hostile controls, field-level comparisons and correction records to a public register."
 toc: true
 ---
@@ -65,6 +65,44 @@ libraries and omitted build files are outside this capsule. The full original
 it is not committed here and the provider archive can expire. The capsule alone
 cannot reproduce excluded model/source hash checks or rerun inference. The two
 framework ZIPs are complete byte-exact original archives.
+
+## Continued recovery, SDK and paired CPU runs
+
+Four further author-operated records retain original native archives and separate
+outcome axes. Their original bytes were published in the Atlas feature branch
+before these register entries. Native outputs and expected-result comparisons
+were emitted together; this publication order does not make them blind studies
+or satisfy a separate native raw-result-first comparison.
+
+| Run | Measured result | Retention and boundary |
+|---|---|---|
+| Recovery authority | Eight selected cases, sixteen native graph workers. Revocation, exact-boundary expiry and clock rollback each refuse before recovery dispatch, both before an effect and after a revision-one commit. Earlier commits remain separately retained. | [Report](experiments/authority-recovery-2026-10-02/report.json), [original exact-main archive](experiments/authority-recovery-2026-10-02/original-artifact.zip), [source/member provenance](experiments/authority-recovery-2026-10-02/provenance.json). Recovery policy uses a host-selected deterministic integer clock; signed target grants remain separate and the target stays alive. |
+| Target process recovery | Seven cases use fourteen actual target processes: three completed effects, two incomplete refusals and two startup refusals. The selected eight-request overlap yields one completion and seven refusals. | [Report](experiments/target-process-recovery-2026-10-02/report.json), [original exact-main archive](experiments/target-process-recovery-2026-10-02/original-artifact.zip), [source/member provenance](experiments/target-process-recovery-2026-10-02/provenance.json). Process IDs are unsigned runner testimony; native SQLite, key and clock remain author controlled. |
+| Paired actual-weight CPU tasks | All ninety-six attempts score under sixteen separate model/cap/family rows. The selected 135M model has zero strict targets and two format-valid answers across forty-eight attempts; the 360M model has eight strict targets and forty-two format-valid answers across forty-eight. Each cap's 360M rows retain extraction two of six, arithmetic one of six, policy one of six and abstention zero of six. | [Unmodified report](experiments/model-paired-cpu-2026-10-02/report.json), [original producer-selected compact archive](experiments/model-paired-cpu-2026-10-02/original-artifact.zip), [complete member/omission provenance](experiments/model-paired-cpu-2026-10-02/provenance.json). Authored tasks, SHA-ranked blocked order and disabled/reset cache; a bounded comparison rather than a representative benchmark estimate. |
+| OpenAI Agents SDK | Six native SDK cases retain nine scripted model calls, six tool calls and three signed ticket effects. Three tasks complete, two error and one remains incomplete; an error after effect and exhausted turns retain revision one separately from task status. | [Report](experiments/openai-agents-ticket-2026-10-02/report.json), [original SDK archive](experiments/openai-agents-ticket-2026-10-02/original-artifact.zip), [source/member provenance](experiments/openai-agents-ticket-2026-10-02/provenance.json). Actual SDK Runner, function tool and trace processor with scripted Model; no remote-provider inference or model-quality result. |
+
+The paired CPU native compact archive is an original producer artifact, retained
+byte for byte. Its 246 members match the corresponding `run/` members of the
+276-member full preparation archive. The provenance identifies all thirty
+omitted preparation members, including model weights and source/dependency
+wheels. The full 465,338,754-byte preparation archive stays in the private program
+archive and provider retention; it is not committed here. The compact archive
+retains native source/library hashes and every started/returned call, but cannot
+rerun inference without the omitted weights or reconstruct every acquisition
+byte independently.
+
+The first preparation failed before inference after 472,190,754 response-body
+bytes; a separately declared corrected preparation used 472,221,945 bytes.
+Their cumulative 944,412,699 bytes span two declared 512 MiB envelopes, rather
+than one acquisition budget. No model inference was retried. Native token,
+whole-process CPU, serial elapsed time and shared process-lifetime peak RSS stay
+labelled by their actual scope. Author-written expectations were exposed.
+
+The register now contains ten retained records, with each measured claim bound
+to literal report fields. All four continuation records remain Probity-operated;
+none establishes producer acceptance, an outside maintained workflow, independent
+effect/key/store/clock custody, host power-loss recovery or a general exactly-once
+guarantee. SDK behavior and actual-weight quality remain separate measurements.
 
 ## Start with a run that exists
 

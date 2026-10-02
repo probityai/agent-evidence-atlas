@@ -249,3 +249,25 @@ def test_reselected_installed_policy_hold_cannot_be_publish(tmp_path: Path) -> N
         artifact['sha256'] = hashlib.sha256((folder / Path(artifact['path']).name).read_bytes()).hexdigest()
     with pytest.raises(ValueError, match='verified evidence cannot promote failed selected quality'):
         validate_register({'protocolVersion': '0.1', 'records': [record]}, tmp_path)
+
+
+@pytest.mark.parametrize('field,value', [('nativeRevision', True), ('nativeRevision', 1.0), ('taskStatus', True)])
+def test_ADK_reselected_outcome_types_refuse(field: str, value: object) -> None:
+    from tools.check_execution_retention import validate_execution_retention
+    record, report, provenance = execution_inputs('google-adk-ticket-2026-10-02')
+    report['records'][0][field] = value
+    claim = next(c for c in record['claimResults'] if c.get('recordedField') == f'/records/0/{field}')
+    claim['expectedValue'] = value
+    with pytest.raises(ValueError, match='must be'):
+        validate_execution_retention(record, report, provenance)
+
+
+@pytest.mark.parametrize('field,value', [('measured', True), ('measured', 1.0), ('minimum', 3.0)])
+def test_reselected_installed_policy_integer_types_refuse(field: str, value: object) -> None:
+    from tools.check_execution_retention import validate_execution_retention
+    record, report, provenance = execution_inputs('installed-format-policy-2026-10-02')
+    report['candidate-format-quality']['gate']['policyFailures'][0][field] = value
+    claim = next(c for c in record['claimResults'] if c.get('recordedField') == '/candidate-format-quality/gate/policyFailures')
+    claim['expectedValue'][0][field] = value
+    with pytest.raises(ValueError, match='counts must be integers'):
+        validate_execution_retention(record, report, provenance)

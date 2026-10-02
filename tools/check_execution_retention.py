@@ -27,6 +27,10 @@ def validate_execution_retention(record: dict, report: dict, provenance: dict) -
         measured = [c for c in record["claimResults"] if c.get("recordedField", "").startswith("/records/")]
         require(len(measured) == 24, "ADK task/effect axes incomplete")
         for i, row in enumerate(rows):
+            require(type(row["nativeRevision"]) is int and row["nativeRevision"] in {0, 1},
+                    "ADK native revision must be an integer zero or one")
+            require(type(row["taskStatus"]) is str and row["taskStatus"] in {"complete", "error", "incomplete"},
+                    "ADK task status must preserve selected outcome")
             for field, label, passed in (("taskStatus", "task-completion", row["taskStatus"] == "complete"),
                                          ("nativeRevision", "native-revision-one", row["nativeRevision"] == 1)):
                 matches = [c for c in measured if c["recordedField"] == f"/records/{i}/{field}"]
@@ -53,6 +57,8 @@ def validate_execution_retention(record: dict, report: dict, provenance: dict) -
         require(len(failures) == 2 and {f["row"]["configuration"] for f in failures} == {"short24", "long96"},
                 "selected policy failure rows changed")
         for failure in failures:
+            require(type(failure["measured"]) is int and type(failure["minimum"]) is int,
+                    "selected policy counts must be integers")
             require(failure["row"]["decoder"] == "schema" and
                     failure["row"]["model"] == "smol360-q4" and
                     failure["row"]["family"] == "policy-decision" and
@@ -75,4 +81,3 @@ def check_selected_execution_register(register: dict, root: Path) -> None:
         with zipfile.ZipFile(archive) as bundle:
             require(bundle.read(provenance["reportMember"]) == artifact_path(root, record["report"]).read_bytes(),
                     "selected execution report differs from original member")
-

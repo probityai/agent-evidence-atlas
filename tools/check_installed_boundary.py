@@ -80,7 +80,7 @@ def _metadata(record: dict[str, Any], provenance: dict[str, Any]) -> None:
         "installed boundary reviewed source binding changed",
     )
     require(
-        record.get("atlasRevision") == "34a9f73c80f4909b032f1f42c4cb7663fd61123e"
+        record.get("atlasRevision") == "1bdfce81e3afff4ec1c18afdfe3c7d423b693198"
         and record.get("reviewState") == "author-retained-measured-record"
         and record.get("evidenceClaim")
         == "author-operated-installed-reader-publication-and-quality-policy-result",

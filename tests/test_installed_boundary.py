@@ -20,7 +20,7 @@ from tools.check_installed_boundary import IDENTITY, encode
 from tools.check_lab import artifact_path, validate_register
 
 ROOT = Path(__file__).resolve().parents[1]
-BASELINE = "34a9f73c80f4909b032f1f42c4cb7663fd61123e"
+BASELINE = "1bdfce81e3afff4ec1c18afdfe3c7d423b693198"
 
 
 @pytest.fixture
@@ -95,7 +95,7 @@ class TestInstalledBoundary:
                 == report["upgrade"]["candidate-boundary"]["gate"]["resources"]
             )
 
-        def test_all_fifteen_earlier_literal_records_and_artifact_bytes_preserved(
+        def test_all_sixteen_earlier_literal_records_and_artifact_bytes_preserved(
             self,
         ) -> None:
             before = subprocess.check_output(
@@ -106,7 +106,7 @@ class TestInstalledBoundary:
             assert before.endswith(ending)
             assert after.startswith(before[: -len(ending)] + b",\n")
             previous = json.loads(before)["records"]
-            assert len(previous) == 15 and json.loads(after)["records"][:15] == previous
+            assert len(previous) == 16 and json.loads(after)["records"][:16] == previous
             for record in previous:
                 for artifact in record["artifacts"]:
                     path = artifact_path(ROOT, artifact["path"])

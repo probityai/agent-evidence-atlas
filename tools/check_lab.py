@@ -265,6 +265,14 @@ def validate_register(register: dict[str, Any], root: Path) -> None:
                 from tools.check_boundary_retention import check_selected_boundary_register
         check_selected_boundary_register(register, root)
         if __package__:
+            from .check_atomic_retention import check_selected_atomic_register
+        else:
+            try:
+                from check_atomic_retention import check_selected_atomic_register
+            except ModuleNotFoundError:
+                from tools.check_atomic_retention import check_selected_atomic_register
+        check_selected_atomic_register(register, root)
+        if __package__:
             from .check_installed_boundary import check_selected_installed_boundary
         else:
             try:

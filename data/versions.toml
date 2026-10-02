@@ -69,10 +69,10 @@ note = "Updates merged replay status and the pinned wrapper run-contract limit"
 name = "Probity Open Evidence Lab"
 page = "lab.html"
 source = "src/lab.md"
-version = "0.1.1"
-date = "2026-10-01"
+version = "0.1.2"
+date = "2026-10-02"
 status = "draft"
-note = "Operational intake/correction protocol and initial E6 register; links to the separately proposed APS and PriorSeal pilot"
+note = "Adds a bounded native Atomic local-delegation run with complete original bytes; preserves earlier records and separate acceptance/custody axes"
 
 [[artifact]]
 name = "APS and PriorSeal pilot status"

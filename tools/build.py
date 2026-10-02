@@ -56,6 +56,14 @@ NAV = [
 # page whose links need it, or None for every page). A copy is made exactly when its
 # page is built, and a missing source for a built page fails the build.
 COPIES = [
+    ('experiments/jep-core07-2026-10-02/original-artifact.zip', 'experiments/jep-core07-2026-10-02/original-artifact.zip', 'lab'),
+    ('experiments/jep-core07-2026-10-02/provenance.json', 'experiments/jep-core07-2026-10-02/provenance.json', 'lab'),
+    ('experiments/jep-core07-2026-10-02/report.json', 'experiments/jep-core07-2026-10-02/report.json', 'lab'),
+    ('experiments/remora-e7-2026-10-02/external-run-record-v1.json', 'experiments/remora-e7-2026-10-02/external-run-record-v1.json', 'lab'),
+    ('experiments/remora-e7-2026-10-02/original-artifact.zip', 'experiments/remora-e7-2026-10-02/original-artifact.zip', 'lab'),
+    ('experiments/remora-e7-2026-10-02/provenance.json', 'experiments/remora-e7-2026-10-02/provenance.json', 'lab'),
+    ('experiments/remora-e7-2026-10-02/report.json', 'experiments/remora-e7-2026-10-02/report.json', 'lab'),
+
     ("data/readouts/rederive-2026-10-01.txt", "readouts/rederive-2026-10-01.txt", "claims"),
     ("data/lab-register.json", "lab/register.json", "lab"),
     ("assets/site.css", "assets/site.css", None),

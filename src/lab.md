@@ -1,7 +1,7 @@
 ---
 title: "Probity Open Evidence Lab"
 subtitle: "A public protocol and run register for checking specific agent-evidence claims"
-status: "Protocol draft 0.1.1, 1 October 2026. The initial register contains the measured E6 author fixture. External CI adoption and independently operated custody require their own evidence."
+status: "Protocol draft 0.1.1, 1 October 2026. The register contains E6 and submitted REMORA/JEP reader records. External CI adoption and independently operated custody require their own evidence."
 description: "Submit pinned agent-evidence runs, hostile controls, field-level comparisons and correction records to a public register."
 toc: true
 ---
@@ -11,6 +11,28 @@ Maintainers can use this protocol to submit a verifier run, a host-project CI in
 [Submit a run](https://github.com/probityai/agent-evidence-atlas/issues/new?template=evidence-run.yml) or [report a correction](https://github.com/probityai/agent-evidence-atlas/issues/new?template=evidence-correction.yml). The forms request the evidence needed for review. The [machine-readable register](lab/register.json), [experiments](experiments.html) and [claim ledger](claims.html) retain the supporting records.
 
 The [APS and PriorSeal pilot status](pilot.html) tracks Probity's proposed next run, owner confirmations and open decisions. It is separate from this measured register.
+
+## Submitted producer-fixture runs
+
+The separate Probity readers have executed the accepted pinned fixture populations.
+These submissions retain the original CI archives, raw exchanges, environment,
+reader hashes and source pins. Producer review has not started and host CI adoption
+is not established.
+
+| Submission | Recorded result | Evidence and limits |
+|---|---|---|
+| REMORA E7 | All five native cases match the frozen package; global capability completeness remains `NOT_ESTABLISHED` | [Native external run record](experiments/remora-e7-2026-10-02/external-run-record-v1.json), [full report](experiments/remora-e7-2026-10-02/report.json), [provenance](experiments/remora-e7-2026-10-02/provenance.json), [original archive](experiments/remora-e7-2026-10-02/original-artifact.zip) |
+| JEP Core 0.7 | Validation 25 of 25, producer four of four, acceptance eight of eight | [Complete exchanges and results](experiments/jep-core07-2026-10-02/report.json), [provenance](experiments/jep-core07-2026-10-02/provenance.json), [original archive including SQLite state](experiments/jep-core07-2026-10-02/original-artifact.zip) |
+
+REMORA's native `INDEPENDENT` classification uses its package's external-operator
+and implementation criteria. Probity controls its reader and run; independent
+effect custody remains unestablished. The seven-day producer review window starts
+only after the actual record is shared with REMORA. No start or end date is recorded.
+JEP's acceptance effects are synthetic local SQLite rows; they establish no external
+act, power-loss recovery or distributed failover. Both studies used exposed expected
+answers. The reports retain actual outputs before comparison but publish them together;
+this deviates from the lab's separate raw-result-publication step and is recorded in
+both provenance files.
 
 ## Start with a run that exists
 

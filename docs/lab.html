@@ -28,11 +28,12 @@
 <header class="page">
 <h1>Probity Open Evidence Lab</h1>
 <p class="subtitle">A public protocol and run register for checking specific agent-evidence claims</p>
-<p class="status">Protocol draft 0.1.1, 1 October 2026. The initial register contains the measured E6 author fixture. External CI adoption and independently operated custody require their own evidence.</p>
+<p class="status">Protocol draft 0.1.1, 1 October 2026. The register contains E6 and submitted REMORA/JEP reader records. External CI adoption and independently operated custody require their own evidence.</p>
 </header>
 <nav class="toc" aria-label="Contents">
 <p class="toc-title">Contents</p>
 <ul>
+<li><a href="#submitted-producer-fixture-runs" id="toc-submitted-producer-fixture-runs">Submitted producer-fixture runs</a></li>
 <li><a href="#start-with-a-run-that-exists" id="toc-start-with-a-run-that-exists">Start with a run that exists</a></li>
 <li><a href="#choose-the-claim-you-are-submitting" id="toc-choose-the-claim-you-are-submitting">Choose the claim you are submitting</a></li>
 <li><a href="#submit-a-reproducible-evidence-packet" id="toc-submit-a-reproducible-evidence-packet">Submit a reproducible evidence packet</a></li>
@@ -44,6 +45,35 @@
 <p>Maintainers can use this protocol to submit a verifier run, a host-project CI integration, or an observer/witness experiment. Each record names its contract, retained inputs, implementation and operators, and reports what passed, failed or remained untested. Probity maintains this register. A listed result makes no membership, endorsement or adoption commitment on behalf of another project.</p>
 <p><a href="https://github.com/probityai/agent-evidence-atlas/issues/new?template=evidence-run.yml">Submit a run</a> or <a href="https://github.com/probityai/agent-evidence-atlas/issues/new?template=evidence-correction.yml">report a correction</a>. The forms request the evidence needed for review. The <a href="lab/register.json">machine-readable register</a>, <a href="experiments.html">experiments</a> and <a href="claims.html">claim ledger</a> retain the supporting records.</p>
 <p>The <a href="pilot.html">APS and PriorSeal pilot status</a> tracks Probity’s proposed next run, owner confirmations and open decisions. It is separate from this measured register.</p>
+<h2 id="submitted-producer-fixture-runs">Submitted producer-fixture runs</h2>
+<p>The separate Probity readers have executed the accepted pinned fixture populations. These submissions retain the original CI archives, raw exchanges, environment, reader hashes and source pins. Producer review has not started and host CI adoption is not established.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Submission</th>
+<th>Recorded result</th>
+<th>Evidence and limits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REMORA E7</td>
+<td>All five native cases match the frozen package; global capability completeness remains <code>NOT_ESTABLISHED</code></td>
+<td><a href="experiments/remora-e7-2026-10-02/external-run-record-v1.json">Native external run record</a>, <a href="experiments/remora-e7-2026-10-02/report.json">full report</a>, <a href="experiments/remora-e7-2026-10-02/provenance.json">provenance</a>, <a href="experiments/remora-e7-2026-10-02/original-artifact.zip">original archive</a></td>
+</tr>
+<tr>
+<td>JEP Core 0.7</td>
+<td>Validation 25 of 25, producer four of four, acceptance eight of eight</td>
+<td><a href="experiments/jep-core07-2026-10-02/report.json">Complete exchanges and results</a>, <a href="experiments/jep-core07-2026-10-02/provenance.json">provenance</a>, <a href="experiments/jep-core07-2026-10-02/original-artifact.zip">original archive including SQLite state</a></td>
+</tr>
+</tbody>
+</table>
+<p>REMORA’s native <code>INDEPENDENT</code> classification uses its package’s external-operator and implementation criteria. Probity controls its reader and run; independent effect custody remains unestablished. The seven-day producer review window starts only after the actual record is shared with REMORA. No start or end date is recorded. JEP’s acceptance effects are synthetic local SQLite rows; they establish no external act, power-loss recovery or distributed failover. Both studies used exposed expected answers. The reports retain actual outputs before comparison but publish them together; this deviates from the lab’s separate raw-result-publication step and is recorded in both provenance files.</p>
 <h2 id="start-with-a-run-that-exists">Start with a run that exists</h2>
 <p>The first register entry is <a href="experiments.html#observer-consumer-admission">E6: observer declaration, admission and replay</a>. It joins one prior declaration, one brokered durable file effect, signed history and a persisted consumer admission. Replaying the interval, changing consumer authority and altering a signed claim all refuse with exact reasons and unchanged consumer state.</p>
 <table>

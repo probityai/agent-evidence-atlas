@@ -22,9 +22,9 @@ SPEC.loader.exec_module(CHECK)
 
 @pytest.fixture
 def retained_register(tmp_path: Path) -> tuple[dict[str, Any], Path]:
-    """Copy actual E6 register artifacts so attacks cannot alter retained originals."""
+    """Copy all actual register artifacts so attacks cannot alter retained originals."""
     register = json.loads((ROOT / "data/lab-register.json").read_text(encoding="utf-8"))
-    for artifact in register["records"][0]["artifacts"]:
+    for artifact in (item for record in register["records"] for item in record["artifacts"]):
         source = CHECK.artifact_path(ROOT, artifact["path"])
         target = CHECK.artifact_path(tmp_path, artifact["path"])
         target.parent.mkdir(parents=True, exist_ok=True)

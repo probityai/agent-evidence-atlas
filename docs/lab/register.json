@@ -80,6 +80,163 @@
         "independentOperation": "not-established",
         "witnessScope": "PEER"
       }
+    },
+    {
+      "id": "jep-core07-2026-10-02",
+      "readerRevision": "dd76a53fd553b33a16811fae80b4a99317b3b085",
+      "contract": "https://github.com/probityai/agent-evidence-vectors/blob/4f344209c8ea65f60bab0f51747ae4f80346181d/interop/jep-core07-reader/PROTOCOL.md",
+      "report": "../experiments/jep-core07-2026-10-02/report.json",
+      "provenance": "../experiments/jep-core07-2026-10-02/provenance.json",
+      "reviewState": "submitted-producer-review-not-started",
+      "evidenceClaim": "verifier-behavior-on-public-producer-fixtures",
+      "roles": {
+        "readerAuthor": "Probity",
+        "runner": "Probity-owned GitHub Actions",
+        "producer": "JEP",
+        "independentEffectCustody": "not-established"
+      },
+      "answerExposure": "Published expected outcomes were available before implementation; not answer-blind. REMORA reference-verifier text was also exposed during lint diagnostics after implementation.",
+      "comparisonOrder": "Actual per-case outputs retained before comparison in memory; raw output and comparison published together, not separate revisions.",
+      "limits": [
+        "Pinned manifest coverage only, not complete JEP Core coverage.",
+        "Acceptance effects are synthetic local SQLite rows.",
+        "No power-loss or distributed failover experiment."
+      ],
+      "claimResults": [
+        {
+          "claim": "validation-assertions-match-pinned-expectations",
+          "result": "pass",
+          "recordedField": "/summary/validation",
+          "expectedValue": {
+            "total": 25,
+            "passed": 25
+          }
+        },
+        {
+          "claim": "producer-assertions-match-pinned-expectations",
+          "result": "pass",
+          "recordedField": "/summary/producer",
+          "expectedValue": {
+            "total": 4,
+            "passed": 4
+          }
+        },
+        {
+          "claim": "acceptance-assertions-match-pinned-expectations",
+          "result": "pass",
+          "recordedField": "/summary/acceptance",
+          "expectedValue": {
+            "total": 8,
+            "passed": 8
+          }
+        },
+        {
+          "claim": "external-host-ci-adoption",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "independent-effect-custody",
+          "result": "not-exercised"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "../experiments/jep-core07-2026-10-02/original-artifact.zip",
+          "sha256": "2d6271bf522c2975fc5efc6af59c739df5ae777a39f4893025de756d6137346c"
+        },
+        {
+          "path": "../experiments/jep-core07-2026-10-02/provenance.json",
+          "sha256": "fd1f25caebae21bd250ff2de0a001d469400f7102db0b07fabc3e3ec5075c08d"
+        },
+        {
+          "path": "../experiments/jep-core07-2026-10-02/report.json",
+          "sha256": "4f92e1bc30c8ff6c8f89819d9fbcbd7ef42dce0d46f40712c095f10b7d9ca574"
+        }
+      ]
+    },
+    {
+      "id": "remora-e7-2026-10-02",
+      "readerRevision": "a0b89170fd671be2314be6079acccdebdf07a950",
+      "contract": "https://github.com/darklordVirtual/REMORA-research/tree/e4fe474f488c3047b346abb01cbfd77ab447ad69/artifacts/interop/runtime-surface-e7-v0.1",
+      "report": "../experiments/remora-e7-2026-10-02/report.json",
+      "provenance": "../experiments/remora-e7-2026-10-02/provenance.json",
+      "reviewState": "submitted-producer-review-not-started",
+      "evidenceClaim": "verifier-behavior-on-public-producer-fixtures",
+      "roles": {
+        "readerAuthor": "Probity",
+        "runner": "Probity-owned GitHub Actions",
+        "producer": "REMORA",
+        "independentEffectCustody": "not-established"
+      },
+      "answerExposure": "Published expected outcomes were available before implementation; not answer-blind. REMORA reference-verifier text was also exposed during lint diagnostics after implementation.",
+      "comparisonOrder": "Actual per-case outputs retained before comparison in memory; raw output and comparison published together, not separate revisions.",
+      "limits": [
+        "Native INDEPENDENT means the external operator and separate implementation satisfy REMORA package criteria; it establishes no independent effect custody.",
+        "Global runtime_capability_surface_completeness remains NOT_ESTABLISHED.",
+        "Producer review begins only after the actual record is shared; no timer is running."
+      ],
+      "claimResults": [
+        {
+          "claim": "valid_reference_surface-matches-native-fixture-outcome",
+          "result": "pass",
+          "recordedField": "/results/0/claim_result",
+          "expectedValue": "ESTABLISHED"
+        },
+        {
+          "claim": "undeclared_tool_invocation_surface-matches-native-fixture-outcome",
+          "result": "pass",
+          "recordedField": "/results/1/claim_result",
+          "expectedValue": "CONTRADICTED"
+        },
+        {
+          "claim": "runtime_identity_changed-matches-native-fixture-outcome",
+          "result": "pass",
+          "recordedField": "/results/2/claim_result",
+          "expectedValue": "NOT_ESTABLISHED"
+        },
+        {
+          "claim": "observation_coverage_incomplete-matches-native-fixture-outcome",
+          "result": "pass",
+          "recordedField": "/results/3/claim_result",
+          "expectedValue": "NOT_ESTABLISHED"
+        },
+        {
+          "claim": "alternative_effect_path_observed-matches-native-fixture-outcome",
+          "result": "pass",
+          "recordedField": "/results/4/claim_result",
+          "expectedValue": "CONTRADICTED"
+        },
+        {
+          "claim": "global-runtime-capability-surface-completeness",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "external-host-ci-adoption",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "independent-effect-custody",
+          "result": "not-exercised"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "../experiments/remora-e7-2026-10-02/external-run-record-v1.json",
+          "sha256": "24731968cb599c52f000b4584ed41a5b977637fd9b00f5756f8f8e2c4566fc48"
+        },
+        {
+          "path": "../experiments/remora-e7-2026-10-02/original-artifact.zip",
+          "sha256": "079a27b72aebb3252546233a5b9a1c3a7400c6f19e2251773520db0350125e1f"
+        },
+        {
+          "path": "../experiments/remora-e7-2026-10-02/provenance.json",
+          "sha256": "6ae86277b8bafea93a0198a24364a41d64b2d70e4566472db2710e03e81bb94a"
+        },
+        {
+          "path": "../experiments/remora-e7-2026-10-02/report.json",
+          "sha256": "8cab9f748fb17ba3bd2c20ca1896b1b50be96120e53a1e6c5394aa404a26bca1"
+        }
+      ]
     }
   ]
 }

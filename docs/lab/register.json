@@ -241,6 +241,347 @@
       "producerSubmission": "https://github.com/darklordVirtual/REMORA-research/issues/707#issuecomment-5957358281",
       "producerReviewStartedAt": "2026-10-02T17:04:37Z",
       "producerReviewEndsAt": "2026-10-09T17:04:37Z"
+    },
+    {
+      "id": "langgraph-durable-2026-10-02",
+      "atlasRevision": "65d502b9e751aa11ab6936f4eeaa544eebc2a00f",
+      "sourceRevision": "90cd62c0ee926b456aa9aada3537f36ee5f17cd3",
+      "readerRevision": "90cd62c0ee926b456aa9aada3537f36ee5f17cd3",
+      "report": "../experiments/langgraph-durable-2026-10-02/report.json",
+      "provenance": "../experiments/langgraph-durable-2026-10-02/provenance.json",
+      "contract": "https://github.com/probityai/agent-evidence-observer/tree/90cd62c0ee926b456aa9aada3537f36ee5f17cd3/interop/langgraph-ticket-2026-10-02",
+      "reviewState": "author-retained-measured-record",
+      "evidenceClaim": "author-operated-native-framework-control",
+      "roles": {
+        "producer": "Probity-owned workflow",
+        "readerAuthor": "Probity",
+        "atlasOperator": "Probity",
+        "retentionHolder": "Probity",
+        "independentOperation": "not-established",
+        "independentEffectCustody": "not-established",
+        "outsideRecurringUse": "not-established"
+      },
+      "answerExposure": "Author-written tasks/controls and expected outcomes exposed; not blind.",
+      "comparisonOrder": "Native output and comparison published together; not separate raw-result-first revisions.",
+      "limits": [
+        "Graph-worker hard exits/reopened SQLite checkpoints only; target process remains alive.",
+        "No target-process restart, host power loss, issuer authentication, general exactly-once guarantee or independent custody."
+      ],
+      "claimResults": [
+        {
+          "claim": "bounded-six-case-population",
+          "result": "pass",
+          "recordedField": "/plannedAttempts",
+          "expectedValue": 6
+        },
+        {
+          "claim": "reader-reconstructed-native-record",
+          "result": "pass",
+          "recordedField": "/status",
+          "expectedValue": "verified"
+        },
+        {
+          "claim": "crash-after-effect-recovers-at-revision-one",
+          "result": "pass",
+          "recordedField": "/records/2",
+          "expectedValue": {
+            "attemptId": "crash-after-effect",
+            "recoveryOutcome": "recovered-durable-checkpoint",
+            "effectOutcome": "verified-local-ticket-update",
+            "httpCalls": 2,
+            "nativeRevision": 1,
+            "workerExitCodes": [
+              74,
+              0
+            ]
+          }
+        },
+        {
+          "claim": "pending-intent-no-automatic-replay",
+          "result": "pass",
+          "recordedField": "/records/3",
+          "expectedValue": {
+            "attemptId": "restart-pending",
+            "recoveryOutcome": "recovered-durable-checkpoint",
+            "effectOutcome": "incomplete-no-automatic-replay",
+            "httpCalls": 2,
+            "nativeRevision": 0,
+            "workerExitCodes": [
+              73,
+              0
+            ]
+          }
+        },
+        {
+          "claim": "missing-checkpoint-refusal",
+          "result": "pass",
+          "recordedField": "/records/4",
+          "expectedValue": {
+            "attemptId": "missing-checkpoint",
+            "recoveryOutcome": "refused-missing-checkpoint",
+            "effectOutcome": "refused-no-local-row",
+            "httpCalls": 0,
+            "nativeRevision": 0,
+            "workerExitCodes": [
+              73,
+              0
+            ]
+          }
+        },
+        {
+          "claim": "wrong-thread-refusal",
+          "result": "pass",
+          "recordedField": "/records/5",
+          "expectedValue": {
+            "attemptId": "wrong-thread",
+            "recoveryOutcome": "refused-missing-checkpoint",
+            "effectOutcome": "refused-no-local-row",
+            "httpCalls": 0,
+            "nativeRevision": 0,
+            "workerExitCodes": [
+              73,
+              0
+            ]
+          }
+        },
+        {
+          "claim": "external-host-recurring-adoption",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "independent-effect-custody",
+          "result": "not-exercised"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "../experiments/langgraph-durable-2026-10-02/original-artifact.zip",
+          "sha256": "53226e9a77526c67c759e582b9f40b4512fff78ca64fad99bc99d2e5a4d97ed8"
+        },
+        {
+          "path": "../experiments/langgraph-durable-2026-10-02/provenance.json",
+          "sha256": "c92f73156c57a0d41c61114c8ca3c36c800904eb7d09a88257f98dcaa953cd9d"
+        },
+        {
+          "path": "../experiments/langgraph-durable-2026-10-02/report.json",
+          "sha256": "4fe8ff3fbffe96508553433862120c2184752e85cbff22f64b4e23753b50f8c6"
+        }
+      ]
+    },
+    {
+      "id": "pydantic-failure-2026-10-02",
+      "atlasRevision": "65d502b9e751aa11ab6936f4eeaa544eebc2a00f",
+      "sourceRevision": "afda549c3f20f8e7b031275c06558a50bf20726e",
+      "readerRevision": "afda549c3f20f8e7b031275c06558a50bf20726e",
+      "report": "../experiments/pydantic-failure-2026-10-02/report.json",
+      "provenance": "../experiments/pydantic-failure-2026-10-02/provenance.json",
+      "contract": "https://github.com/probityai/agent-evidence-observer/tree/afda549c3f20f8e7b031275c06558a50bf20726e/interop/pydantic-ai-native-2026-10-02",
+      "reviewState": "author-retained-measured-record",
+      "evidenceClaim": "author-operated-native-framework-control",
+      "roles": {
+        "producer": "Probity-owned workflow",
+        "readerAuthor": "Probity",
+        "atlasOperator": "Probity",
+        "retentionHolder": "Probity",
+        "independentOperation": "not-established",
+        "independentEffectCustody": "not-established",
+        "outsideRecurringUse": "not-established"
+      },
+      "answerExposure": "Author-written tasks/controls and expected outcomes exposed; not blind.",
+      "comparisonOrder": "Native output and comparison published together; not separate raw-result-first revisions.",
+      "limits": [
+        "Real Pydantic framework with scripted FunctionModel; no model-quality or real-provider inference measurement.",
+        "Selected loopback ticket effects; no caller authentication, outside adoption or independent custody."
+      ],
+      "claimResults": [
+        {
+          "claim": "bounded-seven-case-population",
+          "result": "pass",
+          "recordedField": "/plannedAttempts",
+          "expectedValue": 7
+        },
+        {
+          "claim": "reader-reconstructed-native-record",
+          "result": "pass",
+          "recordedField": "/status",
+          "expectedValue": "verified"
+        },
+        {
+          "claim": "retry-exhaustion-remains-error-no-effect",
+          "result": "pass",
+          "recordedField": "/records/5",
+          "expectedValue": {
+            "attemptId": "retry-exhausted",
+            "effectOutcome": "not-recorded-local-row",
+            "executionStatus": "error",
+            "nativeRevision": 0,
+            "retries": 2,
+            "taskQuality": "not-evaluated",
+            "toolAttempts": 2
+          }
+        },
+        {
+          "claim": "committed-effect-error-retains-revision-one",
+          "result": "pass",
+          "recordedField": "/records/6",
+          "expectedValue": {
+            "attemptId": "committed-effect-error",
+            "effectOutcome": "verified-local-ticket-update",
+            "executionStatus": "error",
+            "nativeRevision": 1,
+            "retries": 0,
+            "taskQuality": "not-evaluated",
+            "toolAttempts": 1
+          }
+        },
+        {
+          "claim": "external-host-recurring-adoption",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "independent-effect-custody",
+          "result": "not-exercised"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "../experiments/pydantic-failure-2026-10-02/original-artifact.zip",
+          "sha256": "caa5db0decc85720f26c0a605c59338646702d348f45a26bd21761a8e412f4e5"
+        },
+        {
+          "path": "../experiments/pydantic-failure-2026-10-02/provenance.json",
+          "sha256": "d035a941c1f818daa2d488dd7f4f9ee1f715650dda38175244ffa2c2007ce5d7"
+        },
+        {
+          "path": "../experiments/pydantic-failure-2026-10-02/report.json",
+          "sha256": "4c26e0792c89ceecc3ec9d314f9f6179f7cb54763a6d982e827e88ab23a853c7"
+        }
+      ]
+    },
+    {
+      "id": "model-operational-2026-10-02",
+      "atlasRevision": "65d502b9e751aa11ab6936f4eeaa544eebc2a00f",
+      "sourceRevision": "ab84161d09bb7bd696bba57717a418a95dd1d976",
+      "readerRevision": "4505b08d6f46574d99c01a29681c2b93edbdb342",
+      "report": "../experiments/model-operational-2026-10-02/report.json",
+      "provenance": "../experiments/model-operational-2026-10-02/provenance.json",
+      "contract": "https://github.com/probityai/agent-evidence-observer/tree/ab84161d09bb7bd696bba57717a418a95dd1d976/interop/local-model-operational-2026-10-02",
+      "reviewState": "author-retained-measured-record",
+      "evidenceClaim": "author-operated-actual-weight-microtask-result",
+      "roles": {
+        "producer": "Probity-owned workflow",
+        "readerAuthor": "Probity",
+        "atlasOperator": "Probity",
+        "retentionHolder": "Probity",
+        "independentOperation": "not-established",
+        "independentEffectCustody": "not-established",
+        "outsideRecurringUse": "not-established"
+      },
+      "answerExposure": "Author-written tasks/controls and expected outcomes exposed; not blind.",
+      "comparisonOrder": "Native output and comparison published together; not separate raw-result-first revisions.",
+      "limits": [
+        "Original 274795286-byte ZIP retained locally and available through expiring GitHub workflow artifact, not committed to Git or represented by the capsule.",
+        "Capsule retains exact selected JSON/text members and excludes model weights/binaries; it cannot replay the full source/binary integrity check or rerun inference alone.",
+        "Fixed configuration order confounds cache/warmup; author microtasks are not a benchmark estimate.",
+        "CPU is whole-process delta; RSS process-lifetime peak; no task memory isolation, monetary cost or independent effects."
+      ],
+      "claimResults": [
+        {
+          "claim": "complete-declared-population",
+          "result": "pass",
+          "recordedField": "/population",
+          "expectedValue": {
+            "scored": 48,
+            "error": 0,
+            "incomplete": 0,
+            "unknown-start": 0,
+            "planned": 48,
+            "started": 48
+          }
+        },
+        {
+          "claim": "evidence-complete",
+          "result": "pass",
+          "recordedField": "/evidence/complete",
+          "expectedValue": true
+        },
+        {
+          "claim": "declared-run-budget",
+          "result": "pass",
+          "recordedField": "/evidence/withinRunBudget",
+          "expectedValue": true
+        },
+        {
+          "claim": "task-correctness-short24-structured-extraction",
+          "result": "fail",
+          "recordedField": "/quality/0/correct",
+          "expectedValue": 0
+        },
+        {
+          "claim": "task-correctness-short24-arithmetic",
+          "result": "fail",
+          "recordedField": "/quality/1/correct",
+          "expectedValue": 0
+        },
+        {
+          "claim": "task-correctness-short24-policy-decision",
+          "result": "fail",
+          "recordedField": "/quality/2/correct",
+          "expectedValue": 0
+        },
+        {
+          "claim": "task-correctness-short24-grounded-abstention",
+          "result": "fail",
+          "recordedField": "/quality/3/correct",
+          "expectedValue": 0
+        },
+        {
+          "claim": "task-correctness-long96-structured-extraction",
+          "result": "fail",
+          "recordedField": "/quality/4/correct",
+          "expectedValue": 0
+        },
+        {
+          "claim": "task-correctness-long96-arithmetic",
+          "result": "fail",
+          "recordedField": "/quality/5/correct",
+          "expectedValue": 0
+        },
+        {
+          "claim": "task-correctness-long96-policy-decision",
+          "result": "fail",
+          "recordedField": "/quality/6/correct",
+          "expectedValue": 0
+        },
+        {
+          "claim": "task-correctness-long96-grounded-abstention",
+          "result": "fail",
+          "recordedField": "/quality/7/correct",
+          "expectedValue": 0
+        },
+        {
+          "claim": "external-host-recurring-adoption",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "independent-effect-custody",
+          "result": "not-exercised"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "../experiments/model-operational-2026-10-02/provenance.json",
+          "sha256": "00d9ff560b02f672704f496eacdbb5ed106a9678c89916b0b54b30951c032e0d"
+        },
+        {
+          "path": "../experiments/model-operational-2026-10-02/report.json",
+          "sha256": "acb8f021b5a9bda6b64e33ab38f9da592b8d2c2bba81de7bfdaef586256608f2"
+        },
+        {
+          "path": "../experiments/model-operational-2026-10-02/selected-capsule.zip",
+          "sha256": "1613aeff57e696ac1d0f87bbe2c0fe22157cbd6655f1130a2de95b29929b95e2"
+        }
+      ]
     }
   ]
 }

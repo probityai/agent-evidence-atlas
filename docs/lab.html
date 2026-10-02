@@ -28,12 +28,13 @@
 <header class="page">
 <h1>Probity Open Evidence Lab</h1>
 <p class="subtitle">A public protocol and run register for checking specific agent-evidence claims</p>
-<p class="status">Protocol draft 0.1.1, 1 October 2026. The register contains E6 and submitted REMORA/JEP reader records. External CI adoption and independently operated custody require their own evidence.</p>
+<p class="status">Protocol draft 0.1.1, 1 October 2026. The register contains E6, submitted REMORA/JEP readers, native recovery/failure controls and a bounded actual-weight microtask result. External CI adoption and independently operated custody require their own evidence.</p>
 </header>
 <nav class="toc" aria-label="Contents">
 <p class="toc-title">Contents</p>
 <ul>
 <li><a href="#submitted-producer-fixture-runs" id="toc-submitted-producer-fixture-runs">Submitted producer-fixture runs</a></li>
+<li><a href="#retained-recovery-and-actual-weight-runs" id="toc-retained-recovery-and-actual-weight-runs">Retained recovery and actual-weight runs</a></li>
 <li><a href="#start-with-a-run-that-exists" id="toc-start-with-a-run-that-exists">Start with a run that exists</a></li>
 <li><a href="#choose-the-claim-you-are-submitting" id="toc-choose-the-claim-you-are-submitting">Choose the claim you are submitting</a></li>
 <li><a href="#submit-a-reproducible-evidence-packet" id="toc-submit-a-reproducible-evidence-packet">Submit a reproducible evidence packet</a></li>
@@ -74,6 +75,41 @@
 </tbody>
 </table>
 <p>REMORA’s native <code>INDEPENDENT</code> classification uses its package’s external-operator and implementation criteria. Probity controls its reader and run; independent effect custody remains unestablished. Its <a href="https://github.com/darklordVirtual/REMORA-research/issues/707#issuecomment-5957358281">seven-day producer review</a> runs from October 2, 2026 at 17:04:37 UTC through October 9 at 17:04:37 UTC. Any unresolved disagreement will remain attached to the result. The <a href="https://github.com/hjs-spec/jep-core/issues/47">JEP implementation report</a> requests a producer-owned CI reproduction; no producer response is recorded yet. JEP’s acceptance effects are synthetic local SQLite rows; they establish no external act, power-loss recovery or distributed failover. Both studies used exposed expected answers. The reports retain actual outputs before comparison but publish them together; this deviates from the lab’s separate raw-result-publication step and is recorded in both provenance files.</p>
+<h2 id="retained-recovery-and-actual-weight-runs">Retained recovery and actual-weight runs</h2>
+<p>These are Probity-operated runs and Probity-selected reader reproductions. They advance runnable capability and retained measurement; they establish no outside workflow adoption or independent effect custody. <a href="lab/register.json">The register</a> binds measured claims to exact report fields and retains separate outcome axes.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Run</th>
+<th>Measured result</th>
+<th>Retained bytes and limit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LangGraph durable restart</td>
+<td>Six selected cases reconstruct. Crash after effect recovers at native revision one; pending intent remains incomplete; missing checkpoint and wrong thread refuse.</td>
+<td><a href="experiments/langgraph-durable-2026-10-02/report.json">Report</a>, <a href="experiments/langgraph-durable-2026-10-02/original-artifact.zip">original CI ZIP</a>, <a href="experiments/langgraph-durable-2026-10-02/provenance.json">source/member provenance</a>. Distinct graph worker processes reopen SQLite checkpoints; the target remains alive. No power-loss, target restart or general exactly-once claim.</td>
+</tr>
+<tr>
+<td>Pydantic failure controls</td>
+<td>Seven selected attempts reconstruct. Retry exhaustion retains error/no effect; an error after committed effect retains error and local ticket revision one.</td>
+<td><a href="experiments/pydantic-failure-2026-10-02/report.json">Report</a>, <a href="experiments/pydantic-failure-2026-10-02/original-artifact.zip">original CI ZIP</a>, <a href="experiments/pydantic-failure-2026-10-02/provenance.json">source/member provenance</a>. Real framework, scripted FunctionModel; no real-provider or task-quality result.</td>
+</tr>
+<tr>
+<td>Actual-weight operational microtasks</td>
+<td>All 48 declared attempts were scored: zero correct under the strict rubric; two format-valid. Evidence completeness and run budget hold separately from failed task quality.</td>
+<td><a href="experiments/model-operational-2026-10-02/report.json">Unmodified native reader report</a>, <a href="experiments/model-operational-2026-10-02/selected-capsule.zip">selected derivative capsule</a>, <a href="experiments/model-operational-2026-10-02/provenance.json">full original-member selection/digests</a>. Author-written tasks and expected outcomes exposed; no representative benchmark estimate.</td>
+</tr>
+</tbody>
+</table>
+<p>The model result covers structured extraction, arithmetic, policy decisions and grounded abstention under two declared output limits. Native tokens, elapsed time, whole-process CPU deltas and process-lifetime peak RSS stay labelled by their actual scope. Fixed configuration order confounds cache/warmup with the output-limit comparison. No publication, admission, dispatch or recovery effect was executed by the model run.</p>
+<p>The model capsule copies selected original JSON/text bytes; its provenance lists every original ZIP member, digest and inclusion decision. Model weights, compiled libraries and omitted build files are outside this capsule. The full original 274,795,286-byte provider ZIP is retained locally and referenced by digest and <a href="https://github.com/probityai/agent-evidence-observer/actions/runs/37044646302">workflow run</a>; it is not committed here and the provider archive can expire. The capsule alone cannot reproduce excluded model/source hash checks or rerun inference. The two framework ZIPs are complete byte-exact original archives.</p>
 <h2 id="start-with-a-run-that-exists">Start with a run that exists</h2>
 <p>The first register entry is <a href="experiments.html#observer-consumer-admission">E6: observer declaration, admission and replay</a>. It joins one prior declaration, one brokered durable file effect, signed history and a persisted consumer admission. Replaying the interval, changing consumer authority and altering a signed claim all refuse with exact reasons and unchanged consumer state.</p>
 <table>

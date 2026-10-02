@@ -1,7 +1,7 @@
 ---
 title: "Probity Open Evidence Lab"
 subtitle: "A public protocol and run register for checking specific agent-evidence claims"
-status: "Protocol draft 0.1.1, 1 October 2026. The register contains E6 and submitted REMORA/JEP reader records. External CI adoption and independently operated custody require their own evidence."
+status: "Protocol draft 0.1.1, 1 October 2026. The register contains E6, submitted REMORA/JEP readers, native recovery/failure controls and a bounded actual-weight microtask result. External CI adoption and independently operated custody require their own evidence."
 description: "Submit pinned agent-evidence runs, hostile controls, field-level comparisons and correction records to a public register."
 toc: true
 ---
@@ -36,6 +36,35 @@ act, power-loss recovery or distributed failover. Both studies used exposed expe
 answers. The reports retain actual outputs before comparison but publish them together;
 this deviates from the lab's separate raw-result-publication step and is recorded in
 both provenance files.
+
+## Retained recovery and actual-weight runs
+
+These are Probity-operated runs and Probity-selected reader reproductions. They
+advance runnable capability and retained measurement; they establish no outside
+workflow adoption or independent effect custody. [The register](lab/register.json)
+binds measured claims to exact report fields and retains separate outcome axes.
+
+| Run | Measured result | Retained bytes and limit |
+|---|---|---|
+| LangGraph durable restart | Six selected cases reconstruct. Crash after effect recovers at native revision one; pending intent remains incomplete; missing checkpoint and wrong thread refuse. | [Report](experiments/langgraph-durable-2026-10-02/report.json), [original CI ZIP](experiments/langgraph-durable-2026-10-02/original-artifact.zip), [source/member provenance](experiments/langgraph-durable-2026-10-02/provenance.json). Distinct graph worker processes reopen SQLite checkpoints; the target remains alive. No power-loss, target restart or general exactly-once claim. |
+| Pydantic failure controls | Seven selected attempts reconstruct. Retry exhaustion retains error/no effect; an error after committed effect retains error and local ticket revision one. | [Report](experiments/pydantic-failure-2026-10-02/report.json), [original CI ZIP](experiments/pydantic-failure-2026-10-02/original-artifact.zip), [source/member provenance](experiments/pydantic-failure-2026-10-02/provenance.json). Real framework, scripted FunctionModel; no real-provider or task-quality result. |
+| Actual-weight operational microtasks | All 48 declared attempts were scored: zero correct under the strict rubric; two format-valid. Evidence completeness and run budget hold separately from failed task quality. | [Unmodified native reader report](experiments/model-operational-2026-10-02/report.json), [selected derivative capsule](experiments/model-operational-2026-10-02/selected-capsule.zip), [full original-member selection/digests](experiments/model-operational-2026-10-02/provenance.json). Author-written tasks and expected outcomes exposed; no representative benchmark estimate. |
+
+The model result covers structured extraction, arithmetic, policy decisions and
+grounded abstention under two declared output limits. Native tokens, elapsed
+time, whole-process CPU deltas and process-lifetime peak RSS stay labelled by
+their actual scope. Fixed configuration order confounds cache/warmup with the
+output-limit comparison. No publication, admission, dispatch or recovery effect
+was executed by the model run.
+
+The model capsule copies selected original JSON/text bytes; its provenance lists
+every original ZIP member, digest and inclusion decision. Model weights, compiled
+libraries and omitted build files are outside this capsule. The full original
+274,795,286-byte provider ZIP is retained locally and referenced by digest and
+[workflow run](https://github.com/probityai/agent-evidence-observer/actions/runs/37044646302);
+it is not committed here and the provider archive can expire. The capsule alone
+cannot reproduce excluded model/source hash checks or rerun inference. The two
+framework ZIPs are complete byte-exact original archives.
 
 ## Start with a run that exists
 

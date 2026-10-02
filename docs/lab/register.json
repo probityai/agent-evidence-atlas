@@ -1673,6 +1673,794 @@
           "sha256": "7a6f9e00d7939aad6ea55c5a5143133a255ff788f82fb39f2e51058204a1b30a"
         }
       ]
+    },
+    {
+      "id": "model-format-cpu-2026-10-02",
+      "atlasRevision": "307b29af5c1fcc51a5805ffa290b7fc89a0cb0e7",
+      "sourceRevision": "75797cbb4fafc0669849357dd2275825b469c1f9",
+      "readerRevision": "26fc707f53b79f8770336897e32040ba1f9e9f16",
+      "contract": "https://github.com/probityai/agent-evidence-observer/tree/75797cbb4fafc0669849357dd2275825b469c1f9/interop/local-model-format-control-2026-10-02",
+      "report": "../experiments/model-format-cpu-2026-10-02/report.json",
+      "provenance": "../experiments/model-format-cpu-2026-10-02/provenance.json",
+      "reviewState": "author-retained-measured-record",
+      "evidenceClaim": "author-operated-actual-weight-paired-format-and-correctness-result",
+      "roles": {
+        "producer": "Probity-owned workflow",
+        "readerAuthor": "Probity",
+        "atlasOperator": "Probity",
+        "retentionHolder": "Probity",
+        "independentOperation": "not-established",
+        "independentEffectCustody": "not-established",
+        "outsideRecurringUse": "not-established"
+      },
+      "answerExposure": "Author-written tasks/controls and expected outcomes exposed; not blind.",
+      "comparisonOrder": "Native output and comparison emitted and published together; public Atlas retention before indexing does not establish a blind or raw-result-first comparison.",
+      "limits": [
+        "Format/schema correctness separate from typed-exact target correctness; each model/cap/decoder/family row retained independently.",
+        "Protocol/compiler/grammars frozen before inference; selected integer-length, key-order and spacing restrictions limit generalization.",
+        "Exposed author tasks and same-operator native execution; no representative benchmark, live protected decision effects or independent custody.",
+        "Four separately declared preparation envelopes; cumulative transfer exceeds one512MiB envelope.",
+        "Original compact native provider archive retains sources/grammars/outputs and resources; full preparation weights/source/wheels remain privately archived.",
+        "CPU is whole-process delta and RSS shared lifetime peak; not per-model/task allocation."
+      ],
+      "claimResults": [
+        {
+          "claim": "complete-selected-population",
+          "result": "pass",
+          "recordedField": "/population",
+          "expectedValue": {
+            "error": 0,
+            "incomplete": 0,
+            "planned": 192,
+            "scored": 192,
+            "started": 192,
+            "unknown-start": 0,
+            "unsupported": 0
+          }
+        },
+        {
+          "claim": "exact-reader-reconstruction",
+          "result": "pass",
+          "recordedField": "/evidence/complete",
+          "expectedValue": true
+        },
+        {
+          "claim": "within-declared-native-run-budget",
+          "result": "pass",
+          "recordedField": "/evidence/withinRunBudget",
+          "expectedValue": true
+        },
+        {
+          "claim": "smol135-q4-short24-unconstrained-structured-extraction-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/0",
+          "expectedValue": {
+            "callElapsedNs": 1748998941,
+            "completionTokens": 143,
+            "configuration": "short24",
+            "correct": 0,
+            "decoder": "unconstrained",
+            "family": "structured-extraction",
+            "formatValid": 1,
+            "model": "smol135-q4",
+            "planned": 6,
+            "processCpuNs": 3403629782,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 323,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 0,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol135-q4-short24-unconstrained-arithmetic-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/1",
+          "expectedValue": {
+            "callElapsedNs": 1541615422,
+            "completionTokens": 119,
+            "configuration": "short24",
+            "correct": 0,
+            "decoder": "unconstrained",
+            "family": "arithmetic",
+            "formatValid": 0,
+            "model": "smol135-q4",
+            "planned": 6,
+            "processCpuNs": 3002349314,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 295,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 0,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol135-q4-short24-unconstrained-policy-decision-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/2",
+          "expectedValue": {
+            "callElapsedNs": 1946854423,
+            "completionTokens": 144,
+            "configuration": "short24",
+            "correct": 0,
+            "decoder": "unconstrained",
+            "family": "policy-decision",
+            "formatValid": 0,
+            "model": "smol135-q4",
+            "planned": 6,
+            "processCpuNs": 3802209612,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 396,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 0,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol135-q4-short24-unconstrained-grounded-abstention-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/3",
+          "expectedValue": {
+            "callElapsedNs": 1383494679,
+            "completionTokens": 54,
+            "configuration": "short24",
+            "correct": 0,
+            "decoder": "unconstrained",
+            "family": "grounded-abstention",
+            "formatValid": 0,
+            "model": "smol135-q4",
+            "planned": 6,
+            "processCpuNs": 2723218601,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 400,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 0,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol135-q4-short24-schema-structured-extraction-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/4",
+          "expectedValue": {
+            "callElapsedNs": 1914564180,
+            "completionTokens": 90,
+            "configuration": "short24",
+            "correct": 4,
+            "decoder": "schema",
+            "family": "structured-extraction",
+            "formatValid": 6,
+            "model": "smol135-q4",
+            "planned": 6,
+            "processCpuNs": 3290480336,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 323,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 6,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol135-q4-short24-schema-arithmetic-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/5",
+          "expectedValue": {
+            "callElapsedNs": 1309843409,
+            "completionTokens": 47,
+            "configuration": "short24",
+            "correct": 0,
+            "decoder": "schema",
+            "family": "arithmetic",
+            "formatValid": 6,
+            "model": "smol135-q4",
+            "planned": 6,
+            "processCpuNs": 2338385152,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 295,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 6,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol135-q4-short24-schema-policy-decision-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/6",
+          "expectedValue": {
+            "callElapsedNs": 1603433346,
+            "completionTokens": 48,
+            "configuration": "short24",
+            "correct": 0,
+            "decoder": "schema",
+            "family": "policy-decision",
+            "formatValid": 6,
+            "model": "smol135-q4",
+            "planned": 6,
+            "processCpuNs": 2902321959,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 396,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 6,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol135-q4-short24-schema-grounded-abstention-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/7",
+          "expectedValue": {
+            "callElapsedNs": 1852775548,
+            "completionTokens": 61,
+            "configuration": "short24",
+            "correct": 1,
+            "decoder": "schema",
+            "family": "grounded-abstention",
+            "formatValid": 6,
+            "model": "smol135-q4",
+            "planned": 6,
+            "processCpuNs": 3275923524,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 400,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 6,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol135-q4-long96-unconstrained-structured-extraction-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/8",
+          "expectedValue": {
+            "callElapsedNs": 3756403260,
+            "completionTokens": 429,
+            "configuration": "long96",
+            "correct": 0,
+            "decoder": "unconstrained",
+            "family": "structured-extraction",
+            "formatValid": 1,
+            "model": "smol135-q4",
+            "planned": 6,
+            "processCpuNs": 7223925593,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 323,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 0,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol135-q4-long96-unconstrained-arithmetic-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/9",
+          "expectedValue": {
+            "callElapsedNs": 3506759259,
+            "completionTokens": 400,
+            "configuration": "long96",
+            "correct": 0,
+            "decoder": "unconstrained",
+            "family": "arithmetic",
+            "formatValid": 0,
+            "model": "smol135-q4",
+            "planned": 6,
+            "processCpuNs": 6738459704,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 295,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 0,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol135-q4-long96-unconstrained-policy-decision-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/10",
+          "expectedValue": {
+            "callElapsedNs": 5012993864,
+            "completionTokens": 576,
+            "configuration": "long96",
+            "correct": 0,
+            "decoder": "unconstrained",
+            "family": "policy-decision",
+            "formatValid": 0,
+            "model": "smol135-q4",
+            "planned": 6,
+            "processCpuNs": 9631752740,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 396,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 0,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol135-q4-long96-unconstrained-grounded-abstention-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/11",
+          "expectedValue": {
+            "callElapsedNs": 1429630471,
+            "completionTokens": 54,
+            "configuration": "long96",
+            "correct": 0,
+            "decoder": "unconstrained",
+            "family": "grounded-abstention",
+            "formatValid": 0,
+            "model": "smol135-q4",
+            "planned": 6,
+            "processCpuNs": 2813989249,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 400,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 0,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol135-q4-long96-schema-structured-extraction-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/12",
+          "expectedValue": {
+            "callElapsedNs": 1906001266,
+            "completionTokens": 90,
+            "configuration": "long96",
+            "correct": 4,
+            "decoder": "schema",
+            "family": "structured-extraction",
+            "formatValid": 6,
+            "model": "smol135-q4",
+            "planned": 6,
+            "processCpuNs": 3276471820,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 323,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 6,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol135-q4-long96-schema-arithmetic-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/13",
+          "expectedValue": {
+            "callElapsedNs": 1312814830,
+            "completionTokens": 47,
+            "configuration": "long96",
+            "correct": 0,
+            "decoder": "schema",
+            "family": "arithmetic",
+            "formatValid": 6,
+            "model": "smol135-q4",
+            "planned": 6,
+            "processCpuNs": 2344196756,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 295,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 6,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol135-q4-long96-schema-policy-decision-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/14",
+          "expectedValue": {
+            "callElapsedNs": 1604524678,
+            "completionTokens": 48,
+            "configuration": "long96",
+            "correct": 0,
+            "decoder": "schema",
+            "family": "policy-decision",
+            "formatValid": 6,
+            "model": "smol135-q4",
+            "planned": 6,
+            "processCpuNs": 2901527030,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 396,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 6,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol135-q4-long96-schema-grounded-abstention-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/15",
+          "expectedValue": {
+            "callElapsedNs": 1821108516,
+            "completionTokens": 61,
+            "configuration": "long96",
+            "correct": 1,
+            "decoder": "schema",
+            "family": "grounded-abstention",
+            "formatValid": 6,
+            "model": "smol135-q4",
+            "planned": 6,
+            "processCpuNs": 3217245274,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 400,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 6,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol360-q4-short24-unconstrained-structured-extraction-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/16",
+          "expectedValue": {
+            "callElapsedNs": 3812049695,
+            "completionTokens": 99,
+            "configuration": "short24",
+            "correct": 2,
+            "decoder": "unconstrained",
+            "family": "structured-extraction",
+            "formatValid": 5,
+            "model": "smol360-q4",
+            "planned": 6,
+            "processCpuNs": 7546162854,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 323,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 2,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol360-q4-short24-unconstrained-arithmetic-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/17",
+          "expectedValue": {
+            "callElapsedNs": 3047815670,
+            "completionTokens": 63,
+            "configuration": "short24",
+            "correct": 1,
+            "decoder": "unconstrained",
+            "family": "arithmetic",
+            "formatValid": 6,
+            "model": "smol360-q4",
+            "planned": 6,
+            "processCpuNs": 6043374211,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 295,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 2,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol360-q4-short24-unconstrained-policy-decision-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/18",
+          "expectedValue": {
+            "callElapsedNs": 3779328066,
+            "completionTokens": 65,
+            "configuration": "short24",
+            "correct": 1,
+            "decoder": "unconstrained",
+            "family": "policy-decision",
+            "formatValid": 6,
+            "model": "smol360-q4",
+            "planned": 6,
+            "processCpuNs": 7505077496,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 396,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 6,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol360-q4-short24-unconstrained-grounded-abstention-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/19",
+          "expectedValue": {
+            "callElapsedNs": 4116130685,
+            "completionTokens": 83,
+            "configuration": "short24",
+            "correct": 0,
+            "decoder": "unconstrained",
+            "family": "grounded-abstention",
+            "formatValid": 4,
+            "model": "smol360-q4",
+            "planned": 6,
+            "processCpuNs": 8163646601,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 400,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 0,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol360-q4-short24-schema-structured-extraction-all-six-strict-targets",
+          "result": "pass",
+          "recordedField": "/quality/20",
+          "expectedValue": {
+            "callElapsedNs": 4151733060,
+            "completionTokens": 86,
+            "configuration": "short24",
+            "correct": 6,
+            "decoder": "schema",
+            "family": "structured-extraction",
+            "formatValid": 6,
+            "model": "smol360-q4",
+            "planned": 6,
+            "processCpuNs": 7774438523,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 323,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 6,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol360-q4-short24-schema-arithmetic-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/21",
+          "expectedValue": {
+            "callElapsedNs": 3048508138,
+            "completionTokens": 47,
+            "configuration": "short24",
+            "correct": 3,
+            "decoder": "schema",
+            "family": "arithmetic",
+            "formatValid": 6,
+            "model": "smol360-q4",
+            "planned": 6,
+            "processCpuNs": 5810181985,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 295,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 6,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol360-q4-short24-schema-policy-decision-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/22",
+          "expectedValue": {
+            "callElapsedNs": 3940970775,
+            "completionTokens": 54,
+            "configuration": "short24",
+            "correct": 1,
+            "decoder": "schema",
+            "family": "policy-decision",
+            "formatValid": 6,
+            "model": "smol360-q4",
+            "planned": 6,
+            "processCpuNs": 7524211133,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 396,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 6,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol360-q4-short24-schema-grounded-abstention-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/23",
+          "expectedValue": {
+            "callElapsedNs": 3786387640,
+            "completionTokens": 45,
+            "configuration": "short24",
+            "correct": 3,
+            "decoder": "schema",
+            "family": "grounded-abstention",
+            "formatValid": 6,
+            "model": "smol360-q4",
+            "planned": 6,
+            "processCpuNs": 7276418126,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 400,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 6,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol360-q4-long96-unconstrained-structured-extraction-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/24",
+          "expectedValue": {
+            "callElapsedNs": 3809516954,
+            "completionTokens": 99,
+            "configuration": "long96",
+            "correct": 2,
+            "decoder": "unconstrained",
+            "family": "structured-extraction",
+            "formatValid": 5,
+            "model": "smol360-q4",
+            "planned": 6,
+            "processCpuNs": 7541916870,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 323,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 2,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol360-q4-long96-unconstrained-arithmetic-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/25",
+          "expectedValue": {
+            "callElapsedNs": 3042072832,
+            "completionTokens": 63,
+            "configuration": "long96",
+            "correct": 1,
+            "decoder": "unconstrained",
+            "family": "arithmetic",
+            "formatValid": 6,
+            "model": "smol360-q4",
+            "planned": 6,
+            "processCpuNs": 6032356113,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 295,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 2,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol360-q4-long96-unconstrained-policy-decision-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/26",
+          "expectedValue": {
+            "callElapsedNs": 3800238469,
+            "completionTokens": 65,
+            "configuration": "long96",
+            "correct": 1,
+            "decoder": "unconstrained",
+            "family": "policy-decision",
+            "formatValid": 6,
+            "model": "smol360-q4",
+            "planned": 6,
+            "processCpuNs": 7547128481,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 396,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 6,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol360-q4-long96-unconstrained-grounded-abstention-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/27",
+          "expectedValue": {
+            "callElapsedNs": 4099009964,
+            "completionTokens": 83,
+            "configuration": "long96",
+            "correct": 0,
+            "decoder": "unconstrained",
+            "family": "grounded-abstention",
+            "formatValid": 4,
+            "model": "smol360-q4",
+            "planned": 6,
+            "processCpuNs": 8132947649,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 400,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 0,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol360-q4-long96-schema-structured-extraction-all-six-strict-targets",
+          "result": "pass",
+          "recordedField": "/quality/28",
+          "expectedValue": {
+            "callElapsedNs": 4065443035,
+            "completionTokens": 86,
+            "configuration": "long96",
+            "correct": 6,
+            "decoder": "schema",
+            "family": "structured-extraction",
+            "formatValid": 6,
+            "model": "smol360-q4",
+            "planned": 6,
+            "processCpuNs": 7607120128,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 323,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 6,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol360-q4-long96-schema-arithmetic-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/29",
+          "expectedValue": {
+            "callElapsedNs": 3044806279,
+            "completionTokens": 47,
+            "configuration": "long96",
+            "correct": 3,
+            "decoder": "schema",
+            "family": "arithmetic",
+            "formatValid": 6,
+            "model": "smol360-q4",
+            "planned": 6,
+            "processCpuNs": 5802632432,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 295,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 6,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol360-q4-long96-schema-policy-decision-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/30",
+          "expectedValue": {
+            "callElapsedNs": 3941387854,
+            "completionTokens": 54,
+            "configuration": "long96",
+            "correct": 1,
+            "decoder": "schema",
+            "family": "policy-decision",
+            "formatValid": 6,
+            "model": "smol360-q4",
+            "planned": 6,
+            "processCpuNs": 7524940958,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 396,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 6,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol360-q4-long96-schema-grounded-abstention-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/31",
+          "expectedValue": {
+            "callElapsedNs": 3762554292,
+            "completionTokens": 45,
+            "configuration": "long96",
+            "correct": 3,
+            "decoder": "schema",
+            "family": "grounded-abstention",
+            "formatValid": 6,
+            "model": "smol360-q4",
+            "planned": 6,
+            "processCpuNs": 7228610778,
+            "processLifetimePeakRssKiB": 554152,
+            "promptTokens": 400,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "schemaValid": 6,
+            "scored": 6
+          }
+        },
+        {
+          "claim": "independent-effect-key-store-clock-custody",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "external-host-recurring-adoption",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "protected-decision-effects",
+          "result": "not-exercised"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "../experiments/model-format-cpu-2026-10-02/original-artifact.zip",
+          "sha256": "e64eafb149f4a0975831b5ca36df74ca89abef0c8dd1ca2c40cc71e317d123fe"
+        },
+        {
+          "path": "../experiments/model-format-cpu-2026-10-02/provenance.json",
+          "sha256": "3ba30e6c165d771078db77309250024eff2620b50151e5521bee7ac185c42838"
+        },
+        {
+          "path": "../experiments/model-format-cpu-2026-10-02/report.json",
+          "sha256": "c2a7d1954f3fb005ab8f2d0faeb121f005deed7a54cd5d03ceeb4b13c861153d"
+        }
+      ]
     }
   ]
 }

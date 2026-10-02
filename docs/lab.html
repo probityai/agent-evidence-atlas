@@ -43,6 +43,7 @@
 <li><a href="#controls-a-reviewed-result-must-survive" id="toc-controls-a-reviewed-result-must-survive">Controls a reviewed result must survive</a></li>
 <li><a href="#review-rejection-and-correction" id="toc-review-rejection-and-correction">Review, rejection and correction</a></li>
 <li><a href="#connections-to-current-upstream-work" id="toc-connections-to-current-upstream-work">Connections to current upstream work</a></li>
+<li><a href="#paired-schema-decoding-and-correctness" id="toc-paired-schema-decoding-and-correctness">Paired schema decoding and correctness</a></li>
 </ul>
 </nav>
 <p>Maintainers can use this protocol to submit a verifier run, a host-project CI integration, or an observer/witness experiment. Each record names its contract, retained inputs, implementation and operators, and reports what passed, failed or remained untested. Probity maintains this register. A listed result makes no membership, endorsement or adoption commitment on behalf of another project.</p>
@@ -317,6 +318,127 @@
 <p>The <a href="https://github.com/aaif/wg-observability-and-traceability/blob/99d72c8484ac82f2c7128f2cb3b09e2971f8f234/working-documents/AGENT-BEHAVIOR-TRACE-MODEL-EXECUTION-PLAN.md">AAIF execution-plan proposal at 99d72c8</a> puts agree, evidence, interpret and contribute in sequence, with actual captures and an observed-gap register guiding later work. This lab uses that evidence-first sequence for its own submissions. <a href="https://github.com/aaif/wg-observability-and-traceability/pull/60">PR #60</a> is a proposed direction; it does not commit AAIF or any agent to this lab.</p>
 <p>The <a href="https://github.com/gemaraproj/gemara/blob/a3016f4ddadda4e2d4a68ab353ce430fdb62b6bf/evidence.cue">Gemara evidence proposal at a3016f4</a> defines a citation digest over the full octet stream delivered, including a required SHA-256 support floor. Coordinates and entry IDs are lookup hints, rather than digest inputs. Its citation-integrity outcomes are <code>verified</code>, <code>integrity-failure</code> and <code>unverifiable</code>; absence of a digest makes no integrity claim. These are byte-integrity results, separate from the claim-level outcomes above. <a href="https://github.com/gemaraproj/gemara/pull/507">PR #507</a> remains a pinned proposal here. A raw-octet adapter run is an open contribution route, with no completed lab result or Gemara commitment claimed.</p>
 <p>The initial E6 record exercises the existing observer contract. Future records can connect these proposed upstream contracts only after their exact rules, inputs and measured limits are supplied. The register records adoption when a host project owns and retains the dependency run, and records independent operation only when its distinct trust requirements are demonstrated.</p>
+<h2 id="paired-schema-decoding-and-correctness">Paired schema decoding and correctness</h2>
+<p>The <a href="experiments/model-format-cpu-2026-10-02/report.json">paired format-control report</a> retains 192 actual-weight CPU attempts under thirty-two separate model/cap/decoder/family rows. Its protocol, compiler and grammar hashes were published before inference. It compares unconstrained decoding with a frozen JSON syntax/type grammar on the same exposed authored tasks, without target constants, enums or semantic patterns. Selected restrictions include at most sixteen integer digits, one optional ASCII space and fixed required-key order.</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr>
+<th>Model</th>
+<th>Output cap</th>
+<th>Decoder</th>
+<th>Extraction correct</th>
+<th>Arithmetic correct</th>
+<th>Policy correct</th>
+<th>Abstention correct</th>
+<th>JSON valid</th>
+<th>Schema valid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>135M</td>
+<td>24</td>
+<td>unconstrained</td>
+<td>0/6</td>
+<td>0/6</td>
+<td>0/6</td>
+<td>0/6</td>
+<td>1/24</td>
+<td>0/24</td>
+</tr>
+<tr>
+<td>135M</td>
+<td>24</td>
+<td>schema</td>
+<td>4/6</td>
+<td>0/6</td>
+<td>0/6</td>
+<td>1/6</td>
+<td>24/24</td>
+<td>24/24</td>
+</tr>
+<tr>
+<td>135M</td>
+<td>96</td>
+<td>unconstrained</td>
+<td>0/6</td>
+<td>0/6</td>
+<td>0/6</td>
+<td>0/6</td>
+<td>1/24</td>
+<td>0/24</td>
+</tr>
+<tr>
+<td>135M</td>
+<td>96</td>
+<td>schema</td>
+<td>4/6</td>
+<td>0/6</td>
+<td>0/6</td>
+<td>1/6</td>
+<td>24/24</td>
+<td>24/24</td>
+</tr>
+<tr>
+<td>360M</td>
+<td>24</td>
+<td>unconstrained</td>
+<td>2/6</td>
+<td>1/6</td>
+<td>1/6</td>
+<td>0/6</td>
+<td>21/24</td>
+<td>10/24</td>
+</tr>
+<tr>
+<td>360M</td>
+<td>24</td>
+<td>schema</td>
+<td>6/6</td>
+<td>3/6</td>
+<td>1/6</td>
+<td>3/6</td>
+<td>24/24</td>
+<td>24/24</td>
+</tr>
+<tr>
+<td>360M</td>
+<td>96</td>
+<td>unconstrained</td>
+<td>2/6</td>
+<td>1/6</td>
+<td>1/6</td>
+<td>0/6</td>
+<td>21/24</td>
+<td>10/24</td>
+</tr>
+<tr>
+<td>360M</td>
+<td>96</td>
+<td>schema</td>
+<td>6/6</td>
+<td>3/6</td>
+<td>1/6</td>
+<td>3/6</td>
+<td>24/24</td>
+<td>24/24</td>
+</tr>
+</tbody>
+</table>
+<p>All constrained outputs are schema-valid, while the larger model’s policy family remains correct in only one of six cases at each cap. Each register row separately binds format validity, schema validity and typed-exact target correctness. The runnable register checker refuses replacing an incomplete correctness result with schema success, pooling decoder rows or omitting a row. A complete published report is not approval to publish, admit or dispatch the model’s decisions. No protected effects were executed.</p>
+<p>The <a href="experiments/model-format-cpu-2026-10-02/original-artifact.zip">original compact provider archive</a> retains 463 native members. The <a href="experiments/model-format-cpu-2026-10-02/provenance.json">provenance</a> binds every member to the authenticated full preparation archive’s 493 members, with thirty explicit omissions. Weights, source/dependency wheels and preparation records remain in the private original, required to rerun inference or reconstruct all acquisition bytes. The new format preparation transferred 472,221,945 response-body bytes. Including the original short run and failed and successful comparison preparations, cumulative acquisition was 1,694,784,417 bytes across four separately declared preparation envelopes. This exceeds a single envelope; no response retry or quality retuning followed observed outputs.</p>
+<p>The twelve-record <a href="lab/register.json">register</a> preserves all eleven earlier records and their retained artifacts. These measurements remain author-operated, with exposed expected answers and output/comparison emitted together. Raw Atlas publication before indexing does not make native inference blind. Shared process lifetime RSS and whole-process CPU are not per-model/task allocations. Independent custody, representative benchmark performance and outside recurring use remain unestablished.</p>
 </main>
 <footer class="site">
   <p>Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.6-draft, 2026-10-01.</p>

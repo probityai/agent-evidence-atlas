@@ -222,3 +222,51 @@ The [AAIF execution-plan proposal at 99d72c8](https://github.com/aaif/wg-observa
 The [Gemara evidence proposal at a3016f4](https://github.com/gemaraproj/gemara/blob/a3016f4ddadda4e2d4a68ab353ce430fdb62b6bf/evidence.cue) defines a citation digest over the full octet stream delivered, including a required SHA-256 support floor. Coordinates and entry IDs are lookup hints, rather than digest inputs. Its citation-integrity outcomes are `verified`, `integrity-failure` and `unverifiable`; absence of a digest makes no integrity claim. These are byte-integrity results, separate from the claim-level outcomes above. [PR #507](https://github.com/gemaraproj/gemara/pull/507) remains a pinned proposal here. A raw-octet adapter run is an open contribution route, with no completed lab result or Gemara commitment claimed.
 
 The initial E6 record exercises the existing observer contract. Future records can connect these proposed upstream contracts only after their exact rules, inputs and measured limits are supplied. The register records adoption when a host project owns and retains the dependency run, and records independent operation only when its distinct trust requirements are demonstrated.
+
+## Paired schema decoding and correctness
+
+The [paired format-control report](experiments/model-format-cpu-2026-10-02/report.json)
+retains 192 actual-weight CPU attempts under thirty-two separate
+model/cap/decoder/family rows. Its protocol, compiler and grammar hashes were
+published before inference. It compares unconstrained decoding with a frozen
+JSON syntax/type grammar on the same exposed authored tasks, without target
+constants, enums or semantic patterns. Selected restrictions include at most
+sixteen integer digits, one optional ASCII space and fixed required-key order.
+
+| Model | Output cap | Decoder | Extraction correct | Arithmetic correct | Policy correct | Abstention correct | JSON valid | Schema valid |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 135M | 24 | unconstrained | 0/6 | 0/6 | 0/6 | 0/6 | 1/24 | 0/24 |
+| 135M | 24 | schema | 4/6 | 0/6 | 0/6 | 1/6 | 24/24 | 24/24 |
+| 135M | 96 | unconstrained | 0/6 | 0/6 | 0/6 | 0/6 | 1/24 | 0/24 |
+| 135M | 96 | schema | 4/6 | 0/6 | 0/6 | 1/6 | 24/24 | 24/24 |
+| 360M | 24 | unconstrained | 2/6 | 1/6 | 1/6 | 0/6 | 21/24 | 10/24 |
+| 360M | 24 | schema | 6/6 | 3/6 | 1/6 | 3/6 | 24/24 | 24/24 |
+| 360M | 96 | unconstrained | 2/6 | 1/6 | 1/6 | 0/6 | 21/24 | 10/24 |
+| 360M | 96 | schema | 6/6 | 3/6 | 1/6 | 3/6 | 24/24 | 24/24 |
+
+All constrained outputs are schema-valid, while the larger model's policy
+family remains correct in only one of six cases at each cap. Each register
+row separately binds format validity, schema validity and typed-exact target
+correctness. The runnable register checker refuses replacing an incomplete
+correctness result with schema success, pooling decoder rows or omitting a row.
+A complete published report is not approval to publish, admit or dispatch the
+model's decisions. No protected effects were executed.
+
+The [original compact provider archive](experiments/model-format-cpu-2026-10-02/original-artifact.zip)
+retains 463 native members. The [provenance](experiments/model-format-cpu-2026-10-02/provenance.json)
+binds every member to the authenticated full preparation archive's 493 members,
+with thirty explicit omissions. Weights, source/dependency wheels and preparation
+records remain in the private original, required to rerun inference or reconstruct
+all acquisition bytes. The new format preparation transferred 472,221,945
+response-body bytes. Including the original short run and failed and successful
+comparison preparations, cumulative acquisition was 1,694,784,417 bytes across
+four separately declared preparation envelopes. This exceeds a single envelope;
+no response retry or quality retuning followed observed outputs.
+
+The twelve-record [register](lab/register.json) preserves all eleven earlier
+records and their retained artifacts. These measurements remain author-operated,
+with exposed expected answers and output/comparison emitted together. Raw Atlas
+publication before indexing does not make native inference blind. Shared
+process lifetime RSS and whole-process CPU are not per-model/task allocations.
+Independent custody, representative benchmark performance and outside recurring
+use remain unestablished.

@@ -465,7 +465,7 @@
       "readerRevision": "4505b08d6f46574d99c01a29681c2b93edbdb342",
       "report": "../experiments/model-operational-2026-10-02/report.json",
       "provenance": "../experiments/model-operational-2026-10-02/provenance.json",
-      "contract": "https://github.com/probityai/agent-evidence-observer/tree/ab84161d09bb7bd696bba57717a418a95dd1d976/interop/local-model-operational-2026-10-02",
+      "contract": "https://github.com/probityai/agent-evidence-observer/tree/ab84161d09bb7bd696bba57717a418a95dd1d976/interop/local-model-tasks-2026-10-02",
       "reviewState": "author-retained-measured-record",
       "evidenceClaim": "author-operated-actual-weight-microtask-result",
       "roles": {

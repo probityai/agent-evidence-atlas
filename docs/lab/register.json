@@ -3586,6 +3586,463 @@
           "result": "out-of-scope"
         }
       ]
+    },
+    {
+      "id": "atomic-delegation-2026-10-02",
+      "readerRevision": "80be8dae6feb8b9106181b78fba2c7c6a7c8f4d8",
+      "contract": "https://github.com/astrogilda/atomic/blob/80be8dae6feb8b9106181b78fba2c7c6a7c8f4d8/tools/native-evaluation/README.md",
+      "report": "../experiments/atomic-delegation-2026-10-02/report.json",
+      "provenance": "../experiments/atomic-delegation-2026-10-02/provenance.json",
+      "reviewState": "author-operated-upstream-review-pending",
+      "evidenceClaim": "native-local-certificate-selection-persistence",
+      "roles": {
+        "fixtureAuthor": "Probity",
+        "runner": "Probity local workspace",
+        "keyClockFilesystemCustodian": "Probity local workspace",
+        "independentOperation": "not-established",
+        "independentEffectCustody": "not-established",
+        "outsideRecurringUse": "not-established"
+      },
+      "answerExposure": "Author-written native cases and expected outcomes exposed; not blind.",
+      "comparisonOrder": "Original native observations and test assertions emitted together, not separate public raw-result-first revisions.",
+      "limits": [
+        "Normal fresh reader-process restart, not crash-mid-write consistency.",
+        "Self-contained local grant selection does not establish external issuer authority or server permission enforcement.",
+        "Local key, clock and filesystem remain under one operator; child PIDs are unsigned testimony.",
+        "No remote revocation, independently operated effect custody, model task quality or recurring outside use is established.",
+        "Full author-assembled ZIP packages byte-exact original retained-run files; it is not a CI provider archive."
+      ],
+      "claimResults": [
+        {
+          "claim": "complete-declared-native-population",
+          "result": "pass",
+          "recordedField": "/declared_cases",
+          "expectedValue": [
+            "exact_retry_and_process_restart_preserve_a_narrow_grant",
+            "revocation_survives_restart_and_does_not_revoke_a_distinct_renewal",
+            "expired_and_corrupt_grants_stay_inactive_after_restart",
+            "local_selection_does_not_establish_external_issuer_authority"
+          ]
+        },
+        {
+          "claim": "exact_retry_and_process_restart_preserve_a_narrow_grant",
+          "result": "pass",
+          "recordedField": "/results/0",
+          "expectedValue": {
+            "argv": [
+              "/workspace/atomic-pr-tools/target-native/debug/deps/delegation_restart-024c3e55c7b51ced",
+              "--exact",
+              "exact_retry_and_process_restart_preserve_a_narrow_grant",
+              "--nocapture"
+            ],
+            "returncode": 0,
+            "timed_out": false,
+            "wall_seconds": 0.11508546500044758,
+            "stdout": "case-0.stdout",
+            "stderr": "case-0.stderr",
+            "case": "exact_retry_and_process_restart_preserve_a_narrow_grant",
+            "observations": [
+              {
+                "active_id": "FYTMI4JUHEX6QWDYQFFFUE6XNUDVEMHAI5XEDCNNOASRE4N7WASQ",
+                "allows_other_project": false,
+                "allows_other_view": false,
+                "allows_production": false,
+                "allows_push": false,
+                "allows_record": true,
+                "allows_staging": true,
+                "coverage": "local-store-selection-only",
+                "locally_revoked": 0,
+                "pid": 295072,
+                "scope": {
+                  "permissions": [
+                    "record"
+                  ],
+                  "projects": [
+                    "acme/project"
+                  ],
+                  "servers": [
+                    "https://staging.example.test"
+                  ],
+                  "views": [
+                    "review/*"
+                  ],
+                  "workspaces": []
+                },
+                "stored": 1,
+                "verified_for_delegate": 1
+              },
+              {
+                "active_id": "FYTMI4JUHEX6QWDYQFFFUE6XNUDVEMHAI5XEDCNNOASRE4N7WASQ",
+                "allows_other_project": false,
+                "allows_other_view": false,
+                "allows_production": false,
+                "allows_push": false,
+                "allows_record": true,
+                "allows_staging": true,
+                "coverage": "local-store-selection-only",
+                "locally_revoked": 0,
+                "pid": 295080,
+                "scope": {
+                  "permissions": [
+                    "record"
+                  ],
+                  "projects": [
+                    "acme/project"
+                  ],
+                  "servers": [
+                    "https://staging.example.test"
+                  ],
+                  "views": [
+                    "review/*"
+                  ],
+                  "workspaces": []
+                },
+                "stored": 1,
+                "verified_for_delegate": 1
+              }
+            ],
+            "passed": true
+          }
+        },
+        {
+          "claim": "revocation_survives_restart_and_does_not_revoke_a_distinct_renewal",
+          "result": "pass",
+          "recordedField": "/results/1",
+          "expectedValue": {
+            "argv": [
+              "/workspace/atomic-pr-tools/target-native/debug/deps/delegation_restart-024c3e55c7b51ced",
+              "--exact",
+              "revocation_survives_restart_and_does_not_revoke_a_distinct_renewal",
+              "--nocapture"
+            ],
+            "returncode": 0,
+            "timed_out": false,
+            "wall_seconds": 0.21452056100133632,
+            "stdout": "case-1.stdout",
+            "stderr": "case-1.stderr",
+            "case": "revocation_survives_restart_and_does_not_revoke_a_distinct_renewal",
+            "observations": [
+              {
+                "active_id": "KFPC4CDU7EPEVTTDKX6WD3OFK5CXAKF5MV6NLNQTY2N7JEIH7OFQ",
+                "allows_other_project": false,
+                "allows_other_view": false,
+                "allows_production": false,
+                "allows_push": false,
+                "allows_record": true,
+                "allows_staging": true,
+                "coverage": "local-store-selection-only",
+                "locally_revoked": 0,
+                "pid": 295090,
+                "scope": {
+                  "permissions": [
+                    "record"
+                  ],
+                  "projects": [
+                    "acme/project"
+                  ],
+                  "servers": [
+                    "https://staging.example.test"
+                  ],
+                  "views": [
+                    "review/*"
+                  ],
+                  "workspaces": []
+                },
+                "stored": 1,
+                "verified_for_delegate": 1
+              },
+              {
+                "active_id": null,
+                "allows_other_project": false,
+                "allows_other_view": false,
+                "allows_production": false,
+                "allows_push": false,
+                "allows_record": false,
+                "allows_staging": false,
+                "coverage": "local-store-selection-only",
+                "locally_revoked": 1,
+                "pid": 295092,
+                "scope": null,
+                "stored": 1,
+                "verified_for_delegate": 1
+              },
+              {
+                "active_id": "M6ZCTVT2LSE4KYPPODAI6K5WORHIIWQGNDKMUJD2WE2HKFN6CX4A",
+                "allows_other_project": false,
+                "allows_other_view": false,
+                "allows_production": false,
+                "allows_push": false,
+                "allows_record": true,
+                "allows_staging": true,
+                "coverage": "local-store-selection-only",
+                "locally_revoked": 1,
+                "pid": 295094,
+                "scope": {
+                  "permissions": [
+                    "record"
+                  ],
+                  "projects": [
+                    "acme/project"
+                  ],
+                  "servers": [
+                    "https://staging.example.test"
+                  ],
+                  "views": [
+                    "review/*"
+                  ],
+                  "workspaces": []
+                },
+                "stored": 2,
+                "verified_for_delegate": 2
+              },
+              {
+                "active_id": "M6ZCTVT2LSE4KYPPODAI6K5WORHIIWQGNDKMUJD2WE2HKFN6CX4A",
+                "allows_other_project": false,
+                "allows_other_view": false,
+                "allows_production": false,
+                "allows_push": false,
+                "allows_record": true,
+                "allows_staging": true,
+                "coverage": "local-store-selection-only",
+                "locally_revoked": 1,
+                "pid": 295096,
+                "scope": {
+                  "permissions": [
+                    "record"
+                  ],
+                  "projects": [
+                    "acme/project"
+                  ],
+                  "servers": [
+                    "https://staging.example.test"
+                  ],
+                  "views": [
+                    "review/*"
+                  ],
+                  "workspaces": []
+                },
+                "stored": 2,
+                "verified_for_delegate": 2
+              }
+            ],
+            "passed": true
+          }
+        },
+        {
+          "claim": "expired_and_corrupt_grants_stay_inactive_after_restart",
+          "result": "pass",
+          "recordedField": "/results/2",
+          "expectedValue": {
+            "argv": [
+              "/workspace/atomic-pr-tools/target-native/debug/deps/delegation_restart-024c3e55c7b51ced",
+              "--exact",
+              "expired_and_corrupt_grants_stay_inactive_after_restart",
+              "--nocapture"
+            ],
+            "returncode": 0,
+            "timed_out": false,
+            "wall_seconds": 0.2147393360010028,
+            "stdout": "case-2.stdout",
+            "stderr": "case-2.stderr",
+            "case": "expired_and_corrupt_grants_stay_inactive_after_restart",
+            "observations": [
+              {
+                "active_id": null,
+                "allows_other_project": false,
+                "allows_other_view": false,
+                "allows_production": false,
+                "allows_push": false,
+                "allows_record": false,
+                "allows_staging": false,
+                "coverage": "local-store-selection-only",
+                "locally_revoked": 0,
+                "pid": 295100,
+                "scope": null,
+                "stored": 1,
+                "verified_for_delegate": 1
+              },
+              {
+                "active_id": null,
+                "allows_other_project": false,
+                "allows_other_view": false,
+                "allows_production": false,
+                "allows_push": false,
+                "allows_record": false,
+                "allows_staging": false,
+                "coverage": "local-store-selection-only",
+                "locally_revoked": 0,
+                "pid": 295102,
+                "scope": null,
+                "stored": 3,
+                "verified_for_delegate": 1
+              },
+              {
+                "active_id": null,
+                "allows_other_project": false,
+                "allows_other_view": false,
+                "allows_production": false,
+                "allows_push": false,
+                "allows_record": false,
+                "allows_staging": false,
+                "coverage": "local-store-selection-only",
+                "locally_revoked": 0,
+                "pid": 295104,
+                "scope": null,
+                "stored": 3,
+                "verified_for_delegate": 1
+              },
+              {
+                "active_id": "TOQB4BPMBHHIW2UEBH6XCTYBCIXIGJX6FMSZN333J7VED7KEOXYA",
+                "allows_other_project": false,
+                "allows_other_view": false,
+                "allows_production": false,
+                "allows_push": false,
+                "allows_record": true,
+                "allows_staging": true,
+                "coverage": "local-store-selection-only",
+                "locally_revoked": 0,
+                "pid": 295106,
+                "scope": {
+                  "permissions": [
+                    "record"
+                  ],
+                  "projects": [
+                    "acme/project"
+                  ],
+                  "servers": [
+                    "https://staging.example.test"
+                  ],
+                  "views": [
+                    "review/*"
+                  ],
+                  "workspaces": []
+                },
+                "stored": 4,
+                "verified_for_delegate": 2
+              }
+            ],
+            "passed": true
+          }
+        },
+        {
+          "claim": "local_selection_does_not_establish_external_issuer_authority",
+          "result": "pass",
+          "recordedField": "/results/3",
+          "expectedValue": {
+            "argv": [
+              "/workspace/atomic-pr-tools/target-native/debug/deps/delegation_restart-024c3e55c7b51ced",
+              "--exact",
+              "local_selection_does_not_establish_external_issuer_authority",
+              "--nocapture"
+            ],
+            "returncode": 0,
+            "timed_out": false,
+            "wall_seconds": 0.11401919700074359,
+            "stdout": "case-3.stdout",
+            "stderr": "case-3.stderr",
+            "case": "local_selection_does_not_establish_external_issuer_authority",
+            "observations": [
+              {
+                "active_id": "ETUSTGDNWUQKSALWLOLN5T37SDVXSAPB65UGPKCQ2CLVFAGDREUQ",
+                "allows_other_project": false,
+                "allows_other_view": false,
+                "allows_production": false,
+                "allows_push": false,
+                "allows_record": true,
+                "allows_staging": true,
+                "coverage": "local-store-selection-only",
+                "locally_revoked": 0,
+                "pid": 295110,
+                "scope": {
+                  "permissions": [
+                    "record"
+                  ],
+                  "projects": [
+                    "acme/project"
+                  ],
+                  "servers": [
+                    "https://staging.example.test"
+                  ],
+                  "views": [
+                    "review/*"
+                  ],
+                  "workspaces": []
+                },
+                "stored": 1,
+                "verified_for_delegate": 1
+              },
+              {
+                "active_id": "ETUSTGDNWUQKSALWLOLN5T37SDVXSAPB65UGPKCQ2CLVFAGDREUQ",
+                "allows_other_project": false,
+                "allows_other_view": false,
+                "allows_production": false,
+                "allows_push": false,
+                "allows_record": true,
+                "allows_staging": true,
+                "coverage": "local-store-selection-only",
+                "locally_revoked": 0,
+                "pid": 295112,
+                "scope": {
+                  "permissions": [
+                    "record"
+                  ],
+                  "projects": [
+                    "acme/project"
+                  ],
+                  "servers": [
+                    "https://staging.example.test"
+                  ],
+                  "views": [
+                    "review/*"
+                  ],
+                  "workspaces": []
+                },
+                "stored": 2,
+                "verified_for_delegate": 1
+              }
+            ],
+            "passed": true
+          }
+        },
+        {
+          "claim": "upstream-maintainer-acceptance",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "outside-recurring-host-use",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "independent-effect-custody",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "server-permission-enforcement",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "remote-revocation",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "crash-mid-write",
+          "result": "not-exercised"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "../experiments/atomic-delegation-2026-10-02/native-run-capsule.zip",
+          "sha256": "ba31071e1f0a60644117e3f4c300b16b07bc75c58caf3a5259047054132c3719"
+        },
+        {
+          "path": "../experiments/atomic-delegation-2026-10-02/report.json",
+          "sha256": "92b6cd64f85e7a87e8aee04bff128195e578acfd969170c231bbb1ac55f5f7c1"
+        },
+        {
+          "path": "../experiments/atomic-delegation-2026-10-02/provenance.json",
+          "sha256": "15fc513822f79e2cd3e12cfd22301e7f73e139359818f062e234958d5fd40f41"
+        }
+      ]
     }
   ]
 }

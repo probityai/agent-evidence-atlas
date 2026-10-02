@@ -56,6 +56,9 @@ NAV = [
 # page whose links need it, or None for every page). A copy is made exactly when its
 # page is built, and a missing source for a built page fails the build.
 COPIES = [
+    ("experiments/execsurface-state-2026-10-02/original-artifact.zip", "experiments/execsurface-state-2026-10-02/original-artifact.zip", "lab"),
+    ("experiments/execsurface-state-2026-10-02/provenance.json", "experiments/execsurface-state-2026-10-02/provenance.json", "lab"),
+    ("experiments/execsurface-state-2026-10-02/report.json", "experiments/execsurface-state-2026-10-02/report.json", "lab"),
     ("experiments/authority-recovery-2026-10-02/original-artifact.zip", "experiments/authority-recovery-2026-10-02/original-artifact.zip", "lab"),
     ("experiments/authority-recovery-2026-10-02/provenance.json", "experiments/authority-recovery-2026-10-02/provenance.json", "lab"),
     ("experiments/authority-recovery-2026-10-02/report.json", "experiments/authority-recovery-2026-10-02/report.json", "lab"),

@@ -98,11 +98,38 @@ than one acquisition budget. No model inference was retried. Native token,
 whole-process CPU, serial elapsed time and shared process-lifetime peak RSS stay
 labelled by their actual scope. Author-written expectations were exposed.
 
-The register now contains ten retained records, with each measured claim bound
+The four continuation additions bring the register to ten retained records, with each measured claim bound
 to literal report fields. All four continuation records remain Probity-operated;
 none establishes producer acceptance, an outside maintained workflow, independent
 effect/key/store/clock custody, host power-loss recovery or a general exactly-once
 guarantee. SDK behavior and actual-weight quality remain separate measurements.
+
+## Native metadata and separate endpoint state
+
+An additional [ExecSurface state-join record](experiments/execsurface-state-2026-10-02/report.json)
+retains one declared generated-file overwrite and its separate before/after
+captures. Actual native metadata carries one successful file-descriptor write;
+the companion carries the declared nine-byte endpoint state and authenticates a
+source-selected byte predicate. Native schema-v2 metadata contains neither the
+written bytes nor the write count. Endpoint snapshots do not prove that no
+intermediate writes occurred.
+
+The record remains voluntary/peer/log-import/software-only. Its predicate is
+valid, native invocation reports complete and the selected byte join verifies,
+while `scopeComplete` is false and typed collection health remains
+`unknown-no-typed-envelope`. These axes stay separate. The producer's native
+learn/check PASS is a same-byte calibration outside the claimed signed interval;
+it does not establish authority, collection health or task quality. Same-team
+software signing does not establish independent key, store or clock custody.
+
+[The original exact-main archive](experiments/execsurface-state-2026-10-02/original-artifact.zip)
+and [source/member provenance](experiments/execsurface-state-2026-10-02/provenance.json)
+retain all twenty-nine provider members, including native trace, snapshots,
+commitment/envelope, selected publication policy and calibration. The signed
+interval retains eighteen selected files. The register now contains eleven
+records; this additional record preserves all ten earlier entries and their
+archive bytes. Linux x86_64 ptrace scope and backend limitations remain explicit;
+no outside adoption or independent effect custody is established.
 
 ## Start with a run that exists
 

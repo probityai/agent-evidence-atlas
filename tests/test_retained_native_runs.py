@@ -13,7 +13,8 @@ ROOT = Path(__file__).resolve().parents[1]
 @pytest.mark.parametrize('name', ['langgraph-durable-2026-10-02',
     'pydantic-failure-2026-10-02', 'model-operational-2026-10-02',
     'authority-recovery-2026-10-02', 'target-process-recovery-2026-10-02',
-    'model-paired-cpu-2026-10-02', 'openai-agents-ticket-2026-10-02'])
+    'model-paired-cpu-2026-10-02', 'openai-agents-ticket-2026-10-02',
+    'execsurface-state-2026-10-02'])
 def test_public_archive_preserves_selected_original_members(name: str) -> None:
     folder = ROOT / 'experiments' / name
     provenance = json.loads((folder / 'provenance.json').read_bytes())

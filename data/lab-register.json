@@ -1539,6 +1539,140 @@
           "sha256": "936a277df9f5559a7a423fb6b5f70c9460438f6af41c98659ca7b9e8eb42b748"
         }
       ]
+    },
+    {
+      "id": "execsurface-state-2026-10-02",
+      "atlasRevision": "211dbfb22a65ac48c1fab91b6a13f0e15a362837",
+      "sourceRevision": "88f475da4c4626b52ab78900e03ba9f73aa35640",
+      "readerRevision": "88f475da4c4626b52ab78900e03ba9f73aa35640",
+      "contract": "https://github.com/probityai/agent-evidence-observer/tree/88f475da4c4626b52ab78900e03ba9f73aa35640/interop/execsurface-state-2026-10-02",
+      "report": "../experiments/execsurface-state-2026-10-02/report.json",
+      "provenance": "../experiments/execsurface-state-2026-10-02/provenance.json",
+      "reviewState": "author-retained-measured-record",
+      "evidenceClaim": "author-operated-native-metadata-and-endpoint-state-join",
+      "roles": {
+        "producer": "Probity-owned workflow using pinned ExecSurface binary",
+        "companionAuthor": "Probity",
+        "atlasOperator": "Probity",
+        "retentionHolder": "Probity",
+        "independentOperation": "not-established",
+        "independentEffectCustody": "not-established",
+        "outsideRecurringUse": "not-established"
+      },
+      "answerExposure": "Author-written deterministic overwrite, companion and expected outcomes exposed; not blind.",
+      "comparisonOrder": "Native companion output and verifier comparison emitted together; public raw retention before indexing does not establish a blind or native raw-result-first comparison.",
+      "limits": [
+        "Voluntary/peer/log-import/software-only predicate with incomplete scope and unknown typed collection health.",
+        "Native schema-v2 metadata does not carry written bytes or write count; nine-byte content comes from separate snapshots and declared workload.",
+        "Same operator controls generated fixture, key, store, clock and captures; no independent custody, principal authentication or outside adoption.",
+        "Selected Linux x86_64 ptrace metadata only; no mmap/io_uring attribution or absence-of-intermediate-write claim.",
+        "Native learn/check producer PASS is a separate outside-interval same-byte calibration, not authority, collection health or task quality.",
+        "Release source/binary association is pinned but Rust build reproducibility is not established."
+      ],
+      "claimResults": [
+        {
+          "claim": "selected-byte-predicate-valid",
+          "result": "pass",
+          "recordedField": "/predicateVerdict",
+          "expectedValue": "valid"
+        },
+        {
+          "claim": "selected-evidence-valid",
+          "result": "pass",
+          "recordedField": "/evidenceValid",
+          "expectedValue": true
+        },
+        {
+          "claim": "declared-carried-write-count",
+          "result": "pass",
+          "recordedField": "/carriedWrites",
+          "expectedValue": 1
+        },
+        {
+          "claim": "separate-endpoint-after-byte-count",
+          "result": "pass",
+          "recordedField": "/companionAfterBytes",
+          "expectedValue": 9
+        },
+        {
+          "claim": "native-invocation-complete",
+          "result": "pass",
+          "recordedField": "/nativeComplete",
+          "expectedValue": true
+        },
+        {
+          "claim": "import-origin-remains-disclosed",
+          "result": "pass",
+          "recordedField": "/origin",
+          "expectedValue": "log-import"
+        },
+        {
+          "claim": "voluntary-tier-remains-disclosed",
+          "result": "pass",
+          "recordedField": "/tier",
+          "expectedValue": "voluntary"
+        },
+        {
+          "claim": "complete-observation-scope",
+          "result": "fail",
+          "recordedField": "/scopeComplete",
+          "expectedValue": false
+        },
+        {
+          "claim": "unknown-typed-collection-health-remains-disclosed",
+          "result": "pass",
+          "recordedField": "/collectionHealth",
+          "expectedValue": "unknown-no-typed-envelope"
+        },
+        {
+          "claim": "native-write-count-not-invented",
+          "result": "pass",
+          "recordedField": "/nativeWriteByteCount",
+          "expectedValue": "not-carried-in-schema-v2"
+        },
+        {
+          "claim": "producer-calibration-pass",
+          "result": "pass",
+          "recordedField": "/producerDriftVerdict",
+          "expectedValue": "pass"
+        },
+        {
+          "claim": "producer-comparison-outside-claimed-interval",
+          "result": "pass",
+          "recordedField": "/producerComparisonOutsideInterval",
+          "expectedValue": true
+        },
+        {
+          "claim": "independent-effect-key-store-clock-custody",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "external-host-recurring-adoption",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "typed-collection-health-envelope",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "absence-of-intermediate-writes",
+          "result": "not-exercised"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "../experiments/execsurface-state-2026-10-02/original-artifact.zip",
+          "sha256": "6f6c0b9e7d6f8f63cfcf2f1ce07e49fb1ca7c8e1433ba0d73782dbfdb28dc814"
+        },
+        {
+          "path": "../experiments/execsurface-state-2026-10-02/provenance.json",
+          "sha256": "01ddd16d56af3743b8ba5a62931458f84636e51065b32a2d3bd7cfcbdb93092c"
+        },
+        {
+          "path": "../experiments/execsurface-state-2026-10-02/report.json",
+          "sha256": "7a6f9e00d7939aad6ea55c5a5143133a255ff788f82fb39f2e51058204a1b30a"
+        }
+      ]
     }
   ]
 }

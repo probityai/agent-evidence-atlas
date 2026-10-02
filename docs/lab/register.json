@@ -2461,6 +2461,462 @@
           "sha256": "c2a7d1954f3fb005ab8f2d0faeb121f005deed7a54cd5d03ceeb4b13c861153d"
         }
       ]
+    },
+    {
+      "id": "google-adk-ticket-2026-10-02",
+      "atlasRevision": "6c9530460f48da368673f7ad933756cd51ce1139",
+      "sourceRevision": "a6cb0b0eb767e01ad2d0813c9483c39af08163cd",
+      "readerRevision": "420a96a830b84fbdaf4fed052901f45686afec18",
+      "contract": "https://github.com/probityai/agent-evidence-observer/tree/a6cb0b0eb767e01ad2d0813c9483c39af08163cd/interop/adk-ticket-2026-10-02",
+      "report": "../experiments/google-adk-ticket-2026-10-02/report.json",
+      "provenance": "../experiments/google-adk-ticket-2026-10-02/provenance.json",
+      "reviewState": "author-retained-measured-record",
+      "evidenceClaim": "author-operated-native-google-adk-scripted-reference-result",
+      "roles": {
+        "producer": "Probity-owned workflow",
+        "readerAuthor": "Probity",
+        "atlasOperator": "Probity",
+        "retentionHolder": "Probity",
+        "independentOperation": "not-established",
+        "independentEffectCustody": "not-established",
+        "outsideRecurringUse": "not-established"
+      },
+      "answerExposure": "Author-written tasks/controls and expected outcomes exposed; not blind.",
+      "comparisonOrder": "Native output and comparison emitted and published together; public Atlas retention before indexing does not establish a blind or raw-result-first comparison.",
+      "limits": [
+        "Real Google ADK nativeRunner/plugin/retry paths with scriptedBaseLlm; no remote inference or model-quality evaluation.",
+        "Typed MCPisError throughFunctionTool is not actual MCP transport.",
+        "Task complete/error/incomplete separate from signednativeRevision; after-effect error and early close retain committed effects.",
+        "Author-operated target/store/key/clock/capture and exposed expected outcomes; no independent custody/outside adoption.",
+        "Original synthetic execution source, producer implementation, reviewed reader and protected target baseline separately pinned."
+      ],
+      "claimResults": [
+        {
+          "claim": "bounded-reference-evidence-verified",
+          "result": "pass",
+          "recordedField": "/status",
+          "expectedValue": "verified"
+        },
+        {
+          "claim": "declared-reference-population",
+          "result": "pass",
+          "recordedField": "/plannedAttempts",
+          "expectedValue": 12
+        },
+        {
+          "claim": "scripted-SDK-resource-counts",
+          "result": "pass",
+          "recordedField": "/resources",
+          "expectedValue": {
+            "cpuNs": 2216386701,
+            "elapsedNs": 8200260906,
+            "httpPosts": 9,
+            "modelCalls": 25,
+            "toolCalls": 18
+          }
+        },
+        {
+          "claim": "model-quality-not-measured",
+          "result": "pass",
+          "recordedField": "/modelQuality",
+          "expectedValue": "not-evaluated"
+        },
+        {
+          "claim": "permit-task-completion",
+          "result": "pass",
+          "recordedField": "/records/0/taskStatus",
+          "expectedValue": "complete"
+        },
+        {
+          "claim": "permit-native-revision-one",
+          "result": "pass",
+          "recordedField": "/records/0/nativeRevision",
+          "expectedValue": 1
+        },
+        {
+          "claim": "deny-task-completion",
+          "result": "pass",
+          "recordedField": "/records/1/taskStatus",
+          "expectedValue": "complete"
+        },
+        {
+          "claim": "deny-native-revision-one",
+          "result": "fail",
+          "recordedField": "/records/1/nativeRevision",
+          "expectedValue": 0
+        },
+        {
+          "claim": "changed-arguments-task-completion",
+          "result": "pass",
+          "recordedField": "/records/2/taskStatus",
+          "expectedValue": "complete"
+        },
+        {
+          "claim": "changed-arguments-native-revision-one",
+          "result": "fail",
+          "recordedField": "/records/2/nativeRevision",
+          "expectedValue": 0
+        },
+        {
+          "claim": "unhandled-before-task-completion",
+          "result": "fail",
+          "recordedField": "/records/3/taskStatus",
+          "expectedValue": "error"
+        },
+        {
+          "claim": "unhandled-before-native-revision-one",
+          "result": "fail",
+          "recordedField": "/records/3/nativeRevision",
+          "expectedValue": 0
+        },
+        {
+          "claim": "unhandled-after-task-completion",
+          "result": "fail",
+          "recordedField": "/records/4/taskStatus",
+          "expectedValue": "error"
+        },
+        {
+          "claim": "unhandled-after-native-revision-one",
+          "result": "pass",
+          "recordedField": "/records/4/nativeRevision",
+          "expectedValue": 1
+        },
+        {
+          "claim": "handled-first-task-completion",
+          "result": "pass",
+          "recordedField": "/records/5/taskStatus",
+          "expectedValue": "complete"
+        },
+        {
+          "claim": "handled-first-native-revision-one",
+          "result": "pass",
+          "recordedField": "/records/5/nativeRevision",
+          "expectedValue": 1
+        },
+        {
+          "claim": "handled-last-task-completion",
+          "result": "pass",
+          "recordedField": "/records/6/taskStatus",
+          "expectedValue": "complete"
+        },
+        {
+          "claim": "handled-last-native-revision-one",
+          "result": "pass",
+          "recordedField": "/records/6/nativeRevision",
+          "expectedValue": 1
+        },
+        {
+          "claim": "exhausted-first-task-completion",
+          "result": "fail",
+          "recordedField": "/records/7/taskStatus",
+          "expectedValue": "error"
+        },
+        {
+          "claim": "exhausted-first-native-revision-one",
+          "result": "fail",
+          "recordedField": "/records/7/nativeRevision",
+          "expectedValue": 0
+        },
+        {
+          "claim": "exhausted-last-task-completion",
+          "result": "fail",
+          "recordedField": "/records/8/taskStatus",
+          "expectedValue": "error"
+        },
+        {
+          "claim": "exhausted-last-native-revision-one",
+          "result": "fail",
+          "recordedField": "/records/8/nativeRevision",
+          "expectedValue": 0
+        },
+        {
+          "claim": "returned-error-first-task-completion",
+          "result": "pass",
+          "recordedField": "/records/9/taskStatus",
+          "expectedValue": "complete"
+        },
+        {
+          "claim": "returned-error-first-native-revision-one",
+          "result": "pass",
+          "recordedField": "/records/9/nativeRevision",
+          "expectedValue": 1
+        },
+        {
+          "claim": "returned-error-last-task-completion",
+          "result": "pass",
+          "recordedField": "/records/10/taskStatus",
+          "expectedValue": "complete"
+        },
+        {
+          "claim": "returned-error-last-native-revision-one",
+          "result": "pass",
+          "recordedField": "/records/10/nativeRevision",
+          "expectedValue": 1
+        },
+        {
+          "claim": "incomplete-close-task-completion",
+          "result": "fail",
+          "recordedField": "/records/11/taskStatus",
+          "expectedValue": "incomplete"
+        },
+        {
+          "claim": "incomplete-close-native-revision-one",
+          "result": "pass",
+          "recordedField": "/records/11/nativeRevision",
+          "expectedValue": 1
+        },
+        {
+          "claim": "independent-effect-key-store-clock-custody",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "external-host-recurring-adoption",
+          "result": "not-exercised"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "../experiments/google-adk-ticket-2026-10-02/original-artifact.zip",
+          "sha256": "4602b83d1b3e52d6aea8def21eff28f5b18b78c04da9213e4187ee2c1abf31e6"
+        },
+        {
+          "path": "../experiments/google-adk-ticket-2026-10-02/provenance.json",
+          "sha256": "5f23ac9220ca2f00e62f8bc6ea78bdbc49a16b4eee55d01ee5fb5133eadc6207"
+        },
+        {
+          "path": "../experiments/google-adk-ticket-2026-10-02/report.json",
+          "sha256": "f66b10be372a4a9410978cf7c2279985ef4aeb9a27cf16d33944af0e8f49df9a"
+        }
+      ]
+    },
+    {
+      "id": "installed-format-policy-2026-10-02",
+      "atlasRevision": "6c9530460f48da368673f7ad933756cd51ce1139",
+      "sourceRevision": "efa0a2932e31dc69db60bb812b142e580fbf993c",
+      "readerRevision": "efa0a2932e31dc69db60bb812b142e580fbf993c",
+      "contract": "https://github.com/probityai/agent-evidence-observer/tree/efa0a2932e31dc69db60bb812b142e580fbf993c/interop/model-consumer-2026-10-02",
+      "report": "../experiments/installed-format-policy-2026-10-02/report.json",
+      "provenance": "../experiments/installed-format-policy-2026-10-02/provenance.json",
+      "reviewState": "author-retained-measured-record",
+      "evidenceClaim": "author-operated-installed-native-reader-upgrade-and-publication-policy-result",
+      "roles": {
+        "producer": "Probity-owned workflow",
+        "readerAuthor": "Probity",
+        "atlasOperator": "Probity",
+        "retentionHolder": "Probity",
+        "independentOperation": "not-established",
+        "independentEffectCustody": "not-established",
+        "outsideRecurringUse": "not-established"
+      },
+      "answerExposure": "Author-written tasks/controls and expected outcomes exposed; not blind.",
+      "comparisonOrder": "Native output and comparison emitted and published together; public Atlas retention before indexing does not establish a blind or raw-result-first comparison.",
+      "limits": [
+        "Actual framework-free installed0.0.2\u21920.0.3 upgrade and selectedhostpolicy run, not a new inference experiment.",
+        "Verified scoped-report publication separate from held policy1/6 correctness, no dispatch or recovery authority.",
+        "Full original2268member provider artifact retained including previous upgrade, wheels, immutable fixture packets and rawgate streams; no omissions.",
+        "Same operator selects installation/reader/policy/expected outcomes; no registry release, outside recurring use or independent custody.",
+        "Consumer source/reviewed commit and actualnative192 producer source/run remain separate."
+      ],
+      "claimResults": [
+        {
+          "claim": "baseline-installed-version",
+          "result": "pass",
+          "recordedField": "/baseline-installation/version",
+          "expectedValue": "0.0.2"
+        },
+        {
+          "claim": "baseline-framework-modules-absent",
+          "result": "pass",
+          "recordedField": "/baseline-installation/frameworkModules",
+          "expectedValue": {
+            "llama_cpp": false,
+            "inspect_ai": false,
+            "langgraph": false,
+            "pydantic_ai": false,
+            "agents": false
+          }
+        },
+        {
+          "claim": "baseline-original-evidence-state",
+          "result": "pass",
+          "recordedField": "/baseline-original/gate/evidenceDecision",
+          "expectedValue": "verified"
+        },
+        {
+          "claim": "baseline-original-selected-publication-state",
+          "result": "pass",
+          "recordedField": "/baseline-original/gate/publicationDecision",
+          "expectedValue": "publish"
+        },
+        {
+          "claim": "baseline-comparison-evidence-state",
+          "result": "pass",
+          "recordedField": "/baseline-comparison/gate/evidenceDecision",
+          "expectedValue": "verified"
+        },
+        {
+          "claim": "baseline-comparison-selected-publication-state",
+          "result": "pass",
+          "recordedField": "/baseline-comparison/gate/publicationDecision",
+          "expectedValue": "publish"
+        },
+        {
+          "claim": "baseline-format-evidence-state",
+          "result": "pass",
+          "recordedField": "/baseline-format/gate/evidenceDecision",
+          "expectedValue": "not-verified"
+        },
+        {
+          "claim": "baseline-format-selected-publication-state",
+          "result": "pass",
+          "recordedField": "/baseline-format/gate/publicationDecision",
+          "expectedValue": "hold"
+        },
+        {
+          "claim": "candidate-installed-version",
+          "result": "pass",
+          "recordedField": "/candidate-installation/version",
+          "expectedValue": "0.0.3"
+        },
+        {
+          "claim": "candidate-framework-modules-absent",
+          "result": "pass",
+          "recordedField": "/candidate-installation/frameworkModules",
+          "expectedValue": {
+            "llama_cpp": false,
+            "inspect_ai": false,
+            "langgraph": false,
+            "pydantic_ai": false,
+            "agents": false
+          }
+        },
+        {
+          "claim": "candidate-original-evidence-state",
+          "result": "pass",
+          "recordedField": "/candidate-original/gate/evidenceDecision",
+          "expectedValue": "verified"
+        },
+        {
+          "claim": "candidate-original-selected-publication-state",
+          "result": "pass",
+          "recordedField": "/candidate-original/gate/publicationDecision",
+          "expectedValue": "publish"
+        },
+        {
+          "claim": "candidate-comparison-evidence-state",
+          "result": "pass",
+          "recordedField": "/candidate-comparison/gate/evidenceDecision",
+          "expectedValue": "verified"
+        },
+        {
+          "claim": "candidate-comparison-selected-publication-state",
+          "result": "pass",
+          "recordedField": "/candidate-comparison/gate/publicationDecision",
+          "expectedValue": "publish"
+        },
+        {
+          "claim": "candidate-format-evidence-state",
+          "result": "pass",
+          "recordedField": "/candidate-format/gate/evidenceDecision",
+          "expectedValue": "verified"
+        },
+        {
+          "claim": "candidate-format-selected-publication-state",
+          "result": "pass",
+          "recordedField": "/candidate-format/gate/publicationDecision",
+          "expectedValue": "publish"
+        },
+        {
+          "claim": "prior-native-report-hashes-preserved",
+          "result": "pass",
+          "recordedField": "/preservedReports",
+          "expectedValue": {
+            "original": "acb8f021b5a9bda6b64e33ab38f9da592b8d2c2bba81de7bfdaef586256608f2",
+            "comparison": "62fb95b5fff895ff76e4a42e17e391ec0525d3c5f9fade90efc64f5c0cad0892"
+          }
+        },
+        {
+          "claim": "old-reader-refuses-unsupported-format",
+          "result": "pass",
+          "recordedField": "/baseline-reader/exit",
+          "expectedValue": 1
+        },
+        {
+          "claim": "schema-policy-evidence-verified",
+          "result": "pass",
+          "recordedField": "/candidate-format-quality/gate/evidenceDecision",
+          "expectedValue": "verified"
+        },
+        {
+          "claim": "schema-policy-selected-quality-hold",
+          "result": "pass",
+          "recordedField": "/candidate-format-quality/gate/publicationDecision",
+          "expectedValue": "hold-selected-score-or-resource"
+        },
+        {
+          "claim": "two-low-policy-score-refusals",
+          "result": "pass",
+          "recordedField": "/candidate-format-quality/gate/policyFailures",
+          "expectedValue": [
+            {
+              "row": {
+                "decoder": "schema",
+                "model": "smol360-q4",
+                "configuration": "short24",
+                "family": "policy-decision"
+              },
+              "field": "correct",
+              "measured": 1,
+              "minimum": 3
+            },
+            {
+              "row": {
+                "decoder": "schema",
+                "model": "smol360-q4",
+                "configuration": "long96",
+                "family": "policy-decision"
+              },
+              "field": "correct",
+              "measured": 1,
+              "minimum": 3
+            }
+          ]
+        },
+        {
+          "claim": "changed-source-evidence-refused",
+          "result": "pass",
+          "recordedField": "/candidate-mutant/gate/evidenceDecision",
+          "expectedValue": "not-verified"
+        },
+        {
+          "claim": "changed-source-publication-held",
+          "result": "pass",
+          "recordedField": "/candidate-mutant/gate/publicationDecision",
+          "expectedValue": "hold"
+        },
+        {
+          "claim": "independent-effect-key-store-clock-custody",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "external-host-recurring-adoption",
+          "result": "not-exercised"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "../experiments/installed-format-policy-2026-10-02/original-artifact.zip",
+          "sha256": "a609ce71f6172d83f27a2992437d690ab6f7df85c1954cad87986152e5282c24"
+        },
+        {
+          "path": "../experiments/installed-format-policy-2026-10-02/provenance.json",
+          "sha256": "5943a111e63beb959a34b87580d1e81173fe35ddc6f83ec072cce95a1964f104"
+        },
+        {
+          "path": "../experiments/installed-format-policy-2026-10-02/report.json",
+          "sha256": "748125384aceea85cc1cd99f1cc5de781281689110f1157a545f71a05f427ac4"
+        }
+      ]
     }
   ]
 }

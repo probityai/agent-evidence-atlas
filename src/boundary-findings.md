@@ -89,6 +89,29 @@ controls. No intervention has been executed or accepted here.
 
 ## Resources and retained originals
 
+The separate [installed boundary report](experiments/installed-boundary-policy-2026-10-02/report.json)
+now demonstrates the evidence/quality distinction with actual installed reader
+0.0.4 and selected publication policy. Reader 0.0.3 refuses the boundary profile
+before launch; the ordinary upgrade preserves the older 48/96/192-call reports
+and verifies this unchanged 384-call original without inference.
+
+The example quality policy requires eight correct cases and four fully correct
+pairs in each constrained family row, as well as sixteen format/schema-valid
+outputs. Its eight policy/grounded rows still produce sixteen separate
+case/pair failures, so quality publication stays held despite all 192
+schema-valid outputs. These selected host thresholds do not replace the
+original strict scores: the larger typed model's thirteen cases/five pairs pass
+the example threshold while failing the original all-sixteen/all-eight claim.
+The Atlas gate preserves both interpretations and refuses promoting a held
+quality result, complete evidence or a truthful unrelated field into action,
+adoption or custody acceptance.
+
+The [installed provenance](experiments/installed-boundary-policy-2026-10-02/provenance.json)
+and [selected original capsule](experiments/installed-boundary-policy-2026-10-02/selected-capsule.zip)
+retain actual wheel/build and reader/gate bytes with complete original-member
+omission accounting. Installation does not establish an external operator,
+registry release, protected decision authority or independent effect custody.
+
 The original run used 257.401173568 seconds wall time and 497.394631919 seconds
 total process CPU. Returned-call CPU sums to 496.051239620 seconds; the difference
 includes work outside returned calls. Shared lifetime peak RSS was 567,192 KiB.

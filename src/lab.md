@@ -366,3 +366,38 @@ preserve all 871 compact members and an explicit mapping to the complete
 original remains privately archived. All fourteen earlier register objects and
 retained artifact bytes remain unchanged. Selected source, installed consumer
 acceptance and actual outside operation remain distinct records.
+
+## Installed boundary evidence and semantic quality policy
+
+The seventeenth [register record](lab/register.json) retains the actual
+framework-free reader upgrade from 0.0.3 to 0.0.4, separately from the native
+boundary experiment. The [installed report](experiments/installed-boundary-policy-2026-10-02/report.json)
+contains the original CI upgrade values and all twenty-four unchanged native
+rows, attempts, pairs and resource scopes. The old reader refuses the boundary
+profile before launch. The upgraded reader verifies complete evidence and
+permits a scoped report; it performs no new model inference.
+
+The selected host quality policy requires eight correct cases and four fully
+correct pairs per constrained family row, together with all sixteen outputs
+format-valid and schema-valid. It still holds all eight constrained policy and
+grounded rows through sixteen separate correctness/pair failures. The typed
+rows pass those example thresholds; the larger model's thirteen correct cases
+and five pairs remain below the original all-sixteen/all-eight strict claim.
+Neither evidence publication nor these example thresholds authorize actions.
+
+The [selected capsule](experiments/installed-boundary-policy-2026-10-02/selected-capsule.zip)
+retains 101 byte-exact CI members: installed wheels/build records, original
+reader and gate streams, installation results and CI test output. The
+[provenance](experiments/installed-boundary-policy-2026-10-02/provenance.json)
+accounts for every member of the complete 4,964-member provider original,
+including all 4,863 explicit omissions. The complete original is separately
+retained; the capsule does not contain duplicate native packets or unrelated
+older workflow results. The native boundary archive remains in its fifteenth
+record. The [source contract](experiments/installed-boundary-policy-2026-10-02/source-contract.json)
+independently pins the actual wheel's reader and gate sources.
+
+All sixteen earlier record objects and artifact bytes are preserved. This is
+author-operated offline installation and selected report/quality gating, with
+exposed cases, answers and thresholds. A package registry release, recurring
+outside adoption, dispatch/recovery authority and independent custody remain
+unestablished.

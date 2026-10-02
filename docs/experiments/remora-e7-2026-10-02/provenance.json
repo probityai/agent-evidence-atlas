@@ -4,7 +4,6 @@
   "readerRevision": "a0b89170fd671be2314be6079acccdebdf07a950",
   "workflowRun": "https://github.com/probityai/agent-evidence-vectors/actions/runs/37031452628",
   "artifactId": 11237158552,
-  "retrievedAt": "2026-10-02T16:14:00Z",
   "archiveSha256": "079a27b72aebb3252546233a5b9a1c3a7400c6f19e2251773520db0350125e1f",
   "archiveBytes": 3343,
   "reviewState": "submitted-producer-review-not-started",
@@ -35,5 +34,6 @@
       "sha256": "8cab9f748fb17ba3bd2c20ca1896b1b50be96120e53a1e6c5394aa404a26bca1",
       "bytes": 4988
     }
-  }
+  },
+  "retrievedDate": "2026-10-02"
 }

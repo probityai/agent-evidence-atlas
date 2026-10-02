@@ -14,7 +14,8 @@ ROOT = Path(__file__).resolve().parents[1]
     'pydantic-failure-2026-10-02', 'model-operational-2026-10-02',
     'authority-recovery-2026-10-02', 'target-process-recovery-2026-10-02',
     'model-paired-cpu-2026-10-02', 'openai-agents-ticket-2026-10-02',
-    'execsurface-state-2026-10-02', 'model-format-cpu-2026-10-02'])
+    'execsurface-state-2026-10-02', 'model-format-cpu-2026-10-02', 'google-adk-ticket-2026-10-02',
+    'installed-format-policy-2026-10-02'])
 def test_public_archive_preserves_selected_original_members(name: str) -> None:
     folder = ROOT / 'experiments' / name
     provenance = json.loads((folder / 'provenance.json').read_bytes())
@@ -173,4 +174,78 @@ def test_reselected_format_receipt_semantics_refuse(tmp_path: Path, mutation: st
     for artifact in record['artifacts']:
         artifact['sha256'] = hashlib.sha256((folder / Path(artifact['path']).name).read_bytes()).hexdigest()
     with pytest.raises(ValueError):
+        validate_register({'protocolVersion': '0.1', 'records': [record]}, tmp_path)
+
+
+def execution_inputs(name: str) -> tuple[dict, dict, dict]:
+    """Load the complete selected SDK or installed-consumer original record."""
+    register = json.loads((ROOT / 'data/lab-register.json').read_bytes())
+    record = next(r for r in register['records'] if r['id'] == name)
+    folder = ROOT / 'experiments' / name
+    return record, json.loads((folder / 'report.json').read_bytes()), json.loads((folder / 'provenance.json').read_bytes())
+
+
+@pytest.mark.parametrize('name', ['google-adk-ticket-2026-10-02', 'installed-format-policy-2026-10-02'])
+def test_selected_execution_axes_are_separate(name: str) -> None:
+    from tools.check_execution_retention import validate_execution_retention
+    validate_execution_retention(*execution_inputs(name))
+
+
+@pytest.mark.parametrize('mutation', ['committed-error-as-complete', 'scripted-model-quality',
+    'unsupported-reader-publish', 'schema-hold-publish', 'quality-row-omission',
+    'policy-schema-as-correctness', 'consumer-new-inference', 'invented-custody'])
+def test_selected_execution_semantic_mutations_refuse(mutation: str) -> None:
+    from tools.check_execution_retention import validate_execution_retention
+    name = 'google-adk-ticket-2026-10-02' if mutation in ['committed-error-as-complete', 'scripted-model-quality'] else 'installed-format-policy-2026-10-02'
+    record, report, provenance = execution_inputs(name)
+    if mutation == 'committed-error-as-complete':
+        i = next(i for i, r in enumerate(report['records']) if r['case'] == 'unhandled-after')
+        c = next(c for c in record['claimResults'] if c.get('recordedField') == f'/records/{i}/taskStatus')
+        c['result'] = 'pass'
+    elif mutation == 'scripted-model-quality':
+        report['modelQuality'] = 'evaluated'
+    elif mutation == 'unsupported-reader-publish':
+        report['baseline-format']['gate']['publicationDecision'] = 'publish'
+    elif mutation == 'schema-hold-publish':
+        report['candidate-format-quality']['gate']['publicationDecision'] = 'publish'
+    elif mutation == 'quality-row-omission':
+        report['candidate-format-quality']['gate']['policyFailures'].pop()
+    elif mutation == 'policy-schema-as-correctness':
+        report['candidate-format-quality']['gate']['policyFailures'][0]['field'] = 'schemaValid'
+    elif mutation == 'consumer-new-inference':
+        provenance['newInferenceExecuted'] = True
+    else:
+        provenance['roles']['independentEffectCustody'] = record['roles']['independentEffectCustody'] = 'established'
+    with pytest.raises(ValueError):
+        validate_execution_retention(record, report, provenance)
+
+
+def test_reselected_ADK_commit_does_not_promote_failed_task(tmp_path: Path) -> None:
+    import shutil
+    from tools.check_lab import validate_register
+    name = 'google-adk-ticket-2026-10-02'
+    record, report, provenance = execution_inputs(name)
+    folder = tmp_path / 'experiments' / name
+    shutil.copytree(ROOT / 'experiments' / name, folder)
+    i = next(i for i, r in enumerate(report['records']) if r['case'] == 'unhandled-after')
+    claim = next(c for c in record['claimResults'] if c.get('recordedField') == f'/records/{i}/taskStatus')
+    claim['result'] = 'pass'
+    with pytest.raises(ValueError, match='task completion cannot be inferred'):
+        validate_register({'protocolVersion': '0.1', 'records': [record]}, tmp_path)
+
+
+def test_reselected_installed_policy_hold_cannot_be_publish(tmp_path: Path) -> None:
+    import shutil
+    from tools.check_lab import validate_register
+    name = 'installed-format-policy-2026-10-02'
+    record, report, provenance = execution_inputs(name)
+    folder = tmp_path / 'experiments' / name
+    shutil.copytree(ROOT / 'experiments' / name, folder)
+    report['candidate-format-quality']['gate']['publicationDecision'] = 'publish'
+    claim = next(c for c in record['claimResults'] if c.get('recordedField') == '/candidate-format-quality/gate/publicationDecision')
+    claim['expectedValue'] = 'publish'
+    (folder / 'report.json').write_text(json.dumps(report))
+    for artifact in record['artifacts']:
+        artifact['sha256'] = hashlib.sha256((folder / Path(artifact['path']).name).read_bytes()).hexdigest()
+    with pytest.raises(ValueError, match='verified evidence cannot promote failed selected quality'):
         validate_register({'protocolVersion': '0.1', 'records': [record]}, tmp_path)

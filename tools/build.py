@@ -56,6 +56,12 @@ NAV = [
 # page whose links need it, or None for every page). A copy is made exactly when its
 # page is built, and a missing source for a built page fails the build.
 COPIES = [
+    ("experiments/google-adk-ticket-2026-10-02/original-artifact.zip", "experiments/google-adk-ticket-2026-10-02/original-artifact.zip", "lab"),
+    ("experiments/google-adk-ticket-2026-10-02/provenance.json", "experiments/google-adk-ticket-2026-10-02/provenance.json", "lab"),
+    ("experiments/google-adk-ticket-2026-10-02/report.json", "experiments/google-adk-ticket-2026-10-02/report.json", "lab"),
+    ("experiments/installed-format-policy-2026-10-02/original-artifact.zip", "experiments/installed-format-policy-2026-10-02/original-artifact.zip", "lab"),
+    ("experiments/installed-format-policy-2026-10-02/provenance.json", "experiments/installed-format-policy-2026-10-02/provenance.json", "lab"),
+    ("experiments/installed-format-policy-2026-10-02/report.json", "experiments/installed-format-policy-2026-10-02/report.json", "lab"),
     ("experiments/model-format-cpu-2026-10-02/original-artifact.zip", "experiments/model-format-cpu-2026-10-02/original-artifact.zip", "lab"),
     ("experiments/model-format-cpu-2026-10-02/provenance.json", "experiments/model-format-cpu-2026-10-02/provenance.json", "lab"),
     ("experiments/model-format-cpu-2026-10-02/report.json", "experiments/model-format-cpu-2026-10-02/report.json", "lab"),

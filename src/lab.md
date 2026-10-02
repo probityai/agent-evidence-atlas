@@ -270,3 +270,50 @@ publication before indexing does not make native inference blind. Shared
 process lifetime RSS and whole-process CPU are not per-model/task allocations.
 Independent custody, representative benchmark performance and outside recurring
 use remain unestablished.
+
+## Scripted ADK execution and installed policy decisions
+
+The [Google ADK reference report](experiments/google-adk-ticket-2026-10-02/report.json)
+retains twelve cases through the actual native Runner, capture plugins and
+ReflectAndRetryToolPlugin. A scripted BaseLlm emitted twenty-five model calls;
+eighteen tool calls made nine HTTP posts, with seven committed native effects
+and forty-three yielded native events. Seven tasks completed, four ended in
+error and one remained incomplete. Task completion and committed effects stay
+separate: the after-effect error and early-close cases retain their committed
+effect. These calls are not remote provider inference or model-quality results.
+The typed MCP error result passed through a FunctionTool; actual MCP transport
+was not exercised.
+
+The [complete original ADK archive](experiments/google-adk-ticket-2026-10-02/original-artifact.zip)
+and [provenance](experiments/google-adk-ticket-2026-10-02/provenance.json)
+retain 838 members and distinguish original synthetic execution source,
+producer implementation, reviewed reader and separately selected target baseline.
+A later exact-main run also passed; its separate metrics do not replace this
+original report. Target, store, keys, clock and expected outcomes remain under
+the same operator. No process restart, power-loss recovery, outside recurring
+use or independent effect custody is established.
+
+The [installed consumer report](experiments/installed-format-policy-2026-10-02/report.json)
+retains a framework-free installed reader upgrade from 0.0.2 to 0.0.3. The old
+reader refuses the unsupported format profile. The upgraded reader preserves
+the earlier native reports and verifies the format experiment's evidence for
+bounded report publication. A separate selected quality policy still holds
+both larger-model schema-decoded policy rows: each is correct in one of six
+cases against the example host's minimum of three. Verification of evidence,
+publication of a scoped report and approval of model decisions are distinct.
+A changed-source mutant is also held.
+
+The [complete installed upgrade archive](experiments/installed-format-policy-2026-10-02/original-artifact.zip)
+and [provenance](experiments/installed-format-policy-2026-10-02/provenance.json)
+retain all 2,268 original members, including the earlier upgrade, immutable
+producer fixtures, installation receipts, three wheels and raw reader/gate
+streams. This run performs no new model inference and supplies no dispatch or
+recovery authority. It does not establish a registry release, outside acceptance
+or recurring adoption. The selected register gate refuses promoting a committed
+ADK error into task completion or a verified-but-held quality result into
+publication, including reselected receipt controls.
+
+These additions bring the [register](lab/register.json) to fourteen records,
+while preserving all twelve earlier record objects and artifact bytes. Raw
+archives were published before this index; native outputs and comparison still
+emitted together under exposed author-selected tasks and policies.

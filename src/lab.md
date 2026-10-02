@@ -131,6 +131,35 @@ records; this additional record preserves all ten earlier entries and their
 archive bytes. Linux x86_64 ptrace scope and backend limitations remain explicit;
 no outside adoption or independent effect custody is established.
 
+## Atomic native local-delegation evaluation
+
+An author-operated Atomic run passes all four declared cases using twelve
+distinct reader processes. The cases preserve a narrow grant across exact
+retries and fresh process starts, retain local revocation while allowing a
+distinct renewal, refuse expired/altered/ambiguous grants with a valid recovery
+control, and keep local self-contained selection separate from externally
+keyed issuer verification and other-subject grants.
+
+[The original native report](experiments/atomic-delegation-2026-10-02/report.json),
+[complete capsule](experiments/atomic-delegation-2026-10-02/native-run-capsule.zip)
+and [provenance](experiments/atomic-delegation-2026-10-02/provenance.json) retain
+the exact executable, source snapshots, lockfile, fixed test population and
+original build/case output. The capsule packages unmodified local run files;
+it is an author-assembled archive, not a CI provider ZIP.
+
+The [immutable Atomic fork source](https://github.com/astrogilda/atomic/tree/80be8dae6feb8b9106181b78fba2c7c6a7c8f4d8)
+contains the [rerun command and boundary](https://github.com/astrogilda/atomic/blob/80be8dae6feb8b9106181b78fba2c7c6a7c8f4d8/tools/native-evaluation/README.md).
+Normal reader-process restarts establish local certificate-selection persistence;
+they do not establish crash-mid-write recovery, server permission enforcement,
+remote revocation or external effect custody. Child process identifiers are
+unsigned runner testimony. Expected outcomes were exposed in the tests, and
+observations and assertions were emitted together.
+
+This is an additional bounded Lab record. It preserves all fifteen earlier
+register objects and artifact bytes. Upstream maintainer acceptance, completed
+host CI, recurring outside use and independently operated custody remain
+unestablished for this contribution.
+
 ## Start with a run that exists
 
 The first register entry is [E6: observer declaration, admission and replay](experiments.html#observer-consumer-admission). It joins one prior declaration, one brokered durable file effect, signed history and a persisted consumer admission. Replaying the interval, changing consumer authority and altering a signed claim all refuse with exact reasons and unchanged consumer state.

@@ -56,6 +56,10 @@ NAV = [
 # page whose links need it, or None for every page). A copy is made exactly when its
 # page is built, and a missing source for a built page fails the build.
 COPIES = [
+    ("experiments/installed-boundary-policy-2026-10-02/report.json", "experiments/installed-boundary-policy-2026-10-02/report.json", "lab"),
+    ("experiments/installed-boundary-policy-2026-10-02/provenance.json", "experiments/installed-boundary-policy-2026-10-02/provenance.json", "lab"),
+    ("experiments/installed-boundary-policy-2026-10-02/selected-capsule.zip", "experiments/installed-boundary-policy-2026-10-02/selected-capsule.zip", "lab"),
+    ("experiments/installed-boundary-policy-2026-10-02/source-contract.json", "experiments/installed-boundary-policy-2026-10-02/source-contract.json", "lab"),
     ("experiments/model-boundary-cpu-2026-10-02/original-artifact.zip", "experiments/model-boundary-cpu-2026-10-02/original-artifact.zip", "lab"),
     ("experiments/model-boundary-cpu-2026-10-02/provenance.json", "experiments/model-boundary-cpu-2026-10-02/provenance.json", "lab"),
     ("experiments/model-boundary-cpu-2026-10-02/report.json", "experiments/model-boundary-cpu-2026-10-02/report.json", "lab"),

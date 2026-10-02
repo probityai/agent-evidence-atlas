@@ -240,6 +240,14 @@ def validate_register(register: dict[str, Any], root: Path) -> None:
         require(len(ids) == len(set(ids)), "register repeats a record id")
         for record in records:
             _check_record(record, root)
+        if __package__:
+            from .check_format_retention import check_selected_register
+        else:
+            try:
+                from check_format_retention import check_selected_register
+            except ModuleNotFoundError:
+                from tools.check_format_retention import check_selected_register
+        check_selected_register(register, root)
     except ValueError as exc:
         LOGGER.error("lab register refused: %s", exc)
         raise

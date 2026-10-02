@@ -317,3 +317,23 @@ These additions bring the [register](lab/register.json) to fourteen records,
 while preserving all twelve earlier record objects and artifact bytes. Raw
 archives were published before this index; native outputs and comparison still
 emitted together under exposed author-selected tasks and policies.
+
+## Retained typed, policy and grounded boundaries
+
+The fifteenth author-operated [register record](lab/register.json) retains the
+completed 384-call original with all twenty-four separate semantic rows and
+192 pair records. Its 192 schema-constrained outputs are schema-valid, while
+no policy or grounded pair has both cases strictly correct. The
+[finite comparative finding](boundary-findings.html) preserves every original
+score and distinguishes policy vocabulary failures from wrong decisions using
+valid labels; it introduces no new inference, general benchmark estimate,
+outside acceptance, recurring adoption or independent custody.
+
+The [unmodified report](experiments/model-boundary-cpu-2026-10-02/report.json),
+[original compact provider ZIP](experiments/model-boundary-cpu-2026-10-02/original-artifact.zip)
+and [source/member provenance](experiments/model-boundary-cpu-2026-10-02/provenance.json)
+preserve all 871 compact members and an explicit mapping to the complete
+901-member preparation original, including all thirty omissions. The complete
+original remains privately archived. All fourteen earlier register objects and
+retained artifact bytes remain unchanged. Selected source, installed consumer
+acceptance and actual outside operation remain distinct records.

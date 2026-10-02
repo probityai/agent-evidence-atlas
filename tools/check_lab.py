@@ -256,6 +256,14 @@ def validate_register(register: dict[str, Any], root: Path) -> None:
             except ModuleNotFoundError:
                 from tools.check_execution_retention import check_selected_execution_register
         check_selected_execution_register(register, root)
+        if __package__:
+            from .check_boundary_retention import check_selected_boundary_register
+        else:
+            try:
+                from check_boundary_retention import check_selected_boundary_register
+            except ModuleNotFoundError:
+                from tools.check_boundary_retention import check_selected_boundary_register
+        check_selected_boundary_register(register, root)
     except ValueError as exc:
         LOGGER.error("lab register refused: %s", exc)
         raise

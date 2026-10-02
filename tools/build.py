@@ -56,6 +56,15 @@ NAV = [
 # page whose links need it, or None for every page). A copy is made exactly when its
 # page is built, and a missing source for a built page fails the build.
 COPIES = [
+    ("experiments/langgraph-durable-2026-10-02/original-artifact.zip", "experiments/langgraph-durable-2026-10-02/original-artifact.zip", "lab"),
+    ("experiments/langgraph-durable-2026-10-02/provenance.json", "experiments/langgraph-durable-2026-10-02/provenance.json", "lab"),
+    ("experiments/langgraph-durable-2026-10-02/report.json", "experiments/langgraph-durable-2026-10-02/report.json", "lab"),
+    ("experiments/pydantic-failure-2026-10-02/original-artifact.zip", "experiments/pydantic-failure-2026-10-02/original-artifact.zip", "lab"),
+    ("experiments/pydantic-failure-2026-10-02/provenance.json", "experiments/pydantic-failure-2026-10-02/provenance.json", "lab"),
+    ("experiments/pydantic-failure-2026-10-02/report.json", "experiments/pydantic-failure-2026-10-02/report.json", "lab"),
+    ("experiments/model-operational-2026-10-02/provenance.json", "experiments/model-operational-2026-10-02/provenance.json", "lab"),
+    ("experiments/model-operational-2026-10-02/report.json", "experiments/model-operational-2026-10-02/report.json", "lab"),
+    ("experiments/model-operational-2026-10-02/selected-capsule.zip", "experiments/model-operational-2026-10-02/selected-capsule.zip", "lab"),
     ('experiments/jep-core07-2026-10-02/original-artifact.zip', 'experiments/jep-core07-2026-10-02/original-artifact.zip', 'lab'),
     ('experiments/jep-core07-2026-10-02/provenance.json', 'experiments/jep-core07-2026-10-02/provenance.json', 'lab'),
     ('experiments/jep-core07-2026-10-02/report.json', 'experiments/jep-core07-2026-10-02/report.json', 'lab'),

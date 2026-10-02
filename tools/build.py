@@ -56,6 +56,18 @@ NAV = [
 # page whose links need it, or None for every page). A copy is made exactly when its
 # page is built, and a missing source for a built page fails the build.
 COPIES = [
+    ("experiments/authority-recovery-2026-10-02/original-artifact.zip", "experiments/authority-recovery-2026-10-02/original-artifact.zip", "lab"),
+    ("experiments/authority-recovery-2026-10-02/provenance.json", "experiments/authority-recovery-2026-10-02/provenance.json", "lab"),
+    ("experiments/authority-recovery-2026-10-02/report.json", "experiments/authority-recovery-2026-10-02/report.json", "lab"),
+    ("experiments/target-process-recovery-2026-10-02/original-artifact.zip", "experiments/target-process-recovery-2026-10-02/original-artifact.zip", "lab"),
+    ("experiments/target-process-recovery-2026-10-02/provenance.json", "experiments/target-process-recovery-2026-10-02/provenance.json", "lab"),
+    ("experiments/target-process-recovery-2026-10-02/report.json", "experiments/target-process-recovery-2026-10-02/report.json", "lab"),
+    ("experiments/model-paired-cpu-2026-10-02/original-artifact.zip", "experiments/model-paired-cpu-2026-10-02/original-artifact.zip", "lab"),
+    ("experiments/model-paired-cpu-2026-10-02/provenance.json", "experiments/model-paired-cpu-2026-10-02/provenance.json", "lab"),
+    ("experiments/model-paired-cpu-2026-10-02/report.json", "experiments/model-paired-cpu-2026-10-02/report.json", "lab"),
+    ("experiments/openai-agents-ticket-2026-10-02/original-artifact.zip", "experiments/openai-agents-ticket-2026-10-02/original-artifact.zip", "lab"),
+    ("experiments/openai-agents-ticket-2026-10-02/provenance.json", "experiments/openai-agents-ticket-2026-10-02/provenance.json", "lab"),
+    ("experiments/openai-agents-ticket-2026-10-02/report.json", "experiments/openai-agents-ticket-2026-10-02/report.json", "lab"),
     ("experiments/langgraph-durable-2026-10-02/original-artifact.zip", "experiments/langgraph-durable-2026-10-02/original-artifact.zip", "lab"),
     ("experiments/langgraph-durable-2026-10-02/provenance.json", "experiments/langgraph-durable-2026-10-02/provenance.json", "lab"),
     ("experiments/langgraph-durable-2026-10-02/report.json", "experiments/langgraph-durable-2026-10-02/report.json", "lab"),

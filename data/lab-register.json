@@ -582,6 +582,963 @@
           "sha256": "1613aeff57e696ac1d0f87bbe2c0fe22157cbd6655f1130a2de95b29929b95e2"
         }
       ]
+    },
+    {
+      "id": "authority-recovery-2026-10-02",
+      "atlasRevision": "55df577ea0f0b22710869c18c4d560309387e26a",
+      "sourceRevision": "b02988a771bea3652660bec934c3c599c3ec4d27",
+      "readerRevision": "b02988a771bea3652660bec934c3c599c3ec4d27",
+      "contract": "https://github.com/probityai/agent-evidence-observer/tree/b02988a771bea3652660bec934c3c599c3ec4d27/interop/langgraph-recovery-authority-2026-10-02",
+      "report": "../experiments/authority-recovery-2026-10-02/report.json",
+      "provenance": "../experiments/authority-recovery-2026-10-02/provenance.json",
+      "reviewState": "author-retained-measured-record",
+      "evidenceClaim": "author-operated-native-recovery-authority-control",
+      "roles": {
+        "producer": "Probity-owned workflow",
+        "readerAuthor": "Probity",
+        "atlasOperator": "Probity",
+        "retentionHolder": "Probity",
+        "independentOperation": "not-established",
+        "independentEffectCustody": "not-established",
+        "outsideRecurringUse": "not-established"
+      },
+      "answerExposure": "Author-written tasks/controls and expected outcomes exposed; not blind.",
+      "comparisonOrder": "Native output and comparison emitted and published together; public Atlas retention before indexing does not establish a blind or raw-result-first comparison.",
+      "limits": [
+        "Host-selected deterministic integer recovery clock; signed target grant remains separate.",
+        "Graph workers hard-exit/reopen; target process stays alive; no host power loss, distributed exactly-once or independent custody."
+      ],
+      "claimResults": [
+        {
+          "claim": "complete-selected-population",
+          "result": "pass",
+          "recordedField": "/plannedAttempts",
+          "expectedValue": 8
+        },
+        {
+          "claim": "exact-reader-reconstruction",
+          "result": "pass",
+          "recordedField": "/status",
+          "expectedValue": "verified"
+        },
+        {
+          "claim": "valid-before-recovery-and-effect-separate",
+          "result": "pass",
+          "recordedField": "/records/0",
+          "expectedValue": {
+            "attemptId": "valid-before",
+            "existingCommit": "absent-before-recovery",
+            "freshRecoveryDispatches": 1,
+            "recoveryAuthority": "authorized",
+            "retainedNativeRevision": 1,
+            "workerExitCodes": [
+              73,
+              0
+            ]
+          }
+        },
+        {
+          "claim": "valid-after-recovery-and-effect-separate",
+          "result": "pass",
+          "recordedField": "/records/1",
+          "expectedValue": {
+            "attemptId": "valid-after",
+            "existingCommit": "preserved",
+            "freshRecoveryDispatches": 1,
+            "recoveryAuthority": "authorized",
+            "retainedNativeRevision": 1,
+            "workerExitCodes": [
+              73,
+              0
+            ]
+          }
+        },
+        {
+          "claim": "revoked-before-recovery-and-effect-separate",
+          "result": "pass",
+          "recordedField": "/records/2",
+          "expectedValue": {
+            "attemptId": "revoked-before",
+            "existingCommit": "absent-before-recovery",
+            "freshRecoveryDispatches": 0,
+            "recoveryAuthority": "refused-revoked",
+            "retainedNativeRevision": 0,
+            "workerExitCodes": [
+              73,
+              0
+            ]
+          }
+        },
+        {
+          "claim": "revoked-after-recovery-and-effect-separate",
+          "result": "pass",
+          "recordedField": "/records/3",
+          "expectedValue": {
+            "attemptId": "revoked-after",
+            "existingCommit": "preserved",
+            "freshRecoveryDispatches": 0,
+            "recoveryAuthority": "refused-revoked",
+            "retainedNativeRevision": 1,
+            "workerExitCodes": [
+              73,
+              0
+            ]
+          }
+        },
+        {
+          "claim": "expired-before-recovery-and-effect-separate",
+          "result": "pass",
+          "recordedField": "/records/4",
+          "expectedValue": {
+            "attemptId": "expired-before",
+            "existingCommit": "absent-before-recovery",
+            "freshRecoveryDispatches": 0,
+            "recoveryAuthority": "refused-expired",
+            "retainedNativeRevision": 0,
+            "workerExitCodes": [
+              73,
+              0
+            ]
+          }
+        },
+        {
+          "claim": "expired-after-recovery-and-effect-separate",
+          "result": "pass",
+          "recordedField": "/records/5",
+          "expectedValue": {
+            "attemptId": "expired-after",
+            "existingCommit": "preserved",
+            "freshRecoveryDispatches": 0,
+            "recoveryAuthority": "refused-expired",
+            "retainedNativeRevision": 1,
+            "workerExitCodes": [
+              73,
+              0
+            ]
+          }
+        },
+        {
+          "claim": "rollback-before-recovery-and-effect-separate",
+          "result": "pass",
+          "recordedField": "/records/6",
+          "expectedValue": {
+            "attemptId": "rollback-before",
+            "existingCommit": "absent-before-recovery",
+            "freshRecoveryDispatches": 0,
+            "recoveryAuthority": "refused-clock-rollback",
+            "retainedNativeRevision": 0,
+            "workerExitCodes": [
+              73,
+              0
+            ]
+          }
+        },
+        {
+          "claim": "rollback-after-recovery-and-effect-separate",
+          "result": "pass",
+          "recordedField": "/records/7",
+          "expectedValue": {
+            "attemptId": "rollback-after",
+            "existingCommit": "preserved",
+            "freshRecoveryDispatches": 0,
+            "recoveryAuthority": "refused-clock-rollback",
+            "retainedNativeRevision": 1,
+            "workerExitCodes": [
+              73,
+              0
+            ]
+          }
+        },
+        {
+          "claim": "external-host-recurring-adoption",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "independent-effect-custody",
+          "result": "not-exercised"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "../experiments/authority-recovery-2026-10-02/original-artifact.zip",
+          "sha256": "2f5754702be98a1681469b7943872cbb5b55e301081db571496fd0c5fa1066b2"
+        },
+        {
+          "path": "../experiments/authority-recovery-2026-10-02/provenance.json",
+          "sha256": "e00e9f5031fb4e64a5363a05dcba333e569d5c228f96b2e9f42e2ebb381f9f2b"
+        },
+        {
+          "path": "../experiments/authority-recovery-2026-10-02/report.json",
+          "sha256": "c3cc19a099737c686f373269cb542941fa893ea9d2da3035514776c74b9b6d6a"
+        }
+      ]
+    },
+    {
+      "id": "target-process-recovery-2026-10-02",
+      "atlasRevision": "55df577ea0f0b22710869c18c4d560309387e26a",
+      "sourceRevision": "37d1dd42239fbe2ef55f625855e385d7337572c1",
+      "readerRevision": "37d1dd42239fbe2ef55f625855e385d7337572c1",
+      "contract": "https://github.com/probityai/agent-evidence-observer/tree/37d1dd42239fbe2ef55f625855e385d7337572c1/interop/target-recovery-2026-10-02",
+      "report": "../experiments/target-process-recovery-2026-10-02/report.json",
+      "provenance": "../experiments/target-process-recovery-2026-10-02/provenance.json",
+      "reviewState": "author-retained-measured-record",
+      "evidenceClaim": "author-operated-native-target-process-control",
+      "roles": {
+        "producer": "Probity-owned workflow",
+        "readerAuthor": "Probity",
+        "atlasOperator": "Probity",
+        "retentionHolder": "Probity",
+        "independentOperation": "not-established",
+        "independentEffectCustody": "not-established",
+        "outsideRecurringUse": "not-established"
+      },
+      "answerExposure": "Author-written tasks/controls and expected outcomes exposed; not blind.",
+      "comparisonOrder": "Native output and comparison emitted and published together; public Atlas retention before indexing does not establish a blind or raw-result-first comparison.",
+      "limits": [
+        "Selected target-process hard exits/reopen and local concurrency only; process IDs are unsigned runner testimony.",
+        "Native SQLite/key/clock/HTTP remain same-operator; no power loss, production containment, general exactly-once or outside adoption."
+      ],
+      "claimResults": [
+        {
+          "claim": "complete-selected-population",
+          "result": "pass",
+          "recordedField": "/plannedAttempts",
+          "expectedValue": 7
+        },
+        {
+          "claim": "exact-reader-reconstruction",
+          "result": "pass",
+          "recordedField": "/status",
+          "expectedValue": "verified"
+        },
+        {
+          "claim": "retained-completedEffects",
+          "result": "pass",
+          "recordedField": "/completedEffects",
+          "expectedValue": 3
+        },
+        {
+          "claim": "retained-incompleteRefusals",
+          "result": "pass",
+          "recordedField": "/incompleteRefusals",
+          "expectedValue": 2
+        },
+        {
+          "claim": "retained-startupRefusals",
+          "result": "pass",
+          "recordedField": "/startupRefusals",
+          "expectedValue": 2
+        },
+        {
+          "claim": "retained-targetProcesses",
+          "result": "pass",
+          "recordedField": "/targetProcesses",
+          "expectedValue": 14
+        },
+        {
+          "claim": "restart-ready-retained-state",
+          "result": "pass",
+          "recordedField": "/records/0",
+          "expectedValue": {
+            "dispatchResponses": [
+              200
+            ],
+            "effectId": "4cf9e2d6ed2f2e5ab47de2a72a6ff467decb5785bc3bfe3d0feed74004ac1490",
+            "id": "restart-ready",
+            "nativeRevision": 1,
+            "outcome": "completed",
+            "targetProcesses": 2
+          }
+        },
+        {
+          "claim": "crash-after-intent-retained-state",
+          "result": "pass",
+          "recordedField": "/records/1",
+          "expectedValue": {
+            "dispatchResponses": [
+              409
+            ],
+            "effectId": "642550d9090cb3e226dfb1b148542c50bdc67e7dc1b689704332f948129c5fa6",
+            "id": "crash-after-intent",
+            "nativeRevision": 0,
+            "outcome": "incomplete-refused",
+            "targetProcesses": 2
+          }
+        },
+        {
+          "claim": "crash-inside-effect-retained-state",
+          "result": "pass",
+          "recordedField": "/records/2",
+          "expectedValue": {
+            "dispatchResponses": [
+              409
+            ],
+            "effectId": "6679edf1c6faba1be7c78d9c8c9676f4b528171aa924e34cb43f3316a16a6d52",
+            "id": "crash-inside-effect",
+            "nativeRevision": 0,
+            "outcome": "incomplete-refused",
+            "targetProcesses": 2
+          }
+        },
+        {
+          "claim": "crash-after-effect-retained-state",
+          "result": "pass",
+          "recordedField": "/records/3",
+          "expectedValue": {
+            "dispatchResponses": [
+              200
+            ],
+            "effectId": "4443f7ac19ea6f902488c8c3288ac16b3451f700d0c6591f97c92ae96f862fa8",
+            "id": "crash-after-effect",
+            "nativeRevision": 1,
+            "outcome": "completed",
+            "targetProcesses": 2
+          }
+        },
+        {
+          "claim": "concurrent-intent-retained-state",
+          "result": "pass",
+          "recordedField": "/records/4",
+          "expectedValue": {
+            "dispatchResponses": [
+              409,
+              409,
+              409,
+              200,
+              409,
+              409,
+              409,
+              409
+            ],
+            "effectId": "8a4856ef7ff4b2e508f95f235de920b7475b9655c79a187685e12f047b0466d8",
+            "id": "concurrent-intent",
+            "nativeRevision": 1,
+            "outcome": "completed",
+            "targetProcesses": 2
+          }
+        },
+        {
+          "claim": "missing-store-retained-state",
+          "result": "pass",
+          "recordedField": "/records/5",
+          "expectedValue": {
+            "dispatchResponses": [],
+            "effectId": null,
+            "id": "missing-store",
+            "nativeRevision": 0,
+            "outcome": "startup-refused",
+            "targetProcesses": 2
+          }
+        },
+        {
+          "claim": "changed-configuration-retained-state",
+          "result": "pass",
+          "recordedField": "/records/6",
+          "expectedValue": {
+            "dispatchResponses": [],
+            "effectId": null,
+            "id": "changed-configuration",
+            "nativeRevision": 0,
+            "outcome": "startup-refused",
+            "targetProcesses": 2
+          }
+        },
+        {
+          "claim": "external-host-recurring-adoption",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "independent-effect-custody",
+          "result": "not-exercised"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "../experiments/target-process-recovery-2026-10-02/original-artifact.zip",
+          "sha256": "3082655631a358344f22c5e982e46f6358a2acd5e6a57af200da19e79b85e70d"
+        },
+        {
+          "path": "../experiments/target-process-recovery-2026-10-02/provenance.json",
+          "sha256": "5f294cbca4b3e6fd157f3a6a3418cbd9a13b8992754a8a8249f8a39994e1c217"
+        },
+        {
+          "path": "../experiments/target-process-recovery-2026-10-02/report.json",
+          "sha256": "740ffb0d27fd39241231a4b8122282974f63cf88407c54b7cabc38e9cec77792"
+        }
+      ]
+    },
+    {
+      "id": "model-paired-cpu-2026-10-02",
+      "atlasRevision": "55df577ea0f0b22710869c18c4d560309387e26a",
+      "sourceRevision": "b7db63c319d53b0cb27638a229f966d477a2bbd5",
+      "readerRevision": "94e62e803959c0ee73d1171a03858f48e6a424e0",
+      "contract": "https://github.com/probityai/agent-evidence-observer/tree/b7db63c319d53b0cb27638a229f966d477a2bbd5/interop/local-model-comparison-2026-10-02",
+      "report": "../experiments/model-paired-cpu-2026-10-02/report.json",
+      "provenance": "../experiments/model-paired-cpu-2026-10-02/provenance.json",
+      "reviewState": "author-retained-measured-record",
+      "evidenceClaim": "author-operated-actual-weight-paired-microtask-result",
+      "roles": {
+        "producer": "Probity-owned workflow",
+        "readerAuthor": "Probity",
+        "atlasOperator": "Probity",
+        "retentionHolder": "Probity",
+        "independentOperation": "not-established",
+        "independentEffectCustody": "not-established",
+        "outsideRecurringUse": "not-established"
+      },
+      "answerExposure": "Author-written tasks/controls and expected outcomes exposed; not blind.",
+      "comparisonOrder": "Native output and comparison emitted and published together; public Atlas retention before indexing does not establish a blind or raw-result-first comparison.",
+      "limits": [
+        "Producer-selected compact original retains native source/library/call bytes; full preparation weights/source/dependency wheels remain privately archived and provider-expiring.",
+        "Two separately declared preparation attempts, initial failure before inference and corrected preparation; cumulative transfer is not one 512MiB budget.",
+        "Author tasks/answers exposed; blocked interleaving and cache reset do not make a representative benchmark or independent operation.",
+        "Whole-process CPU and shared lifetime RSS are not per-task allocations; no live decision effects."
+      ],
+      "claimResults": [
+        {
+          "claim": "complete-selected-population",
+          "result": "pass",
+          "recordedField": "/population",
+          "expectedValue": {
+            "error": 0,
+            "incomplete": 0,
+            "planned": 96,
+            "scored": 96,
+            "started": 96,
+            "unknown-start": 0
+          }
+        },
+        {
+          "claim": "exact-reader-reconstruction",
+          "result": "pass",
+          "recordedField": "/evidence/complete",
+          "expectedValue": true
+        },
+        {
+          "claim": "within-declared-native-run-budget",
+          "result": "pass",
+          "recordedField": "/evidence/withinRunBudget",
+          "expectedValue": true
+        },
+        {
+          "claim": "smol135-q4-short24-structured-extraction-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/0",
+          "expectedValue": {
+            "callElapsedNs": 1756651971,
+            "completionTokens": 143,
+            "configuration": "short24",
+            "correct": 0,
+            "family": "structured-extraction",
+            "formatValid": 1,
+            "model": "smol135-q4",
+            "planned": 6,
+            "processCpuNs": 3420495494,
+            "processLifetimePeakRssKiB": 535884,
+            "promptTokens": 323,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol135-q4-short24-arithmetic-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/1",
+          "expectedValue": {
+            "callElapsedNs": 1515703007,
+            "completionTokens": 119,
+            "configuration": "short24",
+            "correct": 0,
+            "family": "arithmetic",
+            "formatValid": 0,
+            "model": "smol135-q4",
+            "planned": 6,
+            "processCpuNs": 2952459466,
+            "processLifetimePeakRssKiB": 535884,
+            "promptTokens": 295,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol135-q4-short24-policy-decision-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/2",
+          "expectedValue": {
+            "callElapsedNs": 2002556534,
+            "completionTokens": 144,
+            "configuration": "short24",
+            "correct": 0,
+            "family": "policy-decision",
+            "formatValid": 0,
+            "model": "smol135-q4",
+            "planned": 6,
+            "processCpuNs": 3910132725,
+            "processLifetimePeakRssKiB": 535884,
+            "promptTokens": 396,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol135-q4-short24-grounded-abstention-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/3",
+          "expectedValue": {
+            "callElapsedNs": 1371674280,
+            "completionTokens": 54,
+            "configuration": "short24",
+            "correct": 0,
+            "family": "grounded-abstention",
+            "formatValid": 0,
+            "model": "smol135-q4",
+            "planned": 6,
+            "processCpuNs": 2700402687,
+            "processLifetimePeakRssKiB": 535884,
+            "promptTokens": 400,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol135-q4-long96-structured-extraction-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/4",
+          "expectedValue": {
+            "callElapsedNs": 3784681197,
+            "completionTokens": 429,
+            "configuration": "long96",
+            "correct": 0,
+            "family": "structured-extraction",
+            "formatValid": 1,
+            "model": "smol135-q4",
+            "planned": 6,
+            "processCpuNs": 7282536540,
+            "processLifetimePeakRssKiB": 535884,
+            "promptTokens": 323,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol135-q4-long96-arithmetic-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/5",
+          "expectedValue": {
+            "callElapsedNs": 3507306436,
+            "completionTokens": 400,
+            "configuration": "long96",
+            "correct": 0,
+            "family": "arithmetic",
+            "formatValid": 0,
+            "model": "smol135-q4",
+            "planned": 6,
+            "processCpuNs": 6744219566,
+            "processLifetimePeakRssKiB": 535884,
+            "promptTokens": 295,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol135-q4-long96-policy-decision-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/6",
+          "expectedValue": {
+            "callElapsedNs": 5026396975,
+            "completionTokens": 576,
+            "configuration": "long96",
+            "correct": 0,
+            "family": "policy-decision",
+            "formatValid": 0,
+            "model": "smol135-q4",
+            "planned": 6,
+            "processCpuNs": 9666150142,
+            "processLifetimePeakRssKiB": 535884,
+            "promptTokens": 396,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol135-q4-long96-grounded-abstention-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/7",
+          "expectedValue": {
+            "callElapsedNs": 1374217920,
+            "completionTokens": 54,
+            "configuration": "long96",
+            "correct": 0,
+            "family": "grounded-abstention",
+            "formatValid": 0,
+            "model": "smol135-q4",
+            "planned": 6,
+            "processCpuNs": 2705283138,
+            "processLifetimePeakRssKiB": 535884,
+            "promptTokens": 400,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol360-q4-short24-structured-extraction-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/8",
+          "expectedValue": {
+            "callElapsedNs": 3838839973,
+            "completionTokens": 99,
+            "configuration": "short24",
+            "correct": 2,
+            "family": "structured-extraction",
+            "formatValid": 5,
+            "model": "smol360-q4",
+            "planned": 6,
+            "processCpuNs": 7601539234,
+            "processLifetimePeakRssKiB": 535884,
+            "promptTokens": 323,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol360-q4-short24-arithmetic-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/9",
+          "expectedValue": {
+            "callElapsedNs": 3052520834,
+            "completionTokens": 63,
+            "configuration": "short24",
+            "correct": 1,
+            "family": "arithmetic",
+            "formatValid": 6,
+            "model": "smol360-q4",
+            "planned": 6,
+            "processCpuNs": 6053623001,
+            "processLifetimePeakRssKiB": 535884,
+            "promptTokens": 295,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol360-q4-short24-policy-decision-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/10",
+          "expectedValue": {
+            "callElapsedNs": 3795037397,
+            "completionTokens": 65,
+            "configuration": "short24",
+            "correct": 1,
+            "family": "policy-decision",
+            "formatValid": 6,
+            "model": "smol360-q4",
+            "planned": 6,
+            "processCpuNs": 7537326757,
+            "processLifetimePeakRssKiB": 535884,
+            "promptTokens": 396,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol360-q4-short24-grounded-abstention-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/11",
+          "expectedValue": {
+            "callElapsedNs": 4113158549,
+            "completionTokens": 83,
+            "configuration": "short24",
+            "correct": 0,
+            "family": "grounded-abstention",
+            "formatValid": 4,
+            "model": "smol360-q4",
+            "planned": 6,
+            "processCpuNs": 8162708300,
+            "processLifetimePeakRssKiB": 535884,
+            "promptTokens": 400,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol360-q4-long96-structured-extraction-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/12",
+          "expectedValue": {
+            "callElapsedNs": 3820667805,
+            "completionTokens": 99,
+            "configuration": "long96",
+            "correct": 2,
+            "family": "structured-extraction",
+            "formatValid": 5,
+            "model": "smol360-q4",
+            "planned": 6,
+            "processCpuNs": 7566034371,
+            "processLifetimePeakRssKiB": 535884,
+            "promptTokens": 323,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol360-q4-long96-arithmetic-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/13",
+          "expectedValue": {
+            "callElapsedNs": 3134390319,
+            "completionTokens": 63,
+            "configuration": "long96",
+            "correct": 1,
+            "family": "arithmetic",
+            "formatValid": 6,
+            "model": "smol360-q4",
+            "planned": 6,
+            "processCpuNs": 6216176983,
+            "processLifetimePeakRssKiB": 535884,
+            "promptTokens": 295,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol360-q4-long96-policy-decision-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/14",
+          "expectedValue": {
+            "callElapsedNs": 3827781261,
+            "completionTokens": 65,
+            "configuration": "long96",
+            "correct": 1,
+            "family": "policy-decision",
+            "formatValid": 6,
+            "model": "smol360-q4",
+            "planned": 6,
+            "processCpuNs": 7600427130,
+            "processLifetimePeakRssKiB": 535884,
+            "promptTokens": 396,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "scored": 6
+          }
+        },
+        {
+          "claim": "smol360-q4-long96-grounded-abstention-all-six-strict-targets",
+          "result": "fail",
+          "recordedField": "/quality/15",
+          "expectedValue": {
+            "callElapsedNs": 4119908075,
+            "completionTokens": 83,
+            "configuration": "long96",
+            "correct": 0,
+            "family": "grounded-abstention",
+            "formatValid": 4,
+            "model": "smol360-q4",
+            "planned": 6,
+            "processCpuNs": 8176278039,
+            "processLifetimePeakRssKiB": 535884,
+            "promptTokens": 400,
+            "resourceScope": "returned calls only; CPU is whole-process delta, RSS is lifetime peak, not task allocation",
+            "scored": 6
+          }
+        },
+        {
+          "claim": "external-host-recurring-adoption",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "independent-effect-custody",
+          "result": "not-exercised"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "../experiments/model-paired-cpu-2026-10-02/original-artifact.zip",
+          "sha256": "e3b0daad07fb6880fbb4d66adbe92c9cc9c39d5e824667bd38e9289636340efa"
+        },
+        {
+          "path": "../experiments/model-paired-cpu-2026-10-02/provenance.json",
+          "sha256": "952c6a8f438beb1f360fc40786584f73dde806f8af33ac4c8561e301e265374b"
+        },
+        {
+          "path": "../experiments/model-paired-cpu-2026-10-02/report.json",
+          "sha256": "7926e4e5998459c1be38b69a81b14be56a22924ea2ccec04509e2cb8fff7c62b"
+        }
+      ]
+    },
+    {
+      "id": "openai-agents-ticket-2026-10-02",
+      "atlasRevision": "55df577ea0f0b22710869c18c4d560309387e26a",
+      "sourceRevision": "7a4b26058e54f0e6bbbaeab400dcd93c47607389",
+      "readerRevision": "0ec4c970807d0f1bc4215e6d34dc4a6124fa3b4f",
+      "contract": "https://github.com/probityai/agent-evidence-observer/tree/7a4b26058e54f0e6bbbaeab400dcd93c47607389/interop/openai-agents-ticket-2026-10-02",
+      "report": "../experiments/openai-agents-ticket-2026-10-02/report.json",
+      "provenance": "../experiments/openai-agents-ticket-2026-10-02/provenance.json",
+      "reviewState": "author-retained-measured-record",
+      "evidenceClaim": "author-operated-scripted-native-sdk-control",
+      "roles": {
+        "producer": "Probity-owned workflow",
+        "readerAuthor": "Probity",
+        "atlasOperator": "Probity",
+        "retentionHolder": "Probity",
+        "independentOperation": "not-established",
+        "independentEffectCustody": "not-established",
+        "outsideRecurringUse": "not-established"
+      },
+      "answerExposure": "Author-written tasks/controls and expected outcomes exposed; not blind.",
+      "comparisonOrder": "Native output and comparison emitted and published together; public Atlas retention before indexing does not establish a blind or raw-result-first comparison.",
+      "limits": [
+        "Actual OpenAI Agents SDK Runner/function_tool/TraceProcessor with scripted Model; nine model calls do not measure remote inference or model quality.",
+        "Producer implementation, PR synthetic execution, final reader and separately pinned protected target revisions remain distinct.",
+        "Same-operator synthetic HTTP ticket effect/key/clock; no independent custody, target restart or outside recurring adoption."
+      ],
+      "claimResults": [
+        {
+          "claim": "complete-selected-population",
+          "result": "pass",
+          "recordedField": "/plannedAttempts",
+          "expectedValue": 6
+        },
+        {
+          "claim": "exact-reader-reconstruction",
+          "result": "pass",
+          "recordedField": "/status",
+          "expectedValue": "verified"
+        },
+        {
+          "claim": "typed-quality-not-evaluated",
+          "result": "pass",
+          "recordedField": "/modelQuality",
+          "expectedValue": "not-evaluated"
+        },
+        {
+          "claim": "scripted-sdk-call-and-resource-accounting",
+          "result": "pass",
+          "recordedField": "/resources",
+          "expectedValue": {
+            "cpuNs": 139848462,
+            "elapsedNs": 3130160511,
+            "modelCalls": 9,
+            "toolCalls": 6
+          }
+        },
+        {
+          "claim": "permit-task-effect-and-resource-axes",
+          "result": "pass",
+          "recordedField": "/records/0",
+          "expectedValue": {
+            "case": "permit",
+            "completedSpans": 7,
+            "cpuNs": 54704231,
+            "dispatchStatus": 200,
+            "elapsedNs": 552976444,
+            "modelCalls": 2,
+            "nativeRevision": 1,
+            "taskStatus": "complete",
+            "toolCalls": 1
+          }
+        },
+        {
+          "claim": "deny-task-effect-and-resource-axes",
+          "result": "pass",
+          "recordedField": "/records/1",
+          "expectedValue": {
+            "case": "deny",
+            "completedSpans": 7,
+            "cpuNs": 18254681,
+            "dispatchStatus": 409,
+            "elapsedNs": 516192026,
+            "modelCalls": 2,
+            "nativeRevision": 0,
+            "taskStatus": "complete",
+            "toolCalls": 1
+          }
+        },
+        {
+          "claim": "changed-arguments-task-effect-and-resource-axes",
+          "result": "pass",
+          "recordedField": "/records/2",
+          "expectedValue": {
+            "case": "changed-arguments",
+            "completedSpans": 7,
+            "cpuNs": 15192915,
+            "dispatchStatus": 409,
+            "elapsedNs": 513480469,
+            "modelCalls": 2,
+            "nativeRevision": 0,
+            "taskStatus": "complete",
+            "toolCalls": 1
+          }
+        },
+        {
+          "claim": "producer-error-task-effect-and-resource-axes",
+          "result": "pass",
+          "recordedField": "/records/3",
+          "expectedValue": {
+            "case": "producer-error",
+            "completedSpans": 5,
+            "cpuNs": 10266290,
+            "dispatchStatus": null,
+            "elapsedNs": 508862525,
+            "modelCalls": 1,
+            "nativeRevision": 0,
+            "taskStatus": "error",
+            "toolCalls": 1
+          }
+        },
+        {
+          "claim": "committed-effect-error-task-effect-and-resource-axes",
+          "result": "pass",
+          "recordedField": "/records/4",
+          "expectedValue": {
+            "case": "committed-effect-error",
+            "completedSpans": 5,
+            "cpuNs": 20495158,
+            "dispatchStatus": 200,
+            "elapsedNs": 519058610,
+            "modelCalls": 1,
+            "nativeRevision": 1,
+            "taskStatus": "error",
+            "toolCalls": 1
+          }
+        },
+        {
+          "claim": "turns-exhausted-task-effect-and-resource-axes",
+          "result": "pass",
+          "recordedField": "/records/5",
+          "expectedValue": {
+            "case": "turns-exhausted",
+            "completedSpans": 5,
+            "cpuNs": 20935187,
+            "dispatchStatus": 200,
+            "elapsedNs": 519590437,
+            "modelCalls": 1,
+            "nativeRevision": 1,
+            "taskStatus": "incomplete",
+            "toolCalls": 1
+          }
+        },
+        {
+          "claim": "external-host-recurring-adoption",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "independent-effect-custody",
+          "result": "not-exercised"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "../experiments/openai-agents-ticket-2026-10-02/original-artifact.zip",
+          "sha256": "6f90d31bc08599b97641d6e6215a937b4b3ba5962953ce718e24c9ec904f53d2"
+        },
+        {
+          "path": "../experiments/openai-agents-ticket-2026-10-02/provenance.json",
+          "sha256": "0737d0fdf9b8f5a23c73eddc3dd5a7c86f5c0544cac70a0f9c147e782d941099"
+        },
+        {
+          "path": "../experiments/openai-agents-ticket-2026-10-02/report.json",
+          "sha256": "936a277df9f5559a7a423fb6b5f70c9460438f6af41c98659ca7b9e8eb42b748"
+        }
+      ]
     }
   ]
 }

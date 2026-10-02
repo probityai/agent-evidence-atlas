@@ -28,13 +28,14 @@
 <header class="page">
 <h1>Probity Open Evidence Lab</h1>
 <p class="subtitle">A public protocol and run register for checking specific agent-evidence claims</p>
-<p class="status">Protocol draft 0.1.1, 1 October 2026. The register contains E6, submitted REMORA/JEP readers, native recovery/failure controls and a bounded actual-weight microtask result. External CI adoption and independently operated custody require their own evidence.</p>
+<p class="status">Protocol draft 0.1.1, 1 October 2026. The register contains E6, submitted REMORA/JEP readers, native recovery/failure/SDK controls and bounded actual-weight microtask results. External CI adoption and independently operated custody require their own evidence.</p>
 </header>
 <nav class="toc" aria-label="Contents">
 <p class="toc-title">Contents</p>
 <ul>
 <li><a href="#submitted-producer-fixture-runs" id="toc-submitted-producer-fixture-runs">Submitted producer-fixture runs</a></li>
 <li><a href="#retained-recovery-and-actual-weight-runs" id="toc-retained-recovery-and-actual-weight-runs">Retained recovery and actual-weight runs</a></li>
+<li><a href="#continued-recovery-sdk-and-paired-cpu-runs" id="toc-continued-recovery-sdk-and-paired-cpu-runs">Continued recovery, SDK and paired CPU runs</a></li>
 <li><a href="#start-with-a-run-that-exists" id="toc-start-with-a-run-that-exists">Start with a run that exists</a></li>
 <li><a href="#choose-the-claim-you-are-submitting" id="toc-choose-the-claim-you-are-submitting">Choose the claim you are submitting</a></li>
 <li><a href="#submit-a-reproducible-evidence-packet" id="toc-submit-a-reproducible-evidence-packet">Submit a reproducible evidence packet</a></li>
@@ -110,6 +111,47 @@
 </table>
 <p>The model result covers structured extraction, arithmetic, policy decisions and grounded abstention under two declared output limits. Native tokens, elapsed time, whole-process CPU deltas and process-lifetime peak RSS stay labelled by their actual scope. Fixed configuration order confounds cache/warmup with the output-limit comparison. No publication, admission, dispatch or recovery effect was executed by the model run.</p>
 <p>The model capsule copies selected original JSON/text bytes; its provenance lists every original ZIP member, digest and inclusion decision. Model weights, compiled libraries and omitted build files are outside this capsule. The full original 274,795,286-byte provider ZIP is retained locally and referenced by digest and <a href="https://github.com/probityai/agent-evidence-observer/actions/runs/37044646302">workflow run</a>; it is not committed here and the provider archive can expire. The capsule alone cannot reproduce excluded model/source hash checks or rerun inference. The two framework ZIPs are complete byte-exact original archives.</p>
+<h2 id="continued-recovery-sdk-and-paired-cpu-runs">Continued recovery, SDK and paired CPU runs</h2>
+<p>Four further author-operated records retain original native archives and separate outcome axes. Their original bytes were published in the Atlas feature branch before these register entries. Native outputs and expected-result comparisons were emitted together; this publication order does not make them blind studies or satisfy a separate native raw-result-first comparison.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Run</th>
+<th>Measured result</th>
+<th>Retention and boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Recovery authority</td>
+<td>Eight selected cases, sixteen native graph workers. Revocation, exact-boundary expiry and clock rollback each refuse before recovery dispatch, both before an effect and after a revision-one commit. Earlier commits remain separately retained.</td>
+<td><a href="experiments/authority-recovery-2026-10-02/report.json">Report</a>, <a href="experiments/authority-recovery-2026-10-02/original-artifact.zip">original exact-main archive</a>, <a href="experiments/authority-recovery-2026-10-02/provenance.json">source/member provenance</a>. Recovery policy uses a host-selected deterministic integer clock; signed target grants remain separate and the target stays alive.</td>
+</tr>
+<tr>
+<td>Target process recovery</td>
+<td>Seven cases use fourteen actual target processes: three completed effects, two incomplete refusals and two startup refusals. The selected eight-request overlap yields one completion and seven refusals.</td>
+<td><a href="experiments/target-process-recovery-2026-10-02/report.json">Report</a>, <a href="experiments/target-process-recovery-2026-10-02/original-artifact.zip">original exact-main archive</a>, <a href="experiments/target-process-recovery-2026-10-02/provenance.json">source/member provenance</a>. Process IDs are unsigned runner testimony; native SQLite, key and clock remain author controlled.</td>
+</tr>
+<tr>
+<td>Paired actual-weight CPU tasks</td>
+<td>All ninety-six attempts score under sixteen separate model/cap/family rows. The selected 135M model has zero strict targets and two format-valid answers across forty-eight attempts; the 360M model has eight strict targets and forty-two format-valid answers across forty-eight. Each cap’s 360M rows retain extraction two of six, arithmetic one of six, policy one of six and abstention zero of six.</td>
+<td><a href="experiments/model-paired-cpu-2026-10-02/report.json">Unmodified report</a>, <a href="experiments/model-paired-cpu-2026-10-02/original-artifact.zip">original producer-selected compact archive</a>, <a href="experiments/model-paired-cpu-2026-10-02/provenance.json">complete member/omission provenance</a>. Authored tasks, SHA-ranked blocked order and disabled/reset cache; a bounded comparison rather than a representative benchmark estimate.</td>
+</tr>
+<tr>
+<td>OpenAI Agents SDK</td>
+<td>Six native SDK cases retain nine scripted model calls, six tool calls and three signed ticket effects. Three tasks complete, two error and one remains incomplete; an error after effect and exhausted turns retain revision one separately from task status.</td>
+<td><a href="experiments/openai-agents-ticket-2026-10-02/report.json">Report</a>, <a href="experiments/openai-agents-ticket-2026-10-02/original-artifact.zip">original SDK archive</a>, <a href="experiments/openai-agents-ticket-2026-10-02/provenance.json">source/member provenance</a>. Actual SDK Runner, function tool and trace processor with scripted Model; no remote-provider inference or model-quality result.</td>
+</tr>
+</tbody>
+</table>
+<p>The paired CPU native compact archive is an original producer artifact, retained byte for byte. Its 246 members match the corresponding <code>run/</code> members of the 276-member full preparation archive. The provenance identifies all thirty omitted preparation members, including model weights and source/dependency wheels. The full 465,338,754-byte preparation archive stays in the private program archive and provider retention; it is not committed here. The compact archive retains native source/library hashes and every started/returned call, but cannot rerun inference without the omitted weights or reconstruct every acquisition byte independently.</p>
+<p>The first preparation failed before inference after 472,190,754 response-body bytes; a separately declared corrected preparation used 472,221,945 bytes. Their cumulative 944,412,699 bytes span two declared 512 MiB envelopes, rather than one acquisition budget. No model inference was retried. Native token, whole-process CPU, serial elapsed time and shared process-lifetime peak RSS stay labelled by their actual scope. Author-written expectations were exposed.</p>
+<p>The register now contains ten retained records, with each measured claim bound to literal report fields. All four continuation records remain Probity-operated; none establishes producer acceptance, an outside maintained workflow, independent effect/key/store/clock custody, host power-loss recovery or a general exactly-once guarantee. SDK behavior and actual-weight quality remain separate measurements.</p>
 <h2 id="start-with-a-run-that-exists">Start with a run that exists</h2>
 <p>The first register entry is <a href="experiments.html#observer-consumer-admission">E6: observer declaration, admission and replay</a>. It joins one prior declaration, one brokered durable file effect, signed history and a persisted consumer admission. Replaying the interval, changing consumer authority and altering a signed claim all refuse with exact reasons and unchanged consumer state.</p>
 <table>

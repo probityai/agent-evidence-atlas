@@ -422,3 +422,22 @@ This record supplies a new frozen intervention and measured result. Authored
 inputs, answers and thresholds remain exposed. Outside producer acceptance,
 recurring adoption, model-action authority and independent effect custody
 remain unestablished.
+
+## Native tool arguments and explicit abstention failures
+
+The nineteenth [register record](lab/register.json) retains the complete original
+128-call tool-argument CPU study. All short-cap outputs fail JSON parsing; all
+long-cap outputs satisfy their selected schema. At the long cap, the smaller
+model scores 0/16 and the larger model 7/16 in each mode. No quality row has a
+correct abstention or fully correct pair. All eight strict quality rows hold.
+
+The [complete finding and offline retention gate](tool-argument-findings.html)
+preserve every raw response, source commitment, denominator and external
+whole-child resource observation. The exact native provider ZIP retains all
+331 members. The separate complete preparation archive remains outside Atlas;
+its digest cannot reconstruct omitted model, dependency or environment bytes.
+
+All eighteen earlier literal records and artifact bytes remain unchanged.
+Native evidence publication, semantic quality, model-action authority, outside
+acceptance, recurring adoption and independent effect custody remain separate.
+[Claims P-51–P-56](claims.html) record the new sources, read times and limits.

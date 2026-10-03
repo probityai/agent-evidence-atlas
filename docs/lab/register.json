@@ -5642,6 +5642,328 @@
           "result": "not-exercised"
         }
       ]
+    },
+    {
+      "id": "model-tool-arguments-cpu-2026-10-03",
+      "atlasRevision": "91632533e3834ebefb7e96a25d2d7ca6fe9e7499",
+      "sourceRevision": "51e0c12551339cce5898d3bfae2ba9ef3d9607f5",
+      "readerRevision": "884814fe8cbc2e3b21d267fbaf86726c37892b14",
+      "report": "../experiments/model-tool-arguments-cpu-2026-10-03/native-report.json",
+      "provenance": "../experiments/model-tool-arguments-cpu-2026-10-03/provenance.json",
+      "contract": "https://github.com/probityai/agent-evidence-observer/tree/884814fe8cbc2e3b21d267fbaf86726c37892b14/interop/local-model-tool-arguments-2026-10-03",
+      "reviewState": "author-retained-measured-record",
+      "evidenceClaim": "authored-native-tool-arguments-with-strict-quality-hold",
+      "roles": {
+        "atlasOperator": "Probity",
+        "independentEffectCustody": "not-established",
+        "independentOperation": "not-established",
+        "outsideRecurringUse": "not-established",
+        "producer": "Probity-owned workflow",
+        "readerAuthor": "Probity",
+        "retentionHolder": "Probity"
+      },
+      "answerExposure": "Authored inputs, targets and thresholds exposed; prospective new study follows earlier 384/128-call findings; not blind.",
+      "comparisonOrder": "Prospective protocol and reviewed source precede the protected Observer main execution; exact native provider bytes are retained additively in Atlas afterward. Neither raw retention nor replay establishes independent execution.",
+      "limits": [
+        "Finite exposed authored tool-argument and abstention cases; no representative benchmark or blind evaluation.",
+        "Native inference, evidence publication and semantic quality are separate; all eight strict quality rows hold.",
+        "No tools or protected publication/admission/dispatch/recovery effects execute from model answers.",
+        "Atlas retains the entire compact native provider artifact, not the complete preparation artifact containing model weights, wheels, archive and installed environment; hashes cannot reconstruct omitted bytes.",
+        "Provider artifact expiry is disclosed; durable author-held Git bytes do not establish independent effect custody, outside acceptance or recurring adoption.",
+        "Atlas validation reads data only and performs no new inference or installation of packet code."
+      ],
+      "artifacts": [
+        {
+          "path": "../experiments/model-tool-arguments-cpu-2026-10-03/original-artifact.zip",
+          "sha256": "67ef1e638e814c71bbf354fe9895ea0faf5d9ef11eae2ff76b10b065bd7a7e54"
+        },
+        {
+          "path": "../experiments/model-tool-arguments-cpu-2026-10-03/native-report.json",
+          "sha256": "92b0a21e5fe5efc682e7b6c287a850e28847f33b4515b1a02155ad706bb673ba"
+        },
+        {
+          "path": "../experiments/model-tool-arguments-cpu-2026-10-03/provenance.json",
+          "sha256": "158c40fb504e0e44b3dc49e5539483b03aedceb92008c5c63d05340da68ffab7"
+        },
+        {
+          "path": "../experiments/model-tool-arguments-cpu-2026-10-03/source-contract.json",
+          "sha256": "1cf2a5f3527f72db90ad0881c5dd360bb0775f005cd4cc8971e287015fe400d4"
+        },
+        {
+          "path": "../experiments/model-tool-arguments-cpu-2026-10-03/README.md",
+          "sha256": "3b22b8f171370927c15ea5b2e0b98df0019a08f21e00e997ca957433842fbfb2"
+        }
+      ],
+      "claimResults": [
+        {
+          "claim": "complete-native-population",
+          "result": "pass",
+          "recordedField": "/population",
+          "expectedValue": {
+            "error": 0,
+            "incomplete": 0,
+            "planned": 128,
+            "scored": 128,
+            "started": 128,
+            "unknown-start": 0,
+            "unsupported": 0
+          }
+        },
+        {
+          "claim": "complete-evidence-within-run-budget",
+          "result": "pass",
+          "recordedField": "/evidence",
+          "expectedValue": {
+            "complete": true,
+            "withinRunBudget": true
+          }
+        },
+        {
+          "claim": "scoped-evidence-publication",
+          "result": "pass",
+          "recordedField": "/publicationDecision",
+          "expectedValue": "publish-scoped-report"
+        },
+        {
+          "claim": "strict-tool-quality",
+          "result": "fail",
+          "recordedField": "/qualityDecision",
+          "expectedValue": "hold-tool-decision-quality"
+        },
+        {
+          "claim": "strict-quality-row--0",
+          "result": "fail",
+          "recordedField": "/quality/0",
+          "expectedValue": {
+            "configuration": "short24",
+            "correct": 0,
+            "correctAbstentions": 0,
+            "formatValid": 0,
+            "fullyCorrectPairs": 0,
+            "mode": "control",
+            "model": "smol135-q4",
+            "planned": 16,
+            "plannedAbstentions": 8,
+            "plannedPairs": 8,
+            "schemaValid": 0,
+            "scored": 16,
+            "truncatedReturns": 16
+          }
+        },
+        {
+          "claim": "strict-quality-row--1",
+          "result": "fail",
+          "recordedField": "/quality/1",
+          "expectedValue": {
+            "configuration": "short24",
+            "correct": 0,
+            "correctAbstentions": 0,
+            "formatValid": 0,
+            "fullyCorrectPairs": 0,
+            "mode": "tool-schema",
+            "model": "smol135-q4",
+            "planned": 16,
+            "plannedAbstentions": 8,
+            "plannedPairs": 8,
+            "schemaValid": 0,
+            "scored": 16,
+            "truncatedReturns": 16
+          }
+        },
+        {
+          "claim": "strict-quality-row--2",
+          "result": "fail",
+          "recordedField": "/quality/2",
+          "expectedValue": {
+            "configuration": "long96",
+            "correct": 0,
+            "correctAbstentions": 0,
+            "formatValid": 16,
+            "fullyCorrectPairs": 0,
+            "mode": "control",
+            "model": "smol135-q4",
+            "planned": 16,
+            "plannedAbstentions": 8,
+            "plannedPairs": 8,
+            "schemaValid": 16,
+            "scored": 16,
+            "truncatedReturns": 0
+          }
+        },
+        {
+          "claim": "strict-quality-row--3",
+          "result": "fail",
+          "recordedField": "/quality/3",
+          "expectedValue": {
+            "configuration": "long96",
+            "correct": 0,
+            "correctAbstentions": 0,
+            "formatValid": 16,
+            "fullyCorrectPairs": 0,
+            "mode": "tool-schema",
+            "model": "smol135-q4",
+            "planned": 16,
+            "plannedAbstentions": 8,
+            "plannedPairs": 8,
+            "schemaValid": 16,
+            "scored": 16,
+            "truncatedReturns": 0
+          }
+        },
+        {
+          "claim": "strict-quality-row--4",
+          "result": "fail",
+          "recordedField": "/quality/4",
+          "expectedValue": {
+            "configuration": "short24",
+            "correct": 0,
+            "correctAbstentions": 0,
+            "formatValid": 0,
+            "fullyCorrectPairs": 0,
+            "mode": "control",
+            "model": "smol360-q4",
+            "planned": 16,
+            "plannedAbstentions": 8,
+            "plannedPairs": 8,
+            "schemaValid": 0,
+            "scored": 16,
+            "truncatedReturns": 16
+          }
+        },
+        {
+          "claim": "strict-quality-row--5",
+          "result": "fail",
+          "recordedField": "/quality/5",
+          "expectedValue": {
+            "configuration": "short24",
+            "correct": 0,
+            "correctAbstentions": 0,
+            "formatValid": 0,
+            "fullyCorrectPairs": 0,
+            "mode": "tool-schema",
+            "model": "smol360-q4",
+            "planned": 16,
+            "plannedAbstentions": 8,
+            "plannedPairs": 8,
+            "schemaValid": 0,
+            "scored": 16,
+            "truncatedReturns": 16
+          }
+        },
+        {
+          "claim": "strict-quality-row--6",
+          "result": "fail",
+          "recordedField": "/quality/6",
+          "expectedValue": {
+            "configuration": "long96",
+            "correct": 7,
+            "correctAbstentions": 0,
+            "formatValid": 16,
+            "fullyCorrectPairs": 0,
+            "mode": "control",
+            "model": "smol360-q4",
+            "planned": 16,
+            "plannedAbstentions": 8,
+            "plannedPairs": 8,
+            "schemaValid": 16,
+            "scored": 16,
+            "truncatedReturns": 0
+          }
+        },
+        {
+          "claim": "strict-quality-row--7",
+          "result": "fail",
+          "recordedField": "/quality/7",
+          "expectedValue": {
+            "configuration": "long96",
+            "correct": 7,
+            "correctAbstentions": 0,
+            "formatValid": 16,
+            "fullyCorrectPairs": 0,
+            "mode": "tool-schema",
+            "model": "smol360-q4",
+            "planned": 16,
+            "plannedAbstentions": 8,
+            "plannedPairs": 8,
+            "schemaValid": 16,
+            "scored": 16,
+            "truncatedReturns": 0
+          }
+        },
+        {
+          "claim": "native--nativeTokens",
+          "result": "pass",
+          "recordedField": "/nativeTokens",
+          "expectedValue": {
+            "completion": 3468,
+            "prompt": 29992
+          }
+        },
+        {
+          "claim": "native--resources",
+          "result": "pass",
+          "recordedField": "/resources",
+          "expectedValue": {
+            "elapsed_ns": 228445554164,
+            "process_cpu_ns": 430234663000,
+            "process_maxrss_kib": 577276
+          }
+        },
+        {
+          "claim": "native--preparationReuse",
+          "result": "pass",
+          "recordedField": "/preparationReuse",
+          "expectedValue": {
+            "inferencePerformed": false,
+            "nativeFiles": 31,
+            "newArchiveResponseBodyBytes": 465478943,
+            "selectedFiles": 66,
+            "status": "passed"
+          }
+        },
+        {
+          "claim": "native--effectsExecuted",
+          "result": "pass",
+          "recordedField": "/effectsExecuted",
+          "expectedValue": 0
+        },
+        {
+          "claim": "native--providerCalls",
+          "result": "pass",
+          "recordedField": "/providerCalls",
+          "expectedValue": 0
+        },
+        {
+          "claim": "native--providerDollars",
+          "result": "pass",
+          "recordedField": "/providerDollars",
+          "expectedValue": 0
+        },
+        {
+          "claim": "outside-producer-acceptance",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "external-host-recurring-adoption",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "independent-effect-custody",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "independent-inference-witness",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "model-action-acceptance",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "general-benchmark-performance",
+          "result": "not-exercised"
+        }
+      ]
     }
   ]
 }

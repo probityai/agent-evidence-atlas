@@ -288,6 +288,14 @@ def validate_register(register: dict[str, Any], root: Path) -> None:
             except ModuleNotFoundError:
                 from tools.check_vocabulary_retention import check_selected_vocabulary
         check_selected_vocabulary(register, root)
+        if __package__:
+            from .check_tool_argument_retention import check_selected_tool_arguments
+        else:
+            try:
+                from check_tool_argument_retention import check_selected_tool_arguments
+            except ModuleNotFoundError:
+                from tools.check_tool_argument_retention import check_selected_tool_arguments
+        check_selected_tool_arguments(register, root)
     except ValueError as exc:
         LOGGER.error("lab register refused: %s", exc)
         raise

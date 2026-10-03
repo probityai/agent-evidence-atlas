@@ -280,6 +280,14 @@ def validate_register(register: dict[str, Any], root: Path) -> None:
             except ModuleNotFoundError:
                 from tools.check_installed_boundary import check_selected_installed_boundary
         check_selected_installed_boundary(register, root)
+        if __package__:
+            from .check_vocabulary_retention import check_selected_vocabulary
+        else:
+            try:
+                from check_vocabulary_retention import check_selected_vocabulary
+            except ModuleNotFoundError:
+                from tools.check_vocabulary_retention import check_selected_vocabulary
+        check_selected_vocabulary(register, root)
     except ValueError as exc:
         LOGGER.error("lab register refused: %s", exc)
         raise

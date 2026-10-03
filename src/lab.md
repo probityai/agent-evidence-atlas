@@ -401,3 +401,24 @@ author-operated offline installation and selected report/quality gating, with
 exposed cases, answers and thresholds. A package registry release, recurring
 outside adoption, dispatch/recovery authority and independent custody remain
 unestablished.
+
+## Native policy vocabulary and an installed quality hold
+
+The eighteenth [register record](lab/register.json) retains the original
+128-call CPU vocabulary intervention from 2026-10-03. A fixed global action
+vocabulary scores 18/64 correct decisions and 2/32 complete pairs. The broad
+string control scores 4/64 and 0/32. All 128 outputs satisfy their selected
+schema. All eight rows still fail the default semantic quality gate.
+
+The [full finding and runnable offline consumer](vocabulary-findings.html)
+show all row scores, unchanged resource budgets, exact original packet bytes,
+selected wheel sources and explicit full-original omissions. The installed
+reader accepts scoped evidence and returns `hold-quality`; repeated stdout is
+byte-identical. Evidence-only exit success preserves the quality hold.
+
+The contribution preserves all seventeen earlier literal objects and artifact
+bytes. The earlier unexecuted vocabulary diagnosis is a historical checkpoint.
+This record supplies a new frozen intervention and measured result. Authored
+inputs, answers and thresholds remain exposed. Outside producer acceptance,
+recurring adoption, model-action authority and independent effect custody
+remain unestablished.

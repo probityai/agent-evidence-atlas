@@ -56,6 +56,12 @@ NAV = [
 # page whose links need it, or None for every page). A copy is made exactly when its
 # page is built, and a missing source for a built page fails the build.
 COPIES = [
+    ("examples/task-grouped-rates/input.json", "examples/task-grouped-rates/input.json", "task-grouped-rates"),
+    ("examples/task-grouped-rates/contract.json", "examples/task-grouped-rates/contract.json", "task-grouped-rates"),
+    ("examples/task-grouped-rates/report.json", "examples/task-grouped-rates/report.json", "task-grouped-rates"),
+    ("examples/task-grouped-rates/source-record.json", "examples/task-grouped-rates/source-record.json", "task-grouped-rates"),
+    ("examples/task-grouped-rates/README.md", "examples/task-grouped-rates/README.md", "task-grouped-rates"),
+    ("tools/check_grouped_rates.py", "examples/task-grouped-rates/check_grouped_rates.py", "task-grouped-rates"),
     ("experiments/model-tool-arguments-cpu-2026-10-03/original-artifact.zip", "experiments/model-tool-arguments-cpu-2026-10-03/original-artifact.zip", "lab"),
     ("experiments/model-tool-arguments-cpu-2026-10-03/native-report.json", "experiments/model-tool-arguments-cpu-2026-10-03/native-report.json", "lab"),
     ("experiments/model-tool-arguments-cpu-2026-10-03/provenance.json", "experiments/model-tool-arguments-cpu-2026-10-03/provenance.json", "lab"),

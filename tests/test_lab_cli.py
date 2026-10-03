@@ -157,5 +157,24 @@ class TestLabCLI(unittest.TestCase):
         self.assertEqual({path: path.read_bytes() for path in paths}, original)
 
 
+class TestRetainedRegisterCLI(unittest.TestCase):
+    """Exercise a real consumer selection in the complete retained CI checkout."""
+
+    def test_original_tool_argument_record_keeps_quality_failures(self) -> None:
+        raw = (ROOT / "data" / "lab-register.json").read_bytes()
+        register = json.loads(raw)
+        identity = "model-tool-arguments-cpu-2026-10-03"
+        expected = next(record for record in register["records"] if record["id"] == identity)
+        stdout = io.StringIO()
+        with contextlib.redirect_stdout(stdout):
+            CHECK.main(["--record", identity, "--json"])
+        output = json.loads(stdout.getvalue())
+        self.assertEqual(output["validationScope"], "complete-register")
+        self.assertEqual(output["registerSha256"], hashlib.sha256(raw).hexdigest())
+        self.assertEqual(output["records"], [expected])
+        self.assertTrue(any(claim["result"] == "fail" for claim in expected["claimResults"]))
+        self.assertEqual((ROOT / "data" / "lab-register.json").read_bytes(), raw)
+
+
 if __name__ == "__main__":
     unittest.main()

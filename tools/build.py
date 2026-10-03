@@ -56,6 +56,13 @@ NAV = [
 # page whose links need it, or None for every page). A copy is made exactly when its
 # page is built, and a missing source for a built page fails the build.
 COPIES = [
+    ("examples/provael-task-controls/source-record.json", "examples/provael-task-controls/source-record.json", "provael-task-controls"),
+    ("examples/provael-task-controls/contract.json", "examples/provael-task-controls/contract.json", "provael-task-controls"),
+    ("examples/provael-task-controls/report.json", "examples/provael-task-controls/report.json", "provael-task-controls"),
+    ("examples/provael-task-controls/README.md", "examples/provael-task-controls/README.md", "provael-task-controls"),
+    ("examples/provael-task-controls/PROVAEL-LICENSE", "examples/provael-task-controls/PROVAEL-LICENSE", "provael-task-controls"),
+    ("examples/provael-task-controls/PROVAEL-NOTICE", "examples/provael-task-controls/PROVAEL-NOTICE", "provael-task-controls"),
+    ("tools/check_provael_controls.py", "examples/provael-task-controls/check_provael_controls.py", "provael-task-controls"),
     ("examples/task-grouped-rates/input.json", "examples/task-grouped-rates/input.json", "task-grouped-rates"),
     ("examples/task-grouped-rates/contract.json", "examples/task-grouped-rates/contract.json", "task-grouped-rates"),
     ("examples/task-grouped-rates/report.json", "examples/task-grouped-rates/report.json", "task-grouped-rates"),

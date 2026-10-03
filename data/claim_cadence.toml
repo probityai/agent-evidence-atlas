@@ -149,3 +149,10 @@
 # Immutable authored task-rate example and explicit calculation contract.
 "P-57" = "none"
 "P-58" = "none"
+
+# Immutable published simulator source and separate exact task-control calculation.
+"P-59" = "none"
+"P-60" = "none"
+"P-61" = "none"
+"P-62" = "none"
+"P-63" = "none"

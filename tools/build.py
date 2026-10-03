@@ -56,6 +56,14 @@ NAV = [
 # page whose links need it, or None for every page). A copy is made exactly when its
 # page is built, and a missing source for a built page fails the build.
 COPIES = [
+    ("experiments/model-vocabulary-cpu-2026-10-03/original-artifact.zip", "experiments/model-vocabulary-cpu-2026-10-03/original-artifact.zip", "lab"),
+    ("experiments/model-vocabulary-cpu-2026-10-03/installed-capsule.zip", "experiments/model-vocabulary-cpu-2026-10-03/installed-capsule.zip", "lab"),
+    ("experiments/model-vocabulary-cpu-2026-10-03/provider-inventory.json", "experiments/model-vocabulary-cpu-2026-10-03/provider-inventory.json", "lab"),
+    ("experiments/model-vocabulary-cpu-2026-10-03/source-contract.json", "experiments/model-vocabulary-cpu-2026-10-03/source-contract.json", "lab"),
+    ("experiments/model-vocabulary-cpu-2026-10-03/native-report.json", "experiments/model-vocabulary-cpu-2026-10-03/native-report.json", "lab"),
+    ("experiments/model-vocabulary-cpu-2026-10-03/installed-replay.json", "experiments/model-vocabulary-cpu-2026-10-03/installed-replay.json", "lab"),
+    ("experiments/model-vocabulary-cpu-2026-10-03/provenance.json", "experiments/model-vocabulary-cpu-2026-10-03/provenance.json", "lab"),
+    ("experiments/model-vocabulary-cpu-2026-10-03/report.json", "experiments/model-vocabulary-cpu-2026-10-03/report.json", "lab"),
     ("experiments/atomic-delegation-2026-10-02/native-run-capsule.zip", "experiments/atomic-delegation-2026-10-02/native-run-capsule.zip", "lab"),
     ("experiments/atomic-delegation-2026-10-02/provenance.json", "experiments/atomic-delegation-2026-10-02/provenance.json", "lab"),
     ("experiments/atomic-delegation-2026-10-02/report.json", "experiments/atomic-delegation-2026-10-02/report.json", "lab"),

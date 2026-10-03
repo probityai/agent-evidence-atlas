@@ -12,7 +12,7 @@ Pin the repository to a commit and re-derive the ledger. It needs Python 3.11 or
 
 ```sh
 git clone https://github.com/probityai/agent-evidence-atlas && cd agent-evidence-atlas
-git checkout e741c06575011e5899902d3f8c6994dc7bfe975a
+git checkout 4b6cc7e58571175b998a16170437f31df8483351
 python3 tools/rederive.py
 ```
 
@@ -28,6 +28,8 @@ same     I-01                                         recorded 'v6 2026-08-14' c
 ```
 
 Star counts move daily, so your counts will differ. A row that cannot be read prints as `UNREAD` and is never counted as unchanged; `--strict` exits 1 on any moved or unread value.
+
+Check retained run records locally with `python3 tools/check_lab.py --list`. To read one record in an automated job, use `python3 tools/check_lab.py --record E6-observer-admission --json`. The checker validates the complete register before emitting output, which includes the record's original results, roles, review state and limits.
 
 ## Status
 

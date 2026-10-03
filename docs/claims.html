@@ -1313,8 +1313,45 @@
 </tr>
 </tbody>
 </table>
-<p>P-57 | Synthetic task-grouped example: four matched tasks, nineteen attempts/eighteen resolved in each arm; attack/benign pooled rates12/18 and4/18 contrast4/9, equal-task rates41/80 and19/80 contrast11/40; unresolved counts and all-attempt bounds retained | <a href="examples/task-grouped-rates/input.json">Exact authored input</a>, <a href="examples/task-grouped-rates/contract.json">calculation contract</a>, <a href="examples/task-grouped-rates/report.json">source-bound report</a>, <a href="task-grouped-rates.html">worked example</a> | 2026-10-03 | <code>python3 tools/check_grouped_rates.py --expect examples/task-grouped-rates/report.json</code>; reconstruct counts from every original episode label | Invented exposed labels; no empirical robot/model measurement, new register record, producer acceptance or independent custody |<br />
-P-58 | Paired-task bootstrap retains both arms/all repeats in all256ordered draws; nominal0.95 nearest-rank quantile endpoints use ranks7,250: pooled contrast[-1/10,10/17], equal-task[-1/4,23/40]; missing draws block intervals, degenerate distributions disclosed | <a href="examples/task-grouped-rates/report.json">Complete rational draw distribution</a>, <a href="examples/task-grouped-rates/source-record.json">checked primary source versions/hashes</a>, <a href="examples/task-grouped-rates/check_grouped_rates.py">reader source</a> | 2026-10-03 | <code>python3 tools/check_grouped_rates.py --expect examples/task-grouped-rates/report.json</code>; <code>python3 -m pytest -q tests/test_grouped_rates.py</code> | Exact empirical distribution, not exact population confidence coverage; independent exchangeable task assumption and unresolved-label selection remain explicit; cloning repeats adds no independent tasks |</p>
+<h2 id="task-grouped-rate-example">Task-grouped rate example</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr>
+<th>id</th>
+<th>claim as printed</th>
+<th>source</th>
+<th>read (UTC)</th>
+<th>re-derive</th>
+<th>limit</th>
+</tr>
+</thead>
+<tbody>
+<tr data-read="2026-10-03">
+<td>P-57</td>
+<td>Synthetic task-grouped example: four matched tasks, nineteen attempts/eighteen resolved in each arm; attack/benign pooled rates12/18 and4/18 contrast4/9, equal-task rates41/80 and19/80 contrast11/40; unresolved counts and all-attempt bounds retained</td>
+<td><a href="examples/task-grouped-rates/input.json">Exact authored input</a>, <a href="examples/task-grouped-rates/contract.json">calculation contract</a>, <a href="examples/task-grouped-rates/report.json">source-bound report</a>, <a href="task-grouped-rates.html">worked example</a></td>
+<td>2026-10-03 <span class="cadence">(does not expire)</span></td>
+<td><code>python3 tools/check_grouped_rates.py --expect examples/task-grouped-rates/report.json</code>; reconstruct counts from every original episode label</td>
+<td>Invented exposed labels; no empirical robot/model measurement, new register record, producer acceptance or independent custody</td>
+</tr>
+<tr data-read="2026-10-03">
+<td>P-58</td>
+<td>Paired-task bootstrap retains both arms/all repeats in all256ordered draws; nominal0.95 nearest-rank quantile endpoints use ranks7,250: pooled contrast[-1/10,10/17], equal-task[-1/4,23/40]; missing draws block intervals, degenerate distributions disclosed</td>
+<td><a href="examples/task-grouped-rates/report.json">Complete rational draw distribution</a>, <a href="examples/task-grouped-rates/source-record.json">checked primary source versions/hashes</a>, <a href="examples/task-grouped-rates/check_grouped_rates.py">reader source</a></td>
+<td>2026-10-03 <span class="cadence">(does not expire)</span></td>
+<td><code>python3 tools/check_grouped_rates.py --expect examples/task-grouped-rates/report.json</code>; <code>python3 -m pytest -q tests/test_grouped_rates.py</code></td>
+<td>Exact empirical distribution, not exact population confidence coverage; independent exchangeable task assumption and unresolved-label selection remain explicit; cloning repeats adds no independent tasks</td>
+</tr>
+</tbody>
+</table>
 <h2 id="links">Links</h2>
 <table>
 <colgroup>

@@ -60,19 +60,19 @@ note = "Twelve planned installments"
 name = "Claim ledger"
 page = "claims.html"
 source = "CLAIMS.md"
-version = "0.8.2"
+version = "0.8.3"
 date = "2026-10-03"
 status = "draft"
-note = "Adds the authored task-grouped rate calculation, source checks and interval limits"
+note = "Adds the published simulator controls, complete source bindings and exact paired task calculation"
 
 [[artifact]]
 name = "Probity Open Evidence Lab"
 page = "lab.html"
 source = "src/lab.md"
-version = "0.1.5"
+version = "0.1.6"
 date = "2026-10-03"
 status = "draft"
-note = "Links the synthetic task-grouped rate example; all nineteen measured records and original evidence bytes are preserved"
+note = "Links the publisher-report-derived robot controls companion; all nineteen register records and original evidence bytes are preserved"
 
 [[artifact]]
 name = "Task-grouped rates worked example"
@@ -82,6 +82,15 @@ version = "0.1"
 date = "2026-10-03"
 status = "draft"
 note = "Authored labels, paired task resampling, explicit weighting targets and unresolved outcomes"
+
+[[artifact]]
+name = "Published robot controls companion"
+page = "provael-task-controls.html"
+source = "examples/provael-task-controls/source-record.json"
+version = "0.1"
+date = "2026-10-03"
+status = "draft"
+note = "Original publisher simulator labels, matched controls, corrected interpretation and exact paired task weights"
 
 [[artifact]]
 name = "APS and PriorSeal pilot status"

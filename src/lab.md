@@ -1,7 +1,7 @@
 ---
 title: "Probity Open Evidence Lab"
 subtitle: "A public protocol and run register for checking specific agent-evidence claims"
-status: "Protocol draft 0.1.5, 3 October 2026. The register contains E6, submitted REMORA/JEP readers, native recovery/failure/SDK controls and bounded actual-weight microtask results. External CI adoption and independently operated custody require their own evidence."
+status: "Protocol draft 0.1.6, 3 October 2026. The register contains E6, submitted REMORA/JEP readers, native recovery/failure/SDK controls and bounded actual-weight microtask results. External CI adoption and independently operated custody require their own evidence."
 description: "Submit pinned agent-evidence runs, hostile controls, field-level comparisons and correction records to a public register."
 toc: true
 ---
@@ -16,6 +16,11 @@ The [task-grouped rates example](task-grouped-rates.html) shows how to retain a
 matched benign control, repeated episodes, unresolved labels and two weighting
 targets when reporting uncertainty. Its invented labels make the calculation
 reproducible; they add no empirical record to the register.
+
+The [published robot controls companion](provael-task-controls.html) reads
+Provael's original simulator reports and the author's correction. It retains
+the matched controls, unknown runtime provenance and complete task-resampling
+weights. This is a publisher-report-derived reading alongside the register.
 
 ## Submitted producer-fixture runs
 

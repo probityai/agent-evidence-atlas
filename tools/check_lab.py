@@ -3,10 +3,12 @@
 
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import logging
 import re
+from collections.abc import Sequence
 from pathlib import Path
 from typing import Any
 
@@ -301,11 +303,63 @@ def validate_register(register: dict[str, Any], root: Path) -> None:
         raise
 
 
-def main() -> None:
-    """Validate the checked-in register without network reads or extra dependencies."""
-    register = json.loads((ROOT / "data" / "lab-register.json").read_text(encoding="utf-8"))
+def argument_parser() -> argparse.ArgumentParser:
+    """Describe display choices without weakening complete-register validation."""
+    parser = argparse.ArgumentParser(
+        description="Validate all retained local artifacts and measured bindings, then display records.",
+        epilog="Record selection changes output only. Recorded claim results, roles and limits are preserved.",
+    )
+    parser.add_argument("--record", metavar="ID", help="display one exact record ID after validating all records")
+    output = parser.add_mutually_exclusive_group()
+    output.add_argument("--list", action="store_true", help="list record IDs as JSON strings, one per line")
+    output.add_argument("--json", action="store_true", help="emit checked record objects and the register SHA-256")
+    return parser
+
+
+def display_records(register: dict[str, Any], identity: str | None) -> list[dict[str, Any]]:
+    """Select displayed records only after the complete register has passed."""
+    records = register["records"]
+    if identity is None:
+        return records
+    selected = [record for record in records if record["id"] == identity]
+    require(bool(selected), "requested record id is not in the register")
+    return selected
+
+
+def integrity_report(raw: bytes, records: list[dict[str, Any]]) -> dict[str, Any]:
+    """Bind displayed literal records to the exact fully checked register bytes."""
+    return {
+        "format": "probity-lab-integrity-v1",
+        "validationScope": "complete-register",
+        "integrityStatus": "pass",
+        "registerSha256": hashlib.sha256(raw).hexdigest(),
+        "records": records,
+    }
+
+
+def print_record(record: dict[str, Any]) -> None:
+    """Display literal claim results without treating integrity as task acceptance."""
+    print(f"selected record: {json.dumps(record['id'])}")
+    for claim in record["claimResults"]:
+        print(f"{claim['result']}  {json.dumps(claim['claim'])}")
+
+
+def main(argv: Sequence[str] | None = None) -> None:
+    """Validate every record before successful human or machine-readable output."""
+    args = argument_parser().parse_args(argv)
+    raw = (ROOT / "data" / "lab-register.json").read_bytes()
+    register = json.loads(raw)
     validate_register(register, ROOT)
-    print(f"lab register: {len(register['records'])} record(s), artifact hashes and measured bindings pass")
+    records = display_records(register, args.record)
+    if args.json:
+        print(json.dumps(integrity_report(raw, records), indent=2, sort_keys=True))
+    elif args.list:
+        for record in records:
+            print(json.dumps(record["id"]))
+    else:
+        print(f"lab register: {len(register['records'])} record(s), artifact hashes and measured bindings pass")
+        if args.record is not None:
+            print_record(records[0])
 
 
 if __name__ == "__main__":

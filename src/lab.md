@@ -1,7 +1,7 @@
 ---
 title: "Probity Open Evidence Lab"
 subtitle: "A public protocol and run register for checking specific agent-evidence claims"
-status: "Protocol draft 0.1.1, 1 October 2026. The register contains E6, submitted REMORA/JEP readers, native recovery/failure/SDK controls and bounded actual-weight microtask results. External CI adoption and independently operated custody require their own evidence."
+status: "Protocol draft 0.1.5, 3 October 2026. The register contains E6, submitted REMORA/JEP readers, native recovery/failure/SDK controls and bounded actual-weight microtask results. External CI adoption and independently operated custody require their own evidence."
 description: "Submit pinned agent-evidence runs, hostile controls, field-level comparisons and correction records to a public register."
 toc: true
 ---
@@ -11,6 +11,11 @@ Maintainers can use this protocol to submit a verifier run, a host-project CI in
 [Submit a run](https://github.com/probityai/agent-evidence-atlas/issues/new?template=evidence-run.yml) or [report a correction](https://github.com/probityai/agent-evidence-atlas/issues/new?template=evidence-correction.yml). The forms request the evidence needed for review. The [machine-readable register](lab/register.json), [experiments](experiments.html) and [claim ledger](claims.html) retain the supporting records.
 
 The [APS and PriorSeal pilot status](pilot.html) tracks Probity's proposed next run, owner confirmations and open decisions. It is separate from this measured register.
+
+The [task-grouped rates example](task-grouped-rates.html) shows how to retain a
+matched benign control, repeated episodes, unresolved labels and two weighting
+targets when reporting uncertainty. Its invented labels make the calculation
+reproducible; they add no empirical record to the register.
 
 ## Submitted producer-fixture runs
 

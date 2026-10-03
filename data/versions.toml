@@ -60,19 +60,28 @@ note = "Twelve planned installments"
 name = "Claim ledger"
 page = "claims.html"
 source = "CLAIMS.md"
-version = "0.8.1"
-date = "2026-10-01"
+version = "0.8.2"
+date = "2026-10-03"
 status = "draft"
-note = "Updates merged replay status and the pinned wrapper run-contract limit"
+note = "Adds the authored task-grouped rate calculation, source checks and interval limits"
 
 [[artifact]]
 name = "Probity Open Evidence Lab"
 page = "lab.html"
 source = "src/lab.md"
-version = "0.1.4"
+version = "0.1.5"
 date = "2026-10-03"
 status = "draft"
-note = "Adds original tool-argument CPU evidence and offline retention controls; all strict quality rows remain held and earlier evidence bytes are preserved"
+note = "Links the synthetic task-grouped rate example; all nineteen measured records and original evidence bytes are preserved"
+
+[[artifact]]
+name = "Task-grouped rates worked example"
+page = "task-grouped-rates.html"
+source = "examples/task-grouped-rates/input.json"
+version = "0.1"
+date = "2026-10-03"
+status = "draft"
+note = "Authored labels, paired task resampling, explicit weighting targets and unresolved outcomes"
 
 [[artifact]]
 name = "APS and PriorSeal pilot status"

@@ -56,6 +56,11 @@ NAV = [
 # page whose links need it, or None for every page). A copy is made exactly when its
 # page is built, and a missing source for a built page fails the build.
 COPIES = [
+    ("experiments/model-tool-arguments-cpu-2026-10-03/original-artifact.zip", "experiments/model-tool-arguments-cpu-2026-10-03/original-artifact.zip", "lab"),
+    ("experiments/model-tool-arguments-cpu-2026-10-03/native-report.json", "experiments/model-tool-arguments-cpu-2026-10-03/native-report.json", "lab"),
+    ("experiments/model-tool-arguments-cpu-2026-10-03/provenance.json", "experiments/model-tool-arguments-cpu-2026-10-03/provenance.json", "lab"),
+    ("experiments/model-tool-arguments-cpu-2026-10-03/source-contract.json", "experiments/model-tool-arguments-cpu-2026-10-03/source-contract.json", "lab"),
+    ("experiments/model-tool-arguments-cpu-2026-10-03/README.md", "experiments/model-tool-arguments-cpu-2026-10-03/README.md", "lab"),
     ("experiments/model-vocabulary-cpu-2026-10-03/original-artifact.zip", "experiments/model-vocabulary-cpu-2026-10-03/original-artifact.zip", "lab"),
     ("experiments/model-vocabulary-cpu-2026-10-03/installed-capsule.zip", "experiments/model-vocabulary-cpu-2026-10-03/installed-capsule.zip", "lab"),
     ("experiments/model-vocabulary-cpu-2026-10-03/provider-inventory.json", "experiments/model-vocabulary-cpu-2026-10-03/provider-inventory.json", "lab"),

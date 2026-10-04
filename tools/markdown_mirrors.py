@@ -43,8 +43,8 @@ def clean_node(node: Any, built: set[str], base_url: str) -> Any:
         result = []
         for item in node:
             cleaned = clean_node(item, built, base_url)
-            if isinstance(cleaned, dict) and "_anchored_blocks" in cleaned:
-                result.extend(cleaned["_anchored_blocks"])
+            if isinstance(cleaned, dict) and "_replacement_blocks" in cleaned:
+                result.extend(cleaned["_replacement_blocks"])
             else:
                 result.append(cleaned)
         return result
@@ -54,6 +54,33 @@ def clean_node(node: Any, built: set[str], base_url: str) -> Any:
     kind = result.get("t")
     if kind == "Link":
         result["c"][2][0] = markdown_target(result["c"][2][0], built, base_url)
+    elif kind == "LineBreak":
+        return {"t": "RawInline", "c": ["html", "<br />"]}
+    elif kind == "LineBlock":
+        inlines = []
+        for position, line in enumerate(result["c"]):
+            if position:
+                inlines.append({"t": "RawInline", "c": ["html", "<br />"]})
+            inlines.extend(line)
+        return {"t": "Para", "c": inlines}
+    elif kind == "DefinitionList":
+        # GFM has no definition-list syntax. Its writer would insert a
+        # two-space line ending between each term and its first definition.
+        # Use an explicit visible break without touching literal code bytes.
+        blocks = []
+        for term, definitions in result["c"]:
+            for position, definition in enumerate(definitions):
+                if position == 0:
+                    label = term + [{"t": "RawInline", "c": ["html", "<br />"]}]
+                    if definition and definition[0]["t"] in {"Para", "Plain"}:
+                        blocks.append({"t": "Para", "c": label + definition[0]["c"]})
+                        blocks.extend(definition[1:])
+                    else:
+                        blocks.append({"t": "Para", "c": label})
+                        blocks.extend(definition)
+                else:
+                    blocks.extend(definition)
+        return {"_replacement_blocks": blocks}
     elif kind in {"Span", "Div"}:
         result["c"][0] = [result["c"][0][0], [], []]
     elif kind == "Header":
@@ -63,7 +90,7 @@ def clean_node(node: Any, built: set[str], base_url: str) -> Any:
             # explicit anchor instead of guessing a new fragment from its label.
             anchor = {"t": "RawBlock", "c": ["html", f'<a id="{html.escape(identifier, quote=True)}"></a>']}
             result["c"][1] = ["", [], []]
-            return {"_anchored_blocks": [anchor, result]}
+            return {"_replacement_blocks": [anchor, result]}
     return result
 
 

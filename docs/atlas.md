@@ -61,14 +61,11 @@ The "writer" column shows one pattern. Every mechanism that records the agent's 
 
 ## 1. Identity and delegated authority
 
-Question  
-Who or what is acting, for whom, under which delegated authority?
+Question<br />Who or what is acting, for whom, under which delegated authority?
 
-Establishes  
-That a request carried a credential bound to an identity a trusted issuer vouched for, and, through delegation or token exchange, the principal on whose behalf it was issued and the scope it was granted.
+Establishes<br />That a request carried a credential bound to an identity a trusted issuer vouched for, and, through delegation or token exchange, the principal on whose behalf it was issued and the scope it was granted.
 
-Cannot establish  
-That the holder is the agent it claims to be once a key or token leaves its workload; what the agent did with the authority; or whether a particular action matched what the principal intended. An identity makes an actor accountable only when some other record says what the actor did.
+Cannot establish<br />That the holder is the agent it claims to be once a key or token leaves its workload; what the agent did with the authority; or whether a particular action matched what the principal intended. An identity makes an actor accountable only when some other record says what the actor did.
 
 | project or standard | status read 2026-09-27; stars read 2026-10-01 07:04:40 UTC |
 |----|----|
@@ -78,21 +75,17 @@ That the holder is the agent it claims to be once a key or token leaves its work
 | [Keycloak](https://github.com/keycloak/keycloak) | Open-source identity and access management; 37,078 stars |
 | [Ory Hydra](https://github.com/ory/hydra) | OpenID Connect and OAuth 2.1 provider; 17,581 stars |
 
-Seam to family 2 (policy, mediation and admission)  
-The policy engine decides on the identity it is shown. That identity usually names a workload, not a task. When a user delegates to an agent, which calls a tool, which calls a sub-agent, the token at the enforcement point often carries the agent's own identity and a broad scope. The human principal, the narrowing at each hop and the purpose of the call are lost or merely asserted. The resulting decision allows "this workload may call this tool". The two families leave open whether the call was within what the user delegated for this task. No record answers that question for the user who delegated.
+Seam to family 2 (policy, mediation and admission)<br />The policy engine decides on the identity it is shown. That identity usually names a workload, not a task. When a user delegates to an agent, which calls a tool, which calls a sub-agent, the token at the enforcement point often carries the agent's own identity and a broad scope. The human principal, the narrowing at each hop and the purpose of the call are lost or merely asserted. The resulting decision allows "this workload may call this tool". The two families leave open whether the call was within what the user delegated for this task. No record answers that question for the user who delegated.
 
 <a id="policy-mediation-and-admission"></a>
 
 ## 2. Policy, mediation and admission
 
-Question  
-Was the action permitted, mediated or refused under a stated policy, and may a relying party accept its evidence?
+Question<br />Was the action permitted, mediated or refused under a stated policy, and may a relying party accept its evidence?
 
-Establishes  
-That a request which reached an enforcement point was evaluated against a stated policy, and allowed or denied.
+Establishes<br />That a request which reached an enforcement point was evaluated against a stated policy, and allowed or denied.
 
-Cannot establish  
-Anything about requests that never passed through that point, anything about what happened after an allow, or that the policy was right. The decider writes the decision log, so the log reports the decision and nothing about the effect.
+Cannot establish<br />Anything about requests that never passed through that point, anything about what happened after an allow, or that the policy was right. The decider writes the decision log, so the log reports the decision and nothing about the effect.
 
 | project or standard | status read 2026-09-27; stars read 2026-10-01 07:04:40 UTC |
 |----|----|
@@ -100,21 +93,17 @@ Anything about requests that never passed through that point, anything about wha
 | [Kyverno](https://github.com/kyverno/kyverno) | CNCF Graduated (2026-03-16); 8,206 stars |
 | [agentgateway](https://github.com/agentgateway/agentgateway) | Agentic proxy for AI agents and MCP servers; a Linux Foundation project, per its README; 5,111 stars |
 
-Seam to family 3 (containment)  
-The policy engine evaluates the action as declared at the gateway. Containment governs what the process can actually reach. Whatever the agent does without crossing the gateway, such as code it runs inside an allowed tool, a direct socket, or a file a later step reads, is invisible to the policy engine. The decision and the effect happen in different places at different times, and nothing binds one to the other, so a decision log cannot tell anyone what an allowed action did.
+Seam to family 3 (containment)<br />The policy engine evaluates the action as declared at the gateway. Containment governs what the process can actually reach. Whatever the agent does without crossing the gateway, such as code it runs inside an allowed tool, a direct socket, or a file a later step reads, is invisible to the policy engine. The decision and the effect happen in different places at different times, and nothing binds one to the other, so a decision log cannot tell anyone what an allowed action did.
 
 <a id="containment"></a>
 
 ## 3. Containment
 
-Question  
-Which resources and channels could the workload reach?
+Question<br />Which resources and channels could the workload reach?
 
-Establishes  
-That execution was restricted: the system calls, files, network destinations and memory it could touch were bounded, which bounds the damage a misbehaving agent can do.
+Establishes<br />That execution was restricted: the system calls, files, network destinations and memory it could touch were bounded, which bounds the damage a misbehaving agent can do.
 
-Cannot establish  
-What happened inside the allowed boundary. A sandbox limits what a process can reach and keeps no record of what it did. It cannot show by itself that it was in place for a particular run; that needs attestation by a party outside it. An escape it did not detect looks the same as no escape.
+Cannot establish<br />What happened inside the allowed boundary. A sandbox limits what a process can reach and keeps no record of what it did. It cannot show by itself that it was in place for a particular run; that needs attestation by a party outside it. An escape it did not detect looks the same as no escape.
 
 | project or standard | status read 2026-09-27; stars read 2026-10-01 07:04:40 UTC |
 |----|----|
@@ -128,21 +117,17 @@ What happened inside the allowed boundary. A sandbox limits what a process can r
 | [microsandbox](https://github.com/microsandbox/microsandbox) | Branchable microVMs for any workload; 8,491 stars |
 | [Anthropic sandbox-runtime](https://github.com/anthropic-experimental/sandbox-runtime) | Filesystem and network restrictions on arbitrary processes at the OS level, without a container; 5,406 stars |
 
-Seam to family 4 (observation and tracing)  
-The contained process is also the process that reports on itself. Traces come from instrumentation inside the sandboxed workload, so a denied connection, a killed process, or a tool that did something other than what it logged produces no span. The trace still looks complete. Containment and observation sit at different vantage points, and the operator running both has to reconcile two partial views by hand.
+Seam to family 4 (observation and tracing)<br />The contained process is also the process that reports on itself. Traces come from instrumentation inside the sandboxed workload, so a denied connection, a killed process, or a tool that did something other than what it logged produces no span. The trace still looks complete. Containment and observation sit at different vantage points, and the operator running both has to reconcile two partial views by hand.
 
 <a id="observation-and-tracing"></a>
 
 ## 4. Observation and tracing
 
-Question  
-What was seen while the workload ran, and from which vantage?
+Question<br />What was seen while the workload ran, and from which vantage?
 
-Establishes  
-What the instrumentation emitted: correlated spans, timings and attributes, as reported.
+Establishes<br />What the instrumentation emitted: correlated spans, timings and attributes, as reported.
 
-Cannot establish  
-That the events happened independently of the party emitting them; that nothing is missing, since tracing has no concept of a missing span and sampling drops spans by design; or that the record is intact, since spans are unsigned and can change anywhere in the collection pipeline.
+Cannot establish<br />That the events happened independently of the party emitting them; that nothing is missing, since tracing has no concept of a missing span and sampling drops spans by design; or that the record is intact, since spans are unsigned and can change anywhere in the collection pipeline.
 
 | project or standard | status read 2026-09-27; stars read 2026-10-01 07:04:40 UTC |
 |----|----|
@@ -153,21 +138,17 @@ That the events happened independently of the party emitting them; that nothing 
 | [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector) | Receives, processes and exports telemetry; 7,623 stars |
 | [OpenLLMetry](https://github.com/traceloop/openllmetry) | OpenTelemetry instrumentation for LLM applications; 7,463 stars |
 
-Seam to family 5 (records, receipts and transparency)  
-Signing a trace fixes its bytes and changes nothing about whether the trace is true or complete. Whatever the emitter omitted before signing remains omitted. The signed version now carries more authority than the unsigned one did.
+Seam to family 5 (records, receipts and transparency)<br />Signing a trace fixes its bytes and changes nothing about whether the trace is true or complete. Whatever the emitter omitted before signing remains omitted. The signed version now carries more authority than the unsigned one did.
 
 <a id="records-receipts-and-transparency"></a>
 
 ## 5. Records, receipts and transparency
 
-Question  
-How are observations encoded, signed, committed, ordered, retained and disclosed?
+Question<br />How are observations encoded, signed, committed, ordered, retained and disclosed?
 
-Establishes  
-Integrity and origin of bytes: the holder of a key signed these bytes and no others. A transparency log adds that an entry was included at a point in the log's history and that the history was not rewritten, which prevents equivocation for anyone who checks.
+Establishes<br />Integrity and origin of bytes: the holder of a key signed these bytes and no others. A transparency log adds that an entry was included at a point in the log's history and that the history was not rewritten, which prevents equivocation for anyone who checks.
 
-Cannot establish  
-That what the bytes describe occurred; that the set of records is complete; that their content is true; or that the signer observed anything at all.
+Cannot establish<br />That what the bytes describe occurred; that the set of records is complete; that their content is true; or that the signer observed anything at all.
 
 | project or standard | status read 2026-09-27; stars read 2026-10-01 07:04:40 UTC |
 |----|----|
@@ -178,21 +159,17 @@ That what the bytes describe occurred; that the set of records is complete; that
 | [Certificate Transparency, RFC 9162](https://www.rfc-editor.org/info/rfc9162) | Experimental RFC (2021) |
 | [JSON Canonicalization Scheme, RFC 8785](https://www.rfc-editor.org/info/rfc8785) | Informational RFC; a signature over JSON that anyone re-serializes depends on agreed canonical bytes |
 
-Seam to family 6 (conformance and evaluation)  
-A receipt proves which bytes were issued. An evaluation measures how a system behaved. Deployments rarely bind the two: an evaluation result seldom names, by digest, the weights, scaffold, tools, configuration and grader it ran against. A production receipt seldom points back to the evaluation that licensed the deployment. Where no digest binds them, the deployer's statement that "this deployed agent is the one that was evaluated" is all a regulator or a customer receives.
+Seam to family 6 (conformance and evaluation)<br />A receipt proves which bytes were issued. An evaluation measures how a system behaved. Deployments rarely bind the two: an evaluation result seldom names, by digest, the weights, scaffold, tools, configuration and grader it ran against. A production receipt seldom points back to the evaluation that licensed the deployment. Where no digest binds them, the deployer's statement that "this deployed agent is the one that was evaluated" is all a regulator or a customer receives.
 
 <a id="conformance-and-evaluation"></a>
 
 ## 6. Conformance and evaluation
 
-Question  
-What did testing establish about behavior or reader agreement?
+Question<br />What did testing establish about behavior or reader agreement?
 
-Establishes  
-Measured behavior of a specific system version, under a specific harness and task set, at a specific time.
+Establishes<br />Measured behavior of a specific system version, under a specific harness and task set, at a specific time.
 
-Cannot establish  
-Behavior in deployment; that the evaluated system is the deployed one, unless the two are bound by digest; the absence of capabilities it did not test; or the soundness of its own result, unless someone else can recompute it from preserved inputs.
+Cannot establish<br />Behavior in deployment; that the evaluated system is the deployed one, unless the two are bound by digest; the absence of capabilities it did not test; or the soundness of its own result, unless someone else can recompute it from preserved inputs.
 
 | project or standard | status read 2026-09-27; stars read 2026-10-01 07:04:40 UTC |
 |----|----|
@@ -205,21 +182,17 @@ Behavior in deployment; that the evaluated system is the deployed one, unless th
 | [MLCommons AILuminate](https://mlcommons.org/ailuminate/) | Benchmarks covering 12 hazard categories |
 | [OWASP AI Testing Guide](https://owasp.org/www-project-ai-testing-guide/) | Version 1 published November 2025 |
 
-Seam to family 7 (governance, requirements and vocabulary)  
-Governance texts name outcomes such as record-keeping, testing, logging and third-party assessment, without fixing an evidence format, a required vantage, or a way for a regulator to re-check a result. The European harmonised standards that would give a presumption of conformity are, on CEN-CENELEC's own page, still under development. Operating conditions for evaluator independence have been written down, AEF-1 among them; no comparable text says how a third party re-checks the evidence an evaluator produces, so the evaluator's client relies on the evaluator's report of that evidence.
+Seam to family 7 (governance, requirements and vocabulary)<br />Governance texts name outcomes such as record-keeping, testing, logging and third-party assessment, without fixing an evidence format, a required vantage, or a way for a regulator to re-check a result. The European harmonised standards that would give a presumption of conformity are, on CEN-CENELEC's own page, still under development. Operating conditions for evaluator independence have been written down, AEF-1 among them; no comparable text says how a third party re-checks the evidence an evaluator produces, so the evaluator's client relies on the evaluator's report of that evidence.
 
 <a id="governance-requirements-and-vocabulary"></a>
 
 ## 7. Governance, requirements and vocabulary
 
-Question  
-What is required, reported or asserted, and in which stable terms?
+Question<br />What is required, reported or asserted, and in which stable terms?
 
-Establishes  
-Obligations, risk categories, process requirements and routes to conformity.
+Establishes<br />Obligations, risk categories, process requirements and routes to conformity.
 
-Cannot establish  
-That any obligation was met. Several instruments are voluntary, and several rest on standards not yet published. None specifies evidence that a distrusting party could re-check.
+Cannot establish<br />That any obligation was met. Several instruments are voluntary, and several rest on standards not yet published. None specifies evidence that a distrusting party could re-check.
 
 | project or standard | status read 2026-09-27; stars read 2026-10-01 07:04:40 UTC |
 |----|----|
@@ -232,8 +205,7 @@ That any obligation was met. Several instruments are voluntary, and several rest
 | [OWASP Top 10 for Agentic Applications](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) | 2026 edition, December 2025 |
 | [Linux Foundation Agentic AI Foundation](https://aaif.io/) | Announced December 2025; working groups include identity and trust, and observability and traceability |
 
-Seam back to family 1 (identity and delegated authority)  
-Accountability obligations end in a person or an organization. The record that would show which principal authorized which agent action is not something any of these instruments requires in a checkable form. The chain from "this obligation applies to the deployer" back to "this delegation authorized this call" is closed by documentation alone, which leaves the regulator reading the deployer's own account.
+Seam back to family 1 (identity and delegated authority)<br />Accountability obligations end in a person or an organization. The record that would show which principal authorized which agent action is not something any of these instruments requires in a checkable form. The chain from "this obligation applies to the deployer" back to "this delegation authorized this call" is closed by documentation alone, which leaves the regulator reading the deployer's own account.
 
 <a id="the-open-cell"></a>
 

@@ -121,3 +121,23 @@ def test_actual_public_projection_is_used_for_every_discovery_surface():
     assert "PRIVATE SENTINEL" not in surfaces
     for component in public["components"]:
         assert component["display_name"] in start
+
+
+def test_visible_breaks_survive_without_changing_fenced_code_trailing_bytes():
+    import json
+
+    literal = "literal trailing spaces  \nnext line"
+    source = ("First line  \nSecond line\n\nTerm\n: Its definition\n\n"
+              "| Retained first claim\n| Retained second claim\n\n```text\n" + literal + "\n```\n")
+    rendered = mirrors.render(source, "start", {"start"}, BASE)
+    html = mirrors.pandoc(rendered, "gfm", "html5")
+    assert "First line<br />" in html
+    assert "Second line" in html
+    assert "Term<br />Its definition" in html
+    assert "Retained first claim<br />Retained second claim" in html
+    consumed = json.loads(mirrors.pandoc(rendered, "gfm", "json"))
+    code = [block["c"][1] for block in consumed["blocks"] if block["t"] == "CodeBlock"]
+    assert code == [literal]
+    # Presentation breaks no longer introduce trailing whitespace. Literal
+    # code keeps its original two spaces; stripping lines would corrupt it.
+    assert [line for line in rendered.splitlines() if line.endswith(" ")] == ["literal trailing spaces  "]

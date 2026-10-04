@@ -41,4 +41,8 @@ Run the native build and compare `docs/catalog.json` with the reviewed public pr
 
 Leave planning fields out of the import. Generate the pages and indexes from the catalog; the source history retains the earlier pins.
 
+For a source refresh, give each component quickstart the same reviewed README
+pin as its owning repository. Append source history; keep earlier reviews.
+Current navigation does not update historical Lab claims or experiment objects.
+
 Keep project navigation in the catalog and measured runs in the Lab register.

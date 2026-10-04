@@ -48,6 +48,10 @@
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/check_lab.py</span></code></pre></div>
 <p>For a rename or retirement, validate with the previous catalog too:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/discoverability/catalog.py validate data/catalog.json <span class="at">--previous</span> tools/discoverability/catalog.seed.json</span></code></pre></div>
+<h2 id="import-a-reviewed-catalog">Import a reviewed catalog</h2>
+<p>Keep the current catalog as the baseline. Import the reviewed public fields with stable IDs and publication gates, then validate against that baseline. Review its pinned README sources and retain their earlier rows in <code>data/catalog-sources.json</code>.</p>
+<p>Run the native build and compare <code>docs/catalog.json</code> with the reviewed public projection. They should contain the same repositories, components and profiles. Update the C rows in <code>CLAIMS.md</code> and the catalog revision in <code>data/versions.toml</code> with the source capture.</p>
+<p>Leave planning fields out of the import. Generate the pages and indexes from the catalog; the source history retains the earlier pins.</p>
 <p>Keep project navigation in the catalog and measured runs in the Lab register.</p>
 </main>
 <footer class="site">

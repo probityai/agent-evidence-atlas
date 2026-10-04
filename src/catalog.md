@@ -33,4 +33,12 @@ For a rename or retirement, validate with the previous catalog too:
 python3 tools/discoverability/catalog.py validate data/catalog.json --previous tools/discoverability/catalog.seed.json
 ```
 
+## Import a reviewed catalog
+
+Keep the current catalog as the baseline. Import the reviewed public fields with stable IDs and publication gates, then validate against that baseline. Review its pinned README sources and retain their earlier rows in `data/catalog-sources.json`.
+
+Run the native build and compare `docs/catalog.json` with the reviewed public projection. They should contain the same repositories, components and profiles. Update the C rows in `CLAIMS.md` and the catalog revision in `data/versions.toml` with the source capture.
+
+Leave planning fields out of the import. Generate the pages and indexes from the catalog; the source history retains the earlier pins.
+
 Keep project navigation in the catalog and measured runs in the Lab register.

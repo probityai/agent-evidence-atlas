@@ -15,6 +15,8 @@ The files in the repository, the rule for releasing an artifact, and the command
 | `tools/rederive.py` | Re-derives every automatable row of the claim ledger and prints the recorded and the current value side by side. |
 | `data/versions.toml` | The version ledger: every artifact, its version, date and status. The build adds the SHA-256 of each artifact's source. |
 | `src/lab.md`, `data/lab-register.json` | The Open Evidence Lab protocol, intake/correction routes and retained run register. |
+| `data/catalog.json`, `data/catalog-sources.json` | Reviewed project identities, tasks and pinned README sources. |
+| `tools/discovery.py`, `tools/discoverability/` | Task navigation and machine indexes used by the site build. |
 | `src/pilot.md` | The proposed APS and PriorSeal pilot status, acceptance gates and open decisions; separate from measured Lab records. |
 | `tools/check_lab.py` | Checks register artifact hashes and measured-field bindings before the site builds. Review of claim meaning and operational independence remains explicit. |
 | `tools/build.py`, `tools/template.html`, `assets/site.css` | The site build: Markdown to HTML with pandoc, failing on any warning. |
@@ -29,6 +31,7 @@ Each artifact has its own release contract, and an artifact is added here when i
 ## Re-derive and build
 
 ```sh
+python3 -m pip install -r requirements/discoverability.txt
 python3 tools/rederive.py            # recorded vs current value for every automatable claim; no credentials
 python3 tools/rederive.py --strict   # exit 1 if any value moved or could not be read
 python3 tools/gen_atlas.py           # render the atlas page from data/atlas.toml into src/atlas.md
@@ -36,6 +39,10 @@ python3 tools/build.py               # build docs/ (pandoc 3.x); any pandoc warn
 python3 tools/build.py --check       # fail if docs/ differs from what the sources give
 python3 tools/check_links.py --external
 ```
+
+[Maintain the catalog](catalog.html) to add a project. The same build emits the
+task page, `catalog.json`, `llms.txt` and `sitemap.xml`; retained runs keep their
+own register.
 
 A read that fails is printed as `UNREAD` with its reason and is never counted as unchanged. GitHub's unauthenticated API allows 60 requests an hour, which covers one run; set `GITHUB_TOKEN` to raise the limit.
 

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Sankalp Gilda" />
+  <meta name="description" content="Look up public projects and read pinned Open Evidence Lab records from a script." />
+  <title>Use Probity from an automated job - Probity AI</title>
+  <link rel="canonical" href="https://probityai.github.io/agent-evidence-atlas/automation.html" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <nav aria-label="Site">
+    <a class="home" href="index.html">Probity AI</a>
+    <span class="links">
+      <a href="start.html">Choose a project</a>
+      <a href="lab.html">Open Evidence Lab</a>
+      <a href="pilot.html">Pilot status</a>
+      <a href="atlas.html">Atlas</a>
+      <a href="experiments.html">Experiments</a>
+      <a href="claims.html">Claims</a>
+      <a href="versions.html">Versions</a>
+    </span>
+  </nav>
+</header>
+<main id="main">
+<header class="page">
+<h1>Use Probity from an automated job</h1>
+</header>
+<h2 id="find-a-project">Find a project</h2>
+<p>Read <a href="llms.txt">llms.txt</a> for the navigation index or <a href="catalog.json">catalog.json</a> for structured records. Components name the tools; repository records hold their pinned README sources. Integration profiles belong to a component.</p>
+<p>Use the stable <code>id</code> for lookups. Follow <code>docs_url</code> for the quickstart and <code>source.commit</code> to reproduce the captured source.</p>
+<h2 id="read-a-retained-run">Read a retained run</h2>
+<p>From a pinned Atlas checkout:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/check_lab.py <span class="at">--list</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/check_lab.py <span class="at">--record</span> E6-observer-admission <span class="at">--json</span></span></code></pre></div>
+<p>The checker validates artifact hashes and measured fields before returning a record. The JSON includes results, operator roles and review state.</p>
+<h2 id="share-a-result">Share a result</h2>
+<p>Keep the source pins, command, raw output and retained artifact together. Submit them through the <a href="https://github.com/probityai/agent-evidence-atlas/issues/new?template=evidence-run.yml">run form</a>, or use the <a href="https://github.com/probityai/agent-evidence-atlas/issues/new?template=evidence-correction.yml">correction form</a> when a recorded claim needs fixing.</p>
+</main>
+<footer class="site">
+  <p>Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.6-draft, 2026-10-01.</p>
+</footer>
+</body>
+</html>

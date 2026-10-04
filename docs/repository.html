@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="Sankalp Gilda" />
   <meta name="description" content="Where each part of the atlas lives, how an artifact is released, and how to re-derive the claim ledger and rebuild the site." />
-  <title>Working in the repository · Independent evidence for AI agent actions</title>
+  <title>Working in the repository - Probity AI</title>
   <link rel="canonical" href="https://probityai.github.io/agent-evidence-atlas/repository.html" />
   <link rel="stylesheet" href="assets/site.css" />
 </head>
@@ -13,8 +13,9 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="site">
   <nav aria-label="Site">
-    <a class="home" href="index.html">Independent evidence for AI agent actions</a>
+    <a class="home" href="index.html">Probity AI</a>
     <span class="links">
+      <a href="start.html">Choose a project</a>
       <a href="lab.html">Open Evidence Lab</a>
       <a href="pilot.html">Pilot status</a>
       <a href="atlas.html">Atlas</a>
@@ -64,6 +65,14 @@
 <td>The Open Evidence Lab protocol, intake/correction routes and retained run register.</td>
 </tr>
 <tr>
+<td><code>data/catalog.json</code>, <code>data/catalog-sources.json</code></td>
+<td>Reviewed project identities, tasks and pinned README sources.</td>
+</tr>
+<tr>
+<td><code>tools/discovery.py</code>, <code>tools/discoverability/</code></td>
+<td>Task navigation and machine indexes used by the site build.</td>
+</tr>
+<tr>
 <td><code>src/pilot.md</code></td>
 <td>The proposed APS and PriorSeal pilot status, acceptance gates and open decisions; separate from measured Lab records.</td>
 </tr>
@@ -92,12 +101,14 @@
 <h2 id="release-rule">Release rule</h2>
 <p>Each artifact has its own release contract, and an artifact is added here when it passes that contract, not before. The version ledger lists every artifact of the framework; one that has not passed yet is shown there as held. The experiment draft retains the local PEER pilot, an immutable APS/PriorSeal fixture record, a source-pinned AGT transcript-byte result, and the public observer declaration-to-admission demo with its original CI bundle and replay controls. Separately reproduced below-agent observation and independent history remain registered designs without a qualifying result. The essay, runnable verifier demonstration and twelve-month series plan remain held.</p>
 <h2 id="re-derive-and-build">Re-derive and build</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/rederive.py            <span class="co"># recorded vs current value for every automatable claim; no credentials</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/rederive.py <span class="at">--strict</span>   <span class="co"># exit 1 if any value moved or could not be read</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/gen_atlas.py           <span class="co"># render the atlas page from data/atlas.toml into src/atlas.md</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/build.py               <span class="co"># build docs/ (pandoc 3.x); any pandoc warning fails the build</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/build.py <span class="at">--check</span>       <span class="co"># fail if docs/ differs from what the sources give</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/check_links.py <span class="at">--external</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> pip install <span class="at">-r</span> requirements/discoverability.txt</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/rederive.py            <span class="co"># recorded vs current value for every automatable claim; no credentials</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/rederive.py <span class="at">--strict</span>   <span class="co"># exit 1 if any value moved or could not be read</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/gen_atlas.py           <span class="co"># render the atlas page from data/atlas.toml into src/atlas.md</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/build.py               <span class="co"># build docs/ (pandoc 3.x); any pandoc warning fails the build</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/build.py <span class="at">--check</span>       <span class="co"># fail if docs/ differs from what the sources give</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/check_links.py <span class="at">--external</span></span></code></pre></div>
+<p><a href="catalog.html">Maintain the catalog</a> to add a project. The same build emits the task page, <code>catalog.json</code>, <code>llms.txt</code> and <code>sitemap.xml</code>; retained runs keep their own register.</p>
 <p>A read that fails is printed as <code>UNREAD</code> with its reason and is never counted as unchanged. GitHub’s unauthenticated API allows 60 requests an hour, which covers one run; set <code>GITHUB_TOKEN</code> to raise the limit.</p>
 <p>The <code>observer-admission</code> CI job checks the original pinned observer demo and the retained signed bundle on every push and pull request. Reproduce it using the E6 commands in <code>src/experiments.md</code>. It requires the exact source blobs, Python 3.12.14 and cryptography 46.0.7, and refuses changed authority, signed-claim tampering and a second admission. The result remains an author-produced same-operator PEER/artifact fixture.</p>
 <p>The <a href="https://probityai.github.io/agent-evidence-atlas/lab.html">Open Evidence Lab</a> accepts pinned run submissions through the repository’s evidence-run issue form and corrections through the evidence-correction form. Its initial E6 record retains the fixture’s limits. Host-project CI dependence and independently operated witnesses are separate evidence claims; listing a record supplies no membership or endorsement. Run <code>python3 tools/check_lab.py</code> to check its local integrity and measured-field bindings.</p>

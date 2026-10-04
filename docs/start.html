@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Sankalp Gilda" />
+  <meta name="description" content="Find Probity tools for evidence terms, conformance tests, observation, verification and workload admission." />
+  <title>Choose a project - Probity AI</title>
+  <link rel="canonical" href="https://probityai.github.io/agent-evidence-atlas/start.html" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <nav aria-label="Site">
+    <a class="home" href="index.html">Probity AI</a>
+    <span class="links">
+      <a href="start.html">Choose a project</a>
+      <a href="lab.html">Open Evidence Lab</a>
+      <a href="pilot.html">Pilot status</a>
+      <a href="atlas.html">Atlas</a>
+      <a href="experiments.html">Experiments</a>
+      <a href="claims.html">Claims</a>
+      <a href="versions.html">Versions</a>
+    </span>
+  </nav>
+</header>
+<main id="main">
+<header class="page">
+<h1>Choose a project</h1>
+<p class="subtitle">Start with the task you need.</p>
+</header>
+<p>Vectors tests how a verifier behaves. Verify checks a supplied claim against evidence bytes.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Task</th>
+<th>Project</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Evaluate workload admission policies</td>
+<td><a href="#admission">Probity Admission</a></td>
+</tr>
+<tr>
+<td>Inspect recorded claims and retained runs</td>
+<td><a href="#atlas">Probity Atlas</a></td>
+</tr>
+<tr>
+<td>Sign and verify DSSE envelopes in Rust</td>
+<td><a href="#dsse">dsse</a></td>
+</tr>
+<tr>
+<td>Admit and canonicalize JSON in Rust</td>
+<td><a href="#jcs-admit">jcs-admit</a></td>
+</tr>
+<tr>
+<td>Record file actions or check native delegation evidence</td>
+<td><a href="#observer">Probity Observer</a></td>
+</tr>
+<tr>
+<td>Test a verifier against conformance cases</td>
+<td><a href="#vectors">Probity Vectors</a></td>
+</tr>
+<tr>
+<td>Check a claim against pinned evidence</td>
+<td><a href="#verify">Probity Verify</a></td>
+</tr>
+<tr>
+<td>Use shared definitions for agent evidence claims</td>
+<td><a href="#vocabulary">Probity Vocabulary</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="admission">Probity Admission</h2>
+<p>Provides OPA, Kyverno and policy-controller rules for consumer-pinned execution evidence.</p>
+<p>Draft. <a href="https://github.com/probityai/agent-evidence-admission/blob/dd0857aea19283185f27a19d07a5c3257ae31ec6/README.md">Quickstart and source</a></p>
+<h2 id="atlas">Probity Atlas</h2>
+<p>Documents agent assurance claims and provides an Open Evidence Lab run register.</p>
+<p>Draft. <a href="https://github.com/probityai/agent-evidence-atlas/blob/3109ae4be7dca77594fa7ddba8565d7feb261cf9/README.md">Quickstart and source</a></p>
+<h2 id="dsse">dsse</h2>
+<p>Signs and verifies DSSE envelopes with explicit threshold and key handling.</p>
+<p>Released. <a href="https://github.com/probityai/dsse/blob/f6f6df4bef5544af76dc3f5b05909a2f24a8e51f/README.md">Quickstart and source</a></p>
+<h2 id="jcs-admit">jcs-admit</h2>
+<p>Checks raw JSON input before producing its RFC 8785 canonical form.</p>
+<p>Released. <a href="https://github.com/probityai/jcs-admit/blob/ecc8b5ef4b380a2fe38e5079d128307a1c702717/README.md">Quickstart and source</a></p>
+<h2 id="observer">Probity Observer</h2>
+<p>Records brokered file requests and includes an offline reader for selected native delegation runs.</p>
+<p>Prototype. <a href="https://github.com/probityai/agent-evidence-observer/blob/8c074d7b8f380dd01fd55277b68a37ad8217c8cb/README.md">Quickstart and source</a></p>
+<h2 id="vectors">Probity Vectors</h2>
+<p>Provides conformance cases and reference verifiers for selected agent evidence formats.</p>
+<p>Released. <a href="https://github.com/probityai/agent-evidence-vectors/blob/bbdef583c9241138e5c2b5d872bc77f7f539e9ac/README.md">Quickstart and source</a></p>
+<h2 id="verify">Probity Verify</h2>
+<p>Checks supplied evidence bytes through claim-specific offline adapters.</p>
+<p>Unreleased. <a href="https://github.com/probityai/probity-verify/blob/e835ce2bd6a960e7a1cc2fa6522f16d55dce728a/README.md">Quickstart and source</a></p>
+<h2 id="vocabulary">Probity Vocabulary</h2>
+<p>Defines versioned terms and crosswalks for claims about agent execution.</p>
+<p>Released. <a href="https://github.com/probityai/agent-evidence-vocabulary/blob/8c80579ae613d7ae07982321e13a6091c402b2a8/README.md">Quickstart and source</a></p>
+<h2 id="run-and-share-a-check">Run and share a check</h2>
+<p>The <a href="lab.html">Open Evidence Lab</a> holds replayable runs and accepts new results and corrections. For scripted lookups, use the <a href="automation.html">automation guide</a>.</p>
+</main>
+<footer class="site">
+  <p>Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.6-draft, 2026-10-01.</p>
+</footer>
+</body>
+</html>

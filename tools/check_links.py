@@ -21,13 +21,14 @@ treated as fine. Exit 0 only when nothing failed.
 from __future__ import annotations
 
 import os
+import subprocess
 import sys
 import urllib.error
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import urldefrag, urlparse
+from urllib.parse import unquote, urldefrag, urlparse
 
 DOCS = Path(__file__).resolve().parent.parent / "docs"
 BASE_URL = "https://probityai.github.io/agent-evidence-atlas/"
@@ -52,7 +53,16 @@ class Collect(HTMLParser):
 
 def parse(page: Path) -> Collect:
     c = Collect()
-    c.feed(page.read_text(encoding="utf-8"))
+    text = page.read_text(encoding="utf-8")
+    if page.suffix == ".md":
+        result = subprocess.run(
+            ["pandoc", "--from=gfm", "--to=html5", "--fail-if-warnings"],
+            input=text, capture_output=True, text=True, check=False,
+        )
+        if result.returncode or result.stderr.strip():
+            raise ValueError(f"Cannot parse Markdown links for {page.name}: {result.stderr}")
+        text = result.stdout
+    c.feed(text)
     return c
 
 
@@ -96,7 +106,10 @@ def fetch(url: str) -> tuple[str, str]:
 
 
 def main() -> int:
-    pages = {p: parse(p) for p in DOCS.rglob("*.html")}
+    # Root Markdown files are generated page mirrors. Nested Markdown belongs
+    # to immutable downloaded evidence and keeps its original source context.
+    documents = [*DOCS.rglob("*.html"), *DOCS.glob("*.md")]
+    pages = {p: parse(p) for p in documents}
     failures: list[str] = []
     external: set[str] = set()
     own: set[str] = set()
@@ -106,9 +119,12 @@ def main() -> int:
             scheme = urlparse(link).scheme
             if link.startswith(BASE_URL):
                 own.add(urldefrag(link)[0])
-                rel = urldefrag(link)[0][len(BASE_URL):] or "index.html"
-                if not (DOCS / rel).is_file():
+                parsed = urlparse(link[len(BASE_URL):])
+                target = (DOCS / (unquote(parsed.path) or "index.html")).resolve()
+                if not target.is_relative_to(DOCS.resolve()) or not target.is_file():
                     failures.append(f"{page.relative_to(DOCS)}: own-site link names no built file: {link}")
+                elif parsed.fragment and unquote(parsed.fragment) not in pages.get(target, Collect()).ids:
+                    failures.append(f"{page.relative_to(DOCS)}: missing anchor {link}")
                 continue
             if scheme in ("http", "https"):
                 external.add(urldefrag(link)[0])
@@ -116,9 +132,10 @@ def main() -> int:
             if scheme in ("mailto",):
                 continue
             internal += 1
-            path, frag = urldefrag(link)
+            parsed = urlparse(link)
+            path, frag = unquote(parsed.path), unquote(parsed.fragment)
             target = (page.parent / path).resolve() if path else page
-            if not target.exists():
+            if not target.is_relative_to(DOCS.resolve()) or not target.is_file():
                 failures.append(f"{page.relative_to(DOCS)}: missing target {link}")
                 continue
             if frag:

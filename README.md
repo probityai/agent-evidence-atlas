@@ -30,6 +30,6 @@ The checker validates artifact hashes and measured fields before emitting the re
 | [Claim ledger](CLAIMS.md) | Sources and re-derive commands |
 | <a name="what-is-here"></a><a name="release-rule"></a><a name="re-derive-and-build"></a>[Repository guide](https://probityai.github.io/agent-evidence-atlas/repository.html) | Files, checks and release rules |
 
-<a name="the-public-code-the-framework-uses"></a><a name="status"></a>Project names, source pins and statuses live in [data/catalog.json](data/catalog.json). The build emits [llms.txt](llms.txt) and the public catalog. Each artifact keeps its release state in [data/versions.toml](data/versions.toml).
+<a name="the-public-code-the-framework-uses"></a><a name="status"></a>Project names, source pins and statuses live in [data/catalog.json](data/catalog.json). The build emits [llms.txt](llms.txt), the public catalog and a readable Markdown mirror of each page. Each artifact keeps its release state in [data/versions.toml](data/versions.toml).
 
 <a name="author"></a>Created by Sankalp Gilda. The paper behind the framework is *Three Jobs, Not One* ([Zenodo](https://doi.org/10.5281/zenodo.21935891)).

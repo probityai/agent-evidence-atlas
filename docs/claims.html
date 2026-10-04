@@ -7,6 +7,8 @@
   <meta name="description" content="The source, read time, re-derive command and limit for every claim on the site." />
   <title>Claim ledger - Probity AI</title>
   <link rel="canonical" href="https://probityai.github.io/agent-evidence-atlas/claims.html" />
+  <link rel="alternate" type="text/markdown" href="https://probityai.github.io/agent-evidence-atlas/claims.md" />
+  <link rel="describedby" href="https://probityai.github.io/agent-evidence-atlas/llms.txt" />
   <link rel="stylesheet" href="assets/site.css" />
 </head>
 <body>
@@ -29,7 +31,7 @@
 <header class="page">
 <h1>Claim ledger</h1>
 <p class="subtitle">Every number, date, status and quotation on this site, with its source, when it was read, how to re-derive it, and what it does not mean</p>
-<p class="status">Draft, version 0.8.4. Each row keeps its source and read time.</p>
+<p class="status">Draft, version 0.8.9. Each row keeps its source and read time.</p>
 </header>
 <h2 id="how-to-use-this-ledger">How to use this ledger</h2>
 <ul>
@@ -1492,7 +1494,7 @@ P-72 | Per transport, stored/callback/write counts are accepted1/1/1, registrati
 <tr data-read="2026-10-04">
 <td>C-02</td>
 <td>Probity Vectors: released</td>
-<td><a href="https://github.com/probityai/agent-evidence-vectors/blob/2bdad3ee257f79479e6541a49cad5ae0b1fc6bff/README.md">Pinned README</a>; <code>data/catalog.json</code></td>
+<td><a href="https://github.com/probityai/agent-evidence-vectors/blob/308c5b4401b18d42ed73dea80459375932e6b8e8/README.md">Pinned README</a>; <code>data/catalog.json</code></td>
 <td>2026-10-04 <span class="cadence">(does not expire)</span></td>
 <td><code>python3 tools/discoverability/catalog.py validate data/catalog.json</code>; read the pinned README Status section</td>
 <td>A released conformance suite; each corpus defines the claims it tests.</td>
@@ -1500,7 +1502,7 @@ P-72 | Per transport, stored/callback/write counts are accepted1/1/1, registrati
 <tr data-read="2026-10-04">
 <td>C-03</td>
 <td>Probity Observer: prototype</td>
-<td><a href="https://github.com/probityai/agent-evidence-observer/blob/59b0c4e864be42d0a4becfd4bbcf0a93a203e807/README.md">Pinned README</a>; <code>data/catalog.json</code></td>
+<td><a href="https://github.com/probityai/agent-evidence-observer/blob/1ec93df92b49239175147c2b9f3ccda87a090cd1/README.md">Pinned README</a>; <code>data/catalog.json</code></td>
 <td>2026-10-04 <span class="cadence">(does not expire)</span></td>
 <td><code>python3 tools/discoverability/catalog.py validate data/catalog.json</code>; read the pinned README Status section</td>
 <td>Prototype label follows the pinned README; the local broker and selected readers have separate scopes.</td>
@@ -1508,7 +1510,7 @@ P-72 | Per transport, stored/callback/write counts are accepted1/1/1, registrati
 <tr data-read="2026-10-04">
 <td>C-04</td>
 <td>Probity Verify: unreleased</td>
-<td><a href="https://github.com/probityai/probity-verify/blob/e835ce2bd6a960e7a1cc2fa6522f16d55dce728a/README.md">Pinned README</a>; <code>data/catalog.json</code></td>
+<td><a href="https://github.com/probityai/probity-verify/blob/437e484bd81e3d1eb1b9ad7230124a434a7a0ef6/README.md">Pinned README</a>; <code>data/catalog.json</code></td>
 <td>2026-10-04 <span class="cadence">(does not expire)</span></td>
 <td><code>python3 tools/discoverability/catalog.py validate data/catalog.json</code>; read the pinned README Status section</td>
 <td>Source is public; the pinned README states there is no package release.</td>
@@ -1516,7 +1518,7 @@ P-72 | Per transport, stored/callback/write counts are accepted1/1/1, registrati
 <tr data-read="2026-10-04">
 <td>C-05</td>
 <td>Probity Admission: draft</td>
-<td><a href="https://github.com/probityai/agent-evidence-admission/blob/dd0857aea19283185f27a19d07a5c3257ae31ec6/README.md">Pinned README</a>; <code>data/catalog.json</code></td>
+<td><a href="https://github.com/probityai/agent-evidence-admission/blob/bbff435d11a7c0ec9bc0e8e65e6d8fc40c10b671/README.md">Pinned README</a>; <a href="https://github.com/probityai/agent-evidence-admission/blob/bbff435d11a7c0ec9bc0e8e65e6d8fc40c10b671/consumers/spend-reservation/README.md">Budget API and CLI</a>; <code>data/catalog.json</code></td>
 <td>2026-10-04 <span class="cadence">(does not expire)</span></td>
 <td><code>python3 tools/discoverability/catalog.py validate data/catalog.json</code>; read the pinned README Status section</td>
 <td>Draft is the catalog label for policies following the proposed predicate.</td>
@@ -1540,7 +1542,7 @@ P-72 | Per transport, stored/callback/write counts are accepted1/1/1, registrati
 <tr data-read="2026-10-04">
 <td>C-08</td>
 <td>Probity Atlas: draft</td>
-<td><a href="https://github.com/probityai/agent-evidence-atlas/blob/cc6609e15978814b37bebb9119999a5373dfc9e5/README.md">Pinned README</a>; <code>data/catalog.json</code></td>
+<td><a href="https://github.com/probityai/agent-evidence-atlas/blob/89aea5fd58850247da3aab9e0e539c20625de35b/README.md">Pinned README</a>; <code>data/catalog.json</code></td>
 <td>2026-10-04 <span class="cadence">(does not expire)</span></td>
 <td><code>python3 tools/discoverability/catalog.py validate data/catalog.json</code>; read the pinned README Status section</td>
 <td>Draft documentation and run register; run evidence keeps its recorded review state.</td>
@@ -1560,6 +1562,22 @@ P-72 | Per transport, stored/callback/write counts are accepted1/1/1, registrati
 <td>2026-10-04 <span class="cadence">(does not expire)</span></td>
 <td><code>python3 tools/build.py --check</code>; validate the catalog against its previous baseline and compare the generated public projection</td>
 <td>Documentation revisions and refreshed README source pins; Lab records retain their separate revisions and executed scopes.</td>
+</tr>
+<tr data-read="2026-10-04">
+<td>C-11</td>
+<td>Project catalog and maintenance guide 0.3, and claim ledger 0.8.8 are draft artifacts dated 2026-10-04; current project quickstarts and summaries use reviewed public sources</td>
+<td><code>data/versions.toml</code>; <code>data/catalog.json</code>; <code>data/catalog-sources.json</code>; <code>tools/build.py</code>; <a href="versions.html">version ledger</a></td>
+<td>2026-10-04 <span class="cadence">(does not expire)</span></td>
+<td><code>python3 tools/build.py --check</code>; <code>python3 tools/check_links.py</code>; compare <code>docs/catalog.json</code> with the reviewed public projection</td>
+<td>Current project navigation; retained Lab records, original source rows and experiment bytes keep their recorded claims and scopes.</td>
+</tr>
+<tr data-read="2026-10-04">
+<td>C-12</td>
+<td>Claim ledger 0.8.9 is a draft artifact dated 2026-10-04; built pages have readable Markdown mirrors with checked links and stable fragments</td>
+<td><code>data/versions.toml</code>; <code>tools/markdown_mirrors.py</code>; <code>tools/build.py</code>; <code>tools/check_links.py</code>; <a href="versions.html">version ledger</a></td>
+<td>2026-10-04 <span class="cadence">(does not expire)</span></td>
+<td><code>python3 tools/build.py --check</code>; <code>python3 tools/check_links.py</code>; <code>python3 -m pytest -q tests/test_markdown_mirrors.py</code></td>
+<td>Documentation retrieval from the same expanded public sources; original Lab claims and experiment bytes retain their scopes.</td>
 </tr>
 </tbody>
 </table>

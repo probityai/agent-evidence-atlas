@@ -7,6 +7,8 @@
   <meta name="description" content="The source, read time, re-derive command and limit for every claim on the site." />
   <title>Claim ledger - Probity AI</title>
   <link rel="canonical" href="https://probityai.github.io/agent-evidence-atlas/claims.html" />
+  <link rel="alternate" type="text/markdown" href="https://probityai.github.io/agent-evidence-atlas/claims.md" />
+  <link rel="describedby" href="https://probityai.github.io/agent-evidence-atlas/llms.txt" />
   <link rel="stylesheet" href="assets/site.css" />
 </head>
 <body>
@@ -29,7 +31,7 @@
 <header class="page">
 <h1>Claim ledger</h1>
 <p class="subtitle">Every number, date, status and quotation on this site, with its source, when it was read, how to re-derive it, and what it does not mean</p>
-<p class="status">Draft, version 0.8.8. Each row keeps its source and read time.</p>
+<p class="status">Draft, version 0.8.9. Each row keeps its source and read time.</p>
 </header>
 <h2 id="how-to-use-this-ledger">How to use this ledger</h2>
 <ul>
@@ -1568,6 +1570,14 @@ P-72 | Per transport, stored/callback/write counts are accepted1/1/1, registrati
 <td>2026-10-04 <span class="cadence">(does not expire)</span></td>
 <td><code>python3 tools/build.py --check</code>; <code>python3 tools/check_links.py</code>; compare <code>docs/catalog.json</code> with the reviewed public projection</td>
 <td>Current project navigation; retained Lab records, original source rows and experiment bytes keep their recorded claims and scopes.</td>
+</tr>
+<tr data-read="2026-10-04">
+<td>C-12</td>
+<td>Claim ledger 0.8.9 is a draft artifact dated 2026-10-04; built pages have readable Markdown mirrors with checked links and stable fragments</td>
+<td><code>data/versions.toml</code>; <code>tools/markdown_mirrors.py</code>; <code>tools/build.py</code>; <code>tools/check_links.py</code>; <a href="versions.html">version ledger</a></td>
+<td>2026-10-04 <span class="cadence">(does not expire)</span></td>
+<td><code>python3 tools/build.py --check</code>; <code>python3 tools/check_links.py</code>; <code>python3 -m pytest -q tests/test_markdown_mirrors.py</code></td>
+<td>Documentation retrieval from the same expanded public sources; original Lab claims and experiment bytes retain their scopes.</td>
 </tr>
 </tbody>
 </table>

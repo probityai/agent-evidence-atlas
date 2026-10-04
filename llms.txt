@@ -4,13 +4,13 @@
 
 ## Guides
 
-- [Choose a project](https://probityai.github.io/agent-evidence-atlas/start.html): Tools grouped by the task you need.
-- [Automation](https://probityai.github.io/agent-evidence-atlas/automation.html): Read the catalog and pinned run records.
-- [Open Evidence Lab](https://probityai.github.io/agent-evidence-atlas/lab.html): Retained runs, submissions and corrections.
-- [Assurance atlas](https://probityai.github.io/agent-evidence-atlas/atlas.html): Projects, mechanisms and evidence boundaries.
-- [Experiments](https://probityai.github.io/agent-evidence-atlas/experiments.html): Pinned procedures and recorded results.
-- [Claim ledger](https://probityai.github.io/agent-evidence-atlas/claims.html): Sources and re-derive commands.
-- [Repository guide](https://probityai.github.io/agent-evidence-atlas/repository.html): Sources, checks and the site build.
+- [Choose a project](https://probityai.github.io/agent-evidence-atlas/start.md): Tools grouped by the task you need.
+- [Automation](https://probityai.github.io/agent-evidence-atlas/automation.md): Read the catalog and pinned run records.
+- [Open Evidence Lab](https://probityai.github.io/agent-evidence-atlas/lab.md): Retained runs, submissions and corrections.
+- [Assurance atlas](https://probityai.github.io/agent-evidence-atlas/atlas.md): Projects, mechanisms and evidence boundaries.
+- [Experiments](https://probityai.github.io/agent-evidence-atlas/experiments.md): Pinned procedures and recorded results.
+- [Claim ledger](https://probityai.github.io/agent-evidence-atlas/claims.md): Sources and re-derive commands.
+- [Repository guide](https://probityai.github.io/agent-evidence-atlas/repository.md): Sources, checks and the site build.
 
 ## Projects
 

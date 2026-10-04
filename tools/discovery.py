@@ -180,7 +180,7 @@ def llms_index(public: dict[str, Any], pages: set[str]) -> str:
     ]
     for stem, label, summary in SITE_LINKS:
         if stem in pages:
-            rows.append(f"- [{label}]({BASE_URL}{stem}.html): {summary}")
+            rows.append(f"- [{label}]({BASE_URL}{stem}.md): {summary}")
     rows.extend(["", "## Projects", ""])
     for record in project_entries(public):
         rows.append(

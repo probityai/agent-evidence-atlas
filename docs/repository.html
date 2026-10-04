@@ -7,6 +7,8 @@
   <meta name="description" content="Where each part of the atlas lives, how an artifact is released, and how to re-derive the claim ledger and rebuild the site." />
   <title>Working in the repository - Probity AI</title>
   <link rel="canonical" href="https://probityai.github.io/agent-evidence-atlas/repository.html" />
+  <link rel="alternate" type="text/markdown" href="https://probityai.github.io/agent-evidence-atlas/repository.md" />
+  <link rel="describedby" href="https://probityai.github.io/agent-evidence-atlas/llms.txt" />
   <link rel="stylesheet" href="assets/site.css" />
 </head>
 <body>
@@ -82,15 +84,19 @@
 </tr>
 <tr>
 <td><code>tools/build.py</code>, <code>tools/template.html</code>, <code>assets/site.css</code></td>
-<td>The site build: Markdown to HTML with pandoc, failing on any warning.</td>
+<td>The site build: HTML and readable Markdown from the same expanded source, failing on any pandoc warning.</td>
 </tr>
 <tr>
 <td><code>tools/gen_atlas.py</code>, <code>templates/atlas.md.in</code></td>
 <td>Renders the atlas page from <code>data/atlas.toml</code>.</td>
 </tr>
 <tr>
+<td><code>tools/markdown_mirrors.py</code></td>
+<td>Preserves visible page content, code and stable fragments in readable Markdown.</td>
+</tr>
+<tr>
 <td><code>tools/check_links.py</code></td>
-<td>Checks every internal link and anchor and, with <code>--external</code>, every external URL.</td>
+<td>Checks HTML and generated Markdown links and anchors and, with <code>--external</code>, every external URL.</td>
 </tr>
 <tr>
 <td><code>docs/</code></td>
@@ -109,6 +115,8 @@
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/build.py <span class="at">--check</span>       <span class="co"># fail if docs/ differs from what the sources give</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/check_links.py <span class="at">--external</span></span></code></pre></div>
 <p><a href="catalog.html">Maintain the catalog</a> to add a project. The same build emits the task page, <code>catalog.json</code>, <code>llms.txt</code> and <code>sitemap.xml</code>; retained runs keep their own register.</p>
+<p>Each built page has a sibling <code>.md</code> URL. The HTML header advertises it with <code>rel="alternate"</code> and points to the agent guide with <code>rel="describedby"</code>. The guide links to Markdown pages. Links between built pages use their Markdown mirrors; pinned source URLs and retained downloads keep their original targets. The link checker renders each mirror before checking its destinations and anchors.</p>
+<p>Current component navigation uses the reviewed README pins in the catalog. Historical source rows, Lab records and retained experiment bytes keep their original pins and scopes.</p>
 <p>A read that fails is printed as <code>UNREAD</code> with its reason and is never counted as unchanged. GitHub’s unauthenticated API allows 60 requests an hour, which covers one run; set <code>GITHUB_TOKEN</code> to raise the limit.</p>
 <p>The <code>observer-admission</code> CI job checks the original pinned observer demo and the retained signed bundle on every push and pull request. Reproduce it using the E6 commands in <code>src/experiments.md</code>. It requires the exact source blobs, Python 3.12.14 and cryptography 46.0.7, and refuses changed authority, signed-claim tampering and a second admission. The result remains an author-produced same-operator PEER/artifact fixture.</p>
 <p>The <a href="https://probityai.github.io/agent-evidence-atlas/lab.html">Open Evidence Lab</a> accepts pinned run submissions through the repository’s evidence-run issue form and corrections through the evidence-correction form. Its initial E6 record retains the fixture’s limits. Host-project CI dependence and independently operated witnesses are separate evidence claims; listing a record supplies no membership or endorsement. Run <code>python3 tools/check_lab.py</code> to check its local integrity and measured-field bindings.</p>

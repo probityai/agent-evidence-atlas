@@ -1,0 +1,222 @@
+{
+  "components": [
+    {
+      "display_name": "Probity Admission",
+      "docs_url": "https://github.com/probityai/agent-evidence-admission/blob/dd0857aea19283185f27a19d07a5c3257ae31ec6/README.md",
+      "id": "admission",
+      "packages": [],
+      "relationships": [],
+      "repositories": [
+        "repo-admission"
+      ],
+      "status": "draft",
+      "summary": "Provides OPA, Kyverno and policy-controller rules for consumer-pinned execution evidence.",
+      "task": "Evaluate workload admission policies"
+    },
+    {
+      "display_name": "Probity Atlas",
+      "docs_url": "https://github.com/probityai/agent-evidence-atlas/blob/3109ae4be7dca77594fa7ddba8565d7feb261cf9/README.md",
+      "id": "atlas",
+      "packages": [],
+      "relationships": [],
+      "repositories": [
+        "repo-atlas"
+      ],
+      "status": "draft",
+      "summary": "Documents agent assurance claims and provides an Open Evidence Lab run register.",
+      "task": "Inspect recorded claims and retained runs"
+    },
+    {
+      "display_name": "dsse",
+      "docs_url": "https://github.com/probityai/dsse/blob/f6f6df4bef5544af76dc3f5b05909a2f24a8e51f/README.md",
+      "id": "dsse",
+      "packages": [
+        "dsse"
+      ],
+      "relationships": [],
+      "repositories": [
+        "repo-dsse"
+      ],
+      "status": "released",
+      "summary": "Signs and verifies DSSE envelopes with explicit threshold and key handling.",
+      "task": "Sign and verify DSSE envelopes in Rust"
+    },
+    {
+      "display_name": "jcs-admit",
+      "docs_url": "https://github.com/probityai/jcs-admit/blob/ecc8b5ef4b380a2fe38e5079d128307a1c702717/README.md",
+      "id": "jcs-admit",
+      "packages": [
+        "jcs-admit"
+      ],
+      "relationships": [],
+      "repositories": [
+        "repo-jcs-admit"
+      ],
+      "status": "released",
+      "summary": "Checks raw JSON input before producing its RFC 8785 canonical form.",
+      "task": "Admit and canonicalize JSON in Rust"
+    },
+    {
+      "display_name": "Probity Observer",
+      "docs_url": "https://github.com/probityai/agent-evidence-observer/blob/8c074d7b8f380dd01fd55277b68a37ad8217c8cb/README.md",
+      "id": "observer",
+      "packages": [],
+      "relationships": [],
+      "repositories": [
+        "repo-observer"
+      ],
+      "status": "prototype",
+      "summary": "Records brokered file requests and includes an offline reader for selected native delegation runs.",
+      "task": "Record file actions or check native delegation evidence"
+    },
+    {
+      "display_name": "Probity Vectors",
+      "docs_url": "https://github.com/probityai/agent-evidence-vectors/blob/bbdef583c9241138e5c2b5d872bc77f7f539e9ac/README.md",
+      "id": "vectors",
+      "packages": [
+        "agent-evidence-vectors"
+      ],
+      "relationships": [],
+      "repositories": [
+        "repo-vectors"
+      ],
+      "status": "released",
+      "summary": "Provides conformance cases and reference verifiers for selected agent evidence formats.",
+      "task": "Test a verifier against conformance cases"
+    },
+    {
+      "display_name": "Probity Verify",
+      "docs_url": "https://github.com/probityai/probity-verify/blob/e835ce2bd6a960e7a1cc2fa6522f16d55dce728a/README.md",
+      "id": "verify",
+      "packages": [],
+      "relationships": [],
+      "repositories": [
+        "repo-verify"
+      ],
+      "status": "unreleased",
+      "summary": "Checks supplied evidence bytes through claim-specific offline adapters.",
+      "task": "Check a claim against pinned evidence"
+    },
+    {
+      "display_name": "Probity Vocabulary",
+      "docs_url": "https://github.com/probityai/agent-evidence-vocabulary/blob/8c80579ae613d7ae07982321e13a6091c402b2a8/README.md",
+      "id": "vocabulary",
+      "packages": [],
+      "relationships": [],
+      "repositories": [
+        "repo-vocabulary"
+      ],
+      "status": "released",
+      "summary": "Defines versioned terms and crosswalks for claims about agent execution.",
+      "task": "Use shared definitions for agent evidence claims"
+    }
+  ],
+  "profiles": [],
+  "repositories": [
+    {
+      "display_name": "Probity Admission",
+      "id": "repo-admission",
+      "source": {
+        "commit": "dd0857aea19283185f27a19d07a5c3257ae31ec6",
+        "repository": "repo-admission",
+        "url": "https://github.com/probityai/agent-evidence-admission/blob/dd0857aea19283185f27a19d07a5c3257ae31ec6/README.md"
+      },
+      "status": "draft",
+      "summary": "Provides OPA, Kyverno and policy-controller rules for consumer-pinned execution evidence.",
+      "task": "Evaluate workload admission policies",
+      "url": "https://github.com/probityai/agent-evidence-admission"
+    },
+    {
+      "display_name": "Probity Atlas",
+      "id": "repo-atlas",
+      "source": {
+        "commit": "3109ae4be7dca77594fa7ddba8565d7feb261cf9",
+        "repository": "repo-atlas",
+        "url": "https://github.com/probityai/agent-evidence-atlas/blob/3109ae4be7dca77594fa7ddba8565d7feb261cf9/README.md"
+      },
+      "status": "draft",
+      "summary": "Documents agent assurance claims and provides an Open Evidence Lab run register.",
+      "task": "Inspect recorded claims and retained runs",
+      "url": "https://github.com/probityai/agent-evidence-atlas"
+    },
+    {
+      "display_name": "dsse",
+      "id": "repo-dsse",
+      "source": {
+        "commit": "f6f6df4bef5544af76dc3f5b05909a2f24a8e51f",
+        "repository": "repo-dsse",
+        "url": "https://github.com/probityai/dsse/blob/f6f6df4bef5544af76dc3f5b05909a2f24a8e51f/README.md"
+      },
+      "status": "released",
+      "summary": "Signs and verifies DSSE envelopes with explicit threshold and key handling.",
+      "task": "Sign and verify DSSE envelopes in Rust",
+      "url": "https://github.com/probityai/dsse"
+    },
+    {
+      "display_name": "jcs-admit",
+      "id": "repo-jcs-admit",
+      "source": {
+        "commit": "ecc8b5ef4b380a2fe38e5079d128307a1c702717",
+        "repository": "repo-jcs-admit",
+        "url": "https://github.com/probityai/jcs-admit/blob/ecc8b5ef4b380a2fe38e5079d128307a1c702717/README.md"
+      },
+      "status": "released",
+      "summary": "Checks raw JSON input before producing its RFC 8785 canonical form.",
+      "task": "Admit and canonicalize JSON in Rust",
+      "url": "https://github.com/probityai/jcs-admit"
+    },
+    {
+      "display_name": "Probity Observer",
+      "id": "repo-observer",
+      "source": {
+        "commit": "8c074d7b8f380dd01fd55277b68a37ad8217c8cb",
+        "repository": "repo-observer",
+        "url": "https://github.com/probityai/agent-evidence-observer/blob/8c074d7b8f380dd01fd55277b68a37ad8217c8cb/README.md"
+      },
+      "status": "prototype",
+      "summary": "Records brokered file requests and includes an offline reader for selected native delegation runs.",
+      "task": "Record file actions or check native delegation evidence",
+      "url": "https://github.com/probityai/agent-evidence-observer"
+    },
+    {
+      "display_name": "Probity Vectors",
+      "id": "repo-vectors",
+      "source": {
+        "commit": "bbdef583c9241138e5c2b5d872bc77f7f539e9ac",
+        "repository": "repo-vectors",
+        "url": "https://github.com/probityai/agent-evidence-vectors/blob/bbdef583c9241138e5c2b5d872bc77f7f539e9ac/README.md"
+      },
+      "status": "released",
+      "summary": "Provides conformance cases and reference verifiers for selected agent evidence formats.",
+      "task": "Test a verifier against conformance cases",
+      "url": "https://github.com/probityai/agent-evidence-vectors"
+    },
+    {
+      "display_name": "Probity Verify",
+      "id": "repo-verify",
+      "source": {
+        "commit": "e835ce2bd6a960e7a1cc2fa6522f16d55dce728a",
+        "repository": "repo-verify",
+        "url": "https://github.com/probityai/probity-verify/blob/e835ce2bd6a960e7a1cc2fa6522f16d55dce728a/README.md"
+      },
+      "status": "unreleased",
+      "summary": "Checks supplied evidence bytes through claim-specific offline adapters.",
+      "task": "Check a claim against pinned evidence",
+      "url": "https://github.com/probityai/probity-verify"
+    },
+    {
+      "display_name": "Probity Vocabulary",
+      "id": "repo-vocabulary",
+      "source": {
+        "commit": "8c80579ae613d7ae07982321e13a6091c402b2a8",
+        "repository": "repo-vocabulary",
+        "url": "https://github.com/probityai/agent-evidence-vocabulary/blob/8c80579ae613d7ae07982321e13a6091c402b2a8/README.md"
+      },
+      "status": "released",
+      "summary": "Defines versioned terms and crosswalks for claims about agent execution.",
+      "task": "Use shared definitions for agent evidence claims",
+      "url": "https://github.com/probityai/agent-evidence-vocabulary"
+    }
+  ],
+  "schema_version": 1
+}

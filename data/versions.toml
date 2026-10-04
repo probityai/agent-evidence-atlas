@@ -6,10 +6,10 @@
 name = "Home page"
 page = "index.html"
 source = "src/index.md"
-version = "1.6"
-date = "2026-10-01"
+version = "1.7"
+date = "2026-10-03"
 status = "draft"
-note = "Adds the proposed APS and PriorSeal pilot status alongside the Lab register"
+note = "Adds task-first navigation and links to the full public project catalog"
 
 [[artifact]]
 name = "Essay"
@@ -60,10 +60,10 @@ note = "Twelve planned installments"
 name = "Claim ledger"
 page = "claims.html"
 source = "CLAIMS.md"
-version = "0.8.3"
+version = "0.8.4"
 date = "2026-10-03"
 status = "draft"
-note = "Adds the published simulator controls, complete source bindings and exact paired task calculation"
+note = "Adds pinned public project statuses and discovery documentation revisions"
 
 [[artifact]]
 name = "Probity Open Evidence Lab"
@@ -118,3 +118,30 @@ version = "0.1"
 date = "2026-10-03"
 status = "draft"
 note = "Preserves all native attempts, abstention failures and separate scoped-evidence publication/quality holds"
+
+[[artifact]]
+name = "Project catalog"
+page = "start.html"
+source = "data/catalog.json"
+version = "0.1"
+date = "2026-10-03"
+status = "draft"
+note = "Reviewed public tasks, stable project identities and pinned quickstarts"
+
+[[artifact]]
+name = "Automation guide"
+page = "automation.html"
+source = "src/automation.md"
+version = "0.1"
+date = "2026-10-03"
+status = "draft"
+note = "Catalog lookups, checked run records and result submissions"
+
+[[artifact]]
+name = "Catalog maintenance guide"
+page = "catalog.html"
+source = "src/catalog.md"
+version = "0.1"
+date = "2026-10-03"
+status = "draft"
+note = "Source review, stable names and catalog update checks"

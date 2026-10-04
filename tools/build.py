@@ -16,7 +16,7 @@ is replaced by that file's contents before pandoc runs. Files a page links to fo
 download (the verifier demonstration's sources) are copied under docs/ so every
 link resolves on the published site and in a local preview alike.
 
-Requires pandoc 3.x. The build is deterministic: no timestamps, no commit ids.
+Requires pandoc 3.x. Source pins and read times come from checked-in data.
 """
 
 from __future__ import annotations
@@ -31,16 +31,19 @@ import tempfile
 import tomllib
 from pathlib import Path
 
+import discovery
+
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "src"
 OUT = ROOT / "docs"
 TEMPLATE = ROOT / "tools" / "template.html"
 VERSION = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
 BASE_URL = "https://probityai.github.io/agent-evidence-atlas/"
-SITE_NAME = "Independent evidence for AI agent actions"
+SITE_NAME = "Probity AI"
 
 # Navigation order and labels. A page appears only when it is built.
 NAV = [
+    ("start", "Choose a project"),
     ("lab", "Open Evidence Lab"),
     ("pilot", "Pilot status"),
     ("atlas", "Atlas"),
@@ -344,7 +347,8 @@ def build(out: Path) -> None:
         if gen.returncode != 0:
             sys.stderr.write(gen.stdout + gen.stderr)
             raise SystemExit(1)
-    built = {p.stem for p in pages} | {"claims", "versions"}
+    built = {p.stem for p in pages} | {"claims", "versions", "start"}
+    public = discovery.load_public(ROOT)
     if out.exists():
         shutil.rmtree(out)
     out.mkdir(parents=True)
@@ -354,6 +358,9 @@ def build(out: Path) -> None:
     claims = out / "claims.html"
     claims.write_text(stamp_cadence(claims.read_text(encoding="utf-8")), encoding="utf-8")
     with tempfile.TemporaryDirectory() as tmp:
+        start = Path(tmp) / "start.md"
+        start.write_text(discovery.start_markdown(public), encoding="ascii")
+        render(start, out / "start.html", built)
         ledger = Path(tmp) / "versions.md"
         ledger.write_text(versions_markdown(built), encoding="utf-8")
         render(ledger, out / "versions.html", built)
@@ -364,6 +371,11 @@ def build(out: Path) -> None:
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(ROOT / src, target)
     (out / ".nojekyll").write_text("", encoding="utf-8")
+    assets = discovery.site_assets(public, built)
+    for name, content in assets.items():
+        (out / name).write_text(content, encoding="ascii")
+    if out == OUT:
+        (ROOT / "llms.txt").write_text(assets["llms.txt"], encoding="ascii")
 
 
 def same_tree(a: Path, b: Path) -> bool:
@@ -381,7 +393,9 @@ def main() -> int:
         with tempfile.TemporaryDirectory() as tmp:
             fresh = Path(tmp) / "docs"
             build(fresh)
-            if not OUT.exists() or not same_tree(fresh, OUT):
+            index = ROOT / "llms.txt"
+            index_matches = index.is_file() and index.read_bytes() == (fresh / "llms.txt").read_bytes()
+            if not OUT.exists() or not same_tree(fresh, OUT) or not index_matches:
                 print("docs/ is out of date with its sources: run python3 tools/build.py")
                 return 1
         print("docs/ matches its sources")

@@ -1,7 +1,7 @@
 ---
 title: "Claim ledger"
 subtitle: "Every number, date, status and quotation on this site, with its source, when it was read, how to re-derive it, and what it does not mean"
-status: "Draft, version 0.8, 1 October 2026. Star counts and current package releases were read by native CI at 2026-10-01T07:04:40Z; historical corpus and experiment values retain their earlier reads. The retained pilot was run on 2026-09-29; the E2 fixture record and AGT byte experiment were read or run on 2026-09-30. The pinned observer admission bundle, replay controls, and APS and PriorSeal source replay were read or run on 2026-10-01. Each value keeps its read time."
+status: "Draft, version 0.8.4. Each row keeps its source and read time."
 description: "The source, read time, re-derive command and limit for every claim on the site."
 ---
 
@@ -11,7 +11,7 @@ description: "The source, read time, re-derive command and limit for every claim
 - **Read times** are UTC, and each read cell states its row's cadence: star counts, pull-request states and link checks 7 days, standards and project statuses 30 days, while published versions and dated events do not expire. `data/claim_cadence.toml` holds the cadence of every row. When a row's read date plus its cadence has passed, this page marks the row stale as it loads. [With scripts off, compare each read date with its cadence.]{#stale-count}
 - **Captures.** Every web page cited was saved when it was read. The capture log records URL, HTTP status, UTC time and SHA-256 for each one.
 
-Each row's identifier starts with the letter of the page it covers: `A` for the atlas, `I` for the home page, `E` for the experiments, `P` for the lab protocol, and `L` for the site's links. Rows that cite a local unpublished source say so; they are not independently reproducible until those exact source bytes are published.
+Each row's identifier starts with the letter of the page it covers: `A` for the atlas, `I` for the home page, `E` for the experiments, `P` for the lab protocol, `C` for the project catalog, and `L` for the site's links. Rows that cite a local unpublished source say so; they are not independently reproducible until those exact source bytes are published.
 
 ## Atlas
 
@@ -208,3 +208,17 @@ Each row's identifier starts with the letter of the page it covers: `A` for the 
 |---|---|---|---|---|
 | L-01 | Every internal link and anchor on the site resolves, and every link to the site's own published address names a page that was built | `python3 tools/check_links.py` | 2026-09-27 09:40 | Checks the built `docs/` directory |
 | L-02 | Every external link answers 2xx, except links on hosts that refuse automated reads, each of which has its own row in this section | `python3 tools/check_links.py --external`; crates.io, doi.org and GitHub file links are checked through the same resource's API | 2026-09-27 09:40 | A 2xx answer shows a page exists, not that it still says what the claim quotes |
+
+## Project catalog
+
+| id | claim as printed | source | read (UTC) | re-derive | limit |
+|---|---|---|---|---|---|
+| C-01 | Probity Vocabulary: released | [Pinned README](https://github.com/probityai/agent-evidence-vocabulary/blob/8c80579ae613d7ae07982321e13a6091c402b2a8/README.md); `data/catalog.json` | 2026-10-03 | `python3 tools/discoverability/catalog.py validate data/catalog.json`; read the pinned README Status section | Published registry, not an evaluation of a deployed agent. |
+| C-02 | Probity Vectors: released | [Pinned README](https://github.com/probityai/agent-evidence-vectors/blob/bbdef583c9241138e5c2b5d872bc77f7f539e9ac/README.md); `data/catalog.json` | 2026-10-03 | `python3 tools/discoverability/catalog.py validate data/catalog.json`; read the pinned README Status section | A released conformance suite; each corpus defines the claims it tests. |
+| C-03 | Probity Observer: prototype | [Pinned README](https://github.com/probityai/agent-evidence-observer/blob/8c074d7b8f380dd01fd55277b68a37ad8217c8cb/README.md); `data/catalog.json` | 2026-10-03 | `python3 tools/discoverability/catalog.py validate data/catalog.json`; read the pinned README Status section | Prototype label follows the pinned README; the local broker and selected readers have separate scopes. |
+| C-04 | Probity Verify: unreleased | [Pinned README](https://github.com/probityai/probity-verify/blob/e835ce2bd6a960e7a1cc2fa6522f16d55dce728a/README.md); `data/catalog.json` | 2026-10-03 | `python3 tools/discoverability/catalog.py validate data/catalog.json`; read the pinned README Status section | Source is public; the pinned README states there is no package release. |
+| C-05 | Probity Admission: draft | [Pinned README](https://github.com/probityai/agent-evidence-admission/blob/dd0857aea19283185f27a19d07a5c3257ae31ec6/README.md); `data/catalog.json` | 2026-10-03 | `python3 tools/discoverability/catalog.py validate data/catalog.json`; read the pinned README Status section | Draft is the catalog label for policies following the proposed predicate. |
+| C-06 | jcs-admit: released | [Pinned README](https://github.com/probityai/jcs-admit/blob/ecc8b5ef4b380a2fe38e5079d128307a1c702717/README.md); `data/catalog.json` | 2026-10-03 | `python3 tools/discoverability/catalog.py validate data/catalog.json`; read the pinned README Status section | Released library; raw-input admission is separate from envelope verification. |
+| C-07 | dsse: released | [Pinned README](https://github.com/probityai/dsse/blob/f6f6df4bef5544af76dc3f5b05909a2f24a8e51f/README.md); `data/catalog.json` | 2026-10-03 | `python3 tools/discoverability/catalog.py validate data/catalog.json`; read the pinned README Status section | Released envelope library; signature verification does not check the truth of a payload. |
+| C-08 | Probity Atlas: draft | [Pinned README](https://github.com/probityai/agent-evidence-atlas/blob/3109ae4be7dca77594fa7ddba8565d7feb261cf9/README.md); `data/catalog.json` | 2026-10-03 | `python3 tools/discoverability/catalog.py validate data/catalog.json`; read the pinned README Status section | Draft documentation and run register; run evidence keeps its recorded review state. |
+| C-09 | Home 1.7, project catalog, automation and maintenance guides 0.1, and claim ledger 0.8.4 are draft artifacts dated 2026-10-03 | `data/versions.toml`; [version ledger](versions.html) | 2026-10-03 | `python3 tools/build.py --check`; read `data/versions.toml` | Documentation revisions; retained Lab objects and evidence bytes are unchanged. |

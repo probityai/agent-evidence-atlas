@@ -37,6 +37,10 @@ jobs:
       - name: Check the atlas page against its data
         run: |
           if [ -f src/atlas.md ]; then python3 tools/gen_atlas.py --check; else echo "no atlas page in this tree"; fi
+      - name: Install catalog checks
+        run: python3 -m pip install -r requirements/discoverability-test.txt
+      - name: Check project identities and generated navigation
+        run: python3 -m pytest -q tools/discoverability/test_catalog.py tests/test_discovery.py
       - name: Check docs/ against its sources
         run: python3 tools/build.py --check
       - name: Check internal links and anchors

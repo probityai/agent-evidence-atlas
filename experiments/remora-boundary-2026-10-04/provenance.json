@@ -36,7 +36,7 @@
   ],
   "readOnly": [
    "the reference_verifier.py digest, taken from the producer manifest; the file is not retained or executed",
-   "fixture premises such as observation completeness, taken as supplied",
+   "fixture premises such as revocation visibility at presentation and the observed field values, taken as supplied",
    "expected outcomes, compared and never derived"
   ],
   "notSupported": [

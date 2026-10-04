@@ -7614,7 +7614,7 @@
         "Run records state SECOND_IMPLEMENTATION, EXTERNAL operator and NOT_INDEPENDENT; under REMORA's rule they support REPRODUCED, not EXTERNALLY_VERIFIED.",
         "Authorization signatures use a public test-only HMAC key created and checked by the reader; no REMORA-issued authorization is authenticated.",
         "The effect hash rule is unsupported until the contract defines its preimage; no frozen case uses it.",
-        "Fixture premises such as observation completeness are taken as supplied.",
+        "Fixture premises such as revocation visibility at presentation and the observed field values are taken as supplied.",
         "No production safety, authority, independent effect custody or lifecycle change follows from these records."
       ],
       "claimResults": [
@@ -7698,7 +7698,7 @@
       "artifacts": [
         {
           "path": "../experiments/remora-boundary-2026-10-04/README.md",
-          "sha256": "c5afcb9f043e58ea6359773148be3a52981aec87a398d0da59f4d746eafbef4d"
+          "sha256": "3220a349132f2d4e63fb297e08525de26e1cd22d9037c81a74f6302a7ea875d7"
         },
         {
           "path": "../experiments/remora-boundary-2026-10-04/effect-evidence-v1.external-run-record-v1.json",
@@ -7714,7 +7714,7 @@
         },
         {
           "path": "../experiments/remora-boundary-2026-10-04/provenance.json",
-          "sha256": "285f4b9a5baa297b24e7ca32a4b0c4ea62dbdedc809f00638f8cab62d745d8a2"
+          "sha256": "9f2957963108aa06b9372a8355b6e20b6dd4dd77f0f4e249b7a00614493d9865"
         },
         {
           "path": "../experiments/remora-boundary-2026-10-04/python-3.13.15-artifact.zip",

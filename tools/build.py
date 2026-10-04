@@ -32,6 +32,7 @@ import tomllib
 from pathlib import Path
 
 import discovery
+import markdown_mirrors
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "src"
@@ -284,6 +285,8 @@ def render(source: Path, dest: Path, built: set[str]) -> None:
         f"--variable=build:{VERSION}",
         f"--variable=sitename:{SITE_NAME}",
         f"--variable=canonical:{canonical}",
+        f"--variable=markdown:{BASE_URL}{dest.stem}.md",
+        f"--variable=agentguide:{BASE_URL}llms.txt",
         f"--variable=homelink:{home}",
         f"--variable=navlinks:{links}",
         "--wrap=none",
@@ -300,6 +303,8 @@ def render(source: Path, dest: Path, built: set[str]) -> None:
     # these classes, and claim-ledger cadence stamping uses plain <tr> rows.
     html = dest.read_text(encoding="utf-8")
     dest.write_text(re.sub(r'<tr class="(?:header|odd|even)">', "<tr>", html), encoding="utf-8")
+    mirror = markdown_mirrors.render(text, dest.stem, built, BASE_URL)
+    dest.with_suffix(".md").write_text(mirror, encoding="utf-8")
 
 
 def versions_markdown(built: set[str]) -> str:

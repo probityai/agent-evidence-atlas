@@ -144,9 +144,9 @@ class TestLlmsIndex:
             self, public: dict[str, Any]
         ) -> None:
             index = discovery.llms_index(public, {"start", "claims"})
-            assert f"{discovery.BASE_URL}start.html" in index
-            assert f"{discovery.BASE_URL}claims.html" in index
-            assert f"{discovery.BASE_URL}lab.html" not in index
+            assert f"{discovery.BASE_URL}start.md" in index
+            assert f"{discovery.BASE_URL}claims.md" in index
+            assert f"{discovery.BASE_URL}lab.md" not in index
             assert f"{discovery.BASE_URL}lab/register.json" not in index
             assert f"{discovery.BASE_URL}catalog.json" in index
 

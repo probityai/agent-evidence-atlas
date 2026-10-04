@@ -1,7 +1,7 @@
 ---
 title: "Probity Open Evidence Lab"
 subtitle: "A public protocol and run register for checking specific agent-evidence claims"
-status: "Protocol draft 0.1.6, 3 October 2026. The register contains E6, submitted REMORA/JEP readers, native recovery/failure/SDK controls and bounded actual-weight microtask results. External CI adoption and independently operated custody require their own evidence."
+status: "Protocol draft 0.1.7, 4 October 2026. The register retains native framework, admission, receipt and bounded actual-weight comparisons. Host adoption and independently operated custody have separate evidence."
 description: "Submit pinned agent-evidence runs, hostile controls, field-level comparisons and correction records to a public register."
 toc: true
 ---
@@ -22,12 +22,38 @@ Provael's original simulator reports and the author's correction. It retains
 the matched controls, unknown runtime provenance and complete task-resampling
 weights. This is a publisher-report-derived reading alongside the register.
 
+## New raw-admission and response-routing comparisons
+
+Three additional records bring the register to 22. The 19 earlier objects and
+their original evidence bytes are preserved. Each new record keeps the native
+archives, selected source, operators and outcome fields together.
+
+| Route | Recorded result | Evidence |
+|---|---|---|
+| APS receipt and JCS admission | Node 20.20.2 and 22.23.3 each ran 1,223 pinned cases: 1,048 exact admitted byte matches and 175 refusals. Parsed serialization accepted 42 raw-refusal rows; strict parsing differed on 23 policy rows. Both duplicate-issuer receipt controls stopped before signatures. | [Report](experiments/aps-jcs-2026-10-04/report.json), [originals and source](experiments/aps-jcs-2026-10-04/README.md), [provenance](experiments/aps-jcs-2026-10-04/provenance.json). Numeric and Unicode profiles stay distinct; machine outcomes agree across runtimes, with 88 diagnostic prose differences. |
+| ADK user responses, Observer and Verify | Each qualified PR/main run covers grant, denial and long-running completion. Responses reach the issuing agent and call; later plain text returns to root. Signed observed writes are 1/0/1. Both routing-reader outputs repeat exactly; six actual Verify cases repeat with three boundary controls. | [Report](experiments/google-adk-responses-2026-10-04/report.json), [all four attempts and replay](experiments/google-adk-responses-2026-10-04/README.md), [provenance](experiments/google-adk-responses-2026-10-04/provenance.json). Real ADK with scripted model responses. The long-running write belongs to the same host operator, separately from its native start-only tool body. |
+| Go JCS consumer | Go 1.25.5 and 1.27.1 each ran the same 1,263 cases: 1,077 exact byte matches, 181 raw refusals and five scalar-root refusals. Every bare Go outcome is retained separately, including 1,129 accepts. Six distinct PR/push/main archives retain the repeated population. | [Report](experiments/go-jcs-2026-10-04/report.json), [originals and replay](experiments/go-jcs-2026-10-04/README.md), [provenance](experiments/go-jcs-2026-10-04/provenance.json). Admission runs on original bytes before the pinned Go writer. |
+
+These are author-operated comparisons. APS receipt verification, raw admission,
+native task routing, effects and publication remain separate axes. Observer and
+Verify custody remains PEER; the older 16-row comparison and its separately
+pinned prospective eight-task study keep their original status. Outside host
+adoption and independently operated custody need their own executed evidence.
+
+The ADK record retains its initial reader failure and label-boundary correction
+alongside both fully qualified runs. New source-derived checks authenticate every
+original member and re-derive the displayed fields from native output. Source
+retention preceded indexing; expected outcomes were exposed and native comparisons
+were emitted together.
+
 ## Submitted producer-fixture runs
 
 The separate Probity readers have executed the accepted pinned fixture populations.
 These submissions retain the original CI archives, raw exchanges, environment,
-reader hashes and source pins. REMORA producer review is open; JEP has received an
-implementation report. Host CI adoption is not established.
+reader hashes and source pins. REMORA producer review is open.
+[JEP's maintainer confirmed the host-operated reproduction and merged the reader](https://github.com/hjs-spec/jep-core/pull/48#issuecomment-5975088744):
+25 validation, four producer and eight acceptance assertions pass. These original
+Probity-run records remain separate from the later host PR and main runs.
 
 | Submission | Recorded result | Evidence and limits |
 |---|---|---|
@@ -39,8 +65,8 @@ and implementation criteria. Probity controls its reader and run; independent
 effect custody remains unestablished. Its [seven-day producer review](https://github.com/darklordVirtual/REMORA-research/issues/707#issuecomment-5957358281)
 runs from October 2, 2026 at 17:04:37 UTC through October 9 at 17:04:37 UTC.
 Any unresolved disagreement will remain attached to the result. The
-[JEP implementation report](https://github.com/hjs-spec/jep-core/issues/47) requests
-a producer-owned CI reproduction; no producer response is recorded yet.
+[JEP maintainer supports a separate required candidate check after reviewing regression and suite-update handling](https://github.com/hjs-spec/jep-core/pull/48#issuecomment-5976676141).
+That recurring candidate integration remains pending.
 JEP's acceptance effects are synthetic local SQLite rows; they establish no external
 act, power-loss recovery or distributed failover. Both studies used exposed expected
 answers. The reports retain actual outputs before comparison but publish them together;

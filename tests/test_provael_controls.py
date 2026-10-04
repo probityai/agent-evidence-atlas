@@ -25,6 +25,16 @@ assert SPEC is not None and SPEC.loader is not None
 READER = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(READER)
 EXAMPLE = ROOT / "examples/provael-task-controls"
+ORIGINAL_REGISTER_SHA256 = "993dd8de2a21e4e1a7f3a978e2be956726ac0f20b2d632a21c85e873ef5e65bf"
+
+
+def original_register_digest(register: dict[str, Any]) -> str:
+    """Authenticate the original wrapper and ordered records as runs are appended."""
+    if len(register["records"]) < 19:
+        raise ValueError("original register is truncated")
+    original = {**register, "records": register["records"][:19]}
+    raw = (json.dumps(original, indent=2) + "\n").encode("utf-8")
+    return hashlib.sha256(raw).hexdigest()
 
 
 def exhaustive(vectors: list[tuple[int, ...]]) -> Counter[tuple[int, ...]]:
@@ -293,14 +303,32 @@ class TestSourcesAndCli:
             assert archive.read_bytes() == first
 
         def test_original_register_and_first_worked_input_are_immutable(self) -> None:
-            assert hashlib.sha256((ROOT / "data/lab-register.json").read_bytes()).hexdigest() == (
-                "993dd8de2a21e4e1a7f3a978e2be956726ac0f20b2d632a21c85e873ef5e65bf")
+            register = READER.parse_json((ROOT / "data/lab-register.json").read_bytes())
+            assert original_register_digest(register) == ORIGINAL_REGISTER_SHA256
             assert hashlib.sha256((ROOT / "examples/task-grouped-rates/input.json").read_bytes()).hexdigest() == (
                 "92940ce8ee827ad09e895ea18903d7f49d7ce94d1bcb1d8fce5d5eba0180bfea")
             assert hashlib.sha256((ROOT / "examples/task-grouped-rates/report.json").read_bytes()).hexdigest() == (
                 "f1ed9b4c8b8c4c5f8961926ed2a7ef3553c9c21c24a8191a4648d82717a30650")
 
     class TestFailingCases:
+        @pytest.mark.parametrize("change", ["record", "order", "wrapper", "truncate"])
+        def test_original_register_changes_are_refused(self, change: str) -> None:
+            register = READER.parse_json((ROOT / "data/lab-register.json").read_bytes())
+            register["records"] = register["records"][:19]
+            if change == "record":
+                register["records"][0]["reviewState"] = "changed"
+            elif change == "order":
+                register["records"][0], register["records"][1] = register["records"][1], register["records"][0]
+            elif change == "wrapper":
+                register["protocolVersion"] = "changed"
+            else:
+                register["records"].pop()
+            if change == "truncate":
+                with pytest.raises(ValueError, match="^original register is truncated$"):
+                    original_register_digest(register)
+            else:
+                assert original_register_digest(register) != ORIGINAL_REGISTER_SHA256
+
         @pytest.mark.parametrize("raw,reason", [
             (b'{"x":1,"x":2}', "JSON repeats a field"),
             (b'{"x":NaN}', "JSON contains a non-finite number"),

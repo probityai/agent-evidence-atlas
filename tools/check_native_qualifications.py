@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check the three newly retained native qualification populations."""
+"""Check retained native qualification populations from their original bytes."""
 
 from __future__ import annotations
 
@@ -7,7 +7,12 @@ import importlib.util
 from pathlib import Path
 from typing import Any
 
-SELECTED = ("aps-jcs-2026-10-04", "google-adk-responses-2026-10-04", "go-jcs-2026-10-04")
+SELECTED = (
+    "aps-jcs-2026-10-04",
+    "google-adk-responses-2026-10-04",
+    "go-jcs-2026-10-04",
+    "ag2-push-authority-2026-10-04",
+)
 
 
 def check_selected_native_qualifications(register: dict[str, Any], root: Path) -> None:

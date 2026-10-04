@@ -60,19 +60,19 @@ note = "Twelve planned installments"
 name = "Claim ledger"
 page = "claims.html"
 source = "CLAIMS.md"
-version = "0.8.5"
+version = "0.8.7"
 date = "2026-10-04"
 status = "draft"
-note = "Adds original-bound APS, ADK and Go JCS comparisons and the separately confirmed JEP host reproduction"
+note = "Adds the original-bound AG2 task, callback and target-authority comparison"
 
 [[artifact]]
 name = "Probity Open Evidence Lab"
 page = "lab.html"
 source = "src/lab.md"
-version = "0.1.7"
+version = "0.1.8"
 date = "2026-10-04"
 status = "draft"
-note = "Adds three native qualification records, retains every prior register object and keeps failed/intermediate and repeated executions distinct"
+note = "Adds the AG2 authority comparison and preserves all 22 earlier records and separate native attempts"
 
 [[artifact]]
 name = "Task-grouped rates worked example"

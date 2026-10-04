@@ -5964,6 +5964,1141 @@
           "result": "not-exercised"
         }
       ]
+    },
+    {
+      "id": "aps-jcs-2026-10-04",
+      "atlasRevision": "419700b6a2c1bb60a77ef87d13d1a15ab057069a",
+      "sourceRevision": "646490a834e1eca4aad230033502b73f3b5cd9d1",
+      "readerRevision": "fa3e6705746e0131a7884591a86e5c05b6c050ab",
+      "admissionRevision": "ecc8b5ef4b380a2fe38e5079d128307a1c702717",
+      "contract": "https://github.com/probityai/agent-evidence-vectors/blob/fa3e6705746e0131a7884591a86e5c05b6c050ab/interop/aps-jcs/README.md",
+      "report": "../experiments/aps-jcs-2026-10-04/report.json",
+      "provenance": "../experiments/aps-jcs-2026-10-04/provenance.json",
+      "reviewState": "author-retained-measured-record",
+      "evidenceClaim": "raw-admission-serializer-and-signed-receipt-comparison",
+      "roles": {
+        "producer": "Pinned public native inputs and Probity-authored finite controls",
+        "readerAuthor": "Probity",
+        "runner": "Probity-owned GitHub Actions",
+        "atlasOperator": "Probity",
+        "retentionHolder": "Probity",
+        "independentOperation": "not-established",
+        "independentEffectCustody": "not-established",
+        "outsideRecurringUse": "not-established"
+      },
+      "answerExposure": "Frozen public conformance expectations and authored receipt controls were exposed before implementation.",
+      "comparisonOrder": "Native outputs and comparisons were emitted together; original archives and selected source were published before Atlas indexing.",
+      "limits": [
+        "Two runtimes repeat the same 1,223 identities; populations remain separate.",
+        "Parsed serialization, strict raw parsing and signed serialized receipt verification remain separate.",
+        "The 42 parsed acceptances on raw-refusal rows include profile differences; they are not all duplicate losses.",
+        "RFC 8785 and opt-in I-JSON numeric and Unicode policies differ; all 23 strict-parser policy rows remain retained.",
+        "Selected licensed first-party source is retained separately from native output. Registry packages restore from integrity lockfiles; Node and Rust runtimes are not vendored.",
+        "Author-operated conformance; separately proposed APS dependency and formal pre-run study confirmation remain separate."
+      ],
+      "claimResults": [
+        {
+          "claim": "native-admission-outcomes--v20.20.2",
+          "result": "pass",
+          "recordedField": "/runs/0/summary",
+          "expectedValue": {
+            "corpus_cases": 1223,
+            "expected_accepted": 1048,
+            "aps_raw_accepted": 1069,
+            "parsed_refusal_bypasses": 42,
+            "raw_policy_differences": 23,
+            "signed_receipt_controls": 5
+          }
+        },
+        {
+          "claim": "signed-receipt-controls--v20.20.2",
+          "result": "pass",
+          "recordedField": "/runs/0/receipts",
+          "expectedValue": [
+            {
+              "name": "clean",
+              "input_sha256": "8cfcb557f79d51926b4d99dd0b265e02a7e810de73be381147a6897ef426f895",
+              "input_bytes": 726,
+              "serialized_verifier": {
+                "valid": true,
+                "status": "valid",
+                "receipt_id_valid": true,
+                "stage": {
+                  "status": "valid",
+                  "receipt_type": "aps:action-intent:v1",
+                  "stage": "action-intent",
+                  "boundary_identity": "not_applicable",
+                  "failures": []
+                },
+                "signer_authority": "verified",
+                "signature_results": [
+                  {
+                    "signer": "did:example:agent",
+                    "key_id": "k1",
+                    "required": true,
+                    "valid": true
+                  }
+                ],
+                "other_signatures": "none",
+                "errors": []
+              }
+            },
+            {
+              "name": "duplicate-issuer",
+              "input_sha256": "7584f31304a7348b9e715a2a452b07fd4d3450abd3e6cbefb4a2ac4e1de0c0c8",
+              "input_bytes": 755,
+              "serialized_verifier": {
+                "valid": false,
+                "status": "invalid",
+                "receipt_id_valid": "not_checked",
+                "stage": "not_checked",
+                "signer_authority": "not_checked",
+                "signature_results": [],
+                "other_signatures": "none",
+                "errors": [
+                  "parse_error",
+                  "$: duplicate object member"
+                ]
+              },
+              "parse_first_verifier": {
+                "valid": true,
+                "status": "valid",
+                "receipt_id_valid": true,
+                "stage": {
+                  "status": "valid",
+                  "receipt_type": "aps:action-intent:v1",
+                  "stage": "action-intent",
+                  "boundary_identity": "not_applicable",
+                  "failures": []
+                },
+                "signer_authority": "verified",
+                "signature_results": [
+                  {
+                    "signer": "did:example:agent",
+                    "key_id": "k1",
+                    "required": true,
+                    "valid": true
+                  }
+                ],
+                "other_signatures": "none",
+                "errors": []
+              }
+            },
+            {
+              "name": "escaped-duplicate-issuer",
+              "input_sha256": "260749c25e98f7d5bbbcc6e46db91755caa3cda0e362627f1ac959aaa8ee9c30",
+              "input_bytes": 760,
+              "serialized_verifier": {
+                "valid": false,
+                "status": "invalid",
+                "receipt_id_valid": "not_checked",
+                "stage": "not_checked",
+                "signer_authority": "not_checked",
+                "signature_results": [],
+                "other_signatures": "none",
+                "errors": [
+                  "parse_error",
+                  "$: duplicate object member"
+                ]
+              },
+              "parse_first_verifier": {
+                "valid": true,
+                "status": "valid",
+                "receipt_id_valid": true,
+                "stage": {
+                  "status": "valid",
+                  "receipt_type": "aps:action-intent:v1",
+                  "stage": "action-intent",
+                  "boundary_identity": "not_applicable",
+                  "failures": []
+                },
+                "signer_authority": "verified",
+                "signature_results": [
+                  {
+                    "signer": "did:example:agent",
+                    "key_id": "k1",
+                    "required": true,
+                    "valid": true
+                  }
+                ],
+                "other_signatures": "none",
+                "errors": []
+              }
+            },
+            {
+              "name": "wrong-key",
+              "input_sha256": "8cfcb557f79d51926b4d99dd0b265e02a7e810de73be381147a6897ef426f895",
+              "input_bytes": 726,
+              "serialized_verifier": {
+                "valid": false,
+                "status": "invalid",
+                "receipt_id_valid": true,
+                "stage": {
+                  "status": "valid",
+                  "receipt_type": "aps:action-intent:v1",
+                  "stage": "action-intent",
+                  "boundary_identity": "not_applicable",
+                  "failures": []
+                },
+                "signer_authority": "invalid",
+                "signature_results": [
+                  {
+                    "signer": "did:example:agent",
+                    "key_id": "k1",
+                    "required": true,
+                    "valid": false
+                  }
+                ],
+                "other_signatures": "none",
+                "errors": [
+                  "signature_invalid"
+                ]
+              }
+            },
+            {
+              "name": "resource-depth",
+              "input_sha256": "91dad941059a748a11a48ad7fc3ce8b56c274ac5dc83893a530f35e62c32b886",
+              "input_bytes": 1201,
+              "serialized_verifier": {
+                "valid": false,
+                "status": "indeterminate",
+                "receipt_id_valid": "not_checked",
+                "stage": "not_checked",
+                "signer_authority": "not_checked",
+                "signature_results": [],
+                "other_signatures": "none",
+                "errors": [
+                  "RESOURCE_LIMIT",
+                  "$: JSON nesting limit exceeded"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "claim": "native-admission-outcomes--v22.23.3",
+          "result": "pass",
+          "recordedField": "/runs/1/summary",
+          "expectedValue": {
+            "corpus_cases": 1223,
+            "expected_accepted": 1048,
+            "aps_raw_accepted": 1069,
+            "parsed_refusal_bypasses": 42,
+            "raw_policy_differences": 23,
+            "signed_receipt_controls": 5
+          }
+        },
+        {
+          "claim": "signed-receipt-controls--v22.23.3",
+          "result": "pass",
+          "recordedField": "/runs/1/receipts",
+          "expectedValue": [
+            {
+              "name": "clean",
+              "input_sha256": "8cfcb557f79d51926b4d99dd0b265e02a7e810de73be381147a6897ef426f895",
+              "input_bytes": 726,
+              "serialized_verifier": {
+                "valid": true,
+                "status": "valid",
+                "receipt_id_valid": true,
+                "stage": {
+                  "status": "valid",
+                  "receipt_type": "aps:action-intent:v1",
+                  "stage": "action-intent",
+                  "boundary_identity": "not_applicable",
+                  "failures": []
+                },
+                "signer_authority": "verified",
+                "signature_results": [
+                  {
+                    "signer": "did:example:agent",
+                    "key_id": "k1",
+                    "required": true,
+                    "valid": true
+                  }
+                ],
+                "other_signatures": "none",
+                "errors": []
+              }
+            },
+            {
+              "name": "duplicate-issuer",
+              "input_sha256": "7584f31304a7348b9e715a2a452b07fd4d3450abd3e6cbefb4a2ac4e1de0c0c8",
+              "input_bytes": 755,
+              "serialized_verifier": {
+                "valid": false,
+                "status": "invalid",
+                "receipt_id_valid": "not_checked",
+                "stage": "not_checked",
+                "signer_authority": "not_checked",
+                "signature_results": [],
+                "other_signatures": "none",
+                "errors": [
+                  "parse_error",
+                  "$: duplicate object member"
+                ]
+              },
+              "parse_first_verifier": {
+                "valid": true,
+                "status": "valid",
+                "receipt_id_valid": true,
+                "stage": {
+                  "status": "valid",
+                  "receipt_type": "aps:action-intent:v1",
+                  "stage": "action-intent",
+                  "boundary_identity": "not_applicable",
+                  "failures": []
+                },
+                "signer_authority": "verified",
+                "signature_results": [
+                  {
+                    "signer": "did:example:agent",
+                    "key_id": "k1",
+                    "required": true,
+                    "valid": true
+                  }
+                ],
+                "other_signatures": "none",
+                "errors": []
+              }
+            },
+            {
+              "name": "escaped-duplicate-issuer",
+              "input_sha256": "260749c25e98f7d5bbbcc6e46db91755caa3cda0e362627f1ac959aaa8ee9c30",
+              "input_bytes": 760,
+              "serialized_verifier": {
+                "valid": false,
+                "status": "invalid",
+                "receipt_id_valid": "not_checked",
+                "stage": "not_checked",
+                "signer_authority": "not_checked",
+                "signature_results": [],
+                "other_signatures": "none",
+                "errors": [
+                  "parse_error",
+                  "$: duplicate object member"
+                ]
+              },
+              "parse_first_verifier": {
+                "valid": true,
+                "status": "valid",
+                "receipt_id_valid": true,
+                "stage": {
+                  "status": "valid",
+                  "receipt_type": "aps:action-intent:v1",
+                  "stage": "action-intent",
+                  "boundary_identity": "not_applicable",
+                  "failures": []
+                },
+                "signer_authority": "verified",
+                "signature_results": [
+                  {
+                    "signer": "did:example:agent",
+                    "key_id": "k1",
+                    "required": true,
+                    "valid": true
+                  }
+                ],
+                "other_signatures": "none",
+                "errors": []
+              }
+            },
+            {
+              "name": "wrong-key",
+              "input_sha256": "8cfcb557f79d51926b4d99dd0b265e02a7e810de73be381147a6897ef426f895",
+              "input_bytes": 726,
+              "serialized_verifier": {
+                "valid": false,
+                "status": "invalid",
+                "receipt_id_valid": true,
+                "stage": {
+                  "status": "valid",
+                  "receipt_type": "aps:action-intent:v1",
+                  "stage": "action-intent",
+                  "boundary_identity": "not_applicable",
+                  "failures": []
+                },
+                "signer_authority": "invalid",
+                "signature_results": [
+                  {
+                    "signer": "did:example:agent",
+                    "key_id": "k1",
+                    "required": true,
+                    "valid": false
+                  }
+                ],
+                "other_signatures": "none",
+                "errors": [
+                  "signature_invalid"
+                ]
+              }
+            },
+            {
+              "name": "resource-depth",
+              "input_sha256": "91dad941059a748a11a48ad7fc3ce8b56c274ac5dc83893a530f35e62c32b886",
+              "input_bytes": 1201,
+              "serialized_verifier": {
+                "valid": false,
+                "status": "indeterminate",
+                "receipt_id_valid": "not_checked",
+                "stage": "not_checked",
+                "signer_authority": "not_checked",
+                "signature_results": [],
+                "other_signatures": "none",
+                "errors": [
+                  "RESOURCE_LIMIT",
+                  "$: JSON nesting limit exceeded"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "claim": "cross-runtime-machine-agreement",
+          "result": "pass",
+          "recordedField": "/machineOutcomesAgree",
+          "expectedValue": true
+        },
+        {
+          "claim": "cross-runtime-receipt-agreement",
+          "result": "pass",
+          "recordedField": "/receiptOutcomesAgree",
+          "expectedValue": true
+        },
+        {
+          "claim": "diagnostic-prose-differences",
+          "result": "pass",
+          "recordedField": "/diagnosticProseDifferences",
+          "expectedValue": 88
+        },
+        {
+          "claim": "outside-recurring-host-adoption",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "independently-operated-custody",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "formal-frozen-APS-study",
+          "result": "not-exercised"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "../experiments/aps-jcs-2026-10-04/README.md",
+          "sha256": "6d564505ed6e1e8e62ad6b5c4d75ad18fafd77e1957698907ef3a3d8d9911746"
+        },
+        {
+          "path": "../experiments/aps-jcs-2026-10-04/native-manifest.json",
+          "sha256": "7f2c2393d051263aa5741d1b24359a9189fd9af23872e61ecfcd53209f528061"
+        },
+        {
+          "path": "../experiments/aps-jcs-2026-10-04/original-node20.zip",
+          "sha256": "89b48e8a1b93bf1e5b819e9cdad53237ca6711b83130cad83b2e6bae1f79248a"
+        },
+        {
+          "path": "../experiments/aps-jcs-2026-10-04/original-node22.zip",
+          "sha256": "68d7c8602d44d93688be5e4a933f21eb7573d9ffcde01257ffa361bc387c35a2"
+        },
+        {
+          "path": "../experiments/aps-jcs-2026-10-04/provenance.json",
+          "sha256": "fde1456aee1f9bffbeec63532d677707f86c1b2147a17e26503ac7d479070740"
+        },
+        {
+          "path": "../experiments/aps-jcs-2026-10-04/report.json",
+          "sha256": "96b5bb6eef3e61c8ff9925c93dbf934bbc5c537808a450282753b4c8f1a3d88c"
+        },
+        {
+          "path": "../experiments/aps-jcs-2026-10-04/runtime-comparison.json",
+          "sha256": "ade9968728f4969b3d8c26145225162d771da47049b6985b173c5a9490defb8e"
+        },
+        {
+          "path": "../experiments/aps-jcs-2026-10-04/selected-source.zip",
+          "sha256": "e0c7ef56651ec4bd362ebfb0057e786d485247a0ebcdecc3ac88d07ae29f9bb9"
+        },
+        {
+          "path": "../experiments/aps-jcs-2026-10-04/source-lock.json",
+          "sha256": "66b55ebc6bd99035e399379a07d9a3304665d7e99bdab9229829f198217cbb64"
+        },
+        {
+          "path": "../experiments/aps-jcs-2026-10-04/source-manifest.json",
+          "sha256": "8c1c6b51af1e074310505269526581a06b0e45256e604998b80130b46fc3658c"
+        },
+        {
+          "path": "../experiments/aps-jcs-2026-10-04/validate_capsule.py",
+          "sha256": "c75fa2d339f91563525ba9e11df6632d5ce1e756cd1c8377a82aa269d643767e"
+        }
+      ]
+    },
+    {
+      "id": "google-adk-responses-2026-10-04",
+      "atlasRevision": "419700b6a2c1bb60a77ef87d13d1a15ab057069a",
+      "sourceRevision": "86a47f6974bae349a5c9ea15a74a4b450614ae42",
+      "readerRevision": "de522aa60966309599d03b06d02f50a52d7fb58f",
+      "verifyRevision": "e835ce2bd6a960e7a1cc2fa6522f16d55dce728a",
+      "contract": "https://github.com/probityai/agent-evidence-observer/blob/de522aa60966309599d03b06d02f50a52d7fb58f/interop/adk-user-responses-2026-10-04/README.md",
+      "report": "../experiments/google-adk-responses-2026-10-04/report.json",
+      "provenance": "../experiments/google-adk-responses-2026-10-04/provenance.json",
+      "reviewState": "author-retained-measured-record",
+      "evidenceClaim": "native-user-response-routing-callback-effect-and-separate-verify-comparison",
+      "roles": {
+        "producer": "Actual pinned Google ADK Runner with fixed public BaseLlm responses",
+        "readerAuthor": "Probity",
+        "runner": "Probity-owned GitHub Actions",
+        "atlasOperator": "Probity",
+        "retentionHolder": "Probity",
+        "independentOperation": "not-established",
+        "independentEffectCustody": "not-established; author-operated PEER",
+        "outsideRecurringUse": "not-established"
+      },
+      "answerExposure": "Fixed public model responses, authored controls and expected outcomes were exposed before execution.",
+      "comparisonOrder": "Native outputs and assertions were emitted together. Failed, corrected, PR and merged-main originals were retained before Atlas indexing.",
+      "limits": [
+        "Three finite three-turn cases on each fully qualified execution; resumability disabled.",
+        "Actual ADK framework with a fixed public BaseLlm script, no provider inference or model-quality measurement.",
+        "The LRO write is a same-author host completion, separate from the native start-only tool body.",
+        "Two distinct Observer/witness keys remain author-held PEER custody with author-operated storage and clock.",
+        "Actual Verify event_absence/v1 covers the six plugin-delivered native turns; whole-second projections retain original fractional timestamps separately.",
+        "First failed reader attempt and intermediate correction remain separate original archives.",
+        "The older 16-row comparison remains pinned separately; the prospective eight-task implementation-owned study has not started.",
+        "Restore the originally empty denied-workspace directory before installed-reader replay; no file bytes change."
+      ],
+      "claimResults": [
+        {
+          "claim": "issuing-call-later-root-and-effects--37202968778",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/0/rows",
+          "expectedValue": [
+            {
+              "case": "approval-granted",
+              "modelCalls": 4,
+              "nativeLaterTextAuthors": [
+                "root"
+              ],
+              "nativeResponseAuthors": [
+                "issuer"
+              ],
+              "observedWrites": 1,
+              "toolBodyCalls": 1,
+              "originalTool": "approved_write",
+              "originalCallId": "adk-667a6b80-69fb-48c8-843a-3df3cac1cb75",
+              "suppliedResponseId": "adk-588b1668-63bc-4f0e-91e5-6132f1b78321",
+              "suppliedResponseName": "adk_request_confirmation",
+              "callbacks": 38,
+              "callbackFailures": 0,
+              "callbackClosed": true,
+              "hostCompletionCalls": 0
+            },
+            {
+              "case": "approval-denied",
+              "modelCalls": 4,
+              "nativeLaterTextAuthors": [
+                "root"
+              ],
+              "nativeResponseAuthors": [
+                "issuer"
+              ],
+              "observedWrites": 0,
+              "toolBodyCalls": 0,
+              "originalTool": "approved_write",
+              "originalCallId": "adk-f52a4db5-10d4-4a6c-91cf-b2dff1127cb3",
+              "suppliedResponseId": "adk-1a4746ff-ef4e-4e63-bd11-8b7cbcb3f89b",
+              "suppliedResponseName": "adk_request_confirmation",
+              "callbacks": 38,
+              "callbackFailures": 0,
+              "callbackClosed": true,
+              "hostCompletionCalls": 0
+            },
+            {
+              "case": "long-running-completed",
+              "modelCalls": 4,
+              "nativeLaterTextAuthors": [
+                "root"
+              ],
+              "nativeResponseAuthors": [
+                "issuer"
+              ],
+              "observedWrites": 1,
+              "toolBodyCalls": 1,
+              "originalTool": "pending_work",
+              "originalCallId": "adk-9242db5f-cd27-4187-84d3-86e392d5a13f",
+              "suppliedResponseId": "adk-9242db5f-cd27-4187-84d3-86e392d5a13f",
+              "suppliedResponseName": "pending_work",
+              "callbacks": 33,
+              "callbackFailures": 0,
+              "callbackClosed": true,
+              "hostCompletionCalls": 1
+            }
+          ]
+        },
+        {
+          "claim": "installed-routing-reader-repeat--37202968778",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/0/routingRepeatedByteExact",
+          "expectedValue": true
+        },
+        {
+          "claim": "native-semantic-controls--37202968778",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/0/semanticControls",
+          "expectedValue": 19
+        },
+        {
+          "claim": "actual-verify-six-repeated-cases--37202968778",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/0/verify/rows",
+          "expectedValue": [
+            {
+              "absentEventType": "root-native-output",
+              "case": "approval-granted/user-response",
+              "claimType": "event_absence/v1",
+              "decision": "supported",
+              "decisionSHA256": "cd0b642354bc383fd1925792f31a1f3573e5cc6ae43f9634a6d51eff65980bad",
+              "literalRepeat": true,
+              "nativeEvents": 2
+            },
+            {
+              "absentEventType": "issuer-native-output",
+              "case": "approval-granted/later-plain-text",
+              "claimType": "event_absence/v1",
+              "decision": "supported",
+              "decisionSHA256": "1aaabab7657619dab70aba8baab2c48b527260c7ad0ae50dbd0847dc730de4e4",
+              "literalRepeat": true,
+              "nativeEvents": 1
+            },
+            {
+              "absentEventType": "root-native-output",
+              "case": "approval-denied/user-response",
+              "claimType": "event_absence/v1",
+              "decision": "supported",
+              "decisionSHA256": "8c710e3026bf7ae1cf512af1cb1e5d299b373ce7d025bdc15e650d99d014884a",
+              "literalRepeat": true,
+              "nativeEvents": 2
+            },
+            {
+              "absentEventType": "issuer-native-output",
+              "case": "approval-denied/later-plain-text",
+              "claimType": "event_absence/v1",
+              "decision": "supported",
+              "decisionSHA256": "e45e7ffb23a0199481ee1d4c15d29e0f5163119821aeb157cfdf2c034533cdd7",
+              "literalRepeat": true,
+              "nativeEvents": 1
+            },
+            {
+              "absentEventType": "root-native-output",
+              "case": "long-running-completed/user-response",
+              "claimType": "event_absence/v1",
+              "decision": "supported",
+              "decisionSHA256": "0aade8aff7b2b7774005d4d986afcb793768cfb8e99a8f8b1dffa33ec497b3b2",
+              "literalRepeat": true,
+              "nativeEvents": 1
+            },
+            {
+              "absentEventType": "issuer-native-output",
+              "case": "long-running-completed/later-plain-text",
+              "claimType": "event_absence/v1",
+              "decision": "supported",
+              "decisionSHA256": "85cf4144e9e2050ff00228ef79aaea6b50c9a6190db0dd8664c46c1612738684",
+              "literalRepeat": true,
+              "nativeEvents": 1
+            }
+          ]
+        },
+        {
+          "claim": "actual-verify-boundary-controls--37202968778",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/0/verify/controls",
+          "expectedValue": [
+            {
+              "control": "event-present",
+              "decision": "contradicted",
+              "reselectedBytes": true
+            },
+            {
+              "control": "coverage-unknown",
+              "decision": "not_established",
+              "reselectedBytes": true
+            },
+            {
+              "control": "malformed-duplicate",
+              "exitStatus": 2,
+              "verdictBytes": 0
+            }
+          ]
+        },
+        {
+          "claim": "issuing-call-later-root-and-effects--37204220648",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/1/rows",
+          "expectedValue": [
+            {
+              "case": "approval-granted",
+              "modelCalls": 4,
+              "nativeLaterTextAuthors": [
+                "root"
+              ],
+              "nativeResponseAuthors": [
+                "issuer"
+              ],
+              "observedWrites": 1,
+              "toolBodyCalls": 1,
+              "originalTool": "approved_write",
+              "originalCallId": "adk-ac817898-5c72-479b-8174-0fdf4d0c87fd",
+              "suppliedResponseId": "adk-770a44ee-4c17-42ee-a2c4-22eb1b551d02",
+              "suppliedResponseName": "adk_request_confirmation",
+              "callbacks": 38,
+              "callbackFailures": 0,
+              "callbackClosed": true,
+              "hostCompletionCalls": 0
+            },
+            {
+              "case": "approval-denied",
+              "modelCalls": 4,
+              "nativeLaterTextAuthors": [
+                "root"
+              ],
+              "nativeResponseAuthors": [
+                "issuer"
+              ],
+              "observedWrites": 0,
+              "toolBodyCalls": 0,
+              "originalTool": "approved_write",
+              "originalCallId": "adk-3c80001d-91fe-4f13-8d46-07621a8f7b04",
+              "suppliedResponseId": "adk-11c412d9-f1ad-404f-89bb-fc4118482370",
+              "suppliedResponseName": "adk_request_confirmation",
+              "callbacks": 38,
+              "callbackFailures": 0,
+              "callbackClosed": true,
+              "hostCompletionCalls": 0
+            },
+            {
+              "case": "long-running-completed",
+              "modelCalls": 4,
+              "nativeLaterTextAuthors": [
+                "root"
+              ],
+              "nativeResponseAuthors": [
+                "issuer"
+              ],
+              "observedWrites": 1,
+              "toolBodyCalls": 1,
+              "originalTool": "pending_work",
+              "originalCallId": "adk-08e466dd-355f-4ee6-aa48-71a5e46a1a77",
+              "suppliedResponseId": "adk-08e466dd-355f-4ee6-aa48-71a5e46a1a77",
+              "suppliedResponseName": "pending_work",
+              "callbacks": 33,
+              "callbackFailures": 0,
+              "callbackClosed": true,
+              "hostCompletionCalls": 1
+            }
+          ]
+        },
+        {
+          "claim": "installed-routing-reader-repeat--37204220648",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/1/routingRepeatedByteExact",
+          "expectedValue": true
+        },
+        {
+          "claim": "native-semantic-controls--37204220648",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/1/semanticControls",
+          "expectedValue": 19
+        },
+        {
+          "claim": "actual-verify-six-repeated-cases--37204220648",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/1/verify/rows",
+          "expectedValue": [
+            {
+              "absentEventType": "root-native-output",
+              "case": "approval-granted/user-response",
+              "claimType": "event_absence/v1",
+              "decision": "supported",
+              "decisionSHA256": "97b09c75cbfdcd1dd62a12b20eb9184fc96d46b0fec3520af91dc4a11afc6c02",
+              "literalRepeat": true,
+              "nativeEvents": 2
+            },
+            {
+              "absentEventType": "issuer-native-output",
+              "case": "approval-granted/later-plain-text",
+              "claimType": "event_absence/v1",
+              "decision": "supported",
+              "decisionSHA256": "b4c50a200af01b081c5eb43c39f0b88f2a6e1f4504e3314d057884879cdea769",
+              "literalRepeat": true,
+              "nativeEvents": 1
+            },
+            {
+              "absentEventType": "root-native-output",
+              "case": "approval-denied/user-response",
+              "claimType": "event_absence/v1",
+              "decision": "supported",
+              "decisionSHA256": "fca7b255c10093157575d130680972c73004829a49afa4b3e0d29cc2eb0cef31",
+              "literalRepeat": true,
+              "nativeEvents": 2
+            },
+            {
+              "absentEventType": "issuer-native-output",
+              "case": "approval-denied/later-plain-text",
+              "claimType": "event_absence/v1",
+              "decision": "supported",
+              "decisionSHA256": "95a3dd7ca99859b4f404cd39ef431cfef75f9896c8829460fce3d03d4b619f36",
+              "literalRepeat": true,
+              "nativeEvents": 1
+            },
+            {
+              "absentEventType": "root-native-output",
+              "case": "long-running-completed/user-response",
+              "claimType": "event_absence/v1",
+              "decision": "supported",
+              "decisionSHA256": "f93900a1cca64fe9a13b787e604faa7abfdba0f0daf8753c008e360cca43214d",
+              "literalRepeat": true,
+              "nativeEvents": 1
+            },
+            {
+              "absentEventType": "issuer-native-output",
+              "case": "long-running-completed/later-plain-text",
+              "claimType": "event_absence/v1",
+              "decision": "supported",
+              "decisionSHA256": "b07847192acbc7463bf82d53b91ba03daedb04801ee1252197fdb5e57526e213",
+              "literalRepeat": true,
+              "nativeEvents": 1
+            }
+          ]
+        },
+        {
+          "claim": "actual-verify-boundary-controls--37204220648",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/1/verify/controls",
+          "expectedValue": [
+            {
+              "control": "event-present",
+              "decision": "contradicted",
+              "reselectedBytes": true
+            },
+            {
+              "control": "coverage-unknown",
+              "decision": "not_established",
+              "reselectedBytes": true
+            },
+            {
+              "control": "malformed-duplicate",
+              "exitStatus": 2,
+              "verdictBytes": 0
+            }
+          ]
+        },
+        {
+          "claim": "outside-recurring-host-adoption",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "independently-operated-effect-custody",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "prospective-eight-task-study",
+          "result": "not-exercised"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "../experiments/google-adk-responses-2026-10-04/README.md",
+          "sha256": "3b54f04d4a5fe7f87d96cde302b34301f4e6876a8ada71b436e033d6c316a5d4"
+        },
+        {
+          "path": "../experiments/google-adk-responses-2026-10-04/first-failed-artifact.zip",
+          "sha256": "b6080fea3c0dcd50e9de2c9b853aedea673b007490cc47f550f0dda1dffb3f2a"
+        },
+        {
+          "path": "../experiments/google-adk-responses-2026-10-04/label-correction-artifact.zip",
+          "sha256": "ad66c11b615d0e020dedaecba7121a89bc0ce9225e5e877f6dd679cca5d216b7"
+        },
+        {
+          "path": "../experiments/google-adk-responses-2026-10-04/main-artifact.zip",
+          "sha256": "24cb05e6dcc2226ada9acccd6ebec4c671503a9e7109572a267c5ac99ddd4283"
+        },
+        {
+          "path": "../experiments/google-adk-responses-2026-10-04/native-manifest.json",
+          "sha256": "e483477122adeff59e9b730dff89c6813aaee0709ed397fb58dcf91b15d4fefd"
+        },
+        {
+          "path": "../experiments/google-adk-responses-2026-10-04/original-artifact.zip",
+          "sha256": "c9f86ee644798ed44f902484d195ed05c94fb85b92b96ab897b61537fad46e9d"
+        },
+        {
+          "path": "../experiments/google-adk-responses-2026-10-04/provenance.json",
+          "sha256": "b731ed1ae4d75c575170a2a9c0eafb1091923e108d98785e426c0903c8706475"
+        },
+        {
+          "path": "../experiments/google-adk-responses-2026-10-04/report.json",
+          "sha256": "3bea6fcbce2faf040206f299b0336c85822023e765541bff645c6cc7efa399f1"
+        },
+        {
+          "path": "../experiments/google-adk-responses-2026-10-04/validate_capsule.py",
+          "sha256": "a1fc9fc7e5a44f51e78344807f4284790cf930a9b632112badb00ca3fb2a4dc3"
+        }
+      ]
+    },
+    {
+      "id": "go-jcs-2026-10-04",
+      "sourceRevision": "19d51d7fe467d4706a3ff08adf8a748f29fc21e0",
+      "readerRevision": "7573937b882de4f32cbc4cd69dfaab8098729412",
+      "contract": "https://github.com/probityai/jcs-admit/blob/7573937b882de4f32cbc4cd69dfaab8098729412/interop/go-jcs/README.md",
+      "report": "../experiments/go-jcs-2026-10-04/report.json",
+      "provenance": "../experiments/go-jcs-2026-10-04/provenance.json",
+      "reviewState": "author-retained-measured-record",
+      "evidenceClaim": "raw-input-admission-and-pinned-go-canonical-byte-comparison",
+      "roles": {
+        "producer": "Public RFC, Go-rail, attack and Node number fixtures; Probity-authored finite controls",
+        "readerAuthor": "Probity",
+        "runner": "Probity-owned GitHub Actions",
+        "atlasOperator": "Probity",
+        "retentionHolder": "Probity",
+        "independentOperation": "not-established",
+        "independentEffectCustody": "not-exercised",
+        "outsideRecurringUse": "not-established"
+      },
+      "answerExposure": "Public fixture expectations and finite controls were available before implementation.",
+      "comparisonOrder": "Native outputs and comparisons were emitted together; all four originals were byte-retained before Atlas indexing.",
+      "limits": [
+        "Finite conformance inputs and exposed expected answers; no task or workload experiment.",
+        "Six executions on two Go runtimes repeat the same 1,263 case identities: two final-PR, two branch-push and two merged-main runs; each stays separate.",
+        "Go accepts objects or arrays; number samples use declared array wrappers, admitted scalar roots refuse separately.",
+        "RFC 8785 and I-JSON policies differ; bare Go outcomes remain separate from admission policy.",
+        "The original native archives retain source and reports. Installed executable hashes are recorded, but executables and the full installed runtime are outside those provider archives.",
+        "The upstream multi-gigabyte number benchmark was not selected."
+      ],
+      "claimResults": [
+        {
+          "claim": "complete-conformance-outcomes--pull-request-go1.27.1",
+          "result": "pass",
+          "recordedField": "/runs/0/summary",
+          "expectedValue": {
+            "cases": 1263,
+            "consumer_exact_byte_matches": 1077,
+            "raw_admission_refusals": 181,
+            "scalar_domain_refusals": 5,
+            "bare_go_observations": 1263
+          }
+        },
+        {
+          "claim": "bare-go-outcomes-retained--pull-request-go1.27.1",
+          "result": "pass",
+          "recordedField": "/runs/0/bareGoAccepted",
+          "expectedValue": 1129
+        },
+        {
+          "claim": "clean-native-worktree--pull-request-go1.27.1",
+          "result": "pass",
+          "recordedField": "/runs/0/worktreeStatus",
+          "expectedValue": []
+        },
+        {
+          "claim": "complete-conformance-outcomes--pull-request-go1.25.5",
+          "result": "pass",
+          "recordedField": "/runs/1/summary",
+          "expectedValue": {
+            "cases": 1263,
+            "consumer_exact_byte_matches": 1077,
+            "raw_admission_refusals": 181,
+            "scalar_domain_refusals": 5,
+            "bare_go_observations": 1263
+          }
+        },
+        {
+          "claim": "bare-go-outcomes-retained--pull-request-go1.25.5",
+          "result": "pass",
+          "recordedField": "/runs/1/bareGoAccepted",
+          "expectedValue": 1129
+        },
+        {
+          "claim": "clean-native-worktree--pull-request-go1.25.5",
+          "result": "pass",
+          "recordedField": "/runs/1/worktreeStatus",
+          "expectedValue": []
+        },
+        {
+          "claim": "complete-conformance-outcomes--push-go1.25.5",
+          "result": "pass",
+          "recordedField": "/runs/2/summary",
+          "expectedValue": {
+            "cases": 1263,
+            "consumer_exact_byte_matches": 1077,
+            "raw_admission_refusals": 181,
+            "scalar_domain_refusals": 5,
+            "bare_go_observations": 1263
+          }
+        },
+        {
+          "claim": "bare-go-outcomes-retained--push-go1.25.5",
+          "result": "pass",
+          "recordedField": "/runs/2/bareGoAccepted",
+          "expectedValue": 1129
+        },
+        {
+          "claim": "clean-native-worktree--push-go1.25.5",
+          "result": "pass",
+          "recordedField": "/runs/2/worktreeStatus",
+          "expectedValue": []
+        },
+        {
+          "claim": "complete-conformance-outcomes--push-go1.27.1",
+          "result": "pass",
+          "recordedField": "/runs/3/summary",
+          "expectedValue": {
+            "cases": 1263,
+            "consumer_exact_byte_matches": 1077,
+            "raw_admission_refusals": 181,
+            "scalar_domain_refusals": 5,
+            "bare_go_observations": 1263
+          }
+        },
+        {
+          "claim": "bare-go-outcomes-retained--push-go1.27.1",
+          "result": "pass",
+          "recordedField": "/runs/3/bareGoAccepted",
+          "expectedValue": 1129
+        },
+        {
+          "claim": "clean-native-worktree--push-go1.27.1",
+          "result": "pass",
+          "recordedField": "/runs/3/worktreeStatus",
+          "expectedValue": []
+        },
+        {
+          "claim": "outside-recurring-host-adoption",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "independently-operated-custody",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "task-or-workload-execution",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "complete-conformance-outcomes--main-go1.25.5",
+          "result": "pass",
+          "recordedField": "/runs/4/summary",
+          "expectedValue": {
+            "cases": 1263,
+            "consumer_exact_byte_matches": 1077,
+            "raw_admission_refusals": 181,
+            "scalar_domain_refusals": 5,
+            "bare_go_observations": 1263
+          }
+        },
+        {
+          "claim": "bare-go-outcomes-retained--main-go1.25.5",
+          "result": "pass",
+          "recordedField": "/runs/4/bareGoAccepted",
+          "expectedValue": 1129
+        },
+        {
+          "claim": "clean-native-worktree--main-go1.25.5",
+          "result": "pass",
+          "recordedField": "/runs/4/worktreeStatus",
+          "expectedValue": []
+        },
+        {
+          "claim": "complete-conformance-outcomes--main-go1.27.1",
+          "result": "pass",
+          "recordedField": "/runs/5/summary",
+          "expectedValue": {
+            "cases": 1263,
+            "consumer_exact_byte_matches": 1077,
+            "raw_admission_refusals": 181,
+            "scalar_domain_refusals": 5,
+            "bare_go_observations": 1263
+          }
+        },
+        {
+          "claim": "bare-go-outcomes-retained--main-go1.27.1",
+          "result": "pass",
+          "recordedField": "/runs/5/bareGoAccepted",
+          "expectedValue": 1129
+        },
+        {
+          "claim": "clean-native-worktree--main-go1.27.1",
+          "result": "pass",
+          "recordedField": "/runs/5/worktreeStatus",
+          "expectedValue": []
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "../experiments/go-jcs-2026-10-04/README.md",
+          "sha256": "1adf30db6ae10b14cf14f1d24e1f6cc06deb0854e93af79cddb8d3c81754c037"
+        },
+        {
+          "path": "../experiments/go-jcs-2026-10-04/main-go1.25.5-report.json",
+          "sha256": "36a06e6d0f67890100a47d8c4f3b8c2b6ca4d088552f0f3bda487518d734d449"
+        },
+        {
+          "path": "../experiments/go-jcs-2026-10-04/main-go1.25.5.zip",
+          "sha256": "c17c9dc62e887ed592201c6fdd154df4f27071741438c83a9c6858b1b0798a60"
+        },
+        {
+          "path": "../experiments/go-jcs-2026-10-04/main-go1.27.1-report.json",
+          "sha256": "153858305f7328866be7d2a00072df22200b5274e5d969ae76a8cacc755166c0"
+        },
+        {
+          "path": "../experiments/go-jcs-2026-10-04/main-go1.27.1.zip",
+          "sha256": "ad11325a8298558c8d2db6725871caaf51204d4bd4b49e96c222a1780f0bada2"
+        },
+        {
+          "path": "../experiments/go-jcs-2026-10-04/provenance.json",
+          "sha256": "450c91415d71bc1280ffb9502b3ec9f8f72238ed5114c40f3514a11f23bcda5b"
+        },
+        {
+          "path": "../experiments/go-jcs-2026-10-04/pull-request-go1.25.5-report.json",
+          "sha256": "9ef8fd237ba820ee6f0b987a2e7815290a258a3a6c45592d87122f68b9526818"
+        },
+        {
+          "path": "../experiments/go-jcs-2026-10-04/pull-request-go1.25.5.zip",
+          "sha256": "63fcfc2cbfb0ede901305ccbc25cf9addeaa50e831b770cca6038fa3312df120"
+        },
+        {
+          "path": "../experiments/go-jcs-2026-10-04/pull-request-go1.27.1-report.json",
+          "sha256": "23ceec37d3d440b43d755b33de60e28d67a6f0f09297cc3f2f82eca90ecac7ee"
+        },
+        {
+          "path": "../experiments/go-jcs-2026-10-04/pull-request-go1.27.1.zip",
+          "sha256": "cc36ef263594c0b556e5440e94dc4232ffcf8512b41036684786fe0e255ed37e"
+        },
+        {
+          "path": "../experiments/go-jcs-2026-10-04/push-go1.25.5-report.json",
+          "sha256": "04b51d60f42fa286f5e3eb92633e9432c44f7a2541497b5225742601d40bc5cd"
+        },
+        {
+          "path": "../experiments/go-jcs-2026-10-04/push-go1.25.5.zip",
+          "sha256": "9aa87226b34dc0f824db057809bfa0f1d3d1f2e5ae9d523a9c8b5c7aaa866b2e"
+        },
+        {
+          "path": "../experiments/go-jcs-2026-10-04/push-go1.27.1-report.json",
+          "sha256": "4f9bd064c46aae47f104e8b0eff0629460b10703d89bb2c4de96a70c254a153d"
+        },
+        {
+          "path": "../experiments/go-jcs-2026-10-04/push-go1.27.1.zip",
+          "sha256": "44865d54036bc4186cb7a5e041c8632147ab0d1d749b4ca8c03f1955bec93d1b"
+        },
+        {
+          "path": "../experiments/go-jcs-2026-10-04/report.json",
+          "sha256": "542c349084e338972dc9bd57254e09be0b9dc0ea12686be3d86e0dd61e050394"
+        },
+        {
+          "path": "../experiments/go-jcs-2026-10-04/source-pins.json",
+          "sha256": "ed4fbcfea9808c6b4d8b29b3ed57e9ebda228268e7c0a9a3059ab21d2b325f52"
+        },
+        {
+          "path": "../experiments/go-jcs-2026-10-04/validate_capsule.py",
+          "sha256": "22a6b5313d42f32f1a898f8421d8c7a7f8da0d91dc8672da024a6361386a14f6"
+        }
+      ],
+      "atlasRevision": "419700b6a2c1bb60a77ef87d13d1a15ab057069a"
     }
   ]
 }

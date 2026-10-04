@@ -15,11 +15,11 @@
 ## Projects
 
 - [Probity Admission](https://github.com/probityai/agent-evidence-admission/blob/dd0857aea19283185f27a19d07a5c3257ae31ec6/README.md): Provides OPA, Kyverno and policy-controller rules for consumer-pinned execution evidence.
-- [Probity Atlas](https://github.com/probityai/agent-evidence-atlas/blob/3109ae4be7dca77594fa7ddba8565d7feb261cf9/README.md): Documents agent assurance claims and provides an Open Evidence Lab run register.
-- [dsse](https://github.com/probityai/dsse/blob/f6f6df4bef5544af76dc3f5b05909a2f24a8e51f/README.md): Signs and verifies DSSE envelopes with explicit threshold and key handling.
-- [jcs-admit](https://github.com/probityai/jcs-admit/blob/ecc8b5ef4b380a2fe38e5079d128307a1c702717/README.md): Checks raw JSON input before producing its RFC 8785 canonical form.
-- [Probity Observer](https://github.com/probityai/agent-evidence-observer/blob/8c074d7b8f380dd01fd55277b68a37ad8217c8cb/README.md): Records brokered file requests and includes an offline reader for selected native delegation runs.
-- [Probity Vectors](https://github.com/probityai/agent-evidence-vectors/blob/bbdef583c9241138e5c2b5d872bc77f7f539e9ac/README.md): Provides conformance cases and reference verifiers for selected agent evidence formats.
+- [Probity Atlas](https://github.com/probityai/agent-evidence-atlas/blob/1f1a44fab47cba2d0fb032924d4af838063919b3/README.md): Documents agent assurance claims and provides an Open Evidence Lab run register.
+- [dsse](https://github.com/probityai/dsse/blob/90e12696b46ba06eb80c0aa190149881c95a0918/README.md): Signs and verifies DSSE envelopes with explicit threshold and key handling.
+- [jcs-admit](https://github.com/probityai/jcs-admit/blob/b3ecf0a36d6e72eef1ee808678811f42787f2c23/README.md): Checks raw JSON input before producing its RFC 8785 canonical form.
+- [Probity Observer](https://github.com/probityai/agent-evidence-observer/blob/7eb18757745b4ac869131d9d319b9ccd7287edf1/README.md): Records brokered file requests and includes an offline reader for selected native delegation runs.
+- [Probity Vectors](https://github.com/probityai/agent-evidence-vectors/blob/d4824c0ea857e87311fbff1b79e252b4f41b2abb/README.md): Provides conformance cases and reference verifiers for selected agent evidence formats.
 - [Probity Verify](https://github.com/probityai/probity-verify/blob/e835ce2bd6a960e7a1cc2fa6522f16d55dce728a/README.md): Checks supplied evidence bytes through claim-specific offline adapters.
 - [Probity Vocabulary](https://github.com/probityai/agent-evidence-vocabulary/blob/8c80579ae613d7ae07982321e13a6091c402b2a8/README.md): Defines versioned terms and crosswalks for claims about agent execution.
 

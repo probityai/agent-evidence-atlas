@@ -1,7 +1,7 @@
 ---
 title: "Probity Open Evidence Lab"
 subtitle: "A public protocol and run register for checking specific agent-evidence claims"
-status: "Protocol draft 0.1.7, 4 October 2026. The register retains native framework, admission, receipt and bounded actual-weight comparisons. Host adoption and independently operated custody have separate evidence."
+status: "Protocol draft 0.1.8, 4 October 2026. The register retains native framework, admission, receipt and bounded actual-weight comparisons. Host adoption and independently operated custody have separate evidence."
 description: "Submit pinned agent-evidence runs, hostile controls, field-level comparisons and correction records to a public register."
 toc: true
 ---
@@ -45,6 +45,50 @@ alongside both fully qualified runs. New source-derived checks authenticate ever
 original member and re-derive the displayed fields from native output. Source
 retention preceded indexing; expected outcomes were exposed and native comparisons
 were emitted together.
+
+## AG2 tasks, callbacks and target authority
+
+The 23rd [register record](lab/register.json) keeps two qualified runs of the
+same 18 native AG2 tasks: six variants over JSON-RPC, REST and gRPC. Each run
+retains 12 stored configurations, six target callbacks and three signed Observer
+writes. The 22 earlier record objects and their original bytes stay unchanged.
+
+Each transport keeps these outcomes separate:
+
+| Variant | Stored configuration | Target callbacks | Observed writes |
+|---|---|---|---|
+| Accepted | 1 | 1 | 1 |
+| Registration denied | 0 | 0 | 0 |
+| Sender admission denied | 1 | 0 | 0 |
+| Target denied | 1 | 1 | 0 |
+| Legacy configuration only | 1 | 0 | 0 |
+| SDK policy denied | 0 | 0 | 0 |
+
+The host calls the unchanged SDK sender after task completion. The target is a
+controlled ASGI app; task and configuration gRPC use native plaintext loopback.
+The target's refusal remains visible after a callback arrives. The legacy route
+stores an unsafe URL without sending it. Fixed model responses are exposed; no
+provider inference runs here.
+
+The [report](experiments/ag2-push-authority-2026-10-04/report.json),
+[originals and replay](experiments/ag2-push-authority-2026-10-04/README.md) and
+[provenance](experiments/ag2-push-authority-2026-10-04/provenance.json) retain all
+453 selected AG2 and 127 A2A Python source files and their licenses. Each passing
+native run retains two byte-identical installed-reader decisions and 16 semantic
+controls. The Lab checker authenticates every original member and reconstructs
+the native task, configuration, callback and effect fields.
+
+The first local reader failure stays separate from the first Actions setup
+failure, which ran no native cases and produced no artifact. Both qualified PR
+and main archives remain intact. Restore the 15 empty refused-case workspace
+directories before an installed replay; no file bytes change.
+
+Sender, target, keys and storage share the author operator (PEER). Automatic task
+callbacks, an outside callback service, independent custody and recurring host
+adoption remain untested. Original protobuf wire bytes are retained; the reader
+checks captured JSON semantics. The older 16-row comparison stays pinned, and
+the prospective eight-task implementation-owned study has not started.
+[Claims P-71 and P-72](claims.html) bind these results to the retained originals.
 
 ## Submitted producer-fixture runs
 

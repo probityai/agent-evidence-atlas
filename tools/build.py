@@ -59,6 +59,16 @@ NAV = [
 # page whose links need it, or None for every page). A copy is made exactly when its
 # page is built, and a missing source for a built page fails the build.
 COPIES = [
+    ('experiments/ag2-push-authority-2026-10-04/AG2-PR70-FIRST-FAILED-ARTIFACTS.json', 'experiments/ag2-push-authority-2026-10-04/AG2-PR70-FIRST-FAILED-ARTIFACTS.json', 'lab'),
+    ('experiments/ag2-push-authority-2026-10-04/AG2-PR70-FIRST-FAILED-JOB.log', 'experiments/ag2-push-authority-2026-10-04/AG2-PR70-FIRST-FAILED-JOB.log', 'lab'),
+    ('experiments/ag2-push-authority-2026-10-04/AG2-PR70-FIRST-FAILED-JOBS.json', 'experiments/ag2-push-authority-2026-10-04/AG2-PR70-FIRST-FAILED-JOBS.json', 'lab'),
+    ('experiments/ag2-push-authority-2026-10-04/README.md', 'experiments/ag2-push-authority-2026-10-04/README.md', 'lab'),
+    ('experiments/ag2-push-authority-2026-10-04/first-local-original.zip', 'experiments/ag2-push-authority-2026-10-04/first-local-original.zip', 'lab'),
+    ('experiments/ag2-push-authority-2026-10-04/main-artifact.zip', 'experiments/ag2-push-authority-2026-10-04/main-artifact.zip', 'lab'),
+    ('experiments/ag2-push-authority-2026-10-04/original-artifact.zip', 'experiments/ag2-push-authority-2026-10-04/original-artifact.zip', 'lab'),
+    ('experiments/ag2-push-authority-2026-10-04/provenance.json', 'experiments/ag2-push-authority-2026-10-04/provenance.json', 'lab'),
+    ('experiments/ag2-push-authority-2026-10-04/report.json', 'experiments/ag2-push-authority-2026-10-04/report.json', 'lab'),
+    ('experiments/ag2-push-authority-2026-10-04/validate_capsule.py', 'experiments/ag2-push-authority-2026-10-04/validate_capsule.py', 'lab'),
     ('experiments/aps-jcs-2026-10-04/README.md', 'experiments/aps-jcs-2026-10-04/README.md', 'lab'),
     ('experiments/aps-jcs-2026-10-04/native-manifest.json', 'experiments/aps-jcs-2026-10-04/native-manifest.json', 'lab'),
     ('experiments/aps-jcs-2026-10-04/original-node20.zip', 'experiments/aps-jcs-2026-10-04/original-node20.zip', 'lab'),

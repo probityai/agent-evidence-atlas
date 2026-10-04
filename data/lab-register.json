@@ -7099,6 +7099,499 @@
         }
       ],
       "atlasRevision": "419700b6a2c1bb60a77ef87d13d1a15ab057069a"
+    },
+    {
+      "id": "ag2-push-authority-2026-10-04",
+      "sourceRevision": "fd789e3ca8a77d14c8e3e89923665fe62c00cb9a",
+      "readerRevision": "4b5ca47854c9be2814eeb5fe6f72b79b0182d2c7",
+      "contract": "https://github.com/probityai/agent-evidence-observer/blob/4b5ca47854c9be2814eeb5fe6f72b79b0182d2c7/interop/ag2-push-authority-2026-10-04/README.md",
+      "report": "../experiments/ag2-push-authority-2026-10-04/report.json",
+      "provenance": "../experiments/ag2-push-authority-2026-10-04/provenance.json",
+      "reviewState": "author-retained-measured-record",
+      "evidenceClaim": "native-task-and-push-url-admission-dispatch-target-and-observed-effect-comparison",
+      "roles": {
+        "producer": "Pinned native AG2 TestConfig and A2A Python, with Probity-authored finite controls",
+        "readerAuthor": "Probity",
+        "runner": "Probity-owned GitHub Actions",
+        "atlasOperator": "Probity",
+        "retentionHolder": "Probity",
+        "independentOperation": "not-established",
+        "independentEffectCustody": "not-established",
+        "outsideRecurringUse": "not-established"
+      },
+      "answerExposure": "Public fixed responses and finite expected outcomes were exposed before execution.",
+      "comparisonOrder": "Original failures and passing native archives were retained before Lab indexing.",
+      "limits": [
+        "18 finite actual native tasks per qualified run; fixed answers and no provider inference.",
+        "Explicit same-author post-completion sender call; no automatic task callback dispatch.",
+        "Controlled ASGI target and native plaintext gRPC loopback; no external callback target.",
+        "PEER keys, target and custody; no outside operator or host adoption.",
+        "Original native JSON and wire bytes retained; the reader checks JSON semantics without decoding protobuf wire.",
+        "Older 16 rows unchanged; prospective eight-task study not started."
+      ],
+      "claimResults": [
+        {
+          "claim": "native-task-population--pull-request",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/0/nativeTasks",
+          "expectedValue": 18
+        },
+        {
+          "claim": "target-callbacks--pull-request",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/0/targetCallbacks",
+          "expectedValue": 6
+        },
+        {
+          "claim": "observed-writes--pull-request",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/0/observedWrites",
+          "expectedValue": 3
+        },
+        {
+          "claim": "semantic-controls--pull-request",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/0/semanticControls",
+          "expectedValue": 16
+        },
+        {
+          "claim": "installed-reader-repeat--pull-request",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/0/readerRepeatedByteExact",
+          "expectedValue": true
+        },
+        {
+          "claim": "native-task-population--main",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/1/nativeTasks",
+          "expectedValue": 18
+        },
+        {
+          "claim": "target-callbacks--main",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/1/targetCallbacks",
+          "expectedValue": 6
+        },
+        {
+          "claim": "observed-writes--main",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/1/observedWrites",
+          "expectedValue": 3
+        },
+        {
+          "claim": "semantic-controls--main",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/1/semanticControls",
+          "expectedValue": 16
+        },
+        {
+          "claim": "installed-reader-repeat--main",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/1/readerRepeatedByteExact",
+          "expectedValue": true
+        },
+        {
+          "claim": "outside-effect-custody",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "automatic-task-dispatch",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "callback-network-service",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "recurring-consumer-adoption",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "provider-or-model-quality",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "configuration-callback-effect-matrix--pull-request",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/0/decision/rows",
+          "expectedValue": [
+            {
+              "case": "jsonrpc/accepted",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 1,
+              "storedConfigs": 1,
+              "targetCallbacks": 1
+            },
+            {
+              "case": "jsonrpc/registration-denied",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 0,
+              "targetCallbacks": 0
+            },
+            {
+              "case": "jsonrpc/dispatch-denied",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 1,
+              "targetCallbacks": 0
+            },
+            {
+              "case": "jsonrpc/target-denied",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 1,
+              "targetCallbacks": 1
+            },
+            {
+              "case": "jsonrpc/legacy-config-only",
+              "explicitDispatch": false,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 1,
+              "targetCallbacks": 0
+            },
+            {
+              "case": "jsonrpc/sdk-policy-denied",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 0,
+              "targetCallbacks": 0
+            },
+            {
+              "case": "rest/accepted",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 1,
+              "storedConfigs": 1,
+              "targetCallbacks": 1
+            },
+            {
+              "case": "rest/registration-denied",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 0,
+              "targetCallbacks": 0
+            },
+            {
+              "case": "rest/dispatch-denied",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 1,
+              "targetCallbacks": 0
+            },
+            {
+              "case": "rest/target-denied",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 1,
+              "targetCallbacks": 1
+            },
+            {
+              "case": "rest/legacy-config-only",
+              "explicitDispatch": false,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 1,
+              "targetCallbacks": 0
+            },
+            {
+              "case": "rest/sdk-policy-denied",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 0,
+              "targetCallbacks": 0
+            },
+            {
+              "case": "grpc/accepted",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 1,
+              "storedConfigs": 1,
+              "targetCallbacks": 1
+            },
+            {
+              "case": "grpc/registration-denied",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 0,
+              "targetCallbacks": 0
+            },
+            {
+              "case": "grpc/dispatch-denied",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 1,
+              "targetCallbacks": 0
+            },
+            {
+              "case": "grpc/target-denied",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 1,
+              "targetCallbacks": 1
+            },
+            {
+              "case": "grpc/legacy-config-only",
+              "explicitDispatch": false,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 1,
+              "targetCallbacks": 0
+            },
+            {
+              "case": "grpc/sdk-policy-denied",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 0,
+              "targetCallbacks": 0
+            }
+          ]
+        },
+        {
+          "claim": "configuration-callback-effect-matrix--main",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/1/decision/rows",
+          "expectedValue": [
+            {
+              "case": "jsonrpc/accepted",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 1,
+              "storedConfigs": 1,
+              "targetCallbacks": 1
+            },
+            {
+              "case": "jsonrpc/registration-denied",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 0,
+              "targetCallbacks": 0
+            },
+            {
+              "case": "jsonrpc/dispatch-denied",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 1,
+              "targetCallbacks": 0
+            },
+            {
+              "case": "jsonrpc/target-denied",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 1,
+              "targetCallbacks": 1
+            },
+            {
+              "case": "jsonrpc/legacy-config-only",
+              "explicitDispatch": false,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 1,
+              "targetCallbacks": 0
+            },
+            {
+              "case": "jsonrpc/sdk-policy-denied",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 0,
+              "targetCallbacks": 0
+            },
+            {
+              "case": "rest/accepted",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 1,
+              "storedConfigs": 1,
+              "targetCallbacks": 1
+            },
+            {
+              "case": "rest/registration-denied",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 0,
+              "targetCallbacks": 0
+            },
+            {
+              "case": "rest/dispatch-denied",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 1,
+              "targetCallbacks": 0
+            },
+            {
+              "case": "rest/target-denied",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 1,
+              "targetCallbacks": 1
+            },
+            {
+              "case": "rest/legacy-config-only",
+              "explicitDispatch": false,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 1,
+              "targetCallbacks": 0
+            },
+            {
+              "case": "rest/sdk-policy-denied",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 0,
+              "targetCallbacks": 0
+            },
+            {
+              "case": "grpc/accepted",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 1,
+              "storedConfigs": 1,
+              "targetCallbacks": 1
+            },
+            {
+              "case": "grpc/registration-denied",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 0,
+              "targetCallbacks": 0
+            },
+            {
+              "case": "grpc/dispatch-denied",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 1,
+              "targetCallbacks": 0
+            },
+            {
+              "case": "grpc/target-denied",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 1,
+              "targetCallbacks": 1
+            },
+            {
+              "case": "grpc/legacy-config-only",
+              "explicitDispatch": false,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 1,
+              "targetCallbacks": 0
+            },
+            {
+              "case": "grpc/sdk-policy-denied",
+              "explicitDispatch": true,
+              "modelCalls": 1,
+              "nativeTasks": 1,
+              "observedWrites": 0,
+              "storedConfigs": 0,
+              "targetCallbacks": 0
+            }
+          ]
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "../experiments/ag2-push-authority-2026-10-04/AG2-PR70-FIRST-FAILED-ARTIFACTS.json",
+          "sha256": "f7417e1fb877d3f5934f143cc38ad9e2905476e8f5ac6776507d09441efcd6f6"
+        },
+        {
+          "path": "../experiments/ag2-push-authority-2026-10-04/AG2-PR70-FIRST-FAILED-JOB.log",
+          "sha256": "989ef29567fd46e9d4d4b2825341cf31cbd859af0a176035c6937089f3f36c72"
+        },
+        {
+          "path": "../experiments/ag2-push-authority-2026-10-04/AG2-PR70-FIRST-FAILED-JOBS.json",
+          "sha256": "183a92c3ac135f11f6f9292e8aa2443201fc730b390766e1c23d6d3573e7c972"
+        },
+        {
+          "path": "../experiments/ag2-push-authority-2026-10-04/README.md",
+          "sha256": "0f766a9919e46d63281dc503bcbf6c8d9e1f0f78988fbd2311f2b2533f5d1282"
+        },
+        {
+          "path": "../experiments/ag2-push-authority-2026-10-04/first-local-original.zip",
+          "sha256": "5d0ca756502d04298195942283aa0cd3558c45f9410e174da4cef92b7224ea1d"
+        },
+        {
+          "path": "../experiments/ag2-push-authority-2026-10-04/main-artifact.zip",
+          "sha256": "1e1eb76e719cbd21ad9aa3935aa757b83756cd6a742fd2a5b828010c0cff6e14"
+        },
+        {
+          "path": "../experiments/ag2-push-authority-2026-10-04/original-artifact.zip",
+          "sha256": "636df5972a318b862abf44b68f52e00f6f57cc9526bad1f26a886ef014360568"
+        },
+        {
+          "path": "../experiments/ag2-push-authority-2026-10-04/provenance.json",
+          "sha256": "08cd4f63917daefb955879e752abb9ed2f84efb131f0818cc99d6102b77ad745"
+        },
+        {
+          "path": "../experiments/ag2-push-authority-2026-10-04/report.json",
+          "sha256": "1c8eebd082e111d3c6bea6309f991545a0c86b6b2fb535374684da44027f2403"
+        },
+        {
+          "path": "../experiments/ag2-push-authority-2026-10-04/validate_capsule.py",
+          "sha256": "6f8f3d21c482587aa0cc76987a487fb902e55f2b79ebccb49287eaf798b5fef0"
+        }
+      ],
+      "atlasRevision": "91824c04833725b208842a8fcc523c7e91a3f8e4"
     }
   ]
 }

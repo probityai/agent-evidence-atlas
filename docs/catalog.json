@@ -58,7 +58,7 @@
     },
     {
       "display_name": "Probity Observer",
-      "docs_url": "https://github.com/probityai/agent-evidence-observer/blob/d53776c7b783abbce42a3422f56ed390dfedd2f2/README.md",
+      "docs_url": "https://github.com/probityai/agent-evidence-observer/blob/671d89c2d8c023153eb5755c5afb027bf4fa553d/README.md",
       "id": "observer",
       "packages": [],
       "relationships": [],
@@ -194,9 +194,9 @@
       "display_name": "Probity Observer",
       "id": "repo-observer",
       "source": {
-        "commit": "d53776c7b783abbce42a3422f56ed390dfedd2f2",
+        "commit": "671d89c2d8c023153eb5755c5afb027bf4fa553d",
         "repository": "repo-observer",
-        "url": "https://github.com/probityai/agent-evidence-observer/blob/d53776c7b783abbce42a3422f56ed390dfedd2f2/README.md"
+        "url": "https://github.com/probityai/agent-evidence-observer/blob/671d89c2d8c023153eb5755c5afb027bf4fa553d/README.md"
       },
       "status": "prototype",
       "summary": "Records brokered file actions with signed packets and history, and reads selected native delegation evidence offline.",

@@ -63,7 +63,7 @@ Released. [Quickstart and source](https://github.com/probityai/jcs-admit/blob/3e
 
 Records brokered file actions with signed packets and history, and reads selected native delegation evidence offline.
 
-Prototype. [Quickstart and source](https://github.com/probityai/agent-evidence-observer/blob/d53776c7b783abbce42a3422f56ed390dfedd2f2/README.md)
+Prototype. [Quickstart and source](https://github.com/probityai/agent-evidence-observer/blob/671d89c2d8c023153eb5755c5afb027bf4fa553d/README.md)
 
 <a id="vectors"></a>
 

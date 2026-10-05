@@ -57,7 +57,7 @@
         "repo-observer"
       ],
       "packages": [],
-      "docs_url": "https://github.com/probityai/agent-evidence-observer/blob/d53776c7b783abbce42a3422f56ed390dfedd2f2/README.md",
+      "docs_url": "https://github.com/probityai/agent-evidence-observer/blob/671d89c2d8c023153eb5755c5afb027bf4fa553d/README.md",
       "relationships": []
     },
     {
@@ -224,9 +224,9 @@
       "full_name": "probityai/agent-evidence-observer",
       "url": "https://github.com/probityai/agent-evidence-observer",
       "source": {
-        "commit": "d53776c7b783abbce42a3422f56ed390dfedd2f2",
+        "commit": "671d89c2d8c023153eb5755c5afb027bf4fa553d",
         "repository": "repo-observer",
-        "url": "https://github.com/probityai/agent-evidence-observer/blob/d53776c7b783abbce42a3422f56ed390dfedd2f2/README.md"
+        "url": "https://github.com/probityai/agent-evidence-observer/blob/671d89c2d8c023153eb5755c5afb027bf4fa553d/README.md"
       }
     },
     {

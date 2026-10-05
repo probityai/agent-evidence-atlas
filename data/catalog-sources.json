@@ -214,5 +214,13 @@
     "blob_sha": "c59cde60f6eddfd85d3731aebb6d63b2f51573c3",
     "url": "https://github.com/probityai/agent-evidence-observer/blob/d53776c7b783abbce42a3422f56ed390dfedd2f2/docs/WITNESSED-RUN-SELECTION.md",
     "read_at": "2026-10-05T02:36:50.266054+00:00"
+  },
+  {
+    "repository": "probityai/agent-evidence-observer",
+    "path": "README.md",
+    "commit": "671d89c2d8c023153eb5755c5afb027bf4fa553d",
+    "blob_sha": "1b7adbb0bd5eb7ef5f793087b8f084a076b51600",
+    "url": "https://github.com/probityai/agent-evidence-observer/blob/671d89c2d8c023153eb5755c5afb027bf4fa553d/README.md",
+    "read_at": "2026-10-05T04:29:09.717311+00:00"
   }
 ]

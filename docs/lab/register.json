@@ -7698,7 +7698,7 @@
       "artifacts": [
         {
           "path": "../experiments/remora-boundary-2026-10-04/README.md",
-          "sha256": "3220a349132f2d4e63fb297e08525de26e1cd22d9037c81a74f6302a7ea875d7"
+          "sha256": "55918e419e36ada33fee74826378d6771e6200adcd7c16c11f1c90735cbd9dd5"
         },
         {
           "path": "../experiments/remora-boundary-2026-10-04/effect-evidence-v1.external-run-record-v1.json",

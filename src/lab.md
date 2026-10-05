@@ -110,15 +110,15 @@ The same run passed 13 additional cases, eight malformed-input refusals, nine
 source mutations and 20 Verify decisions. The [report](experiments/remora-boundary-2026-10-04/report.json),
 [records and originals](experiments/remora-boundary-2026-10-04/README.md) and
 [provenance](experiments/remora-boundary-2026-10-04/provenance.json) keep both
-Actions archives; the Lab checker recomputes each package digest from the
-retained producer bytes and derives every displayed count.
+Actions archives; the Lab checker recomputes each package digest from retained
+manifests and input hashes and derives every displayed count. The missing
+reference verifier contributes its declared digest; its source was not retained.
 
 Each `external-run-record-v1` states `SECOND_IMPLEMENTATION`, an external operator
 and `NOT_INDEPENDENT`, exactly as the reader emits it, so under REMORA's rule it
 supports `REPRODUCED`. Authorization signatures use a public test-only key; the
 effect `hash` rule stays unsupported; fixture premises are taken as supplied.
-Expected outcomes were exposed. Producer review starts when the records are
-shared with REMORA. [Claims P-73 and P-74](claims.html) bind these results.
+Expected outcomes were exposed. The [scope correction](experiments/remora-boundary-2026-10-04/README.md) preserves the original presentation and native results. Producer review of these run records starts when they are shared with REMORA. [Claims P-73 and P-74](claims.html) bind these results.
 
 ## Submitted producer-fixture runs
 

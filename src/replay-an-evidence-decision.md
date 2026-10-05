@@ -1,11 +1,15 @@
 ---
 title: "Replay an agent evidence decision without replaying the action"
 description: "Inspect retained file-write evidence, reproduce its admission decision and see why replay, altered authority and altered signed bytes refuse."
+social_image: "assets/admission-social.png"
+social_image_alt: "Replay a retained evidence decision: inspect inputs, check and persist once, then require replay, authority and signature refusals. This is a same-operator PEER fixture."
 ---
 
 A file changed. A consumer accepted its evidence. What happens when someone
 submits that same evidence again, changes the expected authority, or alters the
 signed claim? Replay this retained example to inspect each decision.
+
+The [preview image](assets/admission-social.png) has an [editable SVG](assets/admission-social.svg) and [source and export instructions](assets/README.md).
 
 The example uses [Observer](start.html#observer) and an original public CI
 bundle. Its checker reads the policy, signed packet, broker history, witness

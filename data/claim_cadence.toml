@@ -157,6 +157,21 @@
 "P-62" = "none"
 "P-63" = "none"
 
+# Immutable native records and their dated Lab publications.
+"P-64" = "none"
+"P-65" = "none"
+"P-66" = "none"
+"P-67" = "none"
+"P-68" = "none"
+"P-69" = "none"
+# The maintainer's current recurring integration state can change.
+"P-70" = 7
+# Preserved AG2 and REMORA records and original dated publications.
+"P-71" = "none"
+"P-72" = "none"
+"P-73" = "none"
+"P-74" = "none"
+
 # Project catalog sources are pinned.
 "C-01" = "none"
 "C-02" = "none"
@@ -182,3 +197,6 @@
 
 # The worked article replays unchanged historical source and retained bytes.
 "W-01" = "none"
+"W-02" = 7
+"W-03" = 7
+"W-04" = 7

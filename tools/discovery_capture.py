@@ -1,5 +1,22 @@
 #!/usr/bin/env python3
-"""Capture private native JSONL without running or scoring a discovery study."""
+"""Retain a private native JSONL attempt without scoring a discovery study.
+
+capture requires an explicit JSON manifest with attempt_id (canonical UUID),
+task_id (literal D-prefixed task ID), mode (navigation or open_search), positive
+repetition, suite_sha256, client description, literal argv and absolute cwd.
+The prompt file supplies exact native stdin. Only capture executes argv; it
+inherits the caller's native configuration. It refuses an existing directory.
+
+The response adapter recognises Codex item.completed/agent_message text. Its
+origin is native_event_text, distinct from optional native -o output files.
+Contract metadata is supplied separately and never executed. Grammar validity
+does not establish native answer equality, correctness or discovery acceptance.
+
+project atomically replaces a derived record for the same attempt. recover
+writes a new supplement outside the original capture. Unknown wait, closure,
+observation times and original durability remain unknown. Driver closure is a
+durable capture-loop observation, not proof of projection or driver exit.
+"""
 
 from __future__ import annotations
 
@@ -11,6 +28,17 @@ import subprocess
 import sys
 
 import discovery_capture_journal as custody
+
+
+def stop_child(process):
+    """Reap only this Popen child; normal capture has no time limit."""
+    if process.poll() is None:
+        process.terminate()
+        try:
+            return process.wait(timeout=1)
+        except subprocess.TimeoutExpired:
+            process.kill()
+    return process.wait()
 
 
 def capture(manifest_path, prompt_path, directory, fault=lambda _: None, utc=None, monotonic=None):
@@ -87,15 +115,20 @@ def run_capture(manifest, manifest_bytes, prompt, directory, fault, utc, monoton
     except KeyboardInterrupt:
         interrupted = True
         if process is not None:
-            process.terminate()
-            code = process.wait()
-            journal.append("native_wait", {"exit_code": code})
-            journal.append("driver_closure", {"state": "interrupted"})
+            code = stop_child(process)
+            # A signal can arrive after wait was already durably observed, or
+            # during a journal write. Preserve its prefix instead of inserting
+            # a duplicate wait or appending past a torn line.
+            rows, partial = journal.refresh_cursor()
+            if not partial:
+                if not any(row["kind"] == "native_wait" for row in rows):
+                    journal.append("native_wait", {"exit_code": code})
+                if not any(row["kind"] == "driver_closure" for row in rows):
+                    journal.append("driver_closure", {"state": "interrupted"})
     finally:
         # Unexpected errors preserve unknown closure. Stop only our own child.
         if process is not None and process.poll() is None:
-            process.terminate()
-            process.wait()
+            stop_child(process)
         if process is not None:
             for stream in (process.stdin, process.stdout, process.stderr):
                 stream.close()
@@ -109,7 +142,7 @@ def run_capture(manifest, manifest_bytes, prompt, directory, fault, utc, monoton
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("operation", choices=("capture", "project", "contract"))
+    parser.add_argument("operation", choices=("capture", "project", "contract", "recover"))
     parser.add_argument("--attempt-dir", type=Path, required=True)
     parser.add_argument("--manifest", type=Path)
     parser.add_argument("--prompt", type=Path)
@@ -127,6 +160,12 @@ def main(argv=None):
                             "contract requires only metadata and attempt directory")
             from discovery_capture_v2 import retain_contract
             retain_contract(args.attempt_dir, args.metadata)
+            return 0
+        if args.operation == "recover":
+            custody.require(args.output is not None and args.metadata is None and args.manifest is None and args.prompt is None,
+                            "recover requires only a new output and attempt directory")
+            from discovery_capture_recovery import recover
+            recover(args.attempt_dir, args.output)
             return 0
         custody.require(args.output is not None and args.manifest is None and args.prompt is None and args.metadata is None, "project requires only output and attempt directory")
         custody.write_projection(args.attempt_dir, args.output, custody.project(args.attempt_dir))

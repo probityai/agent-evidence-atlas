@@ -227,7 +227,8 @@
         "refusal",
         "observation",
         "origin",
-        "refusal_detail"
+        "refusal_detail",
+        "validator_sources"
       ],
       "properties": {
         "state": {
@@ -292,6 +293,29 @@
             },
             {
               "type": "null"
+            }
+          ]
+        },
+        "validator_sources": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "discovery_capture_v2.py",
+                "discovery-capture-v2.schema.json"
+              ],
+              "properties": {
+                "discovery_capture_v2.py": {
+                  "$ref": "#/$defs/binding"
+                },
+                "discovery-capture-v2.schema.json": {
+                  "$ref": "#/$defs/binding"
+                }
+              }
             }
           ]
         }

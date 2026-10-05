@@ -69,9 +69,12 @@ def open_regular(path, flags=os.O_RDONLY, mode=0o600):
 
 def read_small(path, limit=JSON_LIMIT):
     with open_regular(path) as stream:
-        data = stream.read(limit + 1)
-    require(len(data) <= limit, "JSON or prompt exceeds parsing budget")
-    return data
+        chunks, size = [], 0
+        while chunk := stream.read(min(65536, limit + 1 - size)):
+            chunks.append(chunk)
+            size += len(chunk)
+            require(size <= limit, "JSON or prompt exceeds parsing budget")
+    return b"".join(chunks)
 
 
 def file_binding(path):
@@ -163,13 +166,18 @@ def validate_manifest(value):
     require(isinstance(value["cwd"], str) and Path(value["cwd"]).is_absolute(), "absolute working directory required")
 
 
+def read_process_identity(pid):
+    """Read identity or expose absence/read failure to the recovery caller."""
+    boot = Path("/proc/sys/kernel/random/boot_id").read_text().strip()
+    record = Path(f"/proc/{pid}/stat").read_text()
+    fields = record[record.rfind(")") + 2:].split()
+    return {"boot_id": boot, "pid": pid, "start_ticks": int(fields[19])}
+
+
 def process_identity(pid):
-    """Read only this PID's boot/start identity; never argv or environment."""
+    """Record a nullable launch identity when a short-lived child raced the read."""
     try:
-        boot = Path("/proc/sys/kernel/random/boot_id").read_text().strip()
-        record = Path(f"/proc/{pid}/stat").read_text()
-        fields = record[record.rfind(")") + 2:].split()
-        return {"boot_id": boot, "pid": pid, "start_ticks": int(fields[19])}
+        return read_process_identity(pid)
     except (OSError, ValueError, IndexError):
         return {"boot_id": None, "pid": pid, "start_ticks": None}
 
@@ -207,6 +215,16 @@ class Journal:
 
     def close(self):
         self.stream.close()
+
+    def refresh_cursor(self):
+        """Reconcile a completed write interrupted before cursor advancement."""
+        self.stream.flush()
+        os.fsync(self.stream.fileno())
+        rows, partial = read_journal(self.directory)
+        if not partial:
+            self.sequence = len(rows)
+            self.previous = digest(read_small(self.directory / "receiver-journal.jsonl").splitlines(keepends=True)[-1]) if rows else None
+        return rows, partial
 
 
 def parse_event(data, oversized=False):
@@ -394,7 +412,7 @@ def derive_record(directory, journal_binding=None):
     contracts = [row for row in rows if row["kind"] == "contract"]
     require(len(contracts) <= 1, "duplicate contract observation")
     contract = {"origin": "supplied_metadata", "state": "not_evaluated", "metadata": None,
-                "selection": None, "refusal": None, "refusal_detail": None, "observation": None}
+                "selection": None, "refusal": None, "refusal_detail": None, "validator_sources": None, "observation": None}
     if contracts:
         from discovery_capture_v2 import metadata_result
         row = contracts[0]

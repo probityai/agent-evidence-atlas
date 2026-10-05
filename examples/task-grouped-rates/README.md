@@ -82,12 +82,15 @@ in the contract.
 
 ## Sources and a producer-owned next run
 
-[Cameron and Miller's author manuscript](https://faculty.econ.ucdavis.edu/faculty/cameron/research/Cameron_Miller_JHR_2014_July_09.pdf)
+[Cameron and Miller's published article](https://doi.org/10.3368/jhr.50.2.317)
 describes whole-cluster resampling and warns about few clusters and missing
 bootstrap values. [SciPy 1.16.2's bootstrap documentation](https://docs.scipy.org/doc/scipy-1.16.2/reference/generated/scipy.stats.bootstrap.html)
 describes paired index resampling and percentile intervals. This reader uses
 its own explicit nearest-rank convention; neither source establishes coverage
-for this example. `source-record.json` records the checked versions and hashes.
+for this example. The source record, `source-record.json`, keeps the originally
+checked July 2014 author manuscript, its version and hashes. The current
+citation uses the publisher's DOI; this route update does not replace that
+checked manuscript or change the reader's methods and results.
 
 A producer can replace the labels with a task-grouped attack/benign run, pin
 its source, retain raw episodes and disclose missing labels, sampling design

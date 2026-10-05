@@ -27,7 +27,7 @@
     </span>
   </nav>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
 <header class="page">
 <h1>A fixed action vocabulary improves this authored score; quality still holds</h1>
 </header>
@@ -49,6 +49,7 @@
 <p>All 128 calls started and scored. None has an error, incomplete, unknown-start or unsupported outcome. Completeness does not remove wrong policy decisions.</p>
 <h2 id="original-semantic-scores">Original semantic scores</h2>
 <p>Each row contains sixteen decisions and eight contrast pairs. Every row has sixteen schema-valid outputs. The native caps allow 24 or 96 completion tokens per call.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Model / Cap / Control correct / Vocabulary correct / Control complete pairs / Vocabulary complete pairs">
 <table>
 <colgroup>
 <col style="width: 13%" />
@@ -103,12 +104,15 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>The table copies all eight original quality rows. It does not select a better cap, change the rubric, or count schema success as semantic correctness. The same outputs and correct-case identities recur across the two caps in this run. These observations are descriptive, not independent trials.</p>
 <h2 id="evidence-acceptance-and-quality-refusal">Evidence acceptance and quality refusal</h2>
 <p>The ordinary installed reader accepts the scoped evidence and reconstructs the exact producer report. Its default host policy needs sixteen correct decisions and eight complete pairs per row. It reports <code>hold-quality</code> for all eight rows and exits with code 1. A second replay returns byte-identical stdout.</p>
 <p><code>--evidence-only</code> exits with code 0 while it still reports the quality hold. Changed terminal bytes fail the original host pins. A reselected over-budget terminal and a changed helper with new outer hashes both produce <code>hold-evidence</code>. The <a href="experiments/model-vocabulary-cpu-2026-10-03/installed-replay.json">installed replay receipt</a> records these actual model-free checks. The <a href="experiments/model-vocabulary-cpu-2026-10-03/source-contract.json">source contract</a> pins the wheel’s selected source bytes independently of packet declarations.</p>
 <p>A fresh checkout can run the downstream consumer without a model runtime. Use Python with the standard <code>venv</code> and <code>ensurepip</code> modules. On Debian or Ubuntu, install the <code>python3-venv</code> package for the selected Python first.</p>
+<div class="code-scroll" tabindex="0" role="region" aria-label="Code example">
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/replay_vocabulary.py <span class="at">--output</span> /tmp/probity-vocabulary-replay</span></code></pre></div>
+</div>
 <p>Use a new output directory. The command checks the source-bound Atlas register before it creates files or installs the retained wheel. It uses a clean virtual environment and an offline installation. It repeats the actual packet, retains the quality hold, checks evidence-only behavior, and refuses a changed terminal. The ordinary pull-request workflow declares this path without model inference. These remain checks by the same operator. They do not establish outside producer acceptance, recurring adoption, effect execution or independent custody.</p>
 <h2 id="native-resource-scope">Native resource scope</h2>
 <p>The native run uses 45.317547439 seconds wall time and 84.910453532 seconds whole-process CPU time. Its shared lifetime peak is 557,932 KiB. Returned native responses account for 10,624 prompt tokens and 1,172 completion tokens. CPU includes whole-process deltas. RSS is a shared lifetime peak, not a task or model allocation.</p>

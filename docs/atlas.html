@@ -27,7 +27,7 @@
     </span>
   </nav>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
 <header class="page">
 <h1>An atlas of agent assurance</h1>
 <p class="subtitle">Seven families of mechanisms that make claims about AI agents, the mechanisms inside each, what each establishes, what none of them establishes alone, and where the public evidence artifacts sit</p>
@@ -56,6 +56,7 @@
 <p>Each of those statements is useful, and each answers a different question for a different party. This atlas lays them side by side. Its data file counts 7 families, 45 named projects and standards, and 18 mechanisms, with the public artifacts that address the one cell no family fills.</p>
 <p>Every project or standard named in the family sections below is a standard, law or program of a recognized public, standards or industry body; an independent evaluation organization; or an organization-owned project measured at 5,000 GitHub stars or more. Every figure carries its read date. Each list is a representative sample of its family. Smaller projects that do the same work are counted by the mechanisms they implement rather than named.</p>
 <h2 id="the-map-in-one-table">The map in one table</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="family / the question it answers / a working instance establishes / it cannot establish on its own">
 <table>
 <colgroup>
 <col style="width: 25%" />
@@ -116,9 +117,11 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>The families map onto the three jobs that <a href="https://doi.org/10.5281/zenodo.21935891"><em>Three Jobs, Not One</em></a> separates. Families 1 and 2 carry the policy job: the decision on what may be attempted. Family 3 does the containment job: enforcing a boundary the agent’s code does not control. Families 4 and 5 are where systems usually attempt the evidence job. The table shows why neither finishes it: the party a trace describes writes the trace, and a signature fixes bytes without saying what they describe happened. Evaluation and governance are complementary roles. The evaluators and regulators who work in them scrutinize the other families. Neither role can stand in for any of them.</p>
 <h2 id="who-writes-the-record">Who writes the record</h2>
 <p>One question separates these mechanisms: who writes the record each one produces. The table uses the witness-scope terms of the <a href="https://github.com/probityai/agent-evidence-vocabulary">agent evidence vocabulary</a>: <code>self</code> is the observed party, or the system that runs it; <code>peer</code> is a party alongside it with its own stake, such as a gateway operator or an evaluator paid by the developer it evaluates; <code>external</code> is a party outside the observed system’s control. The writer given for each mechanism is this atlas’s reading of a typical deployment, not a property of the software.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="mechanism / family / writer / establishes / cannot establish">
 <table>
 <colgroup>
 <col style="width: 20%" />
@@ -265,6 +268,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>The “writer” column shows one pattern. Every mechanism that records the agent’s actions in deployment comes from the agent’s own side or from a peer with a stake in the outcome. Every mechanism written from the outside records something other than those actions: an identity, a launch state, a log inclusion, a timestamp, a test result, or an assessment of what the developer let the evaluator see.</p>
 <h2 id="identity-and-delegated-authority">1. Identity and delegated authority</h2>
 <dl>
@@ -281,6 +285,7 @@ That a request carried a credential bound to an identity a trusted issuer vouche
 That the holder is the agent it claims to be once a key or token leaves its workload; what the agent did with the authority; or whether a particular action matched what the principal intended. An identity makes an actor accountable only when some other record says what the actor did.
 </dd>
 </dl>
+<div class="table-scroll" tabindex="0" role="region" aria-label="project or standard / status read 2026-09-27; stars read 2026-10-01 07:04:40 UTC">
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -315,6 +320,7 @@ That the holder is the agent it claims to be once a key or token leaves its work
 </tr>
 </tbody>
 </table>
+</div>
 <dl>
 <dt>Seam to family 2 (policy, mediation and admission)</dt>
 <dd>
@@ -336,6 +342,7 @@ That a request which reached an enforcement point was evaluated against a stated
 Anything about requests that never passed through that point, anything about what happened after an allow, or that the policy was right. The decider writes the decision log, so the log reports the decision and nothing about the effect.
 </dd>
 </dl>
+<div class="table-scroll" tabindex="0" role="region" aria-label="project or standard / status read 2026-09-27; stars read 2026-10-01 07:04:40 UTC">
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -362,6 +369,7 @@ Anything about requests that never passed through that point, anything about wha
 </tr>
 </tbody>
 </table>
+</div>
 <dl>
 <dt>Seam to family 3 (containment)</dt>
 <dd>
@@ -383,6 +391,7 @@ That execution was restricted: the system calls, files, network destinations and
 What happened inside the allowed boundary. A sandbox limits what a process can reach and keeps no record of what it did. It cannot show by itself that it was in place for a particular run; that needs attestation by a party outside it. An escape it did not detect looks the same as no escape.
 </dd>
 </dl>
+<div class="table-scroll" tabindex="0" role="region" aria-label="project or standard / status read 2026-09-27; stars read 2026-10-01 07:04:40 UTC">
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -433,6 +442,7 @@ What happened inside the allowed boundary. A sandbox limits what a process can r
 </tr>
 </tbody>
 </table>
+</div>
 <dl>
 <dt>Seam to family 4 (observation and tracing)</dt>
 <dd>
@@ -454,6 +464,7 @@ What the instrumentation emitted: correlated spans, timings and attributes, as r
 That the events happened independently of the party emitting them; that nothing is missing, since tracing has no concept of a missing span and sampling drops spans by design; or that the record is intact, since spans are unsigned and can change anywhere in the collection pipeline.
 </dd>
 </dl>
+<div class="table-scroll" tabindex="0" role="region" aria-label="project or standard / status read 2026-09-27; stars read 2026-10-01 07:04:40 UTC">
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -492,6 +503,7 @@ That the events happened independently of the party emitting them; that nothing 
 </tr>
 </tbody>
 </table>
+</div>
 <dl>
 <dt>Seam to family 5 (records, receipts and transparency)</dt>
 <dd>
@@ -513,6 +525,7 @@ Integrity and origin of bytes: the holder of a key signed these bytes and no oth
 That what the bytes describe occurred; that the set of records is complete; that their content is true; or that the signer observed anything at all.
 </dd>
 </dl>
+<div class="table-scroll" tabindex="0" role="region" aria-label="project or standard / status read 2026-09-27; stars read 2026-10-01 07:04:40 UTC">
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -551,6 +564,7 @@ That what the bytes describe occurred; that the set of records is complete; that
 </tr>
 </tbody>
 </table>
+</div>
 <dl>
 <dt>Seam to family 6 (conformance and evaluation)</dt>
 <dd>
@@ -572,6 +586,7 @@ Measured behavior of a specific system version, under a specific harness and tas
 Behavior in deployment; that the evaluated system is the deployed one, unless the two are bound by digest; the absence of capabilities it did not test; or the soundness of its own result, unless someone else can recompute it from preserved inputs.
 </dd>
 </dl>
+<div class="table-scroll" tabindex="0" role="region" aria-label="project or standard / status read 2026-09-27; stars read 2026-10-01 07:04:40 UTC">
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -618,6 +633,7 @@ Behavior in deployment; that the evaluated system is the deployed one, unless th
 </tr>
 </tbody>
 </table>
+</div>
 <dl>
 <dt>Seam to family 7 (governance, requirements and vocabulary)</dt>
 <dd>
@@ -639,6 +655,7 @@ Obligations, risk categories, process requirements and routes to conformity.
 That any obligation was met. Several instruments are voluntary, and several rest on standards not yet published. None specifies evidence that a distrusting party could re-check.
 </dd>
 </dl>
+<div class="table-scroll" tabindex="0" role="region" aria-label="project or standard / status read 2026-09-27; stars read 2026-10-01 07:04:40 UTC">
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -685,6 +702,7 @@ That any obligation was met. Several instruments are voluntary, and several rest
 </tr>
 </tbody>
 </table>
+</div>
 <dl>
 <dt>Seam back to family 1 (identity and delegated authority)</dt>
 <dd>
@@ -696,6 +714,7 @@ Accountability obligations end in a person or an organization. The record that w
 <p>Signing more records does not close that cell; the seam between tracing and receipts shows why, since a signature fixes a self-report’s bytes without changing who wrote it. Where the cell can be closed at all, closing it takes records made from a vantage the observed party does not control, bound to what they observed, with an explicit statement of what they do not cover and a rule for what a missing record means. The rest of this site works in that cell. The <a href="versions.html">version ledger</a> lists each piece with its status.</p>
 <h2 id="where-the-public-evidence-artifacts-sit">Where the public evidence artifacts sit</h2>
 <p>My vocabulary, conformance corpus and admission rules address that cell. Two Rust crates supply the byte handling of family 5 that they rest on. The last column follows each README’s statement of what the repository does not do.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="artifact / family / release and read time; status label / what it does / what it does not do">
 <table>
 <colgroup>
 <col style="width: 20%" />
@@ -751,8 +770,10 @@ Accountability obligations end in a person or an organization. The record that w
 </tr>
 </tbody>
 </table>
+</div>
 <h3 id="the-conformance-corpora">The conformance corpora</h3>
 <p>The historical baseline at release v0.13.0 of agent-evidence-vectors carries 817 vectors in 13 corpora. Each corpus tests one specification or one contract; several test specifications written by others, so that anyone can check independent implementations of those specifications against the same cases.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="corpus / members / split / what it tests">
 <table>
 <colgroup>
 <col style="width: 25%" />
@@ -849,8 +870,10 @@ Accountability obligations end in a person or an organization. The record that w
 </tr>
 </tbody>
 </table>
+</div>
 <h2 id="standards-work-in-review-and-public-listings">Standards work in review, and public listings</h2>
 <p>These are my contributions to other bodies’ work, listed where the repository meets the naming rule above: a pull request to each of two projects and an Internet-Draft. No body had merged or adopted any of them when I read their states. Each carries the state I read.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="where / what / state, read 2026-09-27">
 <table>
 <colgroup>
 <col style="width: 33%" />
@@ -882,6 +905,8 @@ Accountability obligations end in a person or an organization. The record that w
 </tr>
 </tbody>
 </table>
+</div>
+<div class="table-scroll" tabindex="0" role="region" aria-label="listing / what / state, read 2026-09-27">
 <table>
 <colgroup>
 <col style="width: 33%" />
@@ -908,6 +933,7 @@ Accountability obligations end in a person or an organization. The record that w
 </tr>
 </tbody>
 </table>
+</div>
 <h2 id="checking-this-page">Checking this page</h2>
 <ul>
 <li>A “cannot establish” line is the limit of its family. The projects listed under a family are measured against that line alone.</li>

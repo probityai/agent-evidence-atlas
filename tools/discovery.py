@@ -124,6 +124,8 @@ def start_markdown(public: dict[str, Any]) -> str:
         "",
         "Vectors tests how a verifier behaves. Verify checks a supplied claim against evidence bytes.",
         "",
+        "Use the catalog ID when selecting a tool or profile in a structured record. Repository names and display labels can differ from that ID.",
+        "",
         "| Task | Project |",
         "| --- | --- |",
     ]
@@ -137,6 +139,12 @@ def start_markdown(public: dict[str, Any]) -> str:
             [
                 "",
                 f"## {record['display_name']} {{#{record['id']}}}",
+                "",
+                (
+                    f"Profile ID: `{record['id']}`. Component ID: `{record['component']}`."
+                    if "component" in record
+                    else f"Component ID: `{record['id']}`."
+                ),
                 "",
                 record["summary"],
                 "",
@@ -184,8 +192,13 @@ def llms_index(public: dict[str, Any], pages: set[str]) -> str:
             rows.append(f"- [{label}]({BASE_URL}{stem}.md): {summary}")
     rows.extend(["", "## Projects", ""])
     for record in project_entries(public):
+        identity = (
+            f"Profile ID: `{record['id']}`. Component ID: `{record['component']}`."
+            if "component" in record
+            else f"Component ID: `{record['id']}`."
+        )
         rows.append(
-            f"- [{record['display_name']}]({project_url(record, public)}): {record['summary']}"
+            f"- [{record['display_name']}]({project_url(record, public)}): {identity} {record['summary']}"
         )
     rows.extend(
         [

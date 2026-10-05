@@ -403,8 +403,8 @@ def render_navigation(data: dict[str, Any]) -> dict[str, str]:
     table = [
         "# Find a tool for your task",
         "",
-        "| Task | Project | Status |",
-        "| --- | --- | --- |",
+        "| Task | Project | Catalog ID | Status |",
+        "| --- | --- | --- | --- |",
     ]
     llms = [
         "# Probity public projects",
@@ -419,10 +419,10 @@ def render_navigation(data: dict[str, Any]) -> dict[str, str]:
         url = component.get("docs_url", repo["url"])
         name = component["display_name"]
         table.append(
-            f"| {component['task']} | [{name}]({url}) | {component['status']} |"
+            f"| {component['task']} | [{name}]({url}) | `{component['id']}` | {component['status']} |"
         )
         llms.append(
-            f"- [{name}]({url}): {component['summary']} Status: {component['status']}."
+            f"- [{name}]({url}): Catalog ID: `{component['id']}`. {component['summary']} Status: {component['status']}."
         )
     return {
         "TASKS.md": "\n".join(table) + "\n",

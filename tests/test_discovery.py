@@ -49,6 +49,9 @@ class TestStartMarkdown:
                 assert f"](#{record['id']})" in page
                 assert f"{{#{record['id']}}}" in page
                 assert discovery.project_url(record, public) in page
+                assert f"ID: `{record['id']}`" in page
+                if "component" in record:
+                    assert f"Component ID: `{record['component']}`" in page
             assert (
                 "Vectors tests how a verifier behaves. Verify checks a supplied claim"
                 in page
@@ -77,7 +80,9 @@ class TestStartMarkdown:
 
         def test_rename_preserves_fragment(self, public: dict[str, Any]) -> None:
             public["components"][0]["display_name"] = "Changed label"
-            assert "## Changed label {#admission}" in discovery.start_markdown(public)
+            page = discovery.start_markdown(public)
+            assert "## Changed label {#admission}" in page
+            assert "Component ID: `admission`." in page
 
         @given(st.integers(min_value=0, max_value=2**32 - 1))
         def test_input_order_does_not_change_navigation(self, seed: int) -> None:
@@ -157,6 +162,9 @@ class TestLlmsIndex:
             assert f"{discovery.BASE_URL}lab/register.json" in index
             for record in discovery.project_entries(public):
                 assert discovery.project_url(record, public) in index
+                assert f"ID: `{record['id']}`" in index
+                if "component" in record:
+                    assert f"Component ID: `{record['component']}`" in index
 
         def test_asset_json_is_the_same_projection(
             self, public: dict[str, Any]

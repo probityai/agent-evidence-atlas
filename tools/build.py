@@ -197,6 +197,7 @@ COPIES = [
     ("data/readouts/rederive-2026-10-01.txt", "readouts/rederive-2026-10-01.txt", "claims"),
     ("data/lab-register.json", "lab/register.json", "lab"),
     ("assets/site.css", "assets/site.css", None),
+    ("assets/admission-replay.svg", "assets/admission-replay.svg", "replay-an-evidence-decision"),
     ("experiments/observer-vantage/run.py", "experiments/observer-vantage/run.py", "experiments"),
     ("experiments/observer-vantage/recorded.json", "experiments/observer-vantage/recorded.json", "experiments"),
     ("experiments/trace-transcript/run.py", "experiments/trace-transcript/run.py", "experiments"),

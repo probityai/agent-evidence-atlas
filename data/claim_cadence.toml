@@ -179,3 +179,6 @@
 "C-18" = "none"
 "C-19" = "none"
 "C-20" = 7
+
+# The worked article replays unchanged historical source and retained bytes.
+"W-01" = "none"

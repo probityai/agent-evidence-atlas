@@ -60,6 +60,7 @@ NAV = [
 # page whose links need it, or None for every page). A copy is made exactly when its
 # page is built, and a missing source for a built page fails the build.
 COPIES = [
+    ("assets/component-tasks.svg", "assets/component-tasks.svg", "index"),
     ('experiments/ag2-push-authority-2026-10-04/AG2-PR70-FIRST-FAILED-ARTIFACTS.json', 'experiments/ag2-push-authority-2026-10-04/AG2-PR70-FIRST-FAILED-ARTIFACTS.json', 'lab'),
     ('experiments/ag2-push-authority-2026-10-04/AG2-PR70-FIRST-FAILED-JOB.log', 'experiments/ag2-push-authority-2026-10-04/AG2-PR70-FIRST-FAILED-JOB.log', 'lab'),
     ('experiments/ag2-push-authority-2026-10-04/AG2-PR70-FIRST-FAILED-JOBS.json', 'experiments/ag2-push-authority-2026-10-04/AG2-PR70-FIRST-FAILED-JOBS.json', 'lab'),

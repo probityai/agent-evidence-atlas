@@ -14,14 +14,14 @@ A digest here is the SHA-256 of the artifact's source file in the site's reposit
 | Verifier demonstration | 0.1 | 2026-09-27 | held | page not built in this repository yet | Held until it passes its release criteria |
 | [Experiments](experiments.md) | 0.3 | 2026-10-01 | draft | `a26fd7b03c3d6f15` `src/experiments.md` | Adds original observer CI admission bytes, immutable source pins, executable replay and refusal controls; independent operation remains unestablished |
 | Series plan | 0.1 | 2026-09-27 | held | page not built in this repository yet | Held until it passes its release criteria |
-| [Claim ledger](claims.md) | 0.8.10 | 2026-10-05 | draft | `c2cbcaf7b28447ff` `CLAIMS.md` | Records the native Inspect reader scope, accepted catalog source and older live publication |
+| [Claim ledger](claims.md) | 0.8.11 | 2026-10-05 | draft | `0db1bb7039883473` `CLAIMS.md` | Records current exact Rust installation sources and bounded witnessed run selection |
 | [Probity Open Evidence Lab](lab.md) | 0.1.8 | 2026-10-04 | draft | `a1f205a2577bc501` `src/lab.md` | Adds the AG2 authority comparison and preserves all 22 earlier records and separate native attempts |
 | [Task-grouped rates worked example](task-grouped-rates.md) | 0.1 | 2026-10-03 | draft | `92940ce8ee827ad0` `examples/task-grouped-rates/input.json` | Authored labels, paired task resampling, explicit weighting targets and unresolved outcomes |
 | [Published robot controls companion](provael-task-controls.md) | 0.1 | 2026-10-03 | draft | `20b90c1ae59c399d` `examples/provael-task-controls/source-record.json` | Original publisher simulator labels, matched controls, corrected interpretation and exact paired task weights |
 | [APS and PriorSeal pilot status](pilot.md) | 0.1.1 | 2026-10-01 | proposed | `82f9b0467d64ac00` `src/pilot.md` | Probity-owned proposal, merged technical replay, owner slots and acceptance gates; no formal pilot agreement |
 | [Authored policy vocabulary finding](vocabulary-findings.md) | 0.1 | 2026-10-03 | draft | `20af3bbeb2180633` `src/vocabulary-findings.md` | Fixed action vocabulary raises the finite authored score; all default quality rows hold |
 | [Authored tool-argument finding](tool-argument-findings.md) | 0.1 | 2026-10-03 | draft | `958f2a8c3268901a` `src/tool-argument-findings.md` | Preserves all native attempts, abstention failures and separate scoped-evidence publication/quality holds |
-| [Project catalog](start.md) | 0.4 | 2026-10-05 | draft | `b2971b85fb95b3cb` `data/catalog.json` | Adds the bounded native Inspect reader profile with its accepted guide pin and retained upstream catalog sources |
+| [Project catalog](start.md) | 0.5 | 2026-10-05 | draft | `1d623519129bc602` `data/catalog.json` | Adds witnessed run selection and refreshes current Rust quickstart and Observer source pins |
 | [Automation guide](automation.md) | 0.1 | 2026-10-03 | draft | `8d5210e52eb37094` `src/automation.md` | Catalog lookups, checked run records and result submissions |
 | [Catalog maintenance guide](catalog.md) | 0.4 | 2026-10-05 | draft | `4b8ca5cd9be3c662` `src/catalog.md` | Separates integration reader status from upstream listing acceptance and live publication |
 

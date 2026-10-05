@@ -15,6 +15,7 @@ Vectors tests how a verifier behaves. Verify checks a supplied claim against evi
 | Test a verifier against conformance cases | [Probity Vectors](#vectors) |
 | Install a pinned verifier and check an evidence claim | [Probity Verify](#verify) |
 | Use shared definitions for agent evidence claims | [Probity Vocabulary](#vocabulary) |
+| Check a selected run against retained witness anchors | [Probity witnessed run selection](#witnessed-run-selection) |
 
 <a id="admission"></a>
 
@@ -38,7 +39,7 @@ Draft. [Quickstart and source](https://github.com/probityai/agent-evidence-atlas
 
 Signs and verifies DSSE envelopes with explicit threshold and key handling.
 
-Released. [Quickstart and source](https://github.com/probityai/dsse/blob/fa96f343623a520c38cb213c1315ee9bfa1bb3c0/README.md)
+Released. [Quickstart and source](https://github.com/probityai/dsse/blob/35e418022b19bebedec13ebb4c31bc43b1c70caf/README.md)
 
 <a id="inspect-native-reader"></a>
 
@@ -54,7 +55,7 @@ Prototype. [Quickstart and source](https://github.com/probityai/agent-evidence-o
 
 Checks raw JSON input before producing its RFC 8785 canonical form.
 
-Released. [Quickstart and source](https://github.com/probityai/jcs-admit/blob/b3ecf0a36d6e72eef1ee808678811f42787f2c23/README.md)
+Released. [Quickstart and source](https://github.com/probityai/jcs-admit/blob/3e189b20711a57ce91eab40509324dd1d5d54cac/README.md)
 
 <a id="observer"></a>
 
@@ -62,7 +63,7 @@ Released. [Quickstart and source](https://github.com/probityai/jcs-admit/blob/b3
 
 Records brokered file actions with signed packets and history, and reads selected native delegation evidence offline.
 
-Prototype. [Quickstart and source](https://github.com/probityai/agent-evidence-observer/blob/1ec93df92b49239175147c2b9f3ccda87a090cd1/README.md)
+Prototype. [Quickstart and source](https://github.com/probityai/agent-evidence-observer/blob/d53776c7b783abbce42a3422f56ed390dfedd2f2/README.md)
 
 <a id="vectors"></a>
 
@@ -87,6 +88,14 @@ Unreleased. [Quickstart and source](https://github.com/probityai/probity-verify/
 Defines versioned terms and crosswalks for claims about agent execution.
 
 Released. [Quickstart and source](https://github.com/probityai/agent-evidence-vocabulary/blob/8c80579ae613d7ae07982321e13a6091c402b2a8/README.md)
+
+<a id="witnessed-run-selection"></a>
+
+## Probity witnessed run selection
+
+Checks a supplied run against consumer-retained witness anchors, plan and control pins, and execution closure.
+
+Prototype. [Quickstart and source](https://github.com/probityai/agent-evidence-observer/blob/d53776c7b783abbce42a3422f56ed390dfedd2f2/docs/WITNESSED-RUN-SELECTION.md)
 
 <a id="run-and-share-a-check"></a>
 

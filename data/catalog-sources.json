@@ -182,5 +182,37 @@
     "blob_sha": "521bb72bb01d1079e4c6ebc1ef6ad92ed64a0c47",
     "url": "https://github.com/UKGovernmentBEIS/inspect_ai/blob/1d224f344b21517e22fa9aa4e0fefdf273c01641/extensions/extensions.json",
     "read_at": "2026-10-05T01:04:00.747825+00:00"
+  },
+  {
+    "repository": "probityai/jcs-admit",
+    "path": "README.md",
+    "commit": "3e189b20711a57ce91eab40509324dd1d5d54cac",
+    "blob_sha": "49c2b8cf05903103700a8ce2220690761946f80d",
+    "url": "https://github.com/probityai/jcs-admit/blob/3e189b20711a57ce91eab40509324dd1d5d54cac/README.md",
+    "read_at": "2026-10-05T02:36:50.266054+00:00"
+  },
+  {
+    "repository": "probityai/dsse",
+    "path": "README.md",
+    "commit": "35e418022b19bebedec13ebb4c31bc43b1c70caf",
+    "blob_sha": "1bd79b9ad268a289cf8faa0a321f5e776a72c912",
+    "url": "https://github.com/probityai/dsse/blob/35e418022b19bebedec13ebb4c31bc43b1c70caf/README.md",
+    "read_at": "2026-10-05T02:36:50.266054+00:00"
+  },
+  {
+    "repository": "probityai/agent-evidence-observer",
+    "path": "README.md",
+    "commit": "d53776c7b783abbce42a3422f56ed390dfedd2f2",
+    "blob_sha": "a9256efa200eec5f9e795b63faa2cdbb3597c624",
+    "url": "https://github.com/probityai/agent-evidence-observer/blob/d53776c7b783abbce42a3422f56ed390dfedd2f2/README.md",
+    "read_at": "2026-10-05T02:36:50.266054+00:00"
+  },
+  {
+    "repository": "probityai/agent-evidence-observer",
+    "path": "docs/WITNESSED-RUN-SELECTION.md",
+    "commit": "d53776c7b783abbce42a3422f56ed390dfedd2f2",
+    "blob_sha": "c59cde60f6eddfd85d3731aebb6d63b2f51573c3",
+    "url": "https://github.com/probityai/agent-evidence-observer/blob/d53776c7b783abbce42a3422f56ed390dfedd2f2/docs/WITNESSED-RUN-SELECTION.md",
+    "read_at": "2026-10-05T02:36:50.266054+00:00"
   }
 ]

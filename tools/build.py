@@ -33,6 +33,7 @@ from pathlib import Path
 
 import discovery
 import markdown_mirrors
+import social_metadata
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "src"
@@ -69,6 +70,10 @@ COPIES = [
     ('experiments/aeoess-receipt-signature-2026-10-05/source-manifest.json', 'experiments/aeoess-receipt-signature-2026-10-05/source-manifest.json', 'lab'),
     ('experiments/aeoess-receipt-signature-2026-10-05/selected-public-source.zip', 'experiments/aeoess-receipt-signature-2026-10-05/selected-public-source.zip', 'lab'),
     ('experiments/aeoess-receipt-signature-2026-10-05/validate_capsule.py', 'experiments/aeoess-receipt-signature-2026-10-05/validate_capsule.py', 'lab'),
+    ("assets/admission-social.png", "assets/admission-social.png", "replay-an-evidence-decision"),
+    ("assets/admission-social.svg", "assets/admission-social.svg", "replay-an-evidence-decision"),
+    ("assets/README.md", "assets/README.md", "replay-an-evidence-decision"),
+    ("assets/component-tasks.svg", "assets/component-tasks.svg", "index"),
     ('experiments/ag2-push-authority-2026-10-04/AG2-PR70-FIRST-FAILED-ARTIFACTS.json', 'experiments/ag2-push-authority-2026-10-04/AG2-PR70-FIRST-FAILED-ARTIFACTS.json', 'lab'),
     ('experiments/ag2-push-authority-2026-10-04/AG2-PR70-FIRST-FAILED-JOB.log', 'experiments/ag2-push-authority-2026-10-04/AG2-PR70-FIRST-FAILED-JOB.log', 'lab'),
     ('experiments/ag2-push-authority-2026-10-04/AG2-PR70-FIRST-FAILED-JOBS.json', 'experiments/ag2-push-authority-2026-10-04/AG2-PR70-FIRST-FAILED-JOBS.json', 'lab'),
@@ -206,6 +211,7 @@ COPIES = [
     ("data/readouts/rederive-2026-10-01.txt", "readouts/rederive-2026-10-01.txt", "claims"),
     ("data/lab-register.json", "lab/register.json", "lab"),
     ("assets/site.css", "assets/site.css", None),
+    ("assets/admission-replay.svg", "assets/admission-replay.svg", "replay-an-evidence-decision"),
     ("experiments/observer-vantage/run.py", "experiments/observer-vantage/run.py", "experiments"),
     ("experiments/observer-vantage/recorded.json", "experiments/observer-vantage/recorded.json", "experiments"),
     ("experiments/trace-transcript/run.py", "experiments/trace-transcript/run.py", "experiments"),
@@ -283,6 +289,8 @@ def render(source: Path, dest: Path, built: set[str]) -> None:
     text = expand(source.read_text(encoding="utf-8"))
     home, links = nav_html(built)
     canonical = BASE_URL if dest.stem == "index" else f"{BASE_URL}{dest.stem}.html"
+    published = {dst: src for src, dst, page in COPIES if page is None or page == dest.stem}
+    headmetadata = social_metadata.render(text, ROOT, published, BASE_URL, canonical, SITE_NAME)
     args = [
         "pandoc",
         "--from=markdown+smart",
@@ -297,6 +305,7 @@ def render(source: Path, dest: Path, built: set[str]) -> None:
         f"--variable=canonical:{canonical}",
         f"--variable=markdown:{BASE_URL}{dest.stem}.md",
         f"--variable=agentguide:{BASE_URL}llms.txt",
+        f"--variable=headmetadata:{headmetadata}",
         f"--variable=homelink:{home}",
         f"--variable=navlinks:{links}",
         "--wrap=none",

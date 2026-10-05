@@ -71,7 +71,7 @@ Prototype. [Quickstart and source](https://github.com/probityai/agent-evidence-o
 
 Provides conformance cases and reference verifiers for selected agent evidence formats.
 
-Released. [Quickstart and source](https://github.com/probityai/agent-evidence-vectors/blob/308c5b4401b18d42ed73dea80459375932e6b8e8/README.md)
+Released. [Quickstart and source](https://github.com/probityai/agent-evidence-vectors/blob/b5320f32b1a90d03edcfd41a864ea4f5e17c7955/README.md)
 
 <a id="verify"></a>
 

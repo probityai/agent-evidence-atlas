@@ -63,7 +63,7 @@ source = "CLAIMS.md"
 version = "0.8.13"
 date = "2026-10-05"
 status = "draft"
-note = "Retains REMORA scope corrections and records current Rust and Observer installation routes"
+note = "Retains REMORA scope corrections and records current Rust, Observer and Vectors installation routes"
 
 [[artifact]]
 name = "Probity Open Evidence Lab"
@@ -126,7 +126,7 @@ source = "data/catalog.json"
 version = "0.5"
 date = "2026-10-05"
 status = "draft"
-note = "Adds witnessed run selection and refreshes current Rust quickstart and Observer source pins"
+note = "Adds witnessed run selection and refreshes current Rust, Observer and Vectors installation routes"
 
 [[artifact]]
 name = "Automation guide"

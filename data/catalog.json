@@ -41,7 +41,7 @@
       "packages": [
         "agent-evidence-vectors"
       ],
-      "docs_url": "https://github.com/probityai/agent-evidence-vectors/blob/308c5b4401b18d42ed73dea80459375932e6b8e8/README.md",
+      "docs_url": "https://github.com/probityai/agent-evidence-vectors/blob/b5320f32b1a90d03edcfd41a864ea4f5e17c7955/README.md",
       "relationships": []
     },
     {
@@ -207,9 +207,9 @@
       "full_name": "probityai/agent-evidence-vectors",
       "url": "https://github.com/probityai/agent-evidence-vectors",
       "source": {
-        "commit": "308c5b4401b18d42ed73dea80459375932e6b8e8",
+        "commit": "b5320f32b1a90d03edcfd41a864ea4f5e17c7955",
         "repository": "repo-vectors",
-        "url": "https://github.com/probityai/agent-evidence-vectors/blob/308c5b4401b18d42ed73dea80459375932e6b8e8/README.md"
+        "url": "https://github.com/probityai/agent-evidence-vectors/blob/b5320f32b1a90d03edcfd41a864ea4f5e17c7955/README.md"
       }
     },
     {

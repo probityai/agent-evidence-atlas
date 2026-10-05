@@ -255,6 +255,8 @@ Each row's identifier starts with the letter of the page it covers: `A` for the 
 |---|---|---|---|---|---|
 | W-01 | The retained replay exits zero and prints admitted plus the exact replay, authority and signature refusals; every refusal preserves consumer state. The article selects Atlas 57d0085723c9eee1400797acf6729c4204325451, Observer 8562c25fb7ec97596ea9d0297c495340298914b6, Python 3.12.14 and cryptography 46.0.7. | [Historical runner](https://github.com/probityai/agent-evidence-atlas/blob/57d0085723c9eee1400797acf6729c4204325451/experiments/observer-admission/run.py); [recorded result](experiments/observer-admission/recorded.json); [worked article](replay-an-evidence-decision.html); E-10 through E-13 | 2026-10-05 | Run the article commands; require the complete report with `--expect` and retained files with `--manifest`; compare selected stdout with the article | A source-pinned retained fixture replay, not a current package-install recommendation, new Lab record, live-agent run, independent operator or independent custody. |
 
+| W-02 | The home page groups all eight public components by task and links the retained replay walkthrough; the machine guide also links that walkthrough. | `data/catalog.json`; `assets/component-tasks.svg`; `src/index.md`; `tools/discovery.py` | 2026-10-05 | `python3 tools/build.py --check`; `python3 tools/check_links.py`; compare the map with the reviewed catalog and read `llms.txt` | Entry points, not inferred architecture or dependencies. Navigation coverage is not a real discovery attempt or a human walkthrough. |
+
 ## Discovery task evaluation
 
 | id | claim as printed | source | read (UTC) | re-derive | limit |

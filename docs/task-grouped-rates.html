@@ -27,7 +27,7 @@
     </span>
   </nav>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
 <header class="page">
 <h1>Task-grouped rates</h1>
 <p class="subtitle">A runnable matched-control example that keeps repeated episodes together</p>
@@ -48,13 +48,16 @@
 <h1 id="task-grouped-rates-with-a-matched-benign-control">Task-grouped rates with a matched benign control</h1>
 <p>A small worked example for reporting a failure rate when each task has repeated episodes. Both arms of a task travel together through the calculation. The episode labels are invented; a robot run can supply the same fields with its own retained inputs and provenance.</p>
 <p>Run from the repository root with Python 3.11 or later. The reader has no extra dependencies:</p>
+<div class="code-scroll" tabindex="0" role="region" aria-label="Code example">
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/check_grouped_rates.py <span class="dt">\</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--input</span> examples/task-grouped-rates/input.json <span class="dt">\</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--expect</span> examples/task-grouped-rates/report.json <span class="dt">\</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--output</span> grouped-rate-report.json</span></code></pre></div>
+</div>
 <p><code>input.json</code> retains every episode ID, label and task assignment, plus the declared matching conditions, rubric and population. <code>contract.json</code> states the calculation and its limits. <code>report.json</code> binds the exact input and reader SHA-256 values and keeps every resampling draw.</p>
 <h2 id="counts-and-two-different-questions">Counts and two different questions</h2>
 <p>Both arms use the same declared agent, environment, budget and outcome rubric; the declared attack intervention differs. Matching these declarations does not verify the actual conditions of a producer run.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Task / Attack failures / resolved episodes / Benign failures / resolved episodes / Unresolved in each arm">
 <table>
 <colgroup>
 <col style="width: 25%" />
@@ -97,6 +100,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>There are 19 attempts and 18 resolved episodes in each arm. Pooling resolved episodes gives attack 12/18 and benign 4/18, a difference of 4/9. Giving each task equal weight gives attack 41/80 and benign 19/80, a difference of 11/40. The first answers a question about the retained episode mix; the second answers a question about an equally weighted task mix. Declare the target before choosing an aggregation rule.</p>
 <p>Unresolved labels stay visible. They are excluded only from those named resolved-rate denominators. Over all attempted episodes, the attack failure rate lies between 12/19 and 13/19, and benign between 4/19 and 5/19, depending on how the unresolved labels turn out. These are worst-case missing-label bounds, not sampling intervals. An empty or unresolved-only task arm has a null rate. It stays in the population and blocks the equal-task estimand; the reader never silently removes it.</p>
 <h2 id="resample-tasks-retaining-repeats-and-controls">Resample tasks, retaining repeats and controls</h2>

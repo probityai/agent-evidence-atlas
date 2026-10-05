@@ -27,7 +27,7 @@
     </span>
   </nav>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
 <header class="page">
 <h1>Maintain the project catalog</h1>
 </header>
@@ -42,14 +42,18 @@
 <p>Components may share repositories or span several of them. Rename the display label without changing the ID. Retain an old ID when retiring a project.</p>
 <p>Use public metadata in this file; planning notes belong in a private workspace. The schema owns field shape; <code>tools/discoverability/catalog.py</code> checks names, references, destinations and source pins. The build projects reviewed public fields.</p>
 <h2 id="check-the-update">Check the update</h2>
+<div class="code-scroll" tabindex="0" role="region" aria-label="Code example">
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> pip install <span class="at">-r</span> requirements/discoverability-test.txt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> pytest <span class="at">-q</span> tools/discoverability/test_catalog.py tests/test_discovery.py</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/build.py</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/build.py <span class="at">--check</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/check_links.py</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/check_lab.py</span></code></pre></div>
+</div>
 <p>For a rename or retirement, validate with the previous catalog too:</p>
+<div class="code-scroll" tabindex="0" role="region" aria-label="Code example">
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/discoverability/catalog.py validate data/catalog.json <span class="at">--previous</span> tools/discoverability/catalog.seed.json</span></code></pre></div>
+</div>
 <h2 id="import-a-reviewed-catalog">Import a reviewed catalog</h2>
 <p>Keep the current catalog as the baseline. Import the reviewed public fields with stable IDs and publication gates, then validate against that baseline. Review its pinned README sources and retain their earlier rows in <code>data/catalog-sources.json</code>.</p>
 <p>Run the native build and compare <code>docs/catalog.json</code> with the reviewed public projection. They should contain the same repositories, components and profiles. Update the C rows in <code>CLAIMS.md</code> and the catalog revision in <code>data/versions.toml</code> with the source capture.</p>

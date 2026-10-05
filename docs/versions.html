@@ -26,13 +26,14 @@
     </span>
   </nav>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
 <header class="page">
 <h1>Version ledger</h1>
 <p class="subtitle">Every artifact on this site, its version, its status, and a digest of the source it was built from</p>
 <p class="status">Draft. Site version 0.6-draft, 2026-10-01. Rebuilt on every change; the digests let a reader check that a page matches the version recorded here.</p>
 </header>
 <p>A digest here is the SHA-256 of the artifact’s source file in the site’s repository, truncated to 16 hexadecimal characters for display. A change to the source changes the digest, and a change that alters what a page claims also gets a new version and a note.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="artifact / version / date / status / source SHA-256 (first 16) / note">
 <table style="width:100%;">
 <colgroup>
 <col style="width: 16%" />
@@ -183,6 +184,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 </main>
 <footer class="site">
   <p>Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.6-draft, 2026-10-01.</p>

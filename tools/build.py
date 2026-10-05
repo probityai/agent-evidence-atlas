@@ -61,6 +61,15 @@ NAV = [
 # page whose links need it, or None for every page). A copy is made exactly when its
 # page is built, and a missing source for a built page fails the build.
 COPIES = [
+    ('experiments/aeoess-receipt-signature-2026-10-05/README.md', 'experiments/aeoess-receipt-signature-2026-10-05/README.md', 'lab'),
+    ('experiments/aeoess-receipt-signature-2026-10-05/RUN.md', 'experiments/aeoess-receipt-signature-2026-10-05/RUN.md', 'lab'),
+    ('experiments/aeoess-receipt-signature-2026-10-05/report1.json', 'experiments/aeoess-receipt-signature-2026-10-05/report1.json', 'lab'),
+    ('experiments/aeoess-receipt-signature-2026-10-05/report2.json', 'experiments/aeoess-receipt-signature-2026-10-05/report2.json', 'lab'),
+    ('experiments/aeoess-receipt-signature-2026-10-05/report.json', 'experiments/aeoess-receipt-signature-2026-10-05/report.json', 'lab'),
+    ('experiments/aeoess-receipt-signature-2026-10-05/provenance.json', 'experiments/aeoess-receipt-signature-2026-10-05/provenance.json', 'lab'),
+    ('experiments/aeoess-receipt-signature-2026-10-05/source-manifest.json', 'experiments/aeoess-receipt-signature-2026-10-05/source-manifest.json', 'lab'),
+    ('experiments/aeoess-receipt-signature-2026-10-05/selected-public-source.zip', 'experiments/aeoess-receipt-signature-2026-10-05/selected-public-source.zip', 'lab'),
+    ('experiments/aeoess-receipt-signature-2026-10-05/validate_capsule.py', 'experiments/aeoess-receipt-signature-2026-10-05/validate_capsule.py', 'lab'),
     ("assets/admission-social.png", "assets/admission-social.png", "replay-an-evidence-decision"),
     ("assets/admission-social.svg", "assets/admission-social.svg", "replay-an-evidence-decision"),
     ("assets/README.md", "assets/README.md", "replay-an-evidence-decision"),

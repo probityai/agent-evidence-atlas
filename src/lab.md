@@ -1,7 +1,7 @@
 ---
 title: "Probity Open Evidence Lab"
 subtitle: "A public protocol and run register for checking specific agent-evidence claims"
-status: "Protocol draft 0.1.9, 4 October 2026. The register retains native framework, admission, receipt and bounded actual-weight comparisons. Host adoption and independently operated custody have separate evidence."
+status: "Protocol draft 0.1.9. Register updated 5 October 2026. The register retains native framework, admission, receipt and bounded actual-weight comparisons. Host adoption and independently operated custody have separate evidence."
 description: "Submit pinned agent-evidence runs, hostile controls, field-level comparisons and correction records to a public register."
 toc: true
 ---
@@ -21,6 +21,36 @@ The [published robot controls companion](provael-task-controls.html) reads
 Provael's original simulator reports and the author's correction. It retains
 the matched controls, unknown runtime provenance and complete task-resampling
 weights. This is a publisher-report-derived reading alongside the register.
+
+## Outside receipt verifier and primitive identifier checks
+
+The 25th record retains the run merged in [APS conformance PR 154](https://github.com/Agent-Authority-Conformance/aps-conformance-suite/pull/154).
+All 24 earlier register objects and their evidence bytes are unchanged.
+The original [operator declaration](experiments/aeoess-receipt-signature-2026-10-05/RUN.md)
+names Claude under Tymofii Pidlisnyi (@aeoess)'s revocable mandate, with human
+review. Atlas retains that declaration without independently authenticating
+the actor, model, review or container custody.
+
+The run covers 25 receipt fixtures with `@veritasacta/verify` 0.10.21. Both
+key-window profiles match the public expected answers. The repeated reports
+and stdout are byte-identical. A runner-authored thin wrapper invokes GNU
+`sha256sum` for 21 context-free identifiers; all match. Four context-bearing
+identifiers remain explicitly uncovered. Harness interpretation and grading
+remain author implementation. Expected answers were exposed, and answers
+and grades were emitted together.
+
+The always-valid control produces eight failures and three SHOULD refusals.
+A signature mutation affects five members that share one receipt; all five
+fail with `signature_invalid` under both profiles. The explicitly selected
+unmodified corpus passes all 25 members. The
+[derived report](experiments/aeoess-receipt-signature-2026-10-05/report.json),
+[complete original source and controls](experiments/aeoess-receipt-signature-2026-10-05/README.md)
+and [provenance](experiments/aeoess-receipt-signature-2026-10-05/provenance.json)
+retain these layers. The data-only checker executes no captured code.
+
+This fixture record establishes no independent effect custody, maintained
+host job, full-family admission or production workload result.
+[Claims P-75 and P-76](claims.html) bind the retained results and their limits.
 
 ## New raw-admission and response-routing comparisons
 

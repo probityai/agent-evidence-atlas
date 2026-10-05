@@ -7733,6 +7733,113 @@
           "sha256": "2b800db166f1e6b1d20017cd703cc30e8818993aa02f2edda011fd2c73b4b23b"
         }
       ]
+    },
+    {
+      "id": "aeoess-receipt-signature-2026-10-05",
+      "contract": "https://github.com/Agent-Authority-Conformance/aps-conformance-suite/blob/f8d6eb4461759ce7dbb4c33ab03a688ba2bb541f/CONTRIBUTING.md",
+      "report": "../experiments/aeoess-receipt-signature-2026-10-05/report.json",
+      "provenance": "../experiments/aeoess-receipt-signature-2026-10-05/provenance.json",
+      "reviewState": "upstream-merged-retained-run",
+      "evidenceClaim": "source-reported-outside-verifier-and-primitive-checks-on-public-fixtures",
+      "roles": {
+        "runner": "Claude under Tymofii Pidlisnyi (@aeoess)’s revocable mandate, as declared in RUN.md",
+        "humanReviewer": "Tymofii Pidlisnyi (@aeoess), source-reported",
+        "verifierAuthor": "tomjwxf",
+        "identifierPrimitive": "GNU coreutils sha256sum, invoked by runner-authored digests21.py",
+        "atlasRetentionAndIntegrityChecks": "Probity",
+        "independentEffectCustody": "not-established",
+        "corpusMemberAuthors": "giskard09, tomjwxf and astrogilda, as declared by original RUN.md and corpus README",
+        "adapterAndHarnessAuthor": "astrogilda (Probity)"
+      },
+      "answerExposure": "Published expected outcomes and the author harness were available before the run; not answer-blind.",
+      "comparisonOrder": "The original harness emitted verifier answers and comparison results together. No separate raw-result revision preceded comparison.",
+      "limits": [
+        "Operator identity, human review and container custody are declared by the original source, not independently authenticated.",
+        "Four context-bearing identifier checks remain outside the runner primitive coverage.",
+        "Author harness interpretation and grading remain a separate layer.",
+        "Repeated runs use the same 25 fixtures; no agent, production effect or independent custody measurement.",
+        "Merged run record does not establish full-family admission or maintained host CI adoption."
+      ],
+      "claimResults": [
+        {
+          "claim": "outside-verifier-fixture-comparisons",
+          "result": "pass",
+          "recordedField": "/outsideVerifier/passingFixtureComparisons",
+          "expectedValue": 25
+        },
+        {
+          "claim": "outside-context-free-identifiers",
+          "result": "pass",
+          "recordedField": "/identifiers/outsideContextFreeIdentifiers",
+          "expectedValue": 21
+        },
+        {
+          "claim": "always-valid-negative-control-failures",
+          "result": "pass",
+          "recordedField": "/controls/alwaysValidFailures",
+          "expectedValue": 8
+        },
+        {
+          "claim": "signature-mutation-affected-members",
+          "result": "pass",
+          "recordedField": "/controls/signatureMutationAffectedMembers",
+          "expectedValue": 5
+        },
+        {
+          "claim": "outside-context-bearing-identifier-checks",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "independent-semantic-grading",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "independent-effect-custody",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "maintained-host-ci-adoption",
+          "result": "not-exercised"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "../experiments/aeoess-receipt-signature-2026-10-05/RUN.md",
+          "sha256": "829457a044c4bd68dbd3496a0aa6410003cc06fd3f45c59606e44d135a1aa141"
+        },
+        {
+          "path": "../experiments/aeoess-receipt-signature-2026-10-05/README.md",
+          "sha256": "1ad946e7d14b873e07b93d7ff744a15df229ba6b7e05b04bf2f103811d6cba2e"
+        },
+        {
+          "path": "../experiments/aeoess-receipt-signature-2026-10-05/report1.json",
+          "sha256": "0e63176501c98c8c947bef3410f2766b99acc0ad4c5d2069b38eaee04fe735b5"
+        },
+        {
+          "path": "../experiments/aeoess-receipt-signature-2026-10-05/report2.json",
+          "sha256": "0e63176501c98c8c947bef3410f2766b99acc0ad4c5d2069b38eaee04fe735b5"
+        },
+        {
+          "path": "../experiments/aeoess-receipt-signature-2026-10-05/report.json",
+          "sha256": "0dc448e44914c8738c9443358db86a8a4cf9232425a1dad5025fb82f6f895f99"
+        },
+        {
+          "path": "../experiments/aeoess-receipt-signature-2026-10-05/provenance.json",
+          "sha256": "ff4fbf110b545dcf6ff12615926e8cc69f377814969e8a9bafc1c94e91c3d701"
+        },
+        {
+          "path": "../experiments/aeoess-receipt-signature-2026-10-05/source-manifest.json",
+          "sha256": "56fd51bc8043c48867c739f75173f3df8c80bc68340ee525ea325879d5def3aa"
+        },
+        {
+          "path": "../experiments/aeoess-receipt-signature-2026-10-05/selected-public-source.zip",
+          "sha256": "9d3454dacb9ea35491bdbe63645b22db93e293046071dcccdbb84a5eebaa0eea"
+        },
+        {
+          "path": "../experiments/aeoess-receipt-signature-2026-10-05/validate_capsule.py",
+          "sha256": "f7319d9d5bb3f18ab12cd016a7fd6fa699ad12afcd02b15b814112157a735cbb"
+        }
+      ]
     }
   ]
 }

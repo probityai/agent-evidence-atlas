@@ -2,7 +2,7 @@
 
 A public protocol and run register for checking specific agent-evidence claims
 
-Protocol draft 0.1.9, 4 October 2026. The register retains native framework, admission, receipt and bounded actual-weight comparisons. Host adoption and independently operated custody have separate evidence.
+Protocol draft 0.1.9. Register updated 5 October 2026. The register retains native framework, admission, receipt and bounded actual-weight comparisons. Host adoption and independently operated custody have separate evidence.
 
 Maintainers can use this protocol to submit a verifier run, a host-project CI integration, or an observer/witness experiment. Each record names its contract, retained inputs, implementation and operators, and reports what passed, failed or remained untested. Probity maintains this register. A listed result makes no membership, endorsement or adoption commitment on behalf of another project.
 
@@ -13,6 +13,18 @@ The [APS and PriorSeal pilot status](pilot.md) tracks Probity's proposed next ru
 The [task-grouped rates example](task-grouped-rates.md) shows how to retain a matched benign control, repeated episodes, unresolved labels and two weighting targets when reporting uncertainty. Its invented labels make the calculation reproducible; they add no empirical record to the register.
 
 The [published robot controls companion](provael-task-controls.md) reads Provael's original simulator reports and the author's correction. It retains the matched controls, unknown runtime provenance and complete task-resampling weights. This is a publisher-report-derived reading alongside the register.
+
+<a id="outside-receipt-verifier-and-primitive-identifier-checks"></a>
+
+## Outside receipt verifier and primitive identifier checks
+
+The 25th record retains the run merged in [APS conformance PR 154](https://github.com/Agent-Authority-Conformance/aps-conformance-suite/pull/154). All 24 earlier register objects and their evidence bytes are unchanged. The original [operator declaration](experiments/aeoess-receipt-signature-2026-10-05/RUN.md) names Claude under Tymofii Pidlisnyi (@aeoess)'s revocable mandate, with human review. Atlas retains that declaration without independently authenticating the actor, model, review or container custody.
+
+The run covers 25 receipt fixtures with `@veritasacta/verify` 0.10.21. Both key-window profiles match the public expected answers. The repeated reports and stdout are byte-identical. A runner-authored thin wrapper invokes GNU `sha256sum` for 21 context-free identifiers; all match. Four context-bearing identifiers remain explicitly uncovered. Harness interpretation and grading remain author implementation. Expected answers were exposed, and answers and grades were emitted together.
+
+The always-valid control produces eight failures and three SHOULD refusals. A signature mutation affects five members that share one receipt; all five fail with `signature_invalid` under both profiles. The explicitly selected unmodified corpus passes all 25 members. The [derived report](experiments/aeoess-receipt-signature-2026-10-05/report.json), [complete original source and controls](experiments/aeoess-receipt-signature-2026-10-05/README.md) and [provenance](experiments/aeoess-receipt-signature-2026-10-05/provenance.json) retain these layers. The data-only checker executes no captured code.
+
+This fixture record establishes no independent effect custody, maintained host job, full-family admission or production workload result. [Claims P-75 and P-76](claims.md) bind the retained results and their limits.
 
 <a id="new-raw-admission-and-response-routing-comparisons"></a>
 

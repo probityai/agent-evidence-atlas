@@ -21,6 +21,8 @@ Probity builds evidence tools for agent harnesses, reviewers and platform teams.
 
 The task page links a pinned quickstart for each project. For scripts and agents, use the [automation guide](automation.md), [llms.txt](llms.txt) or [project catalog](catalog.json).
 
+Inspect accepted our [bounded native result reader listing](https://github.com/UKGovernmentBEIS/inspect_ai/blob/c9f2d1cadb5e46cd8b89d217c7a2a1f816bce057/docs/extensions/extensions.json) on October 3, 2026. The [live extensions catalog](https://inspect.aisi.org.uk/extensions/) still shows the earlier published source (checked October 5). [Read the pinned consumer guide](https://github.com/probityai/agent-evidence-observer/blob/71ac0b2126473316655184235000647a6dd0f5cf/docs/NATIVE-CONSUMER-CI.md).
+
 <a id="agent-action-assurance"></a>
 
 ## Agent action assurance

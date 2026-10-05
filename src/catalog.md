@@ -46,3 +46,7 @@ pin as its owning repository. Append source history; keep earlier reviews.
 Current navigation does not update historical Lab claims or experiment objects.
 
 Keep project navigation in the catalog and measured runs in the Lab register.
+
+Integration profiles link the reviewed reader guide. Record upstream listing
+acceptance and live documentation publication separately in `CLAIMS.md`; the
+profile status describes the tool.

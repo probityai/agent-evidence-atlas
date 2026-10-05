@@ -48,4 +48,6 @@ For a source refresh, give each component quickstart the same reviewed README pi
 
 Keep project navigation in the catalog and measured runs in the Lab register.
 
+Integration profiles link the reviewed reader guide. Record upstream listing acceptance and live documentation publication separately in `CLAIMS.md`; the profile status describes the tool.
+
 [HTML view](catalog.html) | [Agent guide](llms.txt)

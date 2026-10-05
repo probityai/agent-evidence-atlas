@@ -60,10 +60,10 @@ note = "Twelve planned installments"
 name = "Claim ledger"
 page = "claims.html"
 source = "CLAIMS.md"
-version = "0.8.16"
+version = "0.8.17"
 date = "2026-10-05"
 status = "draft"
-note = "Adds source-bound preview and escaped metadata controls; research and discovery outcomes keep their scopes"
+note = "Adds stable DOI citation maintenance; preserves the original manuscript record and research and discovery scopes"
 
 [[artifact]]
 name = "Probity Open Evidence Lab"

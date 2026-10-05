@@ -9,6 +9,8 @@ These checks cover browser layout and controls, not full WCAG conformance.
 from __future__ import annotations
 
 import os
+import re
+from collections import Counter
 from collections.abc import Iterator
 from pathlib import Path
 
@@ -77,6 +79,26 @@ def test_wide_table_can_scroll_and_release_focus(page: Page) -> None:
     page.wait_for_function("element => element.scrollLeft > 0", arg=wide.element_handle())
     page.keyboard.press("Tab")
     assert not wide.evaluate("element => element === document.activeElement")
+
+
+def test_every_source_claim_renders_as_one_dated_table_row(page: Page) -> None:
+    """A blank line must not turn a ledger claim into unstructured prose."""
+    expected = re.findall(
+        r"(?m)^\|\s*([A-Z]+-[A-Za-z0-9]+)\s*\|", (ROOT / "CLAIMS.md").read_text()
+    )
+    assert expected, "The control needs the actual source claim ledger"
+    assert all(count == 1 for count in Counter(expected).values())
+    page.goto((ROOT / "docs/claims.html").as_uri())
+    rows = page.locator("main table tbody tr").evaluate_all(
+        "elements => elements.map(row => ({"
+        "id: Array.from(row.firstElementChild.childNodes)"
+        ".filter(node => node.nodeType === Node.TEXT_NODE)"
+        ".map(node => node.textContent).join('').trim(), "
+        "read: row.getAttribute('data-read')}))"
+    )
+    claims = [row for row in rows if re.fullmatch(r"[A-Z]+-[A-Za-z0-9]+", row["id"])]
+    assert Counter(row["id"] for row in claims) == Counter(expected)
+    assert all(row["read"] for row in claims), "Each rendered claim needs its read date"
 
 
 def test_long_code_can_scroll_and_release_focus(page: Page) -> None:

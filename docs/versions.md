@@ -14,7 +14,7 @@ A digest here is the SHA-256 of the artifact's source file in the site's reposit
 | Verifier demonstration | 0.1 | 2026-09-27 | held | page not built in this repository yet | Held until it passes its release criteria |
 | [Experiments](experiments.md) | 0.3 | 2026-10-01 | draft | `a26fd7b03c3d6f15` `src/experiments.md` | Adds original observer CI admission bytes, immutable source pins, executable replay and refusal controls; independent operation remains unestablished |
 | Series plan | 0.1 | 2026-09-27 | held | page not built in this repository yet | Held until it passes its release criteria |
-| [Claim ledger](claims.md) | 0.8.16 | 2026-10-05 | draft | `1480a389da4975a9` `CLAIMS.md` | Adds source-bound preview and escaped metadata controls; research and discovery outcomes keep their scopes |
+| [Claim ledger](claims.md) | 0.8.17 | 2026-10-05 | draft | `3415cde01e0efa6d` `CLAIMS.md` | Adds stable DOI citation maintenance; preserves the original manuscript record and research and discovery scopes |
 | [Probity Open Evidence Lab](lab.md) | 0.1.9 | 2026-10-04 | draft | `ea209aedc4624e7a` `src/lab.md` | Adds the REMORA execution-boundary run records and preserves all 23 earlier records |
 | [Task-grouped rates worked example](task-grouped-rates.md) | 0.1 | 2026-10-03 | draft | `92940ce8ee827ad0` `examples/task-grouped-rates/input.json` | Authored labels, paired task resampling, explicit weighting targets and unresolved outcomes |
 | [Published robot controls companion](provael-task-controls.md) | 0.1 | 2026-10-03 | draft | `20b90c1ae59c399d` `examples/provael-task-controls/source-record.json` | Original publisher simulator labels, matched controls, corrected interpretation and exact paired task weights |

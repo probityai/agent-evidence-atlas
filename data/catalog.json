@@ -41,7 +41,7 @@
       "packages": [
         "agent-evidence-vectors"
       ],
-      "docs_url": "https://github.com/probityai/agent-evidence-vectors/blob/308c5b4401b18d42ed73dea80459375932e6b8e8/README.md",
+      "docs_url": "https://github.com/probityai/agent-evidence-vectors/blob/b5320f32b1a90d03edcfd41a864ea4f5e17c7955/README.md",
       "relationships": []
     },
     {
@@ -57,7 +57,7 @@
         "repo-observer"
       ],
       "packages": [],
-      "docs_url": "https://github.com/probityai/agent-evidence-observer/blob/1ec93df92b49239175147c2b9f3ccda87a090cd1/README.md",
+      "docs_url": "https://github.com/probityai/agent-evidence-observer/blob/671d89c2d8c023153eb5755c5afb027bf4fa553d/README.md",
       "relationships": []
     },
     {
@@ -107,7 +107,7 @@
       "packages": [
         "jcs-admit"
       ],
-      "docs_url": "https://github.com/probityai/jcs-admit/blob/b3ecf0a36d6e72eef1ee808678811f42787f2c23/README.md",
+      "docs_url": "https://github.com/probityai/jcs-admit/blob/3e189b20711a57ce91eab40509324dd1d5d54cac/README.md",
       "relationships": []
     },
     {
@@ -125,7 +125,7 @@
       "packages": [
         "dsse"
       ],
-      "docs_url": "https://github.com/probityai/dsse/blob/fa96f343623a520c38cb213c1315ee9bfa1bb3c0/README.md",
+      "docs_url": "https://github.com/probityai/dsse/blob/35e418022b19bebedec13ebb4c31bc43b1c70caf/README.md",
       "relationships": []
     },
     {
@@ -160,6 +160,21 @@
       ],
       "component": "observer",
       "docs_url": "https://github.com/probityai/agent-evidence-observer/blob/71ac0b2126473316655184235000647a6dd0f5cf/docs/NATIVE-CONSUMER-CI.md"
+    },
+    {
+      "id": "witnessed-run-selection",
+      "aliases": [],
+      "display_name": "Probity witnessed run selection",
+      "summary": "Checks a supplied run against consumer-retained witness anchors, plan and control pins, and execution closure.",
+      "task": "Check a selected run against retained witness anchors",
+      "status": "prototype",
+      "publication": "public",
+      "reviewed": true,
+      "repositories": [
+        "repo-observer"
+      ],
+      "component": "observer",
+      "docs_url": "https://github.com/probityai/agent-evidence-observer/blob/d53776c7b783abbce42a3422f56ed390dfedd2f2/docs/WITNESSED-RUN-SELECTION.md"
     }
   ],
   "repositories": [
@@ -192,9 +207,9 @@
       "full_name": "probityai/agent-evidence-vectors",
       "url": "https://github.com/probityai/agent-evidence-vectors",
       "source": {
-        "commit": "308c5b4401b18d42ed73dea80459375932e6b8e8",
+        "commit": "b5320f32b1a90d03edcfd41a864ea4f5e17c7955",
         "repository": "repo-vectors",
-        "url": "https://github.com/probityai/agent-evidence-vectors/blob/308c5b4401b18d42ed73dea80459375932e6b8e8/README.md"
+        "url": "https://github.com/probityai/agent-evidence-vectors/blob/b5320f32b1a90d03edcfd41a864ea4f5e17c7955/README.md"
       }
     },
     {
@@ -209,9 +224,9 @@
       "full_name": "probityai/agent-evidence-observer",
       "url": "https://github.com/probityai/agent-evidence-observer",
       "source": {
-        "commit": "1ec93df92b49239175147c2b9f3ccda87a090cd1",
+        "commit": "671d89c2d8c023153eb5755c5afb027bf4fa553d",
         "repository": "repo-observer",
-        "url": "https://github.com/probityai/agent-evidence-observer/blob/1ec93df92b49239175147c2b9f3ccda87a090cd1/README.md"
+        "url": "https://github.com/probityai/agent-evidence-observer/blob/671d89c2d8c023153eb5755c5afb027bf4fa553d/README.md"
       }
     },
     {
@@ -260,9 +275,9 @@
       "full_name": "probityai/jcs-admit",
       "url": "https://github.com/probityai/jcs-admit",
       "source": {
-        "commit": "b3ecf0a36d6e72eef1ee808678811f42787f2c23",
+        "commit": "3e189b20711a57ce91eab40509324dd1d5d54cac",
         "repository": "repo-jcs-admit",
-        "url": "https://github.com/probityai/jcs-admit/blob/b3ecf0a36d6e72eef1ee808678811f42787f2c23/README.md"
+        "url": "https://github.com/probityai/jcs-admit/blob/3e189b20711a57ce91eab40509324dd1d5d54cac/README.md"
       }
     },
     {
@@ -277,9 +292,9 @@
       "full_name": "probityai/dsse",
       "url": "https://github.com/probityai/dsse",
       "source": {
-        "commit": "fa96f343623a520c38cb213c1315ee9bfa1bb3c0",
+        "commit": "35e418022b19bebedec13ebb4c31bc43b1c70caf",
         "repository": "repo-dsse",
-        "url": "https://github.com/probityai/dsse/blob/fa96f343623a520c38cb213c1315ee9bfa1bb3c0/README.md"
+        "url": "https://github.com/probityai/dsse/blob/35e418022b19bebedec13ebb4c31bc43b1c70caf/README.md"
       }
     },
     {

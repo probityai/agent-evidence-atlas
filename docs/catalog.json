@@ -28,7 +28,7 @@
     },
     {
       "display_name": "dsse",
-      "docs_url": "https://github.com/probityai/dsse/blob/fa96f343623a520c38cb213c1315ee9bfa1bb3c0/README.md",
+      "docs_url": "https://github.com/probityai/dsse/blob/35e418022b19bebedec13ebb4c31bc43b1c70caf/README.md",
       "id": "dsse",
       "packages": [
         "dsse"
@@ -43,7 +43,7 @@
     },
     {
       "display_name": "jcs-admit",
-      "docs_url": "https://github.com/probityai/jcs-admit/blob/b3ecf0a36d6e72eef1ee808678811f42787f2c23/README.md",
+      "docs_url": "https://github.com/probityai/jcs-admit/blob/3e189b20711a57ce91eab40509324dd1d5d54cac/README.md",
       "id": "jcs-admit",
       "packages": [
         "jcs-admit"
@@ -58,7 +58,7 @@
     },
     {
       "display_name": "Probity Observer",
-      "docs_url": "https://github.com/probityai/agent-evidence-observer/blob/1ec93df92b49239175147c2b9f3ccda87a090cd1/README.md",
+      "docs_url": "https://github.com/probityai/agent-evidence-observer/blob/671d89c2d8c023153eb5755c5afb027bf4fa553d/README.md",
       "id": "observer",
       "packages": [],
       "relationships": [],
@@ -71,7 +71,7 @@
     },
     {
       "display_name": "Probity Vectors",
-      "docs_url": "https://github.com/probityai/agent-evidence-vectors/blob/308c5b4401b18d42ed73dea80459375932e6b8e8/README.md",
+      "docs_url": "https://github.com/probityai/agent-evidence-vectors/blob/b5320f32b1a90d03edcfd41a864ea4f5e17c7955/README.md",
       "id": "vectors",
       "packages": [
         "agent-evidence-vectors"
@@ -123,6 +123,18 @@
       "status": "prototype",
       "summary": "Reads selected retained Inspect execution profiles offline, preserving errors and unstarted attempts. Inspect accepted the catalog entry; its live listing was awaiting publication on October 5, 2026.",
       "task": "Read selected retained Inspect execution profiles"
+    },
+    {
+      "component": "observer",
+      "display_name": "Probity witnessed run selection",
+      "docs_url": "https://github.com/probityai/agent-evidence-observer/blob/d53776c7b783abbce42a3422f56ed390dfedd2f2/docs/WITNESSED-RUN-SELECTION.md",
+      "id": "witnessed-run-selection",
+      "repositories": [
+        "repo-observer"
+      ],
+      "status": "prototype",
+      "summary": "Checks a supplied run against consumer-retained witness anchors, plan and control pins, and execution closure.",
+      "task": "Check a selected run against retained witness anchors"
     }
   ],
   "repositories": [
@@ -156,9 +168,9 @@
       "display_name": "dsse",
       "id": "repo-dsse",
       "source": {
-        "commit": "fa96f343623a520c38cb213c1315ee9bfa1bb3c0",
+        "commit": "35e418022b19bebedec13ebb4c31bc43b1c70caf",
         "repository": "repo-dsse",
-        "url": "https://github.com/probityai/dsse/blob/fa96f343623a520c38cb213c1315ee9bfa1bb3c0/README.md"
+        "url": "https://github.com/probityai/dsse/blob/35e418022b19bebedec13ebb4c31bc43b1c70caf/README.md"
       },
       "status": "released",
       "summary": "Signs and verifies DSSE envelopes with explicit threshold and key handling.",
@@ -169,9 +181,9 @@
       "display_name": "jcs-admit",
       "id": "repo-jcs-admit",
       "source": {
-        "commit": "b3ecf0a36d6e72eef1ee808678811f42787f2c23",
+        "commit": "3e189b20711a57ce91eab40509324dd1d5d54cac",
         "repository": "repo-jcs-admit",
-        "url": "https://github.com/probityai/jcs-admit/blob/b3ecf0a36d6e72eef1ee808678811f42787f2c23/README.md"
+        "url": "https://github.com/probityai/jcs-admit/blob/3e189b20711a57ce91eab40509324dd1d5d54cac/README.md"
       },
       "status": "released",
       "summary": "Checks raw JSON input before producing its RFC 8785 canonical form.",
@@ -182,9 +194,9 @@
       "display_name": "Probity Observer",
       "id": "repo-observer",
       "source": {
-        "commit": "1ec93df92b49239175147c2b9f3ccda87a090cd1",
+        "commit": "671d89c2d8c023153eb5755c5afb027bf4fa553d",
         "repository": "repo-observer",
-        "url": "https://github.com/probityai/agent-evidence-observer/blob/1ec93df92b49239175147c2b9f3ccda87a090cd1/README.md"
+        "url": "https://github.com/probityai/agent-evidence-observer/blob/671d89c2d8c023153eb5755c5afb027bf4fa553d/README.md"
       },
       "status": "prototype",
       "summary": "Records brokered file actions with signed packets and history, and reads selected native delegation evidence offline.",
@@ -195,9 +207,9 @@
       "display_name": "Probity Vectors",
       "id": "repo-vectors",
       "source": {
-        "commit": "308c5b4401b18d42ed73dea80459375932e6b8e8",
+        "commit": "b5320f32b1a90d03edcfd41a864ea4f5e17c7955",
         "repository": "repo-vectors",
-        "url": "https://github.com/probityai/agent-evidence-vectors/blob/308c5b4401b18d42ed73dea80459375932e6b8e8/README.md"
+        "url": "https://github.com/probityai/agent-evidence-vectors/blob/b5320f32b1a90d03edcfd41a864ea4f5e17c7955/README.md"
       },
       "status": "released",
       "summary": "Provides conformance cases and reference verifiers for selected agent evidence formats.",

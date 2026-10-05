@@ -60,10 +60,10 @@ note = "Twelve planned installments"
 name = "Claim ledger"
 page = "claims.html"
 source = "CLAIMS.md"
-version = "0.8.12"
+version = "0.8.13"
 date = "2026-10-05"
 status = "draft"
-note = "Retains the Inspect and REMORA records and corrects the REMORA comparison, digest and review scope"
+note = "Retains REMORA scope corrections and records current Rust, Observer and Vectors installation routes"
 
 [[artifact]]
 name = "Probity Open Evidence Lab"
@@ -123,10 +123,10 @@ note = "Preserves all native attempts, abstention failures and separate scoped-e
 name = "Project catalog"
 page = "start.html"
 source = "data/catalog.json"
-version = "0.4"
+version = "0.5"
 date = "2026-10-05"
 status = "draft"
-note = "Adds the bounded native Inspect reader profile with its accepted guide pin and retained upstream catalog sources"
+note = "Adds witnessed run selection and refreshes current Rust, Observer and Vectors installation routes"
 
 [[artifact]]
 name = "Automation guide"

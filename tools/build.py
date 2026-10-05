@@ -33,6 +33,7 @@ from pathlib import Path
 
 import discovery
 import markdown_mirrors
+import social_metadata
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "src"
@@ -60,6 +61,9 @@ NAV = [
 # page whose links need it, or None for every page). A copy is made exactly when its
 # page is built, and a missing source for a built page fails the build.
 COPIES = [
+    ("assets/admission-social.png", "assets/admission-social.png", "replay-an-evidence-decision"),
+    ("assets/admission-social.svg", "assets/admission-social.svg", "replay-an-evidence-decision"),
+    ("assets/README.md", "assets/README.md", "replay-an-evidence-decision"),
     ("assets/component-tasks.svg", "assets/component-tasks.svg", "index"),
     ('experiments/ag2-push-authority-2026-10-04/AG2-PR70-FIRST-FAILED-ARTIFACTS.json', 'experiments/ag2-push-authority-2026-10-04/AG2-PR70-FIRST-FAILED-ARTIFACTS.json', 'lab'),
     ('experiments/ag2-push-authority-2026-10-04/AG2-PR70-FIRST-FAILED-JOB.log', 'experiments/ag2-push-authority-2026-10-04/AG2-PR70-FIRST-FAILED-JOB.log', 'lab'),
@@ -276,6 +280,8 @@ def render(source: Path, dest: Path, built: set[str]) -> None:
     text = expand(source.read_text(encoding="utf-8"))
     home, links = nav_html(built)
     canonical = BASE_URL if dest.stem == "index" else f"{BASE_URL}{dest.stem}.html"
+    published = {dst: src for src, dst, page in COPIES if page is None or page == dest.stem}
+    headmetadata = social_metadata.render(text, ROOT, published, BASE_URL, canonical, SITE_NAME)
     args = [
         "pandoc",
         "--from=markdown+smart",
@@ -290,6 +296,7 @@ def render(source: Path, dest: Path, built: set[str]) -> None:
         f"--variable=canonical:{canonical}",
         f"--variable=markdown:{BASE_URL}{dest.stem}.md",
         f"--variable=agentguide:{BASE_URL}llms.txt",
+        f"--variable=headmetadata:{headmetadata}",
         f"--variable=homelink:{home}",
         f"--variable=navlinks:{links}",
         "--wrap=none",

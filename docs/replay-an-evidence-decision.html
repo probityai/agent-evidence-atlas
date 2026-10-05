@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="Sankalp Gilda" />
   <meta name="description" content="Inspect retained file-write evidence, reproduce its admission decision and see why replay, altered authority and altered signed bytes refuse." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Probity AI" />
+  <meta property="og:url" content="https://probityai.github.io/agent-evidence-atlas/replay-an-evidence-decision.html" />
+  <meta property="og:title" content="Replay an agent evidence decision without replaying the action" />
+  <meta property="og:image" content="https://probityai.github.io/agent-evidence-atlas/assets/admission-social.png" />
+  <meta property="og:image:alt" content="Replay a retained evidence decision: inspect inputs, check and persist once, then require replay, authority and signature refusals. This is a same-operator PEER fixture." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Replay an agent evidence decision without replaying the action" />
+  <meta name="twitter:image" content="https://probityai.github.io/agent-evidence-atlas/assets/admission-social.png" />
+  <meta name="twitter:image:alt" content="Replay a retained evidence decision: inspect inputs, check and persist once, then require replay, authority and signature refusals. This is a same-operator PEER fixture." />
+  <meta property="og:description" content="Inspect retained file-write evidence, reproduce its admission decision and see why replay, altered authority and altered signed bytes refuse." />
+  <meta name="twitter:description" content="Inspect retained file-write evidence, reproduce its admission decision and see why replay, altered authority and altered signed bytes refuse." />
   <title>Replay an agent evidence decision without replaying the action - Probity AI</title>
   <link rel="canonical" href="https://probityai.github.io/agent-evidence-atlas/replay-an-evidence-decision.html" />
   <link rel="alternate" type="text/markdown" href="https://probityai.github.io/agent-evidence-atlas/replay-an-evidence-decision.md" />
@@ -32,6 +44,7 @@
 <h1>Replay an agent evidence decision without replaying the action</h1>
 </header>
 <p>A file changed. A consumer accepted its evidence. What happens when someone submits that same evidence again, changes the expected authority, or alters the signed claim? Replay this retained example to inspect each decision.</p>
+<p>The <a href="assets/admission-social.png">preview image</a> has an <a href="assets/admission-social.svg">editable SVG</a> and <a href="assets/README.md">source and export instructions</a>.</p>
 <p>The example uses <a href="start.html#observer">Observer</a> and an original public CI bundle. Its checker reads the policy, signed packet, broker history, witness receipts and durable file. It recreates the consumer decision in a scratch store. It does not repeat the file action in the retained workspace.</p>
 <figure>
 <img src="assets/admission-replay.svg" alt="The consumer checks the retained policy, signed packet, broker history, witness receipts and durable file. It stores the first admission. Replay, changed authority and changed signed bytes refuse without changing consumer state." />

@@ -9,6 +9,7 @@ Vectors tests how a verifier behaves. Verify checks a supplied claim against evi
 | Evaluate admission policies or reserve cost before dispatch | [Probity Admission](#admission) |
 | Choose a tool or inspect recorded claims and retained runs | [Probity Atlas](#atlas) |
 | Sign and verify DSSE envelopes in Rust | [dsse](#dsse) |
+| Read selected retained Inspect execution profiles | [Probity native Inspect reader](#inspect-native-reader) |
 | Admit and canonicalize JSON in Rust | [jcs-admit](#jcs-admit) |
 | Record file actions or check native delegation evidence | [Probity Observer](#observer) |
 | Test a verifier against conformance cases | [Probity Vectors](#vectors) |
@@ -38,6 +39,14 @@ Draft. [Quickstart and source](https://github.com/probityai/agent-evidence-atlas
 Signs and verifies DSSE envelopes with explicit threshold and key handling.
 
 Released. [Quickstart and source](https://github.com/probityai/dsse/blob/fa96f343623a520c38cb213c1315ee9bfa1bb3c0/README.md)
+
+<a id="inspect-native-reader"></a>
+
+## Probity native Inspect reader
+
+Reads selected retained Inspect execution profiles offline, preserving errors and unstarted attempts. Inspect accepted the catalog entry; its live listing was awaiting publication on October 5, 2026.
+
+Prototype. [Quickstart and source](https://github.com/probityai/agent-evidence-observer/blob/71ac0b2126473316655184235000647a6dd0f5cf/docs/NATIVE-CONSUMER-CI.md)
 
 <a id="jcs-admit"></a>
 

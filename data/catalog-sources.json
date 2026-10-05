@@ -150,5 +150,37 @@
     "blob_sha": "8e8f070ea7d213393000684abcda99fcac23f69b",
     "url": "https://github.com/probityai/agent-evidence-admission/blob/bbff435d11a7c0ec9bc0e8e65e6d8fc40c10b671/consumers/spend-reservation/README.md",
     "read_at": "2026-10-04T21:29:43.085494+00:00"
+  },
+  {
+    "repository": "UKGovernmentBEIS/inspect_ai",
+    "path": "docs/extensions/extensions.json",
+    "commit": "c9f2d1cadb5e46cd8b89d217c7a2a1f816bce057",
+    "blob_sha": "b909f93a2f96328f5fa9cfb72b31d8e3915ad91d",
+    "url": "https://github.com/UKGovernmentBEIS/inspect_ai/blob/c9f2d1cadb5e46cd8b89d217c7a2a1f816bce057/docs/extensions/extensions.json",
+    "read_at": "2026-10-04T23:23:22.851722+00:00"
+  },
+  {
+    "repository": "UKGovernmentBEIS/inspect_ai",
+    "path": "docs/extensions/extensions.yml",
+    "commit": "c9f2d1cadb5e46cd8b89d217c7a2a1f816bce057",
+    "blob_sha": "a97b3ad5eea5b5efac0e97f6926cfb7fb977be24",
+    "url": "https://github.com/UKGovernmentBEIS/inspect_ai/blob/c9f2d1cadb5e46cd8b89d217c7a2a1f816bce057/docs/extensions/extensions.yml",
+    "read_at": "2026-10-04T23:23:30.991274+00:00"
+  },
+  {
+    "repository": "probityai/agent-evidence-observer",
+    "path": "docs/NATIVE-CONSUMER-CI.md",
+    "commit": "71ac0b2126473316655184235000647a6dd0f5cf",
+    "blob_sha": "41fe583bfb7ce33c3ece7af3eea42120b2c42139",
+    "url": "https://github.com/probityai/agent-evidence-observer/blob/71ac0b2126473316655184235000647a6dd0f5cf/docs/NATIVE-CONSUMER-CI.md",
+    "read_at": "2026-10-04T23:40:35.581821+00:00"
+  },
+  {
+    "repository": "UKGovernmentBEIS/inspect_ai",
+    "path": "extensions/extensions.json",
+    "commit": "1d224f344b21517e22fa9aa4e0fefdf273c01641",
+    "blob_sha": "521bb72bb01d1079e4c6ebc1ef6ad92ed64a0c47",
+    "url": "https://github.com/UKGovernmentBEIS/inspect_ai/blob/1d224f344b21517e22fa9aa4e0fefdf273c01641/extensions/extensions.json",
+    "read_at": "2026-10-05T01:04:00.747825+00:00"
   }
 ]

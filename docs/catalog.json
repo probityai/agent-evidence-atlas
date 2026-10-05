@@ -111,7 +111,20 @@
       "task": "Use shared definitions for agent evidence claims"
     }
   ],
-  "profiles": [],
+  "profiles": [
+    {
+      "component": "observer",
+      "display_name": "Probity native Inspect reader",
+      "docs_url": "https://github.com/probityai/agent-evidence-observer/blob/71ac0b2126473316655184235000647a6dd0f5cf/docs/NATIVE-CONSUMER-CI.md",
+      "id": "inspect-native-reader",
+      "repositories": [
+        "repo-observer"
+      ],
+      "status": "prototype",
+      "summary": "Reads selected retained Inspect execution profiles offline, preserving errors and unstarted attempts. Inspect accepted the catalog entry; its live listing was awaiting publication on October 5, 2026.",
+      "task": "Read selected retained Inspect execution profiles"
+    }
+  ],
   "repositories": [
     {
       "display_name": "Probity Admission",

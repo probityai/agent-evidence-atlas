@@ -74,6 +74,15 @@ def alternative(url: str) -> str | None:
         return "https://crates.io/api/v1/crates/" + p.path.split("/")[2]
     if p.netloc == "doi.org":
         return "https://doi.org/api/handles" + p.path
+    # EUR-Lex answers automated reads with a bot-wall challenge (HTTP 202) or no answer at
+    # all. The Publications Office resolves the same act by its CELEX number and answers
+    # the object itself: eli/reg/2024/1689/oj is CELEX 32024R1689.
+    if p.netloc == "eur-lex.europa.eu" and p.path.startswith("/eli/"):
+        parts = p.path.strip("/").split("/")
+        kinds = {"reg": "R", "dir": "L", "dec": "D"}
+        if len(parts) >= 4 and parts[1] in kinds and parts[2].isdigit() and parts[3].isdigit():
+            return ("https://publications.europa.eu/resource/celex/"
+                    f"3{parts[2]}{kinds[parts[1]]}{int(parts[3]):04d}")
     if p.netloc == "github.com" and "/blob/" in p.path:
         owner, repo, _, ref, *rest = p.path.strip("/").split("/")
         return f"https://api.github.com/repos/{owner}/{repo}/contents/{'/'.join(rest)}?ref={ref}"

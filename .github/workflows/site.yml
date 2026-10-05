@@ -106,6 +106,12 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.12"
+      - name: Install pandoc 3.3
+        run: |
+          curl -sSL -o pandoc.deb https://github.com/jgm/pandoc/releases/download/3.3/pandoc-3.3-1-amd64.deb
+          echo "7a6625d5aeb6b8666375807a3e16cc00659c48fb88299707651f60d88c31a360  pandoc.deb" | sha256sum -c -
+          sudo dpkg -i pandoc.deb
+          pandoc --version | head -1
       - name: Check every external link and read back the published site
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

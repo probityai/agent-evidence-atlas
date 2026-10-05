@@ -280,6 +280,7 @@ def render(source: Path, dest: Path, built: set[str]) -> None:
         "--to=html5",
         "--standalone",
         f"--template={TEMPLATE}",
+        f"--lua-filter={ROOT / 'tools' / 'accessible-scroll.lua'}",
         "--fail-if-warnings",
         "--variable=root:",
         f"--variable=build:{VERSION}",

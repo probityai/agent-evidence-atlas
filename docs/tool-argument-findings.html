@@ -27,7 +27,7 @@
     </span>
   </nav>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
 <header class="page">
 <h1>Tool-shaped JSON remains insufficient for correct tool decisions</h1>
 </header>
@@ -49,6 +49,7 @@
 <p>The balanced serial order rotates all eight model/cap/mode cells within every original case. No failed response is retried, filtered from the denominator or used to retune a cap. A length-finished response retains its parsed format/schema scores, while strict correctness stays false under the frozen rubric.</p>
 <h2 id="every-original-quality-row">Every original quality row</h2>
 <p>Each row contains sixteen cases, eight pairs and eight required abstentions. No row has a fully correct pair or correct abstention.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Model / Cap / Mode / JSON/schema valid / Strict correct / Length-finished">
 <table>
 <colgroup>
 <col style="width: 13%" />
@@ -135,6 +136,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>The <a href="experiments/model-tool-arguments-cpu-2026-10-03/native-report.json">native report</a> retains every attempt, original pair role, token count and resource observation. The larger model’s seven correct cases in each longer-cap mode do not compensate for wrong abstentions or promote the held rows. The same-run comparison is finite and descriptive; it is not a general effect estimate.</p>
 <h2 id="whole-child-resources-and-archive-reuse">Whole-child resources and archive reuse</h2>
 <p>An external observer measures the selected native child from spawn through reap, including source checks, model initialization, source retention and original child-terminal serialization. Its totals are 228.445554164 seconds wall, 430.234663 seconds CPU and 577,276 KiB lifetime peak RSS. Returned calls account for 29,992 prompt tokens and 3,468 completion tokens. Post-child model-free reconstruction is a separate consumer stage.</p>
@@ -143,7 +145,9 @@
 <h2 id="durable-original-retention-and-an-offline-refusal-gate">Durable original retention and an offline refusal gate</h2>
 <p>The <a href="experiments/model-tool-arguments-cpu-2026-10-03/original-artifact.zip">exact native ZIP</a> is 2,639,358 bytes and retains all 331 original members without omission. Its SHA-256 is <code>67ef1e638e814c71bbf354fe9895ea0faf5d9ef11eae2ff76b10b065bd7a7e54</code>. The <a href="experiments/model-tool-arguments-cpu-2026-10-03/provenance.json">provenance</a> accounts for every native member and records the separate full preparation artifact’s provider size, digest and expiry. The 1,051,848,146-byte full preparation archive is not retained in Atlas. Public hashes cannot reconstruct its omitted weights, wheels, original archive or installed environment. Provider artifacts expire at 2027-01-01T10:33:56Z; Git separately retains this complete compact native original. Observer also retains the <a href="https://github.com/probityai/agent-evidence-observer/blob/11389afe6d7c67874e63e4b4521d8a5c2a5dba81/interop/local-model-tool-arguments-2026-10-03/retained/native-37116827382.zip">same original at its durable public source</a>.</p>
 <p>A fresh checkout can re-derive source selection, all raw-response semantic scores, complete row/pair/abstention denominators and whole-child measurements:</p>
+<div class="code-scroll" tabindex="0" role="region" aria-label="Code example">
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/check_lab.py</span></code></pre></div>
+</div>
 <p>The checker refuses reselected archive/report/source substitutions and promotions of semantic quality, outside acceptance or custody. It reads data only and never imports retained model code. The normal pull-request test workflow repeats the retention controls without new inference.</p>
 <p>This is the nineteenth bounded <a href="lab.html">Lab record</a>. All eighteen earlier literal record objects and artifact bytes remain unchanged. Producer acceptance, recurring outside operation, model-action authority and independently controlled keys, clock, target or effect custody remain unestablished.</p>
 </main>

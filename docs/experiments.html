@@ -27,7 +27,7 @@
     </span>
   </nav>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
 <header class="page">
 <h1>Experiments: evidence, effects and bytes</h1>
 <p class="subtitle">A PEER pilot, pinned decision-call, byte and consumer-admission experiments, and two registered observer designs</p>
@@ -48,6 +48,7 @@
 <h2 id="e1.-peer-pilot-the-snapshot-gap">E1. PEER pilot: the snapshot gap</h2>
 <p>The local <code>agent-evidence-observer</code> prototype mediates one file replacement, commits to the before-state, signs a bounded result, and checks a hash-chain head under a second key. It does not isolate an agent. Its own record says <code>witnessScope: PEER</code> and <code>unmediatedEffects: not-established</code>. The two keys are controlled by one local operator.</p>
 <p>I ran <a href="experiments/observer-vantage/run.py">the exact pilot script</a> against the package source identified by SHA-256 <code>273e4985cb4de671145bcd55ef85545be213e8520f766ab7692e9d05edae60d1</code>. The <a href="experiments/observer-vantage/recorded.json">recorded machine result</a> contains three scripted intervals. At that read, the package source was a local unpublished prototype. The observer now has public source, used at a different pin in E6; that does not supply or identify the exact older source bytes for this pilot. Its original result remains a local measurement without an independent reproduction.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="interval / deliberately attempted effect / observed result / inference">
 <table>
 <colgroup>
 <col style="width: 25%" />
@@ -84,11 +85,14 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>The population for this pilot is three scripted intervals: one brokered write plus its retry, one durable direct write, and one transient direct write. The broker’s declared coverage population is calls with valid request IDs. The direct effects are <strong>outside</strong> that denominator. There is no sample of live agents, tool calls, reads, network effects, file modes, concurrent races, hostile host operators, or independent witnesses. The only tested observation point is the sequential file-tree snapshot at a broker call or seal. The test deliberately controls both sides; its contradiction is a counterexample to a claim of complete coverage, not a measured detection rate in deployment.</p>
 <p>To re-run after obtaining the matching observer source, create its Python 3.12+ environment with the dependencies in its <code>pyproject.toml</code>, then use:</p>
+<div class="code-scroll" tabindex="0" role="region" aria-label="Code example">
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/path/to/observer/.venv/bin/python</span> experiments/observer-vantage/run.py <span class="dt">\</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--observer-root</span> /path/to/agent-evidence-observer <span class="op">&gt;</span> /tmp/observer-pilot.json</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span> <span class="at">-u</span> experiments/observer-vantage/recorded.json /tmp/observer-pilot.json</span></code></pre></div>
+</div>
 <p>The script hashes the package metadata and every <code>src/probity_observer/*.py</code> file before importing the package. A different digest is a different implementation, even if the three outcomes match. It prints no ephemeral signing keys or timestamps. The claim ledger records this run and its limits as E-01 through E-03.</p>
 <h2 id="e2.-below-agent-observation-registered-design-no-result">E2. Below-agent observation: registered design, no result</h2>
 <p><strong>Hypothesis.</strong> Under a pinned launch configuration, a host broker unavailable to the agent records every accepted or denied file replacement through one declared channel. A direct attempt to alter the watched tree, observer process, key, or journal fails. If any channel loses its record, the result becomes incomplete instead of an absence claim.</p>
@@ -103,6 +107,7 @@
 <h2 id="aps-priorseal-e2">E4. APS/PriorSeal E2: decision evidence and exact-call fixtures</h2>
 <p>The <a href="https://github.com/probityai/agent-evidence-vectors/tree/00f5acab880bffc5ee8fe124f3a015d3ed970514/interop/aps-priorseal-e2-2026-09-30">immutable run record</a> checks APS decision evidence against PriorSeal’s exact-call examples. Its checker imports no APS or PriorSeal implementation. It uses draft-pidlisnyi-aps-03, the fixture documentation, pinned public test keys, and a fixed reference time of <code>2026-09-19T10:05:00.000Z</code>. Implementation independence does not establish independent custody of an action observation.</p>
 <p>The fetch script pins 31 files from APS <code>948f99b85343bef2c6fa677c8543965caacfc087</code> and PriorSeal <code>d749d2691c3e6be139de4020e7b27cdafca2c428</code>. <a href="https://github.com/probityai/agent-evidence-vectors/blob/00f5acab880bffc5ee8fe124f3a015d3ed970514/interop/aps-priorseal-e2-2026-09-30/RESULTS.json">RESULTS.json</a> contains 96 rows, one per claim per input: 86 <code>pass</code>, four <code>fail</code>, and six <code>not-exercised</code>. These are fixture outcomes, not a deployment success rate. The four failures are the denied APS dispatch, the expired APS reference-time check, and the over-limit pair’s call-value and per-action-cap checks.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="claim / within-limit pair / over-limit pair">
 <table>
 <colgroup>
 <col style="width: 33%" />
@@ -139,8 +144,10 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>The report’s 22 recomputable values agree, and three quoted fixture values agree. Report assertions about PriorSeal receipt validity remain unexercised. <a href="https://github.com/probityai/agent-evidence-vectors/blob/00f5acab880bffc5ee8fe124f3a015d3ed970514/interop/aps-priorseal-e2-2026-09-30/SPEC-GAPS.md">SPEC-GAPS.md</a> records the missing written PriorSeal signing profile, hash constructions recovered by trial, and the checker’s mapping from APS spend units to the PriorSeal asset. No result evaluated by this checker differs from the producer’s stated outcome.</p>
 <p><a href="https://github.com/probityai/agent-evidence-vectors/blob/00f5acab880bffc5ee8fe124f3a015d3ed970514/interop/aps-priorseal-e2-2026-09-30/NEGATIVES.json">NEGATIVES.json</a> records five variants and two controls:</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="variant or control / measured outcome">
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -183,10 +190,12 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>The surviving rehashed variant is not a whole-case acceptance: the APS cross-check still refuses it. It demonstrates the precise limit of this checker at an unexercised principal-signature claim. The fixtures do not establish chain execution, live authorization currency, live revocation, decision-level single use, cumulative spend, independently operated custody, or production usage.</p>
 <p>To reproduce, check out the immutable vectors revision above and run the commands in its <a href="https://github.com/probityai/agent-evidence-vectors/blob/00f5acab880bffc5ee8fe124f3a015d3ed970514/interop/aps-priorseal-e2-2026-09-30/README.md">README</a>. The checker pins agent-evidence-vectors 0.15.0 and pycryptodome 3.23.0; mutation generation additionally pins cryptography 44.0.2. The corpus package supplies byte and Ed25519 primitives, not APS or PriorSeal policy decisions. The ledger records the outputs and ceilings as E-05 through E-07.</p>
 <h2 id="trace-transcript-bytes">E5. AGT TRACE transcript bytes: a source-pinned reproduction</h2>
 <p>The <a href="experiments/trace-transcript/run.py">runner</a> calls the real AuditEntry, MerkleAuditChain, and both AGT session mappers at <a href="https://github.com/microsoft/agent-governance-toolkit/tree/60931ce0c65db144032cdc8e8f342c66cbb1201c">AGT 60931ce</a>. Before import, it verifies each retrieved source against its exact Git tree blob. Its byte oracle is <a href="https://github.com/trailofbits/rfc8785.py/tree/655cbe02b8761208e3f4cc49e879ab1e328a7dca">rfc8785.py 655cbe0</a>. IDs, times and contexts are fixed. The <a href="experiments/trace-transcript/recorded.json">recorded result</a> includes all six inputs, digests, source SHA-256 values, Python 3.12.14, and Pydantic 2.13.5.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="AuditEntry.data input / model equals sink / model equals RFC 8785 / sink equals RFC 8785">
 <table>
 <colgroup>
 <col style="width: 25%" />
@@ -241,14 +250,18 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>The sink escapes non-ASCII characters while the model emits UTF-8 characters. Both sort keys by Unicode code point and use Python’s number spelling; RFC 8785 requires UTF-16 code-unit ordering and ECMAScript number serialization. A JSON-value match therefore does not establish a transcript-byte match. These results concern the pinned AGT implementation’s transcript hash, not the current TRACE library’s separate reverse adapter or an entire protocol-conformance claim.</p>
+<div class="code-scroll" tabindex="0" role="region" aria-label="Code example">
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run <span class="at">--no-project</span> <span class="at">--python</span> 3.12.14 <span class="at">--with</span> pydantic==2.13.5 <span class="dt">\</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  python experiments/trace-transcript/run.py <span class="op">&gt;</span> /tmp/trace-transcript.json</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span> <span class="at">-u</span> experiments/trace-transcript/recorded.json /tmp/trace-transcript.json</span></code></pre></div>
+</div>
 <p>The runner also accepts <code>--source-dir</code> for an offline rerun from cached source blobs; it checks the same immutable pins. This experiment signs no record and executes no live agent. It establishes byte disagreements on the selected inputs, with no measured claim about effect capture, coverage, custody, or production failures. The ledger records its provenance and results as E-08 and E-09.</p>
 <h2 id="observer-consumer-admission">E6. Observer declaration, admission and replay</h2>
 <p>The <a href="experiments/observer-admission/run.py">runner</a> executes the unchanged public observer demo at <a href="https://github.com/probityai/agent-evidence-observer/tree/8562c25fb7ec97596ea9d0297c495340298914b6">8562c25</a>. It checks <a href="experiments/observer-admission/source-pins.json">12 Git blob pins</a>, privately copies the verified sources, and only then imports them. The declaration fixes interval <code>admission-demo-1</code>, scope <code>/work</code>, and operation <code>write-file</code>. The consumer records those expectations and a signed witness head before the broker begins. The broker performs one durable file replacement, seals its history, and the consumer persists its admission before returning success.</p>
 <p>The <a href="experiments/observer-admission/provenance.json">retained bundle</a> is the original <code>admission-run</code> artifact from <a href="https://github.com/probityai/agent-evidence-observer/actions/runs/36808961399">observer CI run 36808961399</a>, downloaded and hash-checked. Its archive SHA-256 is <code>bcc22cd27b1f9404e961f7329770620994a76348d085b7b711ab586986493892</code>. The provenance record supplies a digest for each of the eight retained evidence files and records the omission of two empty lock files, so the evidence survives the original artifact’s expiry. The PR run reports head <code>cc7191e344aabcd26baec8cbac922050ad1420b2</code>; its logs show checkout of synthetic merge <code>e8040a8032ea197ea7a185a832808c5fb9ee9355</code>. The tested tree matches the pinned observer revision. That original archive records the tested PR tree. A later <a href="https://github.com/probityai/agent-evidence-observer/actions/runs/36825509807">native main run 36825509807</a> checked out exact revision <code>8562c25fb7ec97596ea9d0297c495340298914b6</code> and passed the same 148 tests, admission demo and eight Linux boundary-probe checks. The provenance record includes this additional run and its distinct artifact digests. None was independently operated.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="retained file / what is checked">
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -287,7 +300,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>The atlas re-admits those signed bytes in a fresh scratch consumer store and requires its decision and durable state to equal the retained records. Its <a href="experiments/observer-admission/recorded.json">deterministic result</a> also records three controls:</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="intervention / required outcome">
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -314,8 +329,10 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>Every refusal must leave consumer state unchanged. Fresh stores for the latter controls ensure replay protection cannot mask a missing authority or signature check. A newly executed demo generates new keys, nonces and signatures; the comparison checks complete semantic outcomes and source digests, while the original bundle has its own exact file manifest.</p>
 <p>To reproduce on Linux:</p>
+<div class="code-scroll" tabindex="0" role="region" aria-label="Code example">
 <div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/probityai/agent-evidence-observer observer-source</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">-C</span> observer-source checkout <span class="at">--detach</span> 8562c25fb7ec97596ea9d0297c495340298914b6</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run <span class="at">--no-project</span> <span class="at">--python</span> 3.12.14 <span class="at">--with</span> cryptography==46.0.7 <span class="dt">\</span></span>
@@ -327,6 +344,7 @@
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  python experiments/observer-admission/run.py <span class="at">--observer-root</span> observer-source <span class="dt">\</span></span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">--output</span> /tmp/observer-admission-new <span class="dt">\</span></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">--expect</span> experiments/observer-admission/recorded.json</span></code></pre></div>
+</div>
 <p>The output directory must be empty. After the exact source checkout and runtime are available, neither command fetches sources or contacts a witness. The atlas CI job runs both commands and the source-pin/refusal attack tests on every push and pull request, retaining each fresh bundle.</p>
 <p>This is an <strong>author-produced same-operator fixture</strong>, with <code>witnessScope: PEER</code> and <code>evidence_vantage: artifact</code>. Its public keys and head are fixture expectations, not externally acquired trust. It establishes the tested declaration-to-admission ordering, signed-byte checks and local at-most-once admission. Its coverage remains <code>broker-write-calls-with-valid-request-id</code>, with <code>unmediatedEffects: not-established</code>. It does not establish independent custody, live-agent behavior, wall-clock freshness, complete effect capture, production isolation, cross-host consensus, or exactly-once downstream effects. Deleting or rolling back consumer state can erase replay protection. The ledger records these outcomes and ceilings as E-10 through E-13.</p>
 </main>

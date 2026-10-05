@@ -49,6 +49,19 @@ jobs:
         run: |
           python3 scripts/readme-lint.py README.md
           python3 scripts/readme-lint-test.py
+      - name: Install public layout checks
+        run: |
+          python3 -m pip install -r requirements/public-layout.txt
+          python3 -m playwright install --with-deps chromium
+      - name: Check mobile pages and keyboard controls
+        env:
+          ATLAS_LAYOUT_EVIDENCE: public-layout-evidence
+        run: python3 -m pytest -q tests/test_public_layout.py
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: public-layout
+          path: public-layout-evidence/
 
   observer-admission:
     runs-on: ubuntu-24.04

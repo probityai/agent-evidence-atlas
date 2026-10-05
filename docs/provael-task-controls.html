@@ -27,7 +27,7 @@
     </span>
   </nav>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
 <header class="page">
 <h1>Published robot controls</h1>
 <p class="subtitle">A task-grouped reading of Provael’s simulator reports and correction</p>
@@ -52,6 +52,7 @@
 <p>The source is <a href="https://github.com/provael/provael/tree/f1dbc5352bfa7774c0a5599eff20407125914c78">Provael at f1dbc535</a>. The publication commit identifies the files we read. It cannot fill a missing historical runtime commit, dependency lock or precision.</p>
 <h2 id="run-it">Run it</h2>
 <p>Python 3.11+ and its standard library are enough:</p>
+<div class="code-scroll" tabindex="0" role="region" aria-label="Code example">
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/provael/provael.git provael-source</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">-C</span> provael-source checkout <span class="at">--detach</span> f1dbc5352bfa7774c0a5599eff20407125914c78</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/check_provael_controls.py <span class="dt">\</span></span>
@@ -59,8 +60,10 @@
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">--expect</span> examples/provael-task-controls/report.json <span class="dt">\</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">--output</span> provael-control-report.json <span class="dt">\</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">--retain-source-zip</span> provael-required-source.zip</span></code></pre></div>
+</div>
 <p>The reader checks the baked contract and source-record digests, then every complete source file’s length and SHA-256. Git HEAD alone would miss changed working files. The ZIP contains every bound original file, with its original path, and the source record; an extracted ZIP can also be the reader’s input. The compact report retains every episode’s source pointer, original and changed instruction, applied seed, applicability, reported unsafe flag and clean task success. The original reports also retain the action decisions and trajectories. Those complete files stay in the source ZIP, rather than being silently trimmed into the compact report.</p>
 <h2 id="keep-the-two-runs-separate">Keep the two runs separate</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="published run / tasks / seeds per arm / retained records / applicable / not applicable">
 <table>
 <colgroup>
 <col style="width: 13%" />
@@ -99,7 +102,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>The suite’s 50 <code>mcp_tool_desc</code> records are not applicable. Their reported <code>success: false</code> never becomes a measured safe result: their derived rate and interval are null. No outcome labels are unresolved in these published files. An unknown label or incomplete seed/arm cell is refused.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="arm / suite reported unsafe / applicable / controls reported unsafe / applicable">
 <table>
 <colgroup>
 <col style="width: 27%" />
@@ -146,6 +151,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>The benign clean-task competence controls are 48/50 and 29/30. This is a separate outcome from the unsafe flag. Every remaining suite arm and every per-task count is in the report.</p>
 <p>There are 60 shared task/seed/arm keys across the runs. Of those, 30 complete native episode objects are canonically identical, all in <code>none</code>. The report retains their digests and both source pointers. Separate directories do not establish fresh independent benign repeats. We do not pool the runs.</p>
 <h2 id="what-the-controls-change">What the controls change</h2>
@@ -154,6 +160,7 @@
 <p>Each run contributes ten task vectors. A vector keeps all of that task’s unsafe counts across all arms. An integer convolution adds one whole task at each of ten draw positions; the multiplicity of equal vectors is retained. The final weights therefore count all <code>10**10</code> ordered task draws exactly, without executing ten billion loops. There are 9,581 distinct suite states and 1,716 controls states. These are bootstrap draw weights, not new trials.</p>
 <p>Every measured arm has the same applicable denominator within its run: five per task in the suite and three in controls. Thus the pooled episode rate and the equal-task mean coincide, including in each draw. Both targets are reported. The exact profile refuses unequal allocation, empty arms or unresolved labels rather than silently excluding tasks. The separate <a href="https://probityai.github.io/agent-evidence-atlas/task-grouped-rates.html">authored example</a> shows unequal weights and unresolved labels.</p>
 <p>For nominal 95% endpoints, the reader uses the inverse empirical CDF: the smallest value reaching cumulative weight <code>ceil(p * 10**10)</code>, at <code>p=1/40</code> and <code>39/40</code>. The endpoint ranks are 250,000,000 and 9,750,000,000.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="within-run contrast / observed difference / exact nominal task-percentile endpoints">
 <table>
 <colgroup>
 <col style="width: 27%" />
@@ -190,6 +197,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>These are exact empirical bootstrap calculations, not exact population confidence guarantees. The ten benchmark tasks share policy and simulator; independent exchangeable sampling from an external task population is not established. Within-task pairing cannot remove dependence between tasks. <code>coverageEstablished</code> stays false, and no simultaneous coverage is claimed for the several arm comparisons. A degenerate point distribution stays labelled degenerate and cannot establish absence.</p>
 <p>The publisher’s aggregate intervals remain separately retained with their own method: 2,000 <code>random.Random(0)</code> task draws and floor-indexed percentiles. Our exact scrambled interval is [12/30, 23/30], while that Monte Carlo analysis gives [13/30, 23/30]. The reader does not rewrite the original. The controls’ published Holm family includes all five non-baseline arms, including harmless variations; the suite family has six applicable attacks. Those publisher tests are preserved as analysis, not promoted to a claim that seeds are independent sampling units.</p>
 <h2 id="runtime-and-outcome-limits">Runtime and outcome limits</h2>

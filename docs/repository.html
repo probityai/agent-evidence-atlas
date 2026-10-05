@@ -27,13 +27,14 @@
     </span>
   </nav>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
 <header class="page">
 <h1>Working in the repository</h1>
 <p class="subtitle">The files, the release rule, and the commands that re-derive and build the site</p>
 </header>
 <p>The files in the repository, the rule for releasing an artifact, and the commands that re-derive the claims and build this site.</p>
 <h2 id="what-is-here">What is here</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="path / what it is">
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -104,9 +105,11 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h2 id="release-rule">Release rule</h2>
 <p>Each artifact has its own release contract, and an artifact is added here when it passes that contract, not before. The version ledger lists every artifact of the framework; one that has not passed yet is shown there as held. The experiment draft retains the local PEER pilot, an immutable APS/PriorSeal fixture record, a source-pinned AGT transcript-byte result, and the public observer declaration-to-admission demo with its original CI bundle and replay controls. Separately reproduced below-agent observation and independent history remain registered designs without a qualifying result. The essay, runnable verifier demonstration and twelve-month series plan remain held.</p>
 <h2 id="re-derive-and-build">Re-derive and build</h2>
+<div class="code-scroll" tabindex="0" role="region" aria-label="Code example">
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> pip install <span class="at">-r</span> requirements/discoverability.txt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/rederive.py            <span class="co"># recorded vs current value for every automatable claim; no credentials</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/rederive.py <span class="at">--strict</span>   <span class="co"># exit 1 if any value moved or could not be read</span></span>
@@ -114,6 +117,7 @@
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/build.py               <span class="co"># build docs/ (pandoc 3.x); any pandoc warning fails the build</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/build.py <span class="at">--check</span>       <span class="co"># fail if docs/ differs from what the sources give</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/check_links.py <span class="at">--external</span></span></code></pre></div>
+</div>
 <p><a href="catalog.html">Maintain the catalog</a> to add a project. The same build emits the task page, <code>catalog.json</code>, <code>llms.txt</code> and <code>sitemap.xml</code>; retained runs keep their own register.</p>
 <p>Each built page has a sibling <code>.md</code> URL. The HTML header advertises it with <code>rel="alternate"</code> and points to the agent guide with <code>rel="describedby"</code>. The guide links to Markdown pages. Links between built pages use their Markdown mirrors; pinned source URLs and retained downloads keep their original targets. The link checker renders each mirror before checking its destinations and anchors.</p>
 <p>Current component navigation uses the reviewed README pins in the catalog. Historical source rows, Lab records and retained experiment bytes keep their original pins and scopes.</p>

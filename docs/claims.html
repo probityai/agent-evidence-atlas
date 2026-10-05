@@ -1687,6 +1687,39 @@ P-74 | Each of the three external-run-record-v1 files states SECOND_IMPLEMENTATI
 </tbody>
 </table>
 </div>
+<h2 id="discovery-task-evaluation">Discovery task evaluation</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="id / claim as printed / source / read (UTC) / re-derive / limit">
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr>
+<th>id</th>
+<th>claim as printed</th>
+<th>source</th>
+<th>read (UTC)</th>
+<th>re-derive</th>
+<th>limit</th>
+</tr>
+</thead>
+<tbody>
+<tr data-read="2026-10-05">
+<td>D-01</td>
+<td>Fixed discovery suite: 25 tasks in two modes; target 90 percent accepted agent first attempts per complete mode; five declared-unfamiliar human walkthroughs with a two-choice target; the empty example retains all 50 cells as not executed. The local packet workflow uses Python 3.11 or later and refuses invalid inputs with exit 2.</td>
+<td><a href="https://github.com/probityai/agent-evidence-atlas/blob/753a60ccd3ec84a80fd8ca84da283d8ec09a60fa/data/discovery-tasks.json">Pinned definitions and source hashes</a>; <a href="https://github.com/probityai/agent-evidence-atlas/blob/753a60ccd3ec84a80fd8ca84da283d8ec09a60fa/tools/discovery_evaluation.py">packet reader</a>; <a href="https://github.com/probityai/agent-evidence-atlas/blob/753a60ccd3ec84a80fd8ca84da283d8ec09a60fa/examples/discovery-evaluation/no-attempts-report.json">empty report</a>; <a href="discovery-evaluation.html">workflow</a></td>
+<td>2026-10-05 <span class="cadence">(does not expire)</span></td>
+<td><code>python3 tools/discovery_evaluation.py check</code>; report the empty example; <code>python3 -m pytest -q tests/test_discovery_evaluation.py</code>; inspect source references and the declared targets</td>
+<td>Product navigation definitions and author-operated finite packet controls. No real search, agent client or unfamiliar reader executed; targets are goals, not observed results. Role, time, source-access and review declarations are unauthenticated. Author checks, research studies, installed-command results, host adoption and independent custody remain separate.</td>
+</tr>
+</tbody>
+</table>
+</div>
 </main>
 <footer class="site">
   <p>Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.6-draft, 2026-10-01.</p>

@@ -21,6 +21,12 @@ def capture(manifest_path, prompt_path, directory, fault=lambda _: None, utc=Non
     directory = Path(directory)
     directory.mkdir(mode=0o700)
     custody.sync_directory(directory.parent)
+    with custody.attempt_lock(directory, create=True):
+        return run_capture(manifest, manifest_bytes, prompt, directory, fault, utc, monotonic)
+
+
+def run_capture(manifest, manifest_bytes, prompt, directory, fault, utc, monotonic):
+    """Run the pipe pump while capture owns the per-attempt writer lease."""
     custody.exclusive_write(directory / "invocation.json", manifest_bytes)
     custody.exclusive_write(directory / "prompt.txt", prompt)
     journal = custody.Journal(directory, utc, monotonic)
@@ -96,27 +102,34 @@ def capture(manifest_path, prompt_path, directory, fault=lambda _: None, utc=Non
         receiver.close()
         stderr.close()
         journal.close()
-    record = custody.project(directory)
-    custody.atomic_write(directory / "record.json", record, fault)
+    record = custody.derive_record(directory)
+    custody.write_projection(directory, directory / "record.json", record, fault)
     return record, 130 if interrupted else 0
 
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("operation", choices=("capture", "project"))
+    parser.add_argument("operation", choices=("capture", "project", "contract"))
     parser.add_argument("--attempt-dir", type=Path, required=True)
     parser.add_argument("--manifest", type=Path)
     parser.add_argument("--prompt", type=Path)
     parser.add_argument("--output", type=Path)
+    parser.add_argument("--metadata", type=Path)
     args = parser.parse_args(argv)
     try:
         if args.operation == "capture":
-            custody.require(args.manifest is not None and args.prompt is not None and args.output is None,
+            custody.require(args.manifest is not None and args.prompt is not None and args.output is None and args.metadata is None,
                             "capture requires manifest and prompt; output is record.json")
             _, code = capture(args.manifest, args.prompt, args.attempt_dir)
             return code
-        custody.require(args.output is not None and args.manifest is None and args.prompt is None, "project requires only output and attempt directory")
-        custody.atomic_write(args.output, custody.project(args.attempt_dir))
+        if args.operation == "contract":
+            custody.require(args.metadata is not None and args.output is None and args.manifest is None and args.prompt is None,
+                            "contract requires only metadata and attempt directory")
+            from discovery_capture_v2 import retain_contract
+            retain_contract(args.attempt_dir, args.metadata)
+            return 0
+        custody.require(args.output is not None and args.manifest is None and args.prompt is None and args.metadata is None, "project requires only output and attempt directory")
+        custody.write_projection(args.attempt_dir, args.output, custody.project(args.attempt_dir))
         return 0
     except (OSError, ValueError, TypeError, KeyError, RecursionError) as error:
         print(f"REFUSED: {error}", file=sys.stderr)

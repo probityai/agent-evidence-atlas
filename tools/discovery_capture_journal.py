@@ -8,6 +8,8 @@ No timestamp in this module authenticates a native or outside clock.
 from __future__ import annotations
 
 import datetime as dt
+from contextlib import contextmanager
+import fcntl
 import hashlib
 import json
 import math
@@ -89,6 +91,22 @@ def sync_directory(path):
         os.close(descriptor)
 
 
+@contextmanager
+def attempt_lock(directory, shared=False, create=False):
+    directory = Path(directory)
+    require(not directory.is_symlink() and directory.is_dir(), "attempt directory must be a real directory")
+    flags = os.O_RDWR | (os.O_CREAT | os.O_EXCL if create else 0)
+    with open_regular(directory / "writer.lock", flags) as stream:
+        try:
+            fcntl.flock(stream.fileno(), (fcntl.LOCK_SH if shared else fcntl.LOCK_EX) | fcntl.LOCK_NB)
+        except BlockingIOError as error:
+            raise ValueError("attempt has an active writer or reader") from error
+        try:
+            yield
+        finally:
+            fcntl.flock(stream.fileno(), fcntl.LOCK_UN)
+
+
 def exclusive_write(path, data):
     with open_regular(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL) as stream:
         stream.write(data)
@@ -112,6 +130,22 @@ def atomic_write(path, value, fault=lambda _: None):
     finally:
         if os.path.exists(temporary):
             os.unlink(temporary)
+
+
+def write_projection(directory, path, record, fault=lambda _: None):
+    """Replace derived records only; never redirect a projection into evidence."""
+    directory, path = Path(directory).resolve(), Path(path)
+    destination = path.resolve()
+    if destination.is_relative_to(directory):
+        require(destination.parent == directory and destination.suffix == ".json" and
+                destination.name not in {"invocation.json", "response-metadata.json"},
+                "projection cannot replace original evidence")
+    if path.exists():
+        previous = strict_json(read_small(path))
+        require(isinstance(previous, dict) and previous.get("schema_version") == 2 and
+                previous.get("attempt") == record["attempt"] and "events" in previous,
+                "projection cannot replace another original or attempt")
+    atomic_write(path, record, fault)
 
 
 def validate_manifest(value):
@@ -141,19 +175,27 @@ def process_identity(pid):
 
 
 class Journal:
-    def __init__(self, directory, utc=None, monotonic=None):
+    def __init__(self, directory, utc=None, monotonic=None, append=False):
         self.directory = Path(directory)
         self.utc = utc or (lambda: dt.datetime.now(dt.timezone.utc).isoformat().replace("+00:00", "Z"))
         self.monotonic = monotonic or time.monotonic_ns
         self.origin = self.monotonic()
+        self.clock_id = str(uuid.uuid4())
         self.sequence = 0
         self.previous = None
-        self.stream = open_regular(self.directory / "receiver-journal.jsonl", os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+        if append:
+            rows, partial = read_journal(self.directory)
+            require(not partial, "cannot append beyond a partial journal line")
+            self.sequence = len(rows)
+            self.previous = digest(read_small(self.directory / "receiver-journal.jsonl").splitlines(keepends=True)[-1]) if rows else None
+        flags = os.O_WRONLY | (os.O_APPEND if append else os.O_CREAT | os.O_EXCL)
+        self.stream = open_regular(self.directory / "receiver-journal.jsonl", flags)
         sync_directory(self.directory)
 
     def append(self, kind, facts):
         row = {"sequence": self.sequence, "previous_sha256": self.previous,
                "kind": kind, "observed_at": self.utc(),
+               "receiver_clock_id": self.clock_id,
                "monotonic_elapsed_ns": self.monotonic() - self.origin, "facts": facts}
         data = canonical(row)
         self.stream.write(data)
@@ -265,42 +307,64 @@ def scan_events(path, limit=PARSE_LIMIT):
         yield event_facts(offset, length, checksum.hexdigest(), None, "incomplete"), None
 
 
-def read_journal(directory):
-    data = read_small(Path(directory) / "receiver-journal.jsonl", JSON_LIMIT)
-    rows, previous, monotonic = [], None, -1
+def read_journal(directory, binding=None):
+    path = Path(directory) / "receiver-journal.jsonl"
+    if binding is None:
+        data = read_small(path, JSON_LIMIT)
+    else:
+        require(type(binding["bytes"]) is int and 0 <= binding["bytes"] <= JSON_LIMIT, "journal prefix exceeds parsing budget")
+        with open_regular(path) as stream:
+            data = stream.read(binding["bytes"])
+        require(len(data) == binding["bytes"] and digest(data) == binding["sha256"], "journal prefix binding differs")
+    rows, previous, clocks = [], None, {}
     lines = data.splitlines(keepends=True)
     partial = bool(lines and not lines[-1].endswith(b"\n"))
     for line in lines[:-1] if partial else lines:
         row = strict_json(line)
-        require(isinstance(row, dict) and set(row) == {"sequence", "previous_sha256", "kind", "observed_at", "monotonic_elapsed_ns", "facts"}, "journal fields differ")
+        require(isinstance(row, dict) and set(row) == {"sequence", "previous_sha256", "kind", "observed_at", "receiver_clock_id", "monotonic_elapsed_ns", "facts"}, "journal fields differ")
         require(type(row["sequence"]) is int and row["sequence"] == len(rows) and row["previous_sha256"] == previous, "journal chain differs")
-        require(type(row["monotonic_elapsed_ns"]) is int and row["monotonic_elapsed_ns"] >= monotonic, "monotonic clock order differs")
+        clock = row["receiver_clock_id"]
+        require(isinstance(clock, str) and str(uuid.UUID(clock)) == clock, "receiver clock UUID required")
+        require(type(row["monotonic_elapsed_ns"]) is int and row["monotonic_elapsed_ns"] >= clocks.get(clock, 0), "monotonic clock order differs")
+        require(row["kind"] in {"prepared", "launched", "native_event", "native_wait", "driver_closure", "contract"}, "unknown journal kind")
         stamp = row["observed_at"]
         require(isinstance(stamp, str) and stamp.endswith("Z") and dt.datetime.fromisoformat(stamp).utcoffset() == dt.timedelta(0), "UTC observation required")
         require(isinstance(row["facts"], dict), "journal facts must be an object")
         rows.append(row)
-        previous, monotonic = digest(line), row["monotonic_elapsed_ns"]
+        previous, clocks[clock] = digest(line), row["monotonic_elapsed_ns"]
     return rows, partial
 
 
 def observation(row):
     return None if row is None else {"sequence": row["sequence"], "observed_at": row["observed_at"],
+                                     "receiver_clock_id": row["receiver_clock_id"],
                                      "monotonic_elapsed_ns": row["monotonic_elapsed_ns"]}
 
 
-def project(directory):
+def derive_record(directory, journal_binding=None):
     directory = Path(directory)
     require(not directory.is_symlink() and directory.is_dir(), "attempt directory must be a real directory")
     manifest = strict_json(read_small(directory / "invocation.json"))
     validate_manifest(manifest)
-    rows, partial = read_journal(directory)
+    rows, partial = read_journal(directory, journal_binding)
     require(rows and rows[0]["kind"] == "prepared", "prepared observation missing")
+    require(sum(row["kind"] == "prepared" for row in rows) == 1, "duplicate prepared observation")
+    launched = [row for row in rows if row["kind"] == "launched"]
+    require(len(launched) <= 1 and (not launched or launched[0]["sequence"] == 1), "launch observation order differs")
+    if launched:
+        identity = launched[0]["facts"]
+        require(set(identity) == {"boot_id", "pid", "start_ticks"} and type(identity["pid"]) is int and identity["pid"] > 0,
+                "invalid recorded process identity")
+        require(identity["boot_id"] is None or (isinstance(identity["boot_id"], str) and str(uuid.UUID(identity["boot_id"])) == identity["boot_id"]), "invalid boot identity")
+        require(identity["start_ticks"] is None or (type(identity["start_ticks"]) is int and identity["start_ticks"] > 0), "invalid process start identity")
+    require(not (directory / "driver-source").is_symlink(), "source directory is a symlink")
     expected = {"invocation": file_binding(directory / "invocation.json"),
                 "prompt": file_binding(directory / "prompt.txt"),
                 "driver_sources": {name: file_binding(directory / "driver-source" / name)
                                    for name in ("discovery_capture.py", "discovery_capture_journal.py")}}
     require(rows[0]["facts"] == expected, "prepared source bindings differ")
     event_rows = [row for row in rows if row["kind"] == "native_event"]
+    require(not event_rows or launched, "native events precede launch")
     events, responses, index = [], [], 0
     for facts, event in scan_events(directory / "native-events.jsonl"):
         row = event_rows[index] if index < len(event_rows) else None
@@ -321,16 +385,35 @@ def project(directory):
     closures = [row for row in rows if row["kind"] == "driver_closure"]
     require(len(waits) <= 1 and len(closures) <= 1, "duplicate closure observations")
     if waits:
+        require(launched and waits[0]["sequence"] > launched[0]["sequence"] and
+                all(row["sequence"] < waits[0]["sequence"] for row in event_rows), "native wait order differs")
         require(set(waits[0]["facts"]) == {"exit_code"} and type(waits[0]["facts"]["exit_code"]) is int, "invalid wait observation")
     if closures:
         require(set(closures[0]["facts"]) == {"state"} and closures[0]["facts"]["state"] in {"completed", "interrupted"}, "invalid driver closure")
         require(waits and closures[0]["sequence"] > waits[0]["sequence"], "driver closure precedes native wait")
+    contracts = [row for row in rows if row["kind"] == "contract"]
+    require(len(contracts) <= 1, "duplicate contract observation")
+    contract = {"origin": "supplied_metadata", "state": "not_evaluated", "metadata": None,
+                "selection": None, "refusal": None, "refusal_detail": None, "observation": None}
+    if contracts:
+        from discovery_capture_v2 import metadata_result
+        row = contracts[0]
+        require(row == rows[-1], "contract must be the final journal observation")
+        contract = metadata_result(directory / "response-metadata.json")
+        require(row["facts"] == contract, "metadata or contract result differs")
+        contract = {**contract, "observation": observation(row)}
     return {"schema_version": 2, "attempt": {key: manifest[key] for key in ("attempt_id", "task_id", "mode", "repetition", "suite_sha256")},
             "sources": {"invocation": expected["invocation"], "prompt": expected["prompt"],
                         "driver_sources": expected["driver_sources"], "native_events": file_binding(directory / "native-events.jsonl"),
-                        "stderr": file_binding(directory / "native-stderr.txt"), "journal": file_binding(directory / "receiver-journal.jsonl")},
+                        "stderr": file_binding(directory / "native-stderr.txt"), "journal": journal_binding or file_binding(directory / "receiver-journal.jsonl")},
             "journal_partial_tail": partial, "events": events,
             "response": {"state": "absent" if not responses else "observed" if len(responses) == 1 else "multiple", "captures": responses},
-            "contract": {"state": "not_evaluated", "metadata": None, "selection": None, "refusal": None, "observation": None},
+            "contract": contract,
             "native_closure": {"state": "exit_observed" if waits else "unknown", "exit_code": waits[0]["facts"]["exit_code"] if waits else None, "observation": observation(waits[0]) if waits else None},
             "driver_closure": {"state": closures[0]["facts"]["state"] if closures else "unknown", "observation": observation(closures[0]) if closures else None}}
+
+
+def project(directory):
+    """Derive under a shared lease; never race an original-byte append."""
+    with attempt_lock(directory, shared=True):
+        return derive_record(directory)

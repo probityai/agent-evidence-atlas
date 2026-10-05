@@ -68,8 +68,8 @@ def test_receiver_clock_adjustment_does_not_change_order(tmp_path):
     utc = iter(["2026-10-05T20:00:02Z", "2026-10-05T20:00:01Z"])
     monotonic = iter([100, 101, 102])
     journal = custody.Journal(tmp_path, lambda: next(utc), lambda: next(monotonic))
-    journal.append("test", {})
-    journal.append("test", {})
+    journal.append("native_event", {})
+    journal.append("native_event", {})
     journal.close()
     rows, _ = custody.read_journal(tmp_path)
     assert rows[0]["observed_at"] > rows[1]["observed_at"]
@@ -150,8 +150,8 @@ def test_native_parser_keeps_legitimate_floats(event, state):
 
 def test_journal_chain_and_clock_refuse_tampering(tmp_path):
     journal = custody.Journal(tmp_path)
-    journal.append("test", {})
-    journal.append("test", {})
+    journal.append("native_event", {})
+    journal.append("native_event", {})
     journal.close()
     path = tmp_path / "receiver-journal.jsonl"
     data = path.read_bytes()

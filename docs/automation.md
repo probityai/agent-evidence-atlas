@@ -8,6 +8,12 @@ Read [llms.txt](llms.txt) for the navigation index or [catalog.json](catalog.jso
 
 Use the stable `id` for lookups. Follow `docs_url` for the quickstart and `source.commit` to reproduce the captured source.
 
+<a id="check-discovery"></a>
+
+## Check discovery
+
+Use the [fixed discovery prompts and receipt checker](discovery-evaluation.md) to retain a reader or agent session and review its answers against pinned public sources. Keep actual discovery attempts separate from author-operated packet checks.
+
 <a id="read-a-retained-run"></a>
 
 ## Read a retained run

@@ -14,7 +14,7 @@ A digest here is the SHA-256 of the artifact's source file in the site's reposit
 | Verifier demonstration | 0.1 | 2026-09-27 | held | page not built in this repository yet | Held until it passes its release criteria |
 | [Experiments](experiments.md) | 0.3 | 2026-10-01 | draft | `a26fd7b03c3d6f15` `src/experiments.md` | Adds original observer CI admission bytes, immutable source pins, executable replay and refusal controls; independent operation remains unestablished |
 | Series plan | 0.1 | 2026-09-27 | held | page not built in this repository yet | Held until it passes its release criteria |
-| [Claim ledger](claims.md) | 0.8.13 | 2026-10-05 | draft | `718a85025837dd26` `CLAIMS.md` | Retains REMORA scope corrections and records current Rust, Observer and Vectors installation routes |
+| [Claim ledger](claims.md) | 0.8.13 | 2026-10-05 | draft | `45117c00ec6d5ed4` `CLAIMS.md` | Retains REMORA scope corrections and records current Rust, Observer and Vectors installation routes |
 | [Probity Open Evidence Lab](lab.md) | 0.1.9 | 2026-10-04 | draft | `ea209aedc4624e7a` `src/lab.md` | Adds the REMORA execution-boundary run records and preserves all 23 earlier records |
 | [Task-grouped rates worked example](task-grouped-rates.md) | 0.1 | 2026-10-03 | draft | `92940ce8ee827ad0` `examples/task-grouped-rates/input.json` | Authored labels, paired task resampling, explicit weighting targets and unresolved outcomes |
 | [Published robot controls companion](provael-task-controls.md) | 0.1 | 2026-10-03 | draft | `20b90c1ae59c399d` `examples/provael-task-controls/source-record.json` | Original publisher simulator labels, matched controls, corrected interpretation and exact paired task weights |
@@ -22,7 +22,7 @@ A digest here is the SHA-256 of the artifact's source file in the site's reposit
 | [Authored policy vocabulary finding](vocabulary-findings.md) | 0.1 | 2026-10-03 | draft | `20af3bbeb2180633` `src/vocabulary-findings.md` | Fixed action vocabulary raises the finite authored score; all default quality rows hold |
 | [Authored tool-argument finding](tool-argument-findings.md) | 0.1 | 2026-10-03 | draft | `958f2a8c3268901a` `src/tool-argument-findings.md` | Preserves all native attempts, abstention failures and separate scoped-evidence publication/quality holds |
 | [Project catalog](start.md) | 0.5 | 2026-10-05 | draft | `60dd4a20d357467c` `data/catalog.json` | Adds witnessed run selection and refreshes current Rust, Observer and Vectors installation routes |
-| [Automation guide](automation.md) | 0.1 | 2026-10-03 | draft | `8d5210e52eb37094` `src/automation.md` | Catalog lookups, checked run records and result submissions |
+| [Automation guide](automation.md) | 0.1 | 2026-10-03 | draft | `a84b7c9744e6ff65` `src/automation.md` | Catalog lookups, checked run records and result submissions |
 | [Catalog maintenance guide](catalog.md) | 0.4 | 2026-10-05 | draft | `4b8ca5cd9be3c662` `src/catalog.md` | Separates integration reader status from upstream listing acceptance and live publication |
 
 [HTML view](versions.html) | [Agent guide](llms.txt)

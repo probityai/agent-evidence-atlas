@@ -1,7 +1,7 @@
 ---
 title: "Probity Open Evidence Lab"
 subtitle: "A public protocol and run register for checking specific agent-evidence claims"
-status: "Protocol draft 0.1.8, 4 October 2026. The register retains native framework, admission, receipt and bounded actual-weight comparisons. Host adoption and independently operated custody have separate evidence."
+status: "Protocol draft 0.1.9, 4 October 2026. The register retains native framework, admission, receipt and bounded actual-weight comparisons. Host adoption and independently operated custody have separate evidence."
 description: "Submit pinned agent-evidence runs, hostile controls, field-level comparisons and correction records to a public register."
 toc: true
 ---
@@ -89,6 +89,36 @@ adoption remain untested. Original protobuf wire bytes are retained; the reader
 checks captured JSON semantics. The older 16-row comparison stays pinned, and
 the prospective eight-task implementation-owned study has not started.
 [Claims P-71 and P-72](claims.html) bind these results to the retained originals.
+
+## REMORA execution-boundary run records
+
+The 24th [register record](lab/register.json) holds the run records for REMORA's
+three frozen execution-boundary contracts at
+`fe324dd734734d9227aa894330ac52c2bb916b94`. The separate reader ran at
+`308c5b4401b18d42ed73dea80459375932e6b8e8`, whose reader files equal the reviewed
+head `bf294ec7`. The 23 earlier record objects and their bytes are unchanged.
+
+| Contract | Claim | Cases | Result per case |
+|---|---|---|---|
+| `exact-call-binding-v1` | `exact_call_binding` | 13 | 11 `ESTABLISHED`, 2 `NOT_ESTABLISHED` |
+| | `single_use_authorization` | 2 | 2 `ESTABLISHED` |
+| `fresh-authority-v1` | `fresh_authority_at_dispatch` | 14 | 13 `ESTABLISHED`, 1 `NOT_ESTABLISHED` |
+| `effect-evidence-v1` | `effect_state_distinction` | 12 | 12 `ESTABLISHED` |
+
+All 41 results equal the fixture expectations on CPython 3.13.15 and 3.14.7.
+The same run passed 13 additional cases, eight malformed-input refusals, nine
+source mutations and 20 Verify decisions. The [report](experiments/remora-boundary-2026-10-04/report.json),
+[records and originals](experiments/remora-boundary-2026-10-04/README.md) and
+[provenance](experiments/remora-boundary-2026-10-04/provenance.json) keep both
+Actions archives; the Lab checker recomputes each package digest from the
+retained producer bytes and derives every displayed count.
+
+Each `external-run-record-v1` states `SECOND_IMPLEMENTATION`, an external operator
+and `NOT_INDEPENDENT`, exactly as the reader emits it, so under REMORA's rule it
+supports `REPRODUCED`. Authorization signatures use a public test-only key; the
+effect `hash` rule stays unsupported; fixture premises are taken as supplied.
+Expected outcomes were exposed. Producer review starts when the records are
+shared with REMORA. [Claims P-73 and P-74](claims.html) bind these results.
 
 ## Submitted producer-fixture runs
 

@@ -7592,6 +7592,147 @@
         }
       ],
       "atlasRevision": "91824c04833725b208842a8fcc523c7e91a3f8e4"
+    },
+    {
+      "id": "remora-boundary-2026-10-04",
+      "readerRevision": "308c5b4401b18d42ed73dea80459375932e6b8e8",
+      "contract": "https://github.com/darklordVirtual/REMORA-research/blob/fe324dd734734d9227aa894330ac52c2bb916b94/artifacts/interop/index.json",
+      "report": "../experiments/remora-boundary-2026-10-04/report.json",
+      "provenance": "../experiments/remora-boundary-2026-10-04/provenance.json",
+      "reviewState": "producer-review-pending-submission",
+      "evidenceClaim": "verifier-behavior-on-public-producer-fixtures",
+      "roles": {
+        "readerAuthor": "Probity",
+        "runner": "Probity-owned GitHub Actions",
+        "producer": "REMORA",
+        "independentOperation": "not-established",
+        "independentEffectCustody": "not-established"
+      },
+      "answerExposure": "Expected outcomes are inside the frozen fixtures and the reader compares against them; not answer-blind. Whether reference-verifier text was read while the reader was written is not recorded.",
+      "comparisonOrder": "Native outputs and comparisons were emitted together in one run.",
+      "limits": [
+        "Run records state SECOND_IMPLEMENTATION, EXTERNAL operator and NOT_INDEPENDENT; under REMORA's rule they support REPRODUCED, not EXTERNALLY_VERIFIED.",
+        "Authorization signatures use a public test-only HMAC key created and checked by the reader; no REMORA-issued authorization is authenticated.",
+        "The effect hash rule is unsupported until the contract defines its preimage; no frozen case uses it.",
+        "Fixture premises such as revocation visibility at presentation and the observed field values are taken as supplied.",
+        "No production safety, authority, independent effect custody or lifecycle change follows from these records."
+      ],
+      "claimResults": [
+        {
+          "claim": "exact-call-binding-v1-cases-match-fixture",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/0/contracts/0/passingExpectations",
+          "expectedValue": 15
+        },
+        {
+          "claim": "fresh-authority-v1-cases-match-fixture",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/0/contracts/1/passingExpectations",
+          "expectedValue": 14
+        },
+        {
+          "claim": "effect-evidence-v1-cases-match-fixture",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/0/contracts/2/passingExpectations",
+          "expectedValue": 12
+        },
+        {
+          "claim": "exact_call_binding-status",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/0/contracts/0/claims/0/status",
+          "expectedValue": "ESTABLISHED"
+        },
+        {
+          "claim": "single_use_authorization-status",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/0/contracts/0/claims/1/status",
+          "expectedValue": "ESTABLISHED"
+        },
+        {
+          "claim": "fresh_authority_at_dispatch-status",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/0/contracts/1/claims/0/status",
+          "expectedValue": "ESTABLISHED"
+        },
+        {
+          "claim": "effect_state_distinction-status",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/0/contracts/2/claims/0/status",
+          "expectedValue": "ESTABLISHED"
+        },
+        {
+          "claim": "interpreters-agree-on-every-case",
+          "result": "pass",
+          "recordedField": "/interpretersAgreeOnEveryCase",
+          "expectedValue": true
+        },
+        {
+          "claim": "source-mutations-caught",
+          "result": "pass",
+          "recordedField": "/qualifiedRuns/0/sourceFaults",
+          "expectedValue": 9
+        },
+        {
+          "claim": "run-record-independence",
+          "result": "pass",
+          "recordedField": "/independence",
+          "expectedValue": "NOT_INDEPENDENT"
+        },
+        {
+          "claim": "effect-hash-rule",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "independent-effect-custody",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "production-safety",
+          "result": "out-of-scope"
+        },
+        {
+          "claim": "producer-acceptance",
+          "result": "not-exercised"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "../experiments/remora-boundary-2026-10-04/README.md",
+          "sha256": "3220a349132f2d4e63fb297e08525de26e1cd22d9037c81a74f6302a7ea875d7"
+        },
+        {
+          "path": "../experiments/remora-boundary-2026-10-04/effect-evidence-v1.external-run-record-v1.json",
+          "sha256": "fe60202e10a2185931d3308b5b9d9020011068bc41c8ab68b846a2104da8b336"
+        },
+        {
+          "path": "../experiments/remora-boundary-2026-10-04/exact-call-binding-v1.external-run-record-v1.json",
+          "sha256": "424a92720998bbe8a0d511ce12cbfe818f18e9ef4280a88765555702245f83e3"
+        },
+        {
+          "path": "../experiments/remora-boundary-2026-10-04/fresh-authority-v1.external-run-record-v1.json",
+          "sha256": "7df0efaea898336c8befee3912932d2a53696825d7473f892ee814c7a2f8e137"
+        },
+        {
+          "path": "../experiments/remora-boundary-2026-10-04/provenance.json",
+          "sha256": "9f2957963108aa06b9372a8355b6e20b6dd4dd77f0f4e249b7a00614493d9865"
+        },
+        {
+          "path": "../experiments/remora-boundary-2026-10-04/python-3.13.15-artifact.zip",
+          "sha256": "75d6b940c30c1145ee1a1bcf0bd524dea1b80218d6e6eec511776781fb39fab1"
+        },
+        {
+          "path": "../experiments/remora-boundary-2026-10-04/python-3.14.7-artifact.zip",
+          "sha256": "0c14ca0708f690fffe967463000d8373875e295bb1180f23c486bdb9f42abf0b"
+        },
+        {
+          "path": "../experiments/remora-boundary-2026-10-04/report.json",
+          "sha256": "155783143d733ca3b1941f97eb4a930d45e9964d4f827eebfae1f7c998cdefad"
+        },
+        {
+          "path": "../experiments/remora-boundary-2026-10-04/validate_capsule.py",
+          "sha256": "2b800db166f1e6b1d20017cd703cc30e8818993aa02f2edda011fd2c73b4b23b"
+        }
+      ]
     }
   ]
 }

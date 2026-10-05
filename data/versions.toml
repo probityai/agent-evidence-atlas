@@ -60,19 +60,19 @@ note = "Twelve planned installments"
 name = "Claim ledger"
 page = "claims.html"
 source = "CLAIMS.md"
-version = "0.8.10"
+version = "0.8.11"
 date = "2026-10-05"
 status = "draft"
-note = "Records the native Inspect reader scope, accepted catalog source and older live publication"
+note = "Records the native Inspect reader scope and accepted catalog source, and adds the REMORA execution-boundary run records"
 
 [[artifact]]
 name = "Probity Open Evidence Lab"
 page = "lab.html"
 source = "src/lab.md"
-version = "0.1.8"
+version = "0.1.9"
 date = "2026-10-04"
 status = "draft"
-note = "Adds the AG2 authority comparison and preserves all 22 earlier records and separate native attempts"
+note = "Adds the REMORA execution-boundary run records and preserves all 23 earlier records"
 
 [[artifact]]
 name = "Task-grouped rates worked example"

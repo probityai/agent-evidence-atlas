@@ -12,6 +12,7 @@ SELECTED = (
     "google-adk-responses-2026-10-04",
     "go-jcs-2026-10-04",
     "ag2-push-authority-2026-10-04",
+    "remora-boundary-2026-10-04",
 )
 
 

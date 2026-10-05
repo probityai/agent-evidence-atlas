@@ -171,6 +171,9 @@
 "P-72" = "none"
 "P-73" = "none"
 "P-74" = "none"
+# Immutable outside receipt-run bytes and dated Lab retention.
+"P-75" = "none"
+"P-76" = "none"
 
 # Project catalog sources are pinned.
 "C-01" = "none"

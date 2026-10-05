@@ -71,7 +71,7 @@
     },
     {
       "display_name": "Probity Vectors",
-      "docs_url": "https://github.com/probityai/agent-evidence-vectors/blob/b5320f32b1a90d03edcfd41a864ea4f5e17c7955/README.md",
+      "docs_url": "https://github.com/probityai/agent-evidence-vectors/blob/10e6745b24db77a7bdd4dcc0cdd84f4b46063b7c/README.md",
       "id": "vectors",
       "packages": [
         "agent-evidence-vectors"
@@ -207,9 +207,9 @@
       "display_name": "Probity Vectors",
       "id": "repo-vectors",
       "source": {
-        "commit": "b5320f32b1a90d03edcfd41a864ea4f5e17c7955",
+        "commit": "10e6745b24db77a7bdd4dcc0cdd84f4b46063b7c",
         "repository": "repo-vectors",
-        "url": "https://github.com/probityai/agent-evidence-vectors/blob/b5320f32b1a90d03edcfd41a864ea4f5e17c7955/README.md"
+        "url": "https://github.com/probityai/agent-evidence-vectors/blob/10e6745b24db77a7bdd4dcc0cdd84f4b46063b7c/README.md"
       },
       "status": "released",
       "summary": "Provides conformance cases and reference verifiers for selected agent evidence formats.",

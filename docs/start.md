@@ -87,7 +87,7 @@ Component ID: `vectors`.
 
 Provides conformance cases and reference verifiers for selected agent evidence formats.
 
-Released. [Quickstart and source](https://github.com/probityai/agent-evidence-vectors/blob/b5320f32b1a90d03edcfd41a864ea4f5e17c7955/README.md)
+Released. [Quickstart and source](https://github.com/probityai/agent-evidence-vectors/blob/10e6745b24db77a7bdd4dcc0cdd84f4b46063b7c/README.md)
 
 <a id="verify"></a>
 

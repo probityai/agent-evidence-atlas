@@ -60,10 +60,10 @@ note = "Twelve planned installments"
 name = "Claim ledger"
 page = "claims.html"
 source = "CLAIMS.md"
-version = "0.8.19"
+version = "0.8.20"
 date = "2026-10-05"
 status = "draft"
-note = "Adds retained outside receipt-run claims; preserves source citations and original dated claims and research scopes"
+note = "Records the published Vectors 0.17.4 installation route; preserves source citations, original dated claims and research scopes"
 
 [[artifact]]
 name = "Probity Open Evidence Lab"
@@ -123,10 +123,10 @@ note = "Preserves all native attempts, abstention failures and separate scoped-e
 name = "Project catalog"
 page = "start.html"
 source = "data/catalog.json"
-version = "0.6"
+version = "0.7"
 date = "2026-10-05"
 status = "draft"
-note = "Prints stable component and profile identities in human and agent navigation; reviewed IDs and installation pins stay unchanged"
+note = "Keeps stable catalog identities and refreshes the reviewed Vectors route to published 0.17.4; historical source and release records keep their original pins"
 
 [[artifact]]
 name = "Automation guide"

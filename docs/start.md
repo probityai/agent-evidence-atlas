@@ -4,6 +4,8 @@ Start with the task you need.
 
 Vectors tests how a verifier behaves. Verify checks a supplied claim against evidence bytes.
 
+Use the catalog ID when selecting a tool or profile in a structured record. Repository names and display labels can differ from that ID.
+
 | Task | Project |
 |----|----|
 | Evaluate admission policies or reserve cost before dispatch | [Probity Admission](#admission) |
@@ -21,6 +23,8 @@ Vectors tests how a verifier behaves. Verify checks a supplied claim against evi
 
 ## Probity Admission
 
+Component ID: `admission`.
+
 Provides OPA, Kyverno and policy-controller rules, plus a pre-call budget reservation API and CLI for bounded local workloads.
 
 Draft. [Quickstart and source](https://github.com/probityai/agent-evidence-admission/blob/bbff435d11a7c0ec9bc0e8e65e6d8fc40c10b671/README.md)
@@ -28,6 +32,8 @@ Draft. [Quickstart and source](https://github.com/probityai/agent-evidence-admis
 <a id="atlas"></a>
 
 ## Probity Atlas
+
+Component ID: `atlas`.
 
 Provides task-based project navigation, agent assurance documentation and an Open Evidence Lab run register.
 
@@ -37,6 +43,8 @@ Draft. [Quickstart and source](https://github.com/probityai/agent-evidence-atlas
 
 ## dsse
 
+Component ID: `dsse`.
+
 Signs and verifies DSSE envelopes with explicit threshold and key handling.
 
 Released. [Quickstart and source](https://github.com/probityai/dsse/blob/35e418022b19bebedec13ebb4c31bc43b1c70caf/README.md)
@@ -44,6 +52,8 @@ Released. [Quickstart and source](https://github.com/probityai/dsse/blob/35e4180
 <a id="inspect-native-reader"></a>
 
 ## Probity native Inspect reader
+
+Profile ID: `inspect-native-reader`. Component ID: `observer`.
 
 Reads selected retained Inspect execution profiles offline, preserving errors and unstarted attempts. Inspect accepted the catalog entry; its live listing was awaiting publication on October 5, 2026.
 
@@ -53,6 +63,8 @@ Prototype. [Quickstart and source](https://github.com/probityai/agent-evidence-o
 
 ## jcs-admit
 
+Component ID: `jcs-admit`.
+
 Checks raw JSON input before producing its RFC 8785 canonical form.
 
 Released. [Quickstart and source](https://github.com/probityai/jcs-admit/blob/3e189b20711a57ce91eab40509324dd1d5d54cac/README.md)
@@ -60,6 +72,8 @@ Released. [Quickstart and source](https://github.com/probityai/jcs-admit/blob/3e
 <a id="observer"></a>
 
 ## Probity Observer
+
+Component ID: `observer`.
 
 Records brokered file actions with signed packets and history, and reads selected native delegation evidence offline.
 
@@ -69,6 +83,8 @@ Prototype. [Quickstart and source](https://github.com/probityai/agent-evidence-o
 
 ## Probity Vectors
 
+Component ID: `vectors`.
+
 Provides conformance cases and reference verifiers for selected agent evidence formats.
 
 Released. [Quickstart and source](https://github.com/probityai/agent-evidence-vectors/blob/b5320f32b1a90d03edcfd41a864ea4f5e17c7955/README.md)
@@ -76,6 +92,8 @@ Released. [Quickstart and source](https://github.com/probityai/agent-evidence-ve
 <a id="verify"></a>
 
 ## Probity Verify
+
+Component ID: `verify`.
 
 Checks supplied evidence bytes through claim-specific offline adapters. Its README links to source-pinned installation and checked task recipes.
 
@@ -85,6 +103,8 @@ Unreleased. [Quickstart and source](https://github.com/probityai/probity-verify/
 
 ## Probity Vocabulary
 
+Component ID: `vocabulary`.
+
 Defines versioned terms and crosswalks for claims about agent execution.
 
 Released. [Quickstart and source](https://github.com/probityai/agent-evidence-vocabulary/blob/8c80579ae613d7ae07982321e13a6091c402b2a8/README.md)
@@ -92,6 +112,8 @@ Released. [Quickstart and source](https://github.com/probityai/agent-evidence-vo
 <a id="witnessed-run-selection"></a>
 
 ## Probity witnessed run selection
+
+Profile ID: `witnessed-run-selection`. Component ID: `observer`.
 
 Checks a supplied run against consumer-retained witness anchors, plan and control pins, and execution closure.
 

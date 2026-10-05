@@ -31,7 +31,7 @@
 <header class="page">
 <h1>Claim ledger</h1>
 <p class="subtitle">Every number, date, status and quotation on this site, with its source, when it was read, how to re-derive it, and what it does not mean</p>
-<p class="status">Draft, version 0.8.13. Each row keeps its source and read time.</p>
+<p class="status">Draft. Each row keeps its source and read time.</p>
 </header>
 <h2 id="how-to-use-this-ledger">How to use this ledger</h2>
 <ul>
@@ -1833,6 +1833,14 @@
 <td>2026-10-05 <span class="cadence">(7-day cadence)</span></td>
 <td>Read the DOI with normal TLS verification and compare the publisher title, authors and DOI with the original source record; run the grouped reader against its unchanged expected report</td>
 <td>Citation-route maintenance after a certificate failure, not a new statistical source review, measured result or coverage claim.</td>
+</tr>
+<tr data-read="2026-10-05" data-cadence-days="7">
+<td>W-05</td>
+<td>Human and agent project navigation prints the existing catalog IDs beside display labels. Profile entries retain their owning component ID.</td>
+<td><code>data/catalog.json</code>; <code>tools/discovery.py</code>; <code>tools/discoverability/catalog.py</code>; <code>tests/test_discovery.py</code></td>
+<td>2026-10-05 <span class="cadence">(7-day cadence)</span></td>
+<td>Build the site and compare the printed identifiers with the reviewed public catalog; run the navigation checks</td>
+<td>Existing identifiers and source pins remain unchanged. Visible identifiers do not establish successful discovery, executed recipes or corrected past client findings.</td>
 </tr>
 </tbody>
 </table>

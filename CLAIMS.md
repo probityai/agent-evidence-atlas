@@ -1,7 +1,7 @@
 ---
 title: "Claim ledger"
 subtitle: "Every number, date, status and quotation on this site, with its source, when it was read, how to re-derive it, and what it does not mean"
-status: "Draft, version 0.8.13. Each row keeps its source and read time."
+status: "Draft. Each row keeps its source and read time."
 description: "The source, read time, re-derive command and limit for every claim on the site."
 ---
 
@@ -255,6 +255,7 @@ Each row's identifier starts with the letter of the page it covers: `A` for the 
 | W-02 | The home page groups all eight public components by task and links the retained replay walkthrough; the machine guide also links that walkthrough. | `data/catalog.json`; `assets/component-tasks.svg`; `src/index.md`; `tools/discovery.py` | 2026-10-05 | `python3 tools/build.py --check`; `python3 tools/check_links.py`; compare the map with the reviewed catalog and read `llms.txt` | Entry points, not inferred architecture or dependencies. Navigation coverage is not a real discovery attempt or a human walkthrough. |
 | W-03 | The retained replay article has a source-owned 1200 by 630 PNG preview exported with CairoSVG 2.9.0, an editable SVG and explicit alt text. Optional preview metadata and existing description attributes use escaped plain text with a 512-character limit; paired fields bind the image to a regular PNG declared for that built page. | `assets/admission-social.svg`; `assets/admission-social.png`; `assets/README.md`; `tools/social_metadata.py`; `tests/test_social_metadata.py` | 2026-10-05 | `python3 tools/build.py --check`; `python3 -m pytest -q tests/test_social_metadata.py`; inspect the generated article's OG URL against its canonical link and both preview URLs against the served source bytes | Published metadata support and author-owned visual sources; no social platform retrieval, search ranking, discovery outcome or outside operator claim. PNG export depends on the renderer and system fonts. |
 | W-04 | The task-grouped rates guide cites Cameron and Miller through the publisher's DOI. Its source record still identifies the originally checked July 2014 manuscript and hashes; the statistical fixtures and methods are unchanged. | [Published article](https://doi.org/10.3368/jhr.50.2.317); `examples/task-grouped-rates/README.md`; `examples/task-grouped-rates/source-record.json` | 2026-10-05 | Read the DOI with normal TLS verification and compare the publisher title, authors and DOI with the original source record; run the grouped reader against its unchanged expected report | Citation-route maintenance after a certificate failure, not a new statistical source review, measured result or coverage claim. |
+| W-05 | Human and agent project navigation prints the existing catalog IDs beside display labels. Profile entries retain their owning component ID. | `data/catalog.json`; `tools/discovery.py`; `tools/discoverability/catalog.py`; `tests/test_discovery.py` | 2026-10-05 | Build the site and compare the printed identifiers with the reviewed public catalog; run the navigation checks | Existing identifiers and source pins remain unchanged. Visible identifiers do not establish successful discovery, executed recipes or corrected past client findings. |
 
 ## Discovery task evaluation
 

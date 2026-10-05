@@ -13,6 +13,7 @@ SELECTED = (
     "go-jcs-2026-10-04",
     "ag2-push-authority-2026-10-04",
     "remora-boundary-2026-10-04",
+    "aeoess-receipt-signature-2026-10-05",
 )
 
 

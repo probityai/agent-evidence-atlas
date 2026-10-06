@@ -6,7 +6,7 @@ description: "Open-source tools, conformance tests and retained runs for checkin
 
 Probity builds evidence tools for agent harnesses, reviewers and platform teams. Use them to define claims, test verifiers, inspect action records and apply workload policy.
 
-[Choose a project](start.html) for your task, or [read a retained run](lab.html).
+[Choose a project](start.html) for your task, or [find a retained run](runs.html) by its claims, roles and limits.
 
 ## The public code
 

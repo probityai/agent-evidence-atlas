@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import filecmp
 import hashlib
+import json
 import re
 import shutil
 import subprocess
@@ -33,6 +34,7 @@ from pathlib import Path
 
 import discovery
 import markdown_mirrors
+import run_browser
 import social_metadata
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -47,6 +49,7 @@ SITE_NAME = "Probity AI"
 NAV = [
     ("start", "Choose a project"),
     ("lab", "Open Evidence Lab"),
+    ("runs", "Find a run"),
     ("pilot", "Pilot status"),
     ("atlas", "Atlas"),
     ("essay", "Essay"),
@@ -61,6 +64,8 @@ NAV = [
 # page whose links need it, or None for every page). A copy is made exactly when its
 # page is built, and a missing source for a built page fails the build.
 COPIES = [
+    ("assets/run-browser.css", "assets/run-browser.css", "runs"),
+    ("assets/run-browser.js", "assets/run-browser.js", "runs"),
     ('experiments/aeoess-receipt-signature-2026-10-05/README.md', 'experiments/aeoess-receipt-signature-2026-10-05/README.md', 'lab'),
     ('experiments/aeoess-receipt-signature-2026-10-05/RUN.md', 'experiments/aeoess-receipt-signature-2026-10-05/RUN.md', 'lab'),
     ('experiments/aeoess-receipt-signature-2026-10-05/report1.json', 'experiments/aeoess-receipt-signature-2026-10-05/report1.json', 'lab'),
@@ -287,13 +292,22 @@ def nav_html(built: set[str]) -> tuple[str, str]:
 
 def render(source: Path, dest: Path, built: set[str]) -> None:
     text = expand(source.read_text(encoding="utf-8"))
+    if dest.stem == "runs":
+        marker = "<!-- run-register -->"
+        if text.count(marker) != 1:
+            raise ValueError("The run page needs exactly one register marker")
+        text = text.replace(marker, run_browser.markdown(json.loads((ROOT / "data/lab-register.json").read_bytes())))
     home, links = nav_html(built)
     canonical = BASE_URL if dest.stem == "index" else f"{BASE_URL}{dest.stem}.html"
     published = {dst: src for src, dst, page in COPIES if page is None or page == dest.stem}
     headmetadata = social_metadata.render(text, ROOT, published, BASE_URL, canonical, SITE_NAME)
+    if dest.stem == "runs":
+        headmetadata += '\n<link rel="stylesheet" href="assets/run-browser.css" />'
+        headmetadata += '\n<script src="assets/run-browser.js" defer></script>'
     args = [
         "pandoc",
-        "--from=markdown+smart",
+        # Recorded claim identifiers and declarations must remain literal.
+        "--from=markdown-smart" if dest.stem == "runs" else "--from=markdown+smart",
         "--to=html5",
         "--standalone",
         f"--template={TEMPLATE}",

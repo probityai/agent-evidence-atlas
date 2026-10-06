@@ -10,6 +10,8 @@ Maintainers can use this protocol to submit a verifier run, a host-project CI in
 
 [Submit a run](https://github.com/probityai/agent-evidence-atlas/issues/new?template=evidence-run.yml) or [report a correction](https://github.com/probityai/agent-evidence-atlas/issues/new?template=evidence-correction.yml). The forms request the evidence needed for review. The [machine-readable register](lab/register.json), [experiments](experiments.html) and [claim ledger](claims.html) retain the supporting records.
 
+[Find a retained run](runs.html) by a claim, declared role, limit or per-claim result. Each entry links its original report, provenance and contract. The browser keeps the recorded result tokens and does not assign a grade to the whole run.
+
 The [APS and PriorSeal pilot status](pilot.html) tracks Probity's proposed next run, owner confirmations and open decisions. It is separate from this measured register.
 
 The [task-grouped rates example](task-grouped-rates.html) shows how to retain a

@@ -276,6 +276,14 @@ Each row's identifier starts with the letter of the page it covers: `A` for the 
 | W-04 | The task-grouped rates guide cites Cameron and Miller through the publisher's DOI. Its source record still identifies the originally checked July 2014 manuscript and hashes; the statistical fixtures and methods are unchanged. | [Published article](https://doi.org/10.3368/jhr.50.2.317); `examples/task-grouped-rates/README.md`; `examples/task-grouped-rates/source-record.json` | 2026-10-05 | Read the DOI with normal TLS verification and compare the publisher title, authors and DOI with the original source record; run the grouped reader against its unchanged expected report | Citation-route maintenance after a certificate failure, not a new statistical source review, measured result or coverage claim. |
 | W-05 | Human and agent project navigation prints the existing catalog IDs beside display labels. Profile entries retain their owning component ID. | `data/catalog.json`; `tools/discovery.py`; `tools/discoverability/catalog.py`; `tests/test_discovery.py` | 2026-10-05 | Build the site and compare the printed identifiers with the reviewed public catalog; run the navigation checks | Existing identifiers and source pins remain unchanged. Visible identifiers do not establish successful discovery, executed recipes or corrected past client findings. |
 
+<a id="retained-run-navigation"></a>
+
+## Retained run navigation
+
+| id | claim as printed | source | read (UTC) | re-derive | limit |
+|----|----|----|----|----|----|
+| W-06 | The retained-run browser projects every registered record's existing per-claim result, declared roles, limits, report, provenance and contract. Search and exact result-token filters enhance a complete static HTML and Markdown view. The home page, Lab, navigation and machine guide link the browser. The version ledger records this presentation revision. | `data/lab-register.json`; `tools/run_browser.py`; `src/runs.md`; `assets/run-browser.js`; `assets/run-browser.css`; `tests/test_run_browser.py`; `tests/test_run_browser_layout.py`; `data/versions.toml` | 2026-10-06 | `python3 tools/run_browser.py`; `python3 tools/build.py --check`; `python3 tools/check_lab.py`; `python3 tools/check_links.py`; run the source and actual-browser controls, including keyboard, mobile and no-JavaScript checks | Presentation of retained source facts, not authenticated operator identity, aggregate run grades, new measured records, host adoption, independent operation or a real discovery evaluation. Procedures link only when the register supplies one. |
+
 <a id="discovery-task-evaluation"></a>
 
 ## Discovery task evaluation

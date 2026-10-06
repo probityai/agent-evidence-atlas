@@ -22,6 +22,7 @@ SITE_LINKS = (
     ("start", "Choose a project", "Tools grouped by the task you need."),
     ("automation", "Automation", "Read the catalog and pinned run records."),
     ("lab", "Open Evidence Lab", "Retained runs, submissions and corrections."),
+    ("runs", "Find a retained run", "Search recorded claims, declared roles, limits and original evidence."),
     ("atlas", "Assurance atlas", "Projects, mechanisms and evidence boundaries."),
     ("experiments", "Experiments", "Pinned procedures and recorded results."),
     ("replay-an-evidence-decision", "Replay an evidence decision", "A retained admission and its state-preserving refusals."),

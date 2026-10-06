@@ -7840,6 +7840,227 @@
           "sha256": "f7319d9d5bb3f18ab12cd016a7fd6fa699ad12afcd02b15b814112157a735cbb"
         }
       ]
+    },
+    {
+      "id": "w3c-report-replay-2026-10-06",
+      "atlasRevision": "0f5d25ab4cb00337f332eb109ac0dbc8b5651e00",
+      "sourceRevision": "2f3aee40a454df6de0f571d119f057d7dbb8dd67",
+      "readerRevision": "e07cd52999204d7c0f6562a5098dc4784fe025a6",
+      "report": "../experiments/w3c-report-replay-2026-10-06/report.json",
+      "provenance": "../experiments/w3c-report-replay-2026-10-06/provenance.json",
+      "contract": "https://github.com/probityai/agent-evidence-vectors/tree/2f3aee40a454df6de0f571d119f057d7dbb8dd67",
+      "reviewState": "author-retained-measured-record",
+      "evidenceClaim": "historical-report-accounting-and-separate-diagnostic-control-dependencies",
+      "roles": {
+        "verifierAuthor": "Probity",
+        "historicalRunner": "Probity, author-operated",
+        "diagnosticRunner": "Probity, author-operated",
+        "retentionAndAccounting": "Probity",
+        "independentOperator": "not-established"
+      },
+      "answerExposure": "Published expected answers and author-selected predicates were exposed; not answer-blind.",
+      "comparisonOrder": "Historical harness outcomes and comparison grades emitted together. Diagnostic copies remove one predicate each; outputs are retained separately from the historical report.",
+      "limits": [
+        "Synthetic conformance artifacts; the customer refund story is hypothetical.",
+        "Retained-output accounting executes no captured reader or mutant code and performs no new model inference.",
+        "Historical 272-case report and separate 232-fixture diagnostic population are not combined.",
+        "Report validity, evidence conclusion and actual action completion are distinct.",
+        "Reader binding check is a historical proposed rule; its draft normative status is not promoted.",
+        "No independent operation, effect custody, production workload, customer payment or outside maintained job is established."
+      ],
+      "claimResults": [
+        {
+          "claim": "historical-harness-comparisons",
+          "result": "pass",
+          "recordedField": "/historical/harnessPassingComparisons",
+          "expectedValue": 272
+        },
+        {
+          "claim": "historical-report-state-accounting",
+          "result": "pass",
+          "recordedField": "/historical/reportStates",
+          "expectedValue": {
+            "pass": 31,
+            "fail": 239,
+            "inconclusive": 2
+          }
+        },
+        {
+          "claim": "historical-report-crosswalk",
+          "result": "pass",
+          "recordedField": "/historical/crosswalk",
+          "expectedValue": [
+            {
+              "count": 3,
+              "kind": "accept",
+              "observed_result": "degraded",
+              "observed_verdict": "valid",
+              "report_state": "fail"
+            },
+            {
+              "count": 27,
+              "kind": "accept",
+              "observed_result": "fail",
+              "observed_verdict": "valid",
+              "report_state": "fail"
+            },
+            {
+              "count": 25,
+              "kind": "accept",
+              "observed_result": "pass",
+              "observed_verdict": "valid",
+              "report_state": "pass"
+            },
+            {
+              "count": 6,
+              "kind": "accept",
+              "observed_result": "pass_indirect",
+              "observed_verdict": "valid",
+              "report_state": "pass"
+            },
+            {
+              "count": 2,
+              "kind": "indeterminate",
+              "observed_result": null,
+              "observed_verdict": "invalid",
+              "report_state": "inconclusive"
+            },
+            {
+              "count": 209,
+              "kind": "reject",
+              "observed_result": null,
+              "observed_verdict": "invalid",
+              "report_state": "fail"
+            }
+          ]
+        },
+        {
+          "claim": "negative-witness-state-recorded-control",
+          "result": "pass",
+          "recordedField": "/diagnostic/0",
+          "expectedValue": {
+            "cases": 232,
+            "changedRejects": 1,
+            "mutation": "negative-witness-state",
+            "unchanged": 231,
+            "unchangedAccepts": 116
+          }
+        },
+        {
+          "claim": "checker-and-configuration-recorded-control",
+          "result": "pass",
+          "recordedField": "/diagnostic/1",
+          "expectedValue": {
+            "cases": 232,
+            "changedRejects": 2,
+            "mutation": "checker-and-configuration",
+            "unchanged": 230,
+            "unchangedAccepts": 116
+          }
+        },
+        {
+          "claim": "real-workload-action-completion",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "independent-operation",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "outside-maintained-host-adoption",
+          "result": "not-exercised"
+        },
+        {
+          "claim": "current-vectors-reader-replay",
+          "result": "not-exercised"
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "../experiments/w3c-report-replay-2026-10-06/LICENSE",
+          "sha256": "8b506a9d145be0a6fbef3f0519996faf84c770f8ab8d32d120c8682f2ad6181f"
+        },
+        {
+          "path": "../experiments/w3c-report-replay-2026-10-06/README.md",
+          "sha256": "a66e23b93bf31bd336ffbf733badea52aeac4afba8797133502bb39d029b69d9"
+        },
+        {
+          "path": "../experiments/w3c-report-replay-2026-10-06/SOURCE-ORIGIN.json",
+          "sha256": "a2a4e58b3f54c2ae34f58e9259972e45e94ab50978568ef9079e7e8cc4c520bc"
+        },
+        {
+          "path": "../experiments/w3c-report-replay-2026-10-06/checker-and-configuration.mutant.py",
+          "sha256": "6c2541c985569a3cf3483efc8e121a2a615fef64ab490c7fde98161dc9b4775e"
+        },
+        {
+          "path": "../experiments/w3c-report-replay-2026-10-06/checker-and-configuration.per-case.json",
+          "sha256": "7cd4cd6575588a21b518fc70c3f39bc9672d7a79fee5dd20c22363517408147e"
+        },
+        {
+          "path": "../experiments/w3c-report-replay-2026-10-06/control-summary.json",
+          "sha256": "95839e879d12d942bf0ac3c67608971eb40ac6ac005625a260429e4be4946312"
+        },
+        {
+          "path": "../experiments/w3c-report-replay-2026-10-06/historical-summary.json",
+          "sha256": "bda9105e4c040d8140f6ab42ca7b22929b1bef1adf0527c65380d39557aee3f2"
+        },
+        {
+          "path": "../experiments/w3c-report-replay-2026-10-06/logic-control-configuration.json",
+          "sha256": "736f640557727e9b524c6925b7b29efbfcec56f8b6258cf02be8bf0590bb3a0e"
+        },
+        {
+          "path": "../experiments/w3c-report-replay-2026-10-06/logic-control-evidence.json",
+          "sha256": "815adc01af215bda4d7b10edf1e9707c578667762234cf955cd04c192b3a3167"
+        },
+        {
+          "path": "../experiments/w3c-report-replay-2026-10-06/logic-mutation-summary.json",
+          "sha256": "24edc6eb36ce9bf06abaddbcadf12c2c9fb78b65c85e2a9f44f14de4b9327aea"
+        },
+        {
+          "path": "../experiments/w3c-report-replay-2026-10-06/negative-witness-state.mutant.py",
+          "sha256": "a57f365c5046ab4e400ef215ca3beea93fd975239a92726eb2eb0618c127816d"
+        },
+        {
+          "path": "../experiments/w3c-report-replay-2026-10-06/negative-witness-state.per-case.json",
+          "sha256": "bdc424f51334c17079dd41af3cf62919ec4a33bb351a3281c60f36adb2395992"
+        },
+        {
+          "path": "../experiments/w3c-report-replay-2026-10-06/original-RUN.json",
+          "sha256": "00007b271fd027a5c952c17a8100190b8af360929f906936be352bb806c97448"
+        },
+        {
+          "path": "../experiments/w3c-report-replay-2026-10-06/original-conformance-report.json",
+          "sha256": "ee349e66697a2f4f95dd8223fd261810f99f5f2807e03bde03c9a9f57359529d"
+        },
+        {
+          "path": "../experiments/w3c-report-replay-2026-10-06/original-report.json",
+          "sha256": "37288d8dfc01f56cb5ef553232258dc596928bc962e2309e0c7dc09ae588baf2"
+        },
+        {
+          "path": "../experiments/w3c-report-replay-2026-10-06/per-case-outcomes.csv",
+          "sha256": "57ec77ae8e30cf56b0ec7c6c1300e382df3fd9cafafa6e12d86d195cb0965753"
+        },
+        {
+          "path": "../experiments/w3c-report-replay-2026-10-06/per-case-outcomes.json",
+          "sha256": "0c328d01013c28137507ca9460caa61642d023479fe9a9edded42f18499bf751"
+        },
+        {
+          "path": "../experiments/w3c-report-replay-2026-10-06/provenance.json",
+          "sha256": "45d71e357596d90b636b0a9eb3a0c1edfe9f6dbecea7107dced4124e099ac219"
+        },
+        {
+          "path": "../experiments/w3c-report-replay-2026-10-06/report-replay-configuration.json",
+          "sha256": "edc9489a5415616762dd67d2d740c8f064f709643724ed2c1cf55db3b09c6ff9"
+        },
+        {
+          "path": "../experiments/w3c-report-replay-2026-10-06/report.json",
+          "sha256": "892a154384a1c6d988d45fa093496d7a526edfee9c240742aa35d8e995304642"
+        },
+        {
+          "path": "../experiments/w3c-report-replay-2026-10-06/source-manifest.json",
+          "sha256": "ebbae4a8725f6a2557372877bb877211b32ec17436f26784275479393da72786"
+        }
+      ]
     }
   ]
 }

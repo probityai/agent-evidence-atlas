@@ -1675,6 +1675,63 @@ comparisonOrder: The original harness emitted verifier answers and comparison re
 
 </div>
 
+<div>
+
+<a id="record-w3c-report-replay-2026-10-06"></a>
+
+## w3c-report-replay-2026-10-06
+
+Claim scope: historical-report-accounting-and-separate-diagnostic-control-dependencies
+
+Review state: author-retained-measured-record
+
+Open [Report](experiments/w3c-report-replay-2026-10-06/report.json), [Provenance](experiments/w3c-report-replay-2026-10-06/provenance.json) and [Contract](https://github.com/probityai/agent-evidence-vectors/tree/2f3aee40a454df6de0f571d119f057d7dbb8dd67).
+
+<a id="per-claim-results-25"></a>
+
+### Per-claim results
+
+| Claim                                      | Recorded result |
+|--------------------------------------------|-----------------|
+| historical-harness-comparisons             | pass            |
+| historical-report-state-accounting         | pass            |
+| historical-report-crosswalk                | pass            |
+| negative-witness-state-recorded-control    | pass            |
+| checker-and-configuration-recorded-control | pass            |
+| real-workload-action-completion            | not-exercised   |
+| independent-operation                      | not-exercised   |
+| outside-maintained-host-adoption           | not-exercised   |
+| current-vectors-reader-replay              | not-exercised   |
+
+<a id="roles-25"></a>
+
+### Roles
+
+| Role                   | Declaration              |
+|------------------------|--------------------------|
+| verifierAuthor         | Probity                  |
+| historicalRunner       | Probity, author-operated |
+| diagnosticRunner       | Probity, author-operated |
+| retentionAndAccounting | Probity                  |
+| independentOperator    | not-established          |
+
+<a id="limits-25"></a>
+
+### Limits
+
+- Synthetic conformance artifacts; the customer refund story is hypothetical.
+- Retained-output accounting executes no captured reader or mutant code and performs no new model inference.
+- Historical 272-case report and separate 232-fixture diagnostic population are not combined.
+- Report validity, evidence conclusion and actual action completion are distinct.
+- Reader binding check is a historical proposed rule; its draft normative status is not promoted.
+- No independent operation, effect custody, production workload, customer payment or outside maintained job is established.
+
+answerExposure: Published expected answers and author-selected predicates were exposed; not answer-blind.
+
+comparisonOrder: Historical harness outcomes and comparison grades emitted together. Diagnostic copies remove one predicate each; outputs are retained separately from the historical report.
+
+</div>
+
 </div>
 
 [HTML view](runs.html) | [Agent guide](llms.txt)

@@ -243,6 +243,14 @@ def validate_register(register: dict[str, Any], root: Path) -> None:
         for record in records:
             _check_record(record, root)
         if __package__:
+            from .check_report_replay import check_selected_report_replay
+        else:
+            try:
+                from check_report_replay import check_selected_report_replay
+            except ModuleNotFoundError:
+                from tools.check_report_replay import check_selected_report_replay
+        check_selected_report_replay(register, root)
+        if __package__:
             from .check_format_retention import check_selected_register
         else:
             try:

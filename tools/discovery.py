@@ -27,6 +27,7 @@ SITE_LINKS = (
     ("experiments", "Experiments", "Pinned procedures and recorded results."),
     ("replay-an-evidence-decision", "Replay an evidence decision", "A retained admission and its state-preserving refusals."),
     ("replay-tools", "Run the APS and PriorSeal replay", "Declare the caller and retain pinned sources, process logs and results."),
+    ("evidence-test-meaning", "Interpret a green test suite", "Separate test outcomes, record validity and action results using retained artifacts."),
     ("claims", "Claim ledger", "Sources and re-derive commands."),
     ("repository", "Repository guide", "Sources, checks and the site build."),
 )

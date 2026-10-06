@@ -8,6 +8,10 @@ toc: true
 
 The [atlas's open cell](atlas.html#the-open-cell) asks whether a record of an agent action comes from a vantage the agent cannot control, whether its evidence binds to the actual effect, and what was missed. A signature and an offline verifier answer questions about retained bytes. They do not answer who could alter or omit the underlying observations. These experiments keep those questions separate.
 
+## Historical report meaning and diagnostic rule controls
+
+The [worked report example](evidence-test-meaning.html) retains a historical report replay and two separate diagnostic controls. [Inspect its Lab record](runs.html#record-w3c-report-replay-2026-10-06) or [check the retained accounting](experiments/w3c-report-replay-2026-10-06/README.md). These are existing author-operated measurements; no new numbered study or live customer workload is introduced.
+
 ## E1. PEER pilot: the snapshot gap
 
 The local `agent-evidence-observer` prototype mediates one file replacement, commits to the before-state, signs a bounded result, and checks a hash-chain head under a second key. It does not isolate an agent. Its own record says `witnessScope: PEER` and `unmediatedEffects: not-established`. The two keys are controlled by one local operator.

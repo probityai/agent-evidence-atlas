@@ -1,7 +1,7 @@
 ---
 title: "Probity Open Evidence Lab"
 subtitle: "A public protocol and run register for checking specific agent-evidence claims"
-status: "Protocol draft 0.1.9. Register updated 5 October 2026. The register retains native framework, admission, receipt and bounded actual-weight comparisons. Host adoption and independently operated custody have separate evidence."
+status: "Protocol draft 0.1.9. Register updated 6 October 2026. The register retains native framework, admission, receipt and bounded actual-weight comparisons. Host adoption and independently operated custody have separate evidence."
 description: "Submit pinned agent-evidence runs, hostile controls, field-level comparisons and correction records to a public register."
 toc: true
 ---
@@ -23,6 +23,20 @@ The [published robot controls companion](provael-task-controls.html) reads
 Provael's original simulator reports and the author's correction. It retains
 the matched controls, unknown runtime provenance and complete task-resampling
 weights. This is a publisher-report-derived reading alongside the register.
+
+## Test outcomes and evidence conclusions
+
+The [worked report example](evidence-test-meaning.html) explains why all
+conformance tests can pass while a report retains negative conclusions.
+The historical record covers synthetic artifacts. Its hypothetical refund
+story explains the customer problem; it adds no customer or live action result.
+
+[Inspect the retained record](runs.html#record-w3c-report-replay-2026-10-06)
+or [check the original-output accounting](experiments/w3c-report-replay-2026-10-06/README.md).
+The maintained consumer checks file bindings and complete per-case accounting.
+It does not execute the captured reader copies. The record keeps the original
+report separate from two later diagnostic controls and retains unexercised
+action, independent-operation and outside-host claims.
 
 ## Outside receipt verifier and primitive identifier checks
 

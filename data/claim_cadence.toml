@@ -211,3 +211,10 @@
 "W-06" = "none"
 "P-77" = "none"
 P-78 = "none"
+
+# Immutable historical replay and separate diagnostic output accounting.
+"P-79" = "none"
+"P-80" = "none"
+
+# Worked interpretation of fixed historical source and output pins.
+"P-81" = "none"

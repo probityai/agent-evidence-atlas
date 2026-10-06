@@ -64,6 +64,28 @@ NAV = [
 # page whose links need it, or None for every page). A copy is made exactly when its
 # page is built, and a missing source for a built page fails the build.
 COPIES = [
+    ('experiments/w3c-report-replay-2026-10-06/LICENSE', 'experiments/w3c-report-replay-2026-10-06/LICENSE', 'lab'),
+    ('experiments/w3c-report-replay-2026-10-06/README.md', 'experiments/w3c-report-replay-2026-10-06/README.md', 'lab'),
+    ('experiments/w3c-report-replay-2026-10-06/SOURCE-ORIGIN.json', 'experiments/w3c-report-replay-2026-10-06/SOURCE-ORIGIN.json', 'lab'),
+    ('experiments/w3c-report-replay-2026-10-06/checker-and-configuration.mutant.py', 'experiments/w3c-report-replay-2026-10-06/checker-and-configuration.mutant.py', 'lab'),
+    ('experiments/w3c-report-replay-2026-10-06/checker-and-configuration.per-case.json', 'experiments/w3c-report-replay-2026-10-06/checker-and-configuration.per-case.json', 'lab'),
+    ('experiments/w3c-report-replay-2026-10-06/control-summary.json', 'experiments/w3c-report-replay-2026-10-06/control-summary.json', 'lab'),
+    ('experiments/w3c-report-replay-2026-10-06/historical-summary.json', 'experiments/w3c-report-replay-2026-10-06/historical-summary.json', 'lab'),
+    ('experiments/w3c-report-replay-2026-10-06/logic-control-configuration.json', 'experiments/w3c-report-replay-2026-10-06/logic-control-configuration.json', 'lab'),
+    ('experiments/w3c-report-replay-2026-10-06/logic-control-evidence.json', 'experiments/w3c-report-replay-2026-10-06/logic-control-evidence.json', 'lab'),
+    ('experiments/w3c-report-replay-2026-10-06/logic-mutation-summary.json', 'experiments/w3c-report-replay-2026-10-06/logic-mutation-summary.json', 'lab'),
+    ('experiments/w3c-report-replay-2026-10-06/negative-witness-state.mutant.py', 'experiments/w3c-report-replay-2026-10-06/negative-witness-state.mutant.py', 'lab'),
+    ('experiments/w3c-report-replay-2026-10-06/negative-witness-state.per-case.json', 'experiments/w3c-report-replay-2026-10-06/negative-witness-state.per-case.json', 'lab'),
+    ('experiments/w3c-report-replay-2026-10-06/original-RUN.json', 'experiments/w3c-report-replay-2026-10-06/original-RUN.json', 'lab'),
+    ('experiments/w3c-report-replay-2026-10-06/original-conformance-report.json', 'experiments/w3c-report-replay-2026-10-06/original-conformance-report.json', 'lab'),
+    ('experiments/w3c-report-replay-2026-10-06/original-report.json', 'experiments/w3c-report-replay-2026-10-06/original-report.json', 'lab'),
+    ('experiments/w3c-report-replay-2026-10-06/per-case-outcomes.csv', 'experiments/w3c-report-replay-2026-10-06/per-case-outcomes.csv', 'lab'),
+    ('experiments/w3c-report-replay-2026-10-06/per-case-outcomes.json', 'experiments/w3c-report-replay-2026-10-06/per-case-outcomes.json', 'lab'),
+    ('experiments/w3c-report-replay-2026-10-06/provenance.json', 'experiments/w3c-report-replay-2026-10-06/provenance.json', 'lab'),
+    ('experiments/w3c-report-replay-2026-10-06/report-replay-configuration.json', 'experiments/w3c-report-replay-2026-10-06/report-replay-configuration.json', 'lab'),
+    ('experiments/w3c-report-replay-2026-10-06/report.json', 'experiments/w3c-report-replay-2026-10-06/report.json', 'lab'),
+    ('experiments/w3c-report-replay-2026-10-06/source-manifest.json', 'experiments/w3c-report-replay-2026-10-06/source-manifest.json', 'lab'),
+
     ("assets/run-browser.css", "assets/run-browser.css", "runs"),
     ("assets/run-browser.js", "assets/run-browser.js", "runs"),
     ('experiments/aeoess-receipt-signature-2026-10-05/README.md', 'experiments/aeoess-receipt-signature-2026-10-05/README.md', 'lab'),

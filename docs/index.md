@@ -30,6 +30,8 @@ The task page links a pinned quickstart for each project. For scripts and agents
 
 Inspect accepted our [bounded native result reader listing](https://github.com/UKGovernmentBEIS/inspect_ai/blob/c9f2d1cadb5e46cd8b89d217c7a2a1f816bce057/docs/extensions/extensions.json) on October 3, 2026. The [live extensions catalog](https://inspect.aisi.org.uk/extensions/) still shows the earlier published source (checked October 5). [Read the pinned consumer guide](https://github.com/probityai/agent-evidence-observer/blob/71ac0b2126473316655184235000647a6dd0f5cf/docs/NATIVE-CONSUMER-CI.md).
 
+Read [why a green test suite can contain negative conclusions](evidence-test-meaning.md). The worked example separates a correct test, a valid record and the result of an action, with retained files and a checking procedure.
+
 <a id="agent-action-assurance"></a>
 
 ## Agent action assurance

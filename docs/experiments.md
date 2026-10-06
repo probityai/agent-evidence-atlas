@@ -6,6 +6,12 @@ Draft 0.3, 1 October 2026. The retained pilot and three fixture experiments have
 
 The [atlas's open cell](atlas.md#the-open-cell) asks whether a record of an agent action comes from a vantage the agent cannot control, whether its evidence binds to the actual effect, and what was missed. A signature and an offline verifier answer questions about retained bytes. They do not answer who could alter or omit the underlying observations. These experiments keep those questions separate.
 
+<a id="historical-report-meaning-and-diagnostic-rule-controls"></a>
+
+## Historical report meaning and diagnostic rule controls
+
+The [worked report example](evidence-test-meaning.md) retains a historical report replay and two separate diagnostic controls. [Inspect its Lab record](runs.md#record-w3c-report-replay-2026-10-06) or [check the retained accounting](experiments/w3c-report-replay-2026-10-06/README.md). These are existing author-operated measurements; no new numbered study or live customer workload is introduced.
+
 <a id="e1.-peer-pilot-the-snapshot-gap"></a>
 
 ## E1. PEER pilot: the snapshot gap

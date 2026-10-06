@@ -58,7 +58,7 @@ jobs:
       - name: Check mobile pages and keyboard controls
         env:
           ATLAS_LAYOUT_EVIDENCE: public-layout-evidence
-        run: python3 -m pytest -q tests/test_public_layout.py tests/test_run_browser_layout.py
+        run: python3 -m pytest -q tests/test_public_layout.py tests/test_run_browser_layout.py tests/test_evidence_article_layout.py
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         if: always()
         with:

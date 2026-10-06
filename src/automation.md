@@ -3,6 +3,8 @@ title: "Use Probity from an automated job"
 description: "Look up public projects and read pinned Open Evidence Lab records from a script."
 ---
 
+Use the [worked report example](evidence-test-meaning.html) to interpret test results separately from evidence conclusions. Its [retained accounting procedure](experiments/w3c-report-replay-2026-10-06/README.md) checks original files through the maintained Lab consumer.
+
 ## Find a project
 
 Read [llms.txt](llms.txt) for the navigation index or [catalog.json](catalog.json) for structured records. Components name the tools; repository records hold their pinned README sources. Integration profiles belong to a component.

@@ -2,7 +2,7 @@
 
 A public protocol and run register for checking specific agent-evidence claims
 
-Protocol draft 0.1.9. Register updated 5 October 2026. The register retains native framework, admission, receipt and bounded actual-weight comparisons. Host adoption and independently operated custody have separate evidence.
+Protocol draft 0.1.9. Register updated 6 October 2026. The register retains native framework, admission, receipt and bounded actual-weight comparisons. Host adoption and independently operated custody have separate evidence.
 
 Maintainers can use this protocol to submit a verifier run, a host-project CI integration, or an observer/witness experiment. Each record names its contract, retained inputs, implementation and operators, and reports what passed, failed or remained untested. Probity maintains this register. A listed result makes no membership, endorsement or adoption commitment on behalf of another project.
 
@@ -15,6 +15,14 @@ The [APS and PriorSeal pilot status](pilot.md) tracks Probity's proposed next ru
 The [task-grouped rates example](task-grouped-rates.md) shows how to retain a matched benign control, repeated episodes, unresolved labels and two weighting targets when reporting uncertainty. Its invented labels make the calculation reproducible; they add no empirical record to the register.
 
 The [published robot controls companion](provael-task-controls.md) reads Provael's original simulator reports and the author's correction. It retains the matched controls, unknown runtime provenance and complete task-resampling weights. This is a publisher-report-derived reading alongside the register.
+
+<a id="test-outcomes-and-evidence-conclusions"></a>
+
+## Test outcomes and evidence conclusions
+
+The [worked report example](evidence-test-meaning.md) explains why all conformance tests can pass while a report retains negative conclusions. The historical record covers synthetic artifacts. Its hypothetical refund story explains the customer problem; it adds no customer or live action result.
+
+[Inspect the retained record](runs.md#record-w3c-report-replay-2026-10-06) or [check the original-output accounting](experiments/w3c-report-replay-2026-10-06/README.md). The maintained consumer checks file bindings and complete per-case accounting. It does not execute the captured reader copies. The record keeps the original report separate from two later diagnostic controls and retains unexercised action, independent-operation and outside-host claims.
 
 <a id="outside-receipt-verifier-and-primitive-identifier-checks"></a>
 

@@ -12,6 +12,7 @@
 - [Experiments](https://probityai.github.io/agent-evidence-atlas/experiments.md): Pinned procedures and recorded results.
 - [Replay an evidence decision](https://probityai.github.io/agent-evidence-atlas/replay-an-evidence-decision.md): A retained admission and its state-preserving refusals.
 - [Run the APS and PriorSeal replay](https://probityai.github.io/agent-evidence-atlas/replay-tools.md): Declare the caller and retain pinned sources, process logs and results.
+- [Interpret a green test suite](https://probityai.github.io/agent-evidence-atlas/evidence-test-meaning.md): Separate test outcomes, record validity and action results using retained artifacts.
 - [Claim ledger](https://probityai.github.io/agent-evidence-atlas/claims.md): Sources and re-derive commands.
 - [Repository guide](https://probityai.github.io/agent-evidence-atlas/repository.md): Sources, checks and the site build.
 

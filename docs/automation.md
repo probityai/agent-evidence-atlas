@@ -1,5 +1,7 @@
 # Use Probity from an automated job
 
+Use the [worked report example](evidence-test-meaning.md) to interpret test results separately from evidence conclusions. Its [retained accounting procedure](experiments/w3c-report-replay-2026-10-06/README.md) checks original files through the maintained Lab consumer.
+
 <a id="find-a-project"></a>
 
 ## Find a project

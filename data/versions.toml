@@ -181,3 +181,22 @@ version = "0.1"
 date = "2026-10-06"
 status = "draft"
 note = "Links one complete v2 procedure, explicit caller declarations, hashes of files read at invocation and actual process outputs; historical results stay unchanged"
+
+
+[[artifact]]
+name = "Historical report and diagnostic retained record"
+page = "runs.html"
+source = "experiments/w3c-report-replay-2026-10-06/report.json"
+version = "0.1"
+date = "2026-10-06"
+status = "draft"
+note = "Original historical report outputs and separate diagnostic controls with maintained data-only accounting; no new native or independent-operator claim"
+
+[[artifact]]
+name = "Test outcomes and evidence conclusions"
+page = "evidence-test-meaning.html"
+source = "src/evidence-test-meaning.md"
+version = "0.1"
+date = "2026-10-06"
+status = "draft"
+note = "Worked hypothetical refund story with historical package pins, retained per-case data and a maintained Lab checking route"

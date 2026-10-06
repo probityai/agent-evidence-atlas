@@ -37,6 +37,7 @@
 <nav class="toc" aria-label="Contents">
 <p class="toc-title">Contents</p>
 <ul>
+<li><a href="#historical-report-meaning-and-diagnostic-rule-controls" id="toc-historical-report-meaning-and-diagnostic-rule-controls">Historical report meaning and diagnostic rule controls</a></li>
 <li><a href="#e1.-peer-pilot-the-snapshot-gap" id="toc-e1.-peer-pilot-the-snapshot-gap">E1. PEER pilot: the snapshot gap</a></li>
 <li><a href="#e2.-below-agent-observation-registered-design-no-result" id="toc-e2.-below-agent-observation-registered-design-no-result">E2. Below-agent observation: registered design, no result</a></li>
 <li><a href="#e3.-separately-witnessed-history-registered-design-no-result" id="toc-e3.-separately-witnessed-history-registered-design-no-result">E3. Separately witnessed history: registered design, no result</a></li>
@@ -46,6 +47,8 @@
 </ul>
 </nav>
 <p>The <a href="atlas.html#the-open-cell">atlas’s open cell</a> asks whether a record of an agent action comes from a vantage the agent cannot control, whether its evidence binds to the actual effect, and what was missed. A signature and an offline verifier answer questions about retained bytes. They do not answer who could alter or omit the underlying observations. These experiments keep those questions separate.</p>
+<h2 id="historical-report-meaning-and-diagnostic-rule-controls">Historical report meaning and diagnostic rule controls</h2>
+<p>The <a href="evidence-test-meaning.html">worked report example</a> retains a historical report replay and two separate diagnostic controls. <a href="runs.html#record-w3c-report-replay-2026-10-06">Inspect its Lab record</a> or <a href="experiments/w3c-report-replay-2026-10-06/README.md">check the retained accounting</a>. These are existing author-operated measurements; no new numbered study or live customer workload is introduced.</p>
 <h2 id="e1.-peer-pilot-the-snapshot-gap">E1. PEER pilot: the snapshot gap</h2>
 <p>The local <code>agent-evidence-observer</code> prototype mediates one file replacement, commits to the before-state, signs a bounded result, and checks a hash-chain head under a second key. It does not isolate an agent. Its own record says <code>witnessScope: PEER</code> and <code>unmediatedEffects: not-established</code>. The two keys are controlled by one local operator.</p>
 <p>I ran <a href="experiments/observer-vantage/run.py">the exact pilot script</a> against the package source identified by SHA-256 <code>273e4985cb4de671145bcd55ef85545be213e8520f766ab7692e9d05edae60d1</code>. The <a href="experiments/observer-vantage/recorded.json">recorded machine result</a> contains three scripted intervals. At that read, the package source was a local unpublished prototype. The observer now has public source, used at a different pin in E6; that does not supply or identify the exact older source bytes for this pilot. Its original result remains a local measurement without an independent reproduction.</p>

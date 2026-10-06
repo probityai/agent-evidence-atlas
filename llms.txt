@@ -7,6 +7,7 @@
 - [Choose a project](https://probityai.github.io/agent-evidence-atlas/start.md): Tools grouped by the task you need.
 - [Automation](https://probityai.github.io/agent-evidence-atlas/automation.md): Read the catalog and pinned run records.
 - [Open Evidence Lab](https://probityai.github.io/agent-evidence-atlas/lab.md): Retained runs, submissions and corrections.
+- [Find a retained run](https://probityai.github.io/agent-evidence-atlas/runs.md): Search recorded claims, declared roles, limits and original evidence.
 - [Assurance atlas](https://probityai.github.io/agent-evidence-atlas/atlas.md): Projects, mechanisms and evidence boundaries.
 - [Experiments](https://probityai.github.io/agent-evidence-atlas/experiments.md): Pinned procedures and recorded results.
 - [Replay an evidence decision](https://probityai.github.io/agent-evidence-atlas/replay-an-evidence-decision.md): A retained admission and its state-preserving refusals.

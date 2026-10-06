@@ -206,3 +206,6 @@
 "W-05" = 7
 
 "C-21" = "none"
+
+# Source-bound retained-run presentation; live results remain in their own records.
+"W-06" = "none"

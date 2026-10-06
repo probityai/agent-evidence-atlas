@@ -4,7 +4,7 @@ Check claims about agent actions.
 
 Probity builds evidence tools for agent harnesses, reviewers and platform teams. Use them to define claims, test verifiers, inspect action records and apply workload policy.
 
-[Choose a project](start.md) for your task, or [read a retained run](lab.md).
+[Choose a project](start.md) for your task, or [find a retained run](runs.md) by its claims, roles and limits.
 
 <a id="the-public-code"></a>
 

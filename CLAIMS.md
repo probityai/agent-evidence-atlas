@@ -264,6 +264,12 @@ Each row's identifier starts with the letter of the page it covers: `A` for the 
 | --- | --- | --- | --- | --- | --- |
 | W-06 | The retained-run browser projects every registered record's existing per-claim result, declared roles, limits, report, provenance and contract. Search and exact result-token filters enhance a complete static HTML and Markdown view. The home page, Lab, navigation and machine guide link the browser. The version ledger records this presentation revision. | `data/lab-register.json`; `tools/run_browser.py`; `src/runs.md`; `assets/run-browser.js`; `assets/run-browser.css`; `tests/test_run_browser.py`; `tests/test_run_browser_layout.py`; `data/versions.toml` | 2026-10-06 | `python3 tools/run_browser.py`; `python3 tools/build.py --check`; `python3 tools/check_lab.py`; `python3 tools/check_links.py`; run the source and actual-browser controls, including keyboard, mobile and no-JavaScript checks | Presentation of retained source facts, not authenticated operator identity, aggregate run grades, new measured records, host adoption, independent operation or a real discovery evaluation. Procedures link only when the register supplies one. |
 
+## APS and PriorSeal replay interface
+
+| id | claim as printed | source | read (UTC) | re-derive | limit |
+| --- | --- | --- | --- | --- | --- |
+| P-77 | Current APS/PriorSeal generators use v2 records, require one caller-declared runner identity of 1–512 UTF-8 bytes, and bind the entrypoint and helper source hashes. The wrapper predicate is meetsRunContract. Copied tools need the helper and the replay's unchanged baseline data. | `experiments/aps-priorseal-source-replay/runner.mjs`, `run.mjs`, `check-run-contract.mjs`, `test-runner.mjs`, `RUN.md`; `.github/workflows/aps-priorseal-replay.yml` | 2026-10-06 | Run both public entrypoints and `test-runner.mjs` against the declared pinned producer checkouts; compare caller declarations, source hashes, actual CLI refusals and historical outcomes | Declared identity and local source-byte bindings, not authenticated operator identity, publisher attestation, Probity admission, outside custody, producer acceptance or new study scores. Historical records keep their original schemas and bytes. |
+
 ## Discovery task evaluation
 
 | id | claim as printed | source | read (UTC) | re-derive | limit |

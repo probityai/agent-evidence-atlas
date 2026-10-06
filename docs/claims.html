@@ -1887,6 +1887,39 @@
 </tbody>
 </table>
 </div>
+<h2 id="aps-and-priorseal-replay-interface">APS and PriorSeal replay interface</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="id / claim as printed / source / read (UTC) / re-derive / limit">
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr>
+<th>id</th>
+<th>claim as printed</th>
+<th>source</th>
+<th>read (UTC)</th>
+<th>re-derive</th>
+<th>limit</th>
+</tr>
+</thead>
+<tbody>
+<tr data-read="2026-10-06">
+<td>P-77</td>
+<td>Current APS/PriorSeal generators use v2 records, require one caller-declared runner identity of 1–512 UTF-8 bytes, and bind the entrypoint and helper source hashes. The wrapper predicate is meetsRunContract. Copied tools need the helper and the replay’s unchanged baseline data.</td>
+<td><code>experiments/aps-priorseal-source-replay/runner.mjs</code>, <code>run.mjs</code>, <code>check-run-contract.mjs</code>, <code>test-runner.mjs</code>, <code>RUN.md</code>; <code>.github/workflows/aps-priorseal-replay.yml</code></td>
+<td>2026-10-06 <span class="cadence">(does not expire)</span></td>
+<td>Run both public entrypoints and <code>test-runner.mjs</code> against the declared pinned producer checkouts; compare caller declarations, source hashes, actual CLI refusals and historical outcomes</td>
+<td>Declared identity and local source-byte bindings, not authenticated operator identity, publisher attestation, Probity admission, outside custody, producer acceptance or new study scores. Historical records keep their original schemas and bytes.</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h2 id="discovery-task-evaluation">Discovery task evaluation</h2>
 <div class="table-scroll" tabindex="0" role="region" aria-label="id / claim as printed / source / read (UTC) / re-derive / limit">
 <table style="width:100%;">

@@ -24,6 +24,7 @@ Changing a copied fixture byte exits 1 without a report. An absent owner root ex
 Use Node.js 20 or later, npm and Git. From this repository's root:
 
 ```sh
+set -eu
 replay_dir=$(mktemp -d)
 git clone https://github.com/altrudev/Frequency-Federation-Review.git "$replay_dir/capsule"
 git -C "$replay_dir/capsule" checkout --detach 4162622af24c94efb843f53aa27940ffd1256ad6
@@ -33,6 +34,7 @@ git clone https://github.com/imokokok/PriorSeal.git "$replay_dir/priorseal"
 git -C "$replay_dir/priorseal" checkout --detach d749d2691c3e6be139de4020e7b27cdafca2c428
 (cd "$replay_dir/capsule/capsules/aps-priorseal-v0.1/adapter" && npm ci --ignore-scripts --no-audit --no-fund)
 node experiments/aps-priorseal-source-replay/run.mjs \
+  --runner https://github.com/OWNER/REPOSITORY \
   "$replay_dir/capsule" \
   "$replay_dir/aps" \
   "$replay_dir/priorseal" \
@@ -55,6 +57,7 @@ To reproduce from the repository root, use the APS and PriorSeal checkouts from 
 git clone https://github.com/altrudev/Frequency-Federation-Review.git "$replay_dir/review-wrapper"
 git -C "$replay_dir/review-wrapper" checkout --detach b12879d5878991d9c3ed260d06ee11716eb99d33
 node experiments/aps-priorseal-source-replay/check-run-contract.mjs \
+  --runner https://github.com/OWNER/REPOSITORY \
   "$replay_dir/review-wrapper" \
   "$replay_dir/aps" \
   "$replay_dir/priorseal" \
@@ -62,6 +65,67 @@ node experiments/aps-priorseal-source-replay/check-run-contract.mjs \
 ```
 
 The output directory must be new. This control describes the pinned wrapper only. The main replay invokes the adapter directly and requires a zero exit and a newly written report before it accepts any result.
+
+## Caller declaration and current records
+
+Replace `https://github.com/OWNER/REPOSITORY` with your caller identity in both commands.
+Put exactly one `--runner` option before the four path arguments.
+The identity must contain 1–512 UTF-8 bytes, without outer whitespace, control characters or line separators.
+The tools refuse missing, repeated or unknown options before they inspect source checkouts or create output.
+They do not infer the caller from a publisher, Git origin, environment or earlier record.
+
+New outputs use `probity.aps-priorseal-source-replay/v2` or `probity.aps-priorseal-run-contract/v2`.
+`scope.runner` contains `identity` and `source: "caller-declared"`.
+This is your declaration, not proof of an authenticated identity or independent operator.
+`harness.files` retains the SHA-256 of the executing entrypoint and its `runner.mjs` helper.
+These hashes bind local source bytes at invocation. They do not authenticate their publisher or attest the runtime.
+The replay also checks and records the unchanged `recorded.json` baseline digest.
+Historical records keep their original schemas and bytes.
+
+Each case also retains the child command, actual exit, signal, and raw stdout/stderr before assertions.
+The record binds those files by size and SHA-256. The replay retains its adapter self-test the same way.
+The tools mark a spawn or capture error incomplete and refuse a successful record.
+The public CI artifact contains the declared-caller records, process logs and control ledger.
+Full adapter reports and third-party checkouts remain within that job's bounded technical review.
+The public artifact copies only checked regular files. It follows no test links into producer checkouts.
+
+The wrapper record and stdout use `meetsRunContract`.
+It is true only when the wrapper exits zero, its retained exit is zero, and a previously absent report path exists afterward.
+It does not mean that Probity admitted a result or that the report is valid.
+The supplied wrapper controls all lack a fresh report, so this predicate is false.
+
+## Use copied tools outside an Atlas checkout
+
+Select one published 40-character Atlas commit and retain that selection.
+Download `runner.mjs` beside the entrypoint from that same commit.
+For `run.mjs`, also download the unchanged `recorded.json` data file from that commit.
+Retain and verify the source hashes before invocation against the source you selected.
+The baseline data must have SHA-256 `4d94934e711610fba6d8156752ed91f55788b3c10aeab697ad166a3825cbf65a`.
+The copied files need no Atlas Git checkout, local package install or optional import helper.
+Both commands use the same pinned producer checkouts described above.
+
+```sh
+set -eu
+# Set atlas_revision to the published commit you selected.
+copied_tools=$(mktemp -d)
+for file in run.mjs check-run-contract.mjs runner.mjs recorded.json; do
+  curl --fail --location \
+    "https://raw.githubusercontent.com/probityai/agent-evidence-atlas/$atlas_revision/experiments/aps-priorseal-source-replay/$file" \
+    --output "$copied_tools/$file"
+done
+(cd "$copied_tools" && sha256sum run.mjs check-run-contract.mjs runner.mjs recorded.json)
+node "$copied_tools/check-run-contract.mjs" \
+  --runner https://github.com/OWNER/REPOSITORY \
+  "$replay_dir/review-wrapper" "$replay_dir/aps" "$replay_dir/priorseal" \
+  "$replay_dir/copied-contract-result"
+node "$copied_tools/run.mjs" \
+  --runner https://github.com/OWNER/REPOSITORY \
+  "$replay_dir/capsule" "$replay_dir/aps" "$replay_dir/priorseal" \
+  "$replay_dir/copied-replay-result"
+```
+
+Printing hashes retains a byte identity. Compare them with your selected trusted source before execution.
+These commands do not authenticate an arbitrary copied tool merely because it prints a hash.
 
 ## Limits and next decisions
 

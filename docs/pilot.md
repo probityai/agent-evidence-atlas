@@ -22,6 +22,8 @@ There is a separate run-contract limit. In the [pinned review wrapper at `b12879
 
 ## Roles and acceptance
 
+The [replay tools guide](replay-tools.md) describes the current tools, which require callers to declare their runner identity. They retain the entrypoint and helper source hashes separately from producer input pins. The [copied-file procedure](https://github.com/probityai/agent-evidence-atlas/blob/main/experiments/aps-priorseal-source-replay/RUN.md#use-copied-tools-outside-an-atlas-checkout) supports callers without an Atlas checkout. A declared identity does not prove who controlled the operator, keys or storage. Historical receipts and pilot decisions retain their original scope.
+
 | Work | Proposed owner | Decision needed |
 |----|----|----|
 | Scope, status and retained result | Probity coordinator and Lab reader | Publish an exact claim set, source pins, checked fields, raw run receipt and all refusals; record the reader revision, runner and exposure to expected results |

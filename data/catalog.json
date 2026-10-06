@@ -23,7 +23,7 @@
         "repo-vocabulary"
       ],
       "packages": [],
-      "docs_url": "https://github.com/probityai/agent-evidence-vocabulary/blob/8c80579ae613d7ae07982321e13a6091c402b2a8/README.md",
+      "docs_url": "https://github.com/probityai/agent-evidence-vocabulary/blob/4029a7801e0ec61a9818fd1e6c1cbd236e2c82bc/README.md",
       "relationships": []
     },
     {
@@ -41,7 +41,7 @@
       "packages": [
         "agent-evidence-vectors"
       ],
-      "docs_url": "https://github.com/probityai/agent-evidence-vectors/blob/10e6745b24db77a7bdd4dcc0cdd84f4b46063b7c/README.md",
+      "docs_url": "https://github.com/probityai/agent-evidence-vectors/blob/44042ae1a8cbde9444e8ea24e6690a7e773af65b/README.md",
       "relationships": []
     },
     {
@@ -57,7 +57,7 @@
         "repo-observer"
       ],
       "packages": [],
-      "docs_url": "https://github.com/probityai/agent-evidence-observer/blob/671d89c2d8c023153eb5755c5afb027bf4fa553d/README.md",
+      "docs_url": "https://github.com/probityai/agent-evidence-observer/blob/753932b42b00ab8257396112c529f840396f0ce7/README.md",
       "relationships": []
     },
     {
@@ -107,7 +107,7 @@
       "packages": [
         "jcs-admit"
       ],
-      "docs_url": "https://github.com/probityai/jcs-admit/blob/3e189b20711a57ce91eab40509324dd1d5d54cac/README.md",
+      "docs_url": "https://github.com/probityai/jcs-admit/blob/fb32a68aa2772e51cee32bc14835075d88af3953/README.md",
       "relationships": []
     },
     {
@@ -141,7 +141,7 @@
         "repo-atlas"
       ],
       "packages": [],
-      "docs_url": "https://github.com/probityai/agent-evidence-atlas/blob/89aea5fd58850247da3aab9e0e539c20625de35b/README.md",
+      "docs_url": "https://github.com/probityai/agent-evidence-atlas/blob/48b9648a277bc5177f9dce290551f385c6df2ba1/README.md",
       "relationships": []
     }
   ],
@@ -175,6 +175,36 @@
       ],
       "component": "observer",
       "docs_url": "https://github.com/probityai/agent-evidence-observer/blob/d53776c7b783abbce42a3422f56ed390dfedd2f2/docs/WITNESSED-RUN-SELECTION.md"
+    },
+    {
+      "id": "aps-refund-retries",
+      "aliases": [],
+      "display_name": "Probity APS refund example",
+      "summary": "Runs a local APS refund example that ties retries to approved actions and retains records for a separate reader.",
+      "task": "Run an APS refund example with safe retries",
+      "status": "prototype",
+      "publication": "public",
+      "reviewed": true,
+      "repositories": [
+        "repo-observer"
+      ],
+      "component": "observer",
+      "docs_url": "https://github.com/probityai/agent-evidence-observer/blob/753932b42b00ab8257396112c529f840396f0ce7/docs/APS-REFUND-RETRIES.md"
+    },
+    {
+      "id": "mintid-trace-records-v2",
+      "aliases": [],
+      "display_name": "Probity MintID trace reader",
+      "summary": "Reads published MintID trace records after raw JSON admission and checks source-bound evidence and actor attribution.",
+      "task": "Check published MintID trace records",
+      "status": "prototype",
+      "publication": "public",
+      "reviewed": true,
+      "repositories": [
+        "repo-jcs-admit"
+      ],
+      "component": "jcs-admit",
+      "docs_url": "https://github.com/probityai/jcs-admit/blob/fb32a68aa2772e51cee32bc14835075d88af3953/interop/mintid-trace-records-v2/README.md"
     }
   ],
   "repositories": [
@@ -190,9 +220,9 @@
       "full_name": "probityai/agent-evidence-vocabulary",
       "url": "https://github.com/probityai/agent-evidence-vocabulary",
       "source": {
-        "commit": "8c80579ae613d7ae07982321e13a6091c402b2a8",
+        "commit": "4029a7801e0ec61a9818fd1e6c1cbd236e2c82bc",
         "repository": "repo-vocabulary",
-        "url": "https://github.com/probityai/agent-evidence-vocabulary/blob/8c80579ae613d7ae07982321e13a6091c402b2a8/README.md"
+        "url": "https://github.com/probityai/agent-evidence-vocabulary/blob/4029a7801e0ec61a9818fd1e6c1cbd236e2c82bc/README.md"
       }
     },
     {
@@ -207,9 +237,9 @@
       "full_name": "probityai/agent-evidence-vectors",
       "url": "https://github.com/probityai/agent-evidence-vectors",
       "source": {
-        "commit": "10e6745b24db77a7bdd4dcc0cdd84f4b46063b7c",
+        "commit": "44042ae1a8cbde9444e8ea24e6690a7e773af65b",
         "repository": "repo-vectors",
-        "url": "https://github.com/probityai/agent-evidence-vectors/blob/10e6745b24db77a7bdd4dcc0cdd84f4b46063b7c/README.md"
+        "url": "https://github.com/probityai/agent-evidence-vectors/blob/44042ae1a8cbde9444e8ea24e6690a7e773af65b/README.md"
       }
     },
     {
@@ -224,9 +254,9 @@
       "full_name": "probityai/agent-evidence-observer",
       "url": "https://github.com/probityai/agent-evidence-observer",
       "source": {
-        "commit": "671d89c2d8c023153eb5755c5afb027bf4fa553d",
+        "commit": "753932b42b00ab8257396112c529f840396f0ce7",
         "repository": "repo-observer",
-        "url": "https://github.com/probityai/agent-evidence-observer/blob/671d89c2d8c023153eb5755c5afb027bf4fa553d/README.md"
+        "url": "https://github.com/probityai/agent-evidence-observer/blob/753932b42b00ab8257396112c529f840396f0ce7/README.md"
       }
     },
     {
@@ -275,9 +305,9 @@
       "full_name": "probityai/jcs-admit",
       "url": "https://github.com/probityai/jcs-admit",
       "source": {
-        "commit": "3e189b20711a57ce91eab40509324dd1d5d54cac",
+        "commit": "fb32a68aa2772e51cee32bc14835075d88af3953",
         "repository": "repo-jcs-admit",
-        "url": "https://github.com/probityai/jcs-admit/blob/3e189b20711a57ce91eab40509324dd1d5d54cac/README.md"
+        "url": "https://github.com/probityai/jcs-admit/blob/fb32a68aa2772e51cee32bc14835075d88af3953/README.md"
       }
     },
     {
@@ -309,9 +339,9 @@
       "full_name": "probityai/agent-evidence-atlas",
       "url": "https://github.com/probityai/agent-evidence-atlas",
       "source": {
-        "commit": "89aea5fd58850247da3aab9e0e539c20625de35b",
+        "commit": "48b9648a277bc5177f9dce290551f385c6df2ba1",
         "repository": "repo-atlas",
-        "url": "https://github.com/probityai/agent-evidence-atlas/blob/89aea5fd58850247da3aab9e0e539c20625de35b/README.md"
+        "url": "https://github.com/probityai/agent-evidence-atlas/blob/48b9648a277bc5177f9dce290551f385c6df2ba1/README.md"
       }
     }
   ],

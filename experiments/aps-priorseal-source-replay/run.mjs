@@ -3,6 +3,7 @@ import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { harness, invocation, retainProcess, validateOutput } from './runner.mjs';
 
 const revisions = {
   capsule: '4162622af24c94efb843f53aa27940ffd1256ad6',
@@ -18,6 +19,7 @@ const digests = {
   producerReport: 'd2c1bea5f0acf0afe06c944376c5a471402ab5d48bf85ca267ed9b5876336ae4',
 };
 const expectedSummary = { established: 14, contradicted: 3, not_established: 5 };
+const recordedSha256 = '4d94934e711610fba6d8156752ed91f55788b3c10aeab697ad166a3825cbf65a';
 const expectedErrors = {
   'substituted-byte': /APS copied fixture differs from owner bytes/,
   'missing-owner': /ENOENT.*MANIFEST\.sha256/,
@@ -30,21 +32,29 @@ function digest(file) {
 }
 
 function run(command, args, options = {}) {
+  const { capture, ...spawnOptions } = options;
+  const started = new Date().toISOString();
   const result = spawnSync(command, args, {
-    encoding: 'utf8',
+    encoding: null,
     timeout: 30000,
     maxBuffer: 1024 * 1024,
-    ...options,
+    ...spawnOptions,
   });
+  if (capture) result.primary = retainProcess(capture.directory, capture.name,
+    command, args, spawnOptions, result, started, new Date().toISOString());
   assert.equal(result.error, undefined, `failed to run ${command}: ${result.error}`);
   assert.equal(result.signal, null, `${command} ended on signal ${result.signal}`);
-  return result;
+  return { ...result, stdout: result.stdout?.toString('utf8') ?? '',
+    stderr: result.stderr?.toString('utf8') ?? '' };
 }
 
 function checkout(root, revision) {
   const result = run('git', ['-C', root, 'rev-parse', 'HEAD']);
   assert.equal(result.status, 0, 'source directory is not a Git checkout');
   assert.equal(result.stdout.trim(), revision, `wrong source revision at ${root}`);
+  const dirty = run('git', ['-C', root, 'status', '--porcelain']);
+  assert.equal(dirty.status, 0, `failed source status at ${root}`);
+  assert.equal(dirty.stdout, '', `dirty source checkout at ${root}`);
 }
 
 function pinned(file, expected) {
@@ -55,7 +65,8 @@ function oneCase(name, adapter, args, output, expectedExit, existing = false) {
   const report = path.join(output, `${name}.json`);
   if (existing) fs.copyFileSync(path.join(output, 'clean.json'), report);
   const before = fs.existsSync(report) ? digest(report) : null;
-  const result = run(process.execPath, [adapter, ...args, '--out', report]);
+  const result = run(process.execPath, [adapter, ...args, '--out', report],
+    { capture: { directory: output, name } });
   assert.equal(result.status, expectedExit, `${name}: unexpected exit: ${result.stderr}`);
   const after = fs.existsSync(report) ? digest(report) : null;
   if (expectedExit === 0) {
@@ -72,17 +83,19 @@ function oneCase(name, adapter, args, output, expectedExit, existing = false) {
     reportPresentAfter: after !== null,
     reportSha256: after,
     acceptedAsFresh: result.status === 0 && before === null && after !== null,
+    process: result.primary,
   };
 }
 
 function main(argv) {
-  assert.equal(argv.length, 4, 'usage: node run.mjs CAPSULE APS PRIORSEAL NEW_OUTPUT_DIR');
-  const [capsule, aps, priorseal, output] = argv.map(value => path.resolve(value));
-  assert.ok(!fs.existsSync(output), 'output directory must not exist');
+  const parsed = invocation(argv, 'run.mjs');
+  const sourceHarness = harness(import.meta.url);
+  const baseline = new URL('./recorded.json', import.meta.url);
+  pinned(baseline, recordedSha256);
+  const recorded = JSON.parse(fs.readFileSync(baseline, 'utf8'));
+  const [capsule, aps, priorseal, output] = parsed.paths.map(value => path.resolve(value));
+  validateOutput(output, [capsule, aps, priorseal]);
   for (const [name, root] of Object.entries({ capsule, aps, priorseal })) {
-    const relative = path.relative(root, output);
-    assert.ok(relative === '..' || relative.startsWith(`..${path.sep}`),
-      'output directory must be outside the source checkouts');
     checkout(root, revisions[name]);
   }
   const adapterDir = path.join(capsule, 'capsules/aps-priorseal-v0.1/adapter');
@@ -97,11 +110,12 @@ function main(argv) {
   pinned(path.join(priorsealCase, 'priorseal-inputs/payment-within-limit.json'), digests.positive);
   pinned(path.join(priorsealCase, 'priorseal-inputs/payment-over-limit.json'), digests.overLimit);
   pinned(path.join(priorsealCase, 'PAYMENT-LIMIT-REPORT.json'), digests.producerReport);
-  const selftest = run(process.execPath, [adapter, '--selftest']);
+  fs.mkdirSync(output, { recursive: false });
+  const selftest = run(process.execPath, [adapter, '--selftest'],
+    { capture: { directory: output, name: 'selftest' } });
   assert.equal(selftest.status, 0, selftest.stderr);
   assert.deepEqual(JSON.parse(selftest.stdout), { ok: true });
 
-  fs.mkdirSync(output, { recursive: false });
   const common = ['--aps', copy, '--priorseal', priorsealCase];
   const cases = [oneCase('clean', adapter, [...common, '--aps-owner', owner], output, 0)];
   const report = JSON.parse(fs.readFileSync(path.join(output, 'clean.json'), 'utf8'));
@@ -119,7 +133,6 @@ function main(argv) {
   }
   assert.equal(report.claims.length, 22);
   assert.deepEqual(Object.values(counts), Object.values(expectedSummary));
-  const recorded = JSON.parse(fs.readFileSync(new URL('./recorded.json', import.meta.url), 'utf8'));
   assert.deepEqual(report.claims.map(({ id, result }) => ({ id, result })), recorded.claims);
   const binding = report.claims.find(claim => claim.id === 'composition.aps_owner_fixture_copy.byte_identical');
   assert.equal(binding?.result, 'ESTABLISHED');
@@ -150,17 +163,20 @@ function main(argv) {
       ({ name, exitCode, reportPresentBefore, reportPresentAfter, acceptedAsFresh })),
   );
   const receipt = {
-    schema: 'probity.aps-priorseal-source-replay/v1',
+    schema: 'probity.aps-priorseal-source-replay/v2',
+    harness: sourceHarness,
+    baseline: { path: 'recorded.json', sha256: recordedSha256 },
     sourceCommits: revisions,
     sourceSha256: digests,
     node: process.version,
     selftest: 'pass',
+    selftestProcess: selftest.primary,
     claims: report.claims.map(({ id, result }) => ({ id, result })),
     summary: report.summary,
     sourceBindingComparedFiles: report.pins.aps_owner_fixture_binding.compared_files,
     cases,
     scope: {
-      runner: 'Probity',
+      runner: parsed.runner,
       inputCustody: 'public producer fixtures',
       verifier: 'unmodified pinned Frequency review adapter',
       formalFederationRun: false,
@@ -170,7 +186,8 @@ function main(argv) {
     },
   };
   fs.writeFileSync(path.join(output, 'receipt.json'), `${JSON.stringify(receipt, null, 2)}\n`);
-  process.stdout.write(`${JSON.stringify({ output, summary: receipt.summary, cases })}\n`);
+  process.stdout.write(`${JSON.stringify({ output, runner: parsed.runner,
+    harness: sourceHarness, summary: receipt.summary, cases })}\n`);
 }
 
 main(process.argv.slice(2));

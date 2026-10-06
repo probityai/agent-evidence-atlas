@@ -14,6 +14,12 @@ Use the stable `id` for lookups. Follow `docs_url` for the quickstart and `sourc
 
 Use the [fixed discovery prompts and receipt checker](discovery-evaluation.md) to retain a reader or agent session and review its answers against pinned public sources. Keep actual discovery attempts separate from author-operated packet checks.
 
+<a id="run-a-local-replay"></a>
+
+## Run a local replay
+
+To produce a new local APS/PriorSeal capture, use the [replay tools guide](replay-tools.md). Declare the caller and keep the source hashes, actual process logs and result together. The guide links one complete pinned procedure, including the copied-file route.
+
 <a id="read-a-retained-run"></a>
 
 ## Read a retained run

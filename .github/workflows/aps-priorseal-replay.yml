@@ -60,6 +60,7 @@ jobs:
       - name: Check the pinned sources, claims and failed controls
         run: |
           node experiments/aps-priorseal-source-replay/run.mjs \
+            --runner https://github.com/probityai/agent-evidence-atlas \
             .build/aps-priorseal-replay/capsule \
             .build/aps-priorseal-replay/aps \
             .build/aps-priorseal-replay/priorseal \
@@ -67,18 +68,33 @@ jobs:
       - name: Check the pinned wrapper's run contract
         run: |
           node experiments/aps-priorseal-source-replay/check-run-contract.mjs \
+            --runner https://github.com/probityai/agent-evidence-atlas \
             .build/aps-priorseal-replay/review-wrapper \
             .build/aps-priorseal-replay/aps \
             .build/aps-priorseal-replay/priorseal \
             .build/aps-priorseal-replay/contract-result
-      - name: Retain the Probity records
+      - name: Check caller declarations, copied tools and original outcomes
         run: |
-          cp .build/aps-priorseal-replay/result/receipt.json aps-priorseal-receipt.json
-          cp .build/aps-priorseal-replay/contract-result/record.json aps-priorseal-run-contract.json
+          node experiments/aps-priorseal-source-replay/test-runner.mjs \
+            .build/aps-priorseal-replay/capsule \
+            .build/aps-priorseal-replay/review-wrapper \
+            .build/aps-priorseal-replay/aps \
+            .build/aps-priorseal-replay/priorseal \
+            .build/aps-priorseal-replay/caller-controls
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
         with:
           name: aps-priorseal-source-replay
           path: |
-            aps-priorseal-receipt.json
-            aps-priorseal-run-contract.json
+            .build/aps-priorseal-replay/result/receipt.json
+            .build/aps-priorseal-replay/contract-result/record.json
+            .build/aps-priorseal-replay/caller-controls/public-results/
+            .build/aps-priorseal-replay/caller-controls/public-artifact-manifest.json
+            .build/aps-priorseal-replay/result/*.command.json
+            .build/aps-priorseal-replay/result/*.stdout
+            .build/aps-priorseal-replay/result/*.stderr
+            .build/aps-priorseal-replay/contract-result/*.command.json
+            .build/aps-priorseal-replay/contract-result/*.stdout
+            .build/aps-priorseal-replay/contract-result/*.stderr
           if-no-files-found: error
+          include-hidden-files: true

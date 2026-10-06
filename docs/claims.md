@@ -284,6 +284,22 @@ Each row's identifier starts with the letter of the page it covers: `A` for the 
 |----|----|----|----|----|----|
 | W-06 | The retained-run browser projects every registered record's existing per-claim result, declared roles, limits, report, provenance and contract. Search and exact result-token filters enhance a complete static HTML and Markdown view. The home page, Lab, navigation and machine guide link the browser. The version ledger records this presentation revision. | `data/lab-register.json`; `tools/run_browser.py`; `src/runs.md`; `assets/run-browser.js`; `assets/run-browser.css`; `tests/test_run_browser.py`; `tests/test_run_browser_layout.py`; `data/versions.toml` | 2026-10-06 | `python3 tools/run_browser.py`; `python3 tools/build.py --check`; `python3 tools/check_lab.py`; `python3 tools/check_links.py`; run the source and actual-browser controls, including keyboard, mobile and no-JavaScript checks | Presentation of retained source facts, not authenticated operator identity, aggregate run grades, new measured records, host adoption, independent operation or a real discovery evaluation. Procedures link only when the register supplies one. |
 
+<a id="aps-and-priorseal-replay-interface"></a>
+
+## APS and PriorSeal replay interface
+
+| id | claim as printed | source | read (UTC) | re-derive | limit |
+|----|----|----|----|----|----|
+| P-77 | Current APS/PriorSeal generators use v2 records, require one caller-declared runner identity of 1 to 512 UTF-8 bytes, and bind the entrypoint/helper files read at invocation by SHA-256. The wrapper predicate is meetsRunContract. Copied tools need the helper and the replay's unchanged baseline data. | `experiments/aps-priorseal-source-replay/runner.mjs`, `run.mjs`, `check-run-contract.mjs`, `test-runner.mjs`, `RUN.md`; `.github/workflows/aps-priorseal-replay.yml` | 2026-10-06 | Run both public entrypoints and `test-runner.mjs` against the declared pinned producer checkouts; compare caller declarations, source hashes, actual CLI refusals and historical outcomes | Declared identity and local source-byte bindings, not authenticated operator identity, publisher attestation, Probity admission, outside custody, producer acceptance or new study scores. Historical records keep their original schemas and bytes. |
+
+<a id="current-catalog-and-replay-routes"></a>
+
+## Current catalog and replay routes
+
+| id | claim as printed | source | read (UTC) | re-derive | limit |
+|----|----|----|----|----|----|
+| P-78 | The catalog keeps its eight component identities and earlier profiles, refreshes source-backed repository pins, and adds published APS refund-retry and MintID trace-reader profiles. The replay tools page links one complete procedure from the automation guide, pilot status and machine guide. | `data/catalog.json`; `data/catalog-sources.json`; `src/replay-tools.md`; `src/automation.md`; `src/pilot.md`; `tools/discovery.py`; `data/versions.toml` | 2026-10-06 | Validate the catalog and source bindings; build the site; check links; render the replay route with desktop/mobile, keyboard and no-JavaScript controls | Published source routes and local generated-page controls, not new component or package releases, producer acceptance, customer use, independent operation or measured discovery success. Earlier source records and version rows remain retained. |
+
 <a id="discovery-task-evaluation"></a>
 
 ## Discovery task evaluation

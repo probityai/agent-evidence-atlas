@@ -15,7 +15,7 @@
     },
     {
       "display_name": "Probity Atlas",
-      "docs_url": "https://github.com/probityai/agent-evidence-atlas/blob/89aea5fd58850247da3aab9e0e539c20625de35b/README.md",
+      "docs_url": "https://github.com/probityai/agent-evidence-atlas/blob/48b9648a277bc5177f9dce290551f385c6df2ba1/README.md",
       "id": "atlas",
       "packages": [],
       "relationships": [],
@@ -43,7 +43,7 @@
     },
     {
       "display_name": "jcs-admit",
-      "docs_url": "https://github.com/probityai/jcs-admit/blob/3e189b20711a57ce91eab40509324dd1d5d54cac/README.md",
+      "docs_url": "https://github.com/probityai/jcs-admit/blob/fb32a68aa2772e51cee32bc14835075d88af3953/README.md",
       "id": "jcs-admit",
       "packages": [
         "jcs-admit"
@@ -58,7 +58,7 @@
     },
     {
       "display_name": "Probity Observer",
-      "docs_url": "https://github.com/probityai/agent-evidence-observer/blob/671d89c2d8c023153eb5755c5afb027bf4fa553d/README.md",
+      "docs_url": "https://github.com/probityai/agent-evidence-observer/blob/753932b42b00ab8257396112c529f840396f0ce7/README.md",
       "id": "observer",
       "packages": [],
       "relationships": [],
@@ -71,7 +71,7 @@
     },
     {
       "display_name": "Probity Vectors",
-      "docs_url": "https://github.com/probityai/agent-evidence-vectors/blob/10e6745b24db77a7bdd4dcc0cdd84f4b46063b7c/README.md",
+      "docs_url": "https://github.com/probityai/agent-evidence-vectors/blob/44042ae1a8cbde9444e8ea24e6690a7e773af65b/README.md",
       "id": "vectors",
       "packages": [
         "agent-evidence-vectors"
@@ -99,7 +99,7 @@
     },
     {
       "display_name": "Probity Vocabulary",
-      "docs_url": "https://github.com/probityai/agent-evidence-vocabulary/blob/8c80579ae613d7ae07982321e13a6091c402b2a8/README.md",
+      "docs_url": "https://github.com/probityai/agent-evidence-vocabulary/blob/4029a7801e0ec61a9818fd1e6c1cbd236e2c82bc/README.md",
       "id": "vocabulary",
       "packages": [],
       "relationships": [],
@@ -114,6 +114,18 @@
   "profiles": [
     {
       "component": "observer",
+      "display_name": "Probity APS refund example",
+      "docs_url": "https://github.com/probityai/agent-evidence-observer/blob/753932b42b00ab8257396112c529f840396f0ce7/docs/APS-REFUND-RETRIES.md",
+      "id": "aps-refund-retries",
+      "repositories": [
+        "repo-observer"
+      ],
+      "status": "prototype",
+      "summary": "Runs a local APS refund example that ties retries to approved actions and retains records for a separate reader.",
+      "task": "Run an APS refund example with safe retries"
+    },
+    {
+      "component": "observer",
       "display_name": "Probity native Inspect reader",
       "docs_url": "https://github.com/probityai/agent-evidence-observer/blob/71ac0b2126473316655184235000647a6dd0f5cf/docs/NATIVE-CONSUMER-CI.md",
       "id": "inspect-native-reader",
@@ -123,6 +135,18 @@
       "status": "prototype",
       "summary": "Reads selected retained Inspect execution profiles offline, preserving errors and unstarted attempts. Inspect accepted the catalog entry; its live listing was awaiting publication on October 5, 2026.",
       "task": "Read selected retained Inspect execution profiles"
+    },
+    {
+      "component": "jcs-admit",
+      "display_name": "Probity MintID trace reader",
+      "docs_url": "https://github.com/probityai/jcs-admit/blob/fb32a68aa2772e51cee32bc14835075d88af3953/interop/mintid-trace-records-v2/README.md",
+      "id": "mintid-trace-records-v2",
+      "repositories": [
+        "repo-jcs-admit"
+      ],
+      "status": "prototype",
+      "summary": "Reads published MintID trace records after raw JSON admission and checks source-bound evidence and actor attribution.",
+      "task": "Check published MintID trace records"
     },
     {
       "component": "observer",
@@ -155,9 +179,9 @@
       "display_name": "Probity Atlas",
       "id": "repo-atlas",
       "source": {
-        "commit": "89aea5fd58850247da3aab9e0e539c20625de35b",
+        "commit": "48b9648a277bc5177f9dce290551f385c6df2ba1",
         "repository": "repo-atlas",
-        "url": "https://github.com/probityai/agent-evidence-atlas/blob/89aea5fd58850247da3aab9e0e539c20625de35b/README.md"
+        "url": "https://github.com/probityai/agent-evidence-atlas/blob/48b9648a277bc5177f9dce290551f385c6df2ba1/README.md"
       },
       "status": "draft",
       "summary": "Provides task-based project navigation, agent assurance documentation and an Open Evidence Lab run register.",
@@ -181,9 +205,9 @@
       "display_name": "jcs-admit",
       "id": "repo-jcs-admit",
       "source": {
-        "commit": "3e189b20711a57ce91eab40509324dd1d5d54cac",
+        "commit": "fb32a68aa2772e51cee32bc14835075d88af3953",
         "repository": "repo-jcs-admit",
-        "url": "https://github.com/probityai/jcs-admit/blob/3e189b20711a57ce91eab40509324dd1d5d54cac/README.md"
+        "url": "https://github.com/probityai/jcs-admit/blob/fb32a68aa2772e51cee32bc14835075d88af3953/README.md"
       },
       "status": "released",
       "summary": "Checks raw JSON input before producing its RFC 8785 canonical form.",
@@ -194,9 +218,9 @@
       "display_name": "Probity Observer",
       "id": "repo-observer",
       "source": {
-        "commit": "671d89c2d8c023153eb5755c5afb027bf4fa553d",
+        "commit": "753932b42b00ab8257396112c529f840396f0ce7",
         "repository": "repo-observer",
-        "url": "https://github.com/probityai/agent-evidence-observer/blob/671d89c2d8c023153eb5755c5afb027bf4fa553d/README.md"
+        "url": "https://github.com/probityai/agent-evidence-observer/blob/753932b42b00ab8257396112c529f840396f0ce7/README.md"
       },
       "status": "prototype",
       "summary": "Records brokered file actions with signed packets and history, and reads selected native delegation evidence offline.",
@@ -207,9 +231,9 @@
       "display_name": "Probity Vectors",
       "id": "repo-vectors",
       "source": {
-        "commit": "10e6745b24db77a7bdd4dcc0cdd84f4b46063b7c",
+        "commit": "44042ae1a8cbde9444e8ea24e6690a7e773af65b",
         "repository": "repo-vectors",
-        "url": "https://github.com/probityai/agent-evidence-vectors/blob/10e6745b24db77a7bdd4dcc0cdd84f4b46063b7c/README.md"
+        "url": "https://github.com/probityai/agent-evidence-vectors/blob/44042ae1a8cbde9444e8ea24e6690a7e773af65b/README.md"
       },
       "status": "released",
       "summary": "Provides conformance cases and reference verifiers for selected agent evidence formats.",
@@ -233,9 +257,9 @@
       "display_name": "Probity Vocabulary",
       "id": "repo-vocabulary",
       "source": {
-        "commit": "8c80579ae613d7ae07982321e13a6091c402b2a8",
+        "commit": "4029a7801e0ec61a9818fd1e6c1cbd236e2c82bc",
         "repository": "repo-vocabulary",
-        "url": "https://github.com/probityai/agent-evidence-vocabulary/blob/8c80579ae613d7ae07982321e13a6091c402b2a8/README.md"
+        "url": "https://github.com/probityai/agent-evidence-vocabulary/blob/4029a7801e0ec61a9818fd1e6c1cbd236e2c82bc/README.md"
       },
       "status": "released",
       "summary": "Defines versioned terms and crosswalks for claims about agent execution.",

@@ -9,10 +9,12 @@ Use the catalog ID when selecting a tool or profile in a structured record. Repo
 | Task | Project |
 |----|----|
 | Evaluate admission policies or reserve cost before dispatch | [Probity Admission](#admission) |
+| Run an APS refund example with safe retries | [Probity APS refund example](#aps-refund-retries) |
 | Choose a tool or inspect recorded claims and retained runs | [Probity Atlas](#atlas) |
 | Sign and verify DSSE envelopes in Rust | [dsse](#dsse) |
 | Read selected retained Inspect execution profiles | [Probity native Inspect reader](#inspect-native-reader) |
 | Admit and canonicalize JSON in Rust | [jcs-admit](#jcs-admit) |
+| Check published MintID trace records | [Probity MintID trace reader](#mintid-trace-records-v2) |
 | Record file actions or check native delegation evidence | [Probity Observer](#observer) |
 | Test a verifier against conformance cases | [Probity Vectors](#vectors) |
 | Install a pinned verifier and check an evidence claim | [Probity Verify](#verify) |
@@ -29,6 +31,16 @@ Provides OPA, Kyverno and policy-controller rules, plus a pre-call budget reserv
 
 Draft. [Quickstart and source](https://github.com/probityai/agent-evidence-admission/blob/bbff435d11a7c0ec9bc0e8e65e6d8fc40c10b671/README.md)
 
+<a id="aps-refund-retries"></a>
+
+## Probity APS refund example
+
+Profile ID: `aps-refund-retries`. Component ID: `observer`.
+
+Runs a local APS refund example that ties retries to approved actions and retains records for a separate reader.
+
+Prototype. [Quickstart and source](https://github.com/probityai/agent-evidence-observer/blob/753932b42b00ab8257396112c529f840396f0ce7/docs/APS-REFUND-RETRIES.md)
+
 <a id="atlas"></a>
 
 ## Probity Atlas
@@ -37,7 +49,7 @@ Component ID: `atlas`.
 
 Provides task-based project navigation, agent assurance documentation and an Open Evidence Lab run register.
 
-Draft. [Quickstart and source](https://github.com/probityai/agent-evidence-atlas/blob/89aea5fd58850247da3aab9e0e539c20625de35b/README.md)
+Draft. [Quickstart and source](https://github.com/probityai/agent-evidence-atlas/blob/48b9648a277bc5177f9dce290551f385c6df2ba1/README.md)
 
 <a id="dsse"></a>
 
@@ -67,7 +79,17 @@ Component ID: `jcs-admit`.
 
 Checks raw JSON input before producing its RFC 8785 canonical form.
 
-Released. [Quickstart and source](https://github.com/probityai/jcs-admit/blob/3e189b20711a57ce91eab40509324dd1d5d54cac/README.md)
+Released. [Quickstart and source](https://github.com/probityai/jcs-admit/blob/fb32a68aa2772e51cee32bc14835075d88af3953/README.md)
+
+<a id="mintid-trace-records-v2"></a>
+
+## Probity MintID trace reader
+
+Profile ID: `mintid-trace-records-v2`. Component ID: `jcs-admit`.
+
+Reads published MintID trace records after raw JSON admission and checks source-bound evidence and actor attribution.
+
+Prototype. [Quickstart and source](https://github.com/probityai/jcs-admit/blob/fb32a68aa2772e51cee32bc14835075d88af3953/interop/mintid-trace-records-v2/README.md)
 
 <a id="observer"></a>
 
@@ -77,7 +99,7 @@ Component ID: `observer`.
 
 Records brokered file actions with signed packets and history, and reads selected native delegation evidence offline.
 
-Prototype. [Quickstart and source](https://github.com/probityai/agent-evidence-observer/blob/671d89c2d8c023153eb5755c5afb027bf4fa553d/README.md)
+Prototype. [Quickstart and source](https://github.com/probityai/agent-evidence-observer/blob/753932b42b00ab8257396112c529f840396f0ce7/README.md)
 
 <a id="vectors"></a>
 
@@ -87,7 +109,7 @@ Component ID: `vectors`.
 
 Provides conformance cases and reference verifiers for selected agent evidence formats.
 
-Released. [Quickstart and source](https://github.com/probityai/agent-evidence-vectors/blob/10e6745b24db77a7bdd4dcc0cdd84f4b46063b7c/README.md)
+Released. [Quickstart and source](https://github.com/probityai/agent-evidence-vectors/blob/44042ae1a8cbde9444e8ea24e6690a7e773af65b/README.md)
 
 <a id="verify"></a>
 
@@ -107,7 +129,7 @@ Component ID: `vocabulary`.
 
 Defines versioned terms and crosswalks for claims about agent execution.
 
-Released. [Quickstart and source](https://github.com/probityai/agent-evidence-vocabulary/blob/8c80579ae613d7ae07982321e13a6091c402b2a8/README.md)
+Released. [Quickstart and source](https://github.com/probityai/agent-evidence-vocabulary/blob/4029a7801e0ec61a9818fd1e6c1cbd236e2c82bc/README.md)
 
 <a id="witnessed-run-selection"></a>
 

@@ -18,7 +18,12 @@ const digest = file => createHash('sha256').update(fs.readFileSync(file)).digest
 const identities = ['https://github.com/probityai/agent-evidence-atlas', 'https://github.com/piiiico/agent-errata'];
 const ledger = [];
 function publicFiles(directory, names) {
-  const target = path.join(publicOutput, path.basename(directory));
+  const relative = path.relative(output, directory);
+  assert.ok(!path.isAbsolute(relative) && !relative.split(path.sep).includes('..'));
+  assert.ok(fs.lstatSync(directory).isDirectory());
+  assert.equal(fs.realpathSync(directory), path.resolve(fs.realpathSync(output), relative),
+    'public artifact source directories must not redirect through links');
+  const target = path.join(publicOutput, relative);
   fs.mkdirSync(target, { recursive: true });
   for (const name of names) {
     assert.equal(path.basename(name), name, 'public artifact path must be a direct file');
@@ -226,7 +231,7 @@ for (const item of ledger) {
   for (const stream of [item.stdout, item.stderr]) {
     assert.ok(!path.isAbsolute(stream) && !stream.split(path.sep).includes('..'));
     const actual = path.join(output, stream);
-    const retained = path.join(publicOutput, path.basename(path.dirname(actual)), path.basename(actual));
+    const retained = path.join(publicOutput, stream);
     assert.ok(fs.lstatSync(actual).isFile() && fs.lstatSync(retained).isFile());
     assert.equal(digest(retained), digest(actual), 'ledger streams must bind actual curated bytes');
   }
@@ -238,19 +243,40 @@ fs.writeFileSync(path.join(output, 'control-results.json'), `${JSON.stringify({
   allGroupsPassed: true, scope: 'Fixture controls; caller declarations are not authenticated identities',
 }, null, 2)}\n`);
 publicFiles(output, ['control-results.json']);
-for (const directory of fs.readdirSync(publicOutput)) {
-  const folder = path.join(publicOutput, directory);
-  assert.ok(fs.lstatSync(folder).isDirectory() && !fs.lstatSync(folder).isSymbolicLink());
-  for (const file of fs.readdirSync(folder)) {
-    assert.ok(fs.lstatSync(path.join(folder, file)).isFile());
-    assert.ok(!['clean.json', 'stale-output.json', 'recorded.json'].includes(file));
+const publicInventory = [];
+function inventory(directory) {
+  for (const name of fs.readdirSync(directory)) {
+    const actual = path.join(directory, name);
+    const metadata = fs.lstatSync(actual);
+    if (metadata.isDirectory()) {
+      inventory(actual);
+    } else {
+      assert.ok(metadata.isFile(), 'public artifacts must contain only real directories and regular files');
+      assert.ok(!['clean.json', 'stale-output.json', 'recorded.json'].includes(name));
+      publicInventory.push({ path: path.relative(publicOutput, actual), bytes: metadata.size, sha256: digest(actual) });
+    }
   }
 }
-const publicInventory = fs.readdirSync(publicOutput).flatMap(directory =>
-  fs.readdirSync(path.join(publicOutput, directory)).map(file => {
-    const relative = path.join(directory, file);
-    const actual = path.join(publicOutput, relative);
-    return { path: relative, bytes: fs.statSync(actual).size, sha256: digest(actual) };
-  }));
-fs.writeFileSync(path.join(output, 'public-artifact-manifest.json'), `${JSON.stringify(publicInventory, null, 2)}\n`);
+inventory(publicOutput);
+for (const item of publicInventory) {
+  if (!['receipt.json', 'record.json'].includes(path.basename(item.path))) continue;
+  const recordPath = path.join(publicOutput, item.path);
+  const record = JSON.parse(fs.readFileSync(recordPath));
+  const observations = [...record.cases.map(entry => entry.process),
+    ...(record.selftestProcess ? [record.selftestProcess] : [])];
+  for (const observation of observations) {
+    for (const file of observation.files) {
+      assert.ok(!path.isAbsolute(file.path) && !file.path.split(path.sep).includes('..'));
+      const actual = path.join(path.dirname(recordPath), file.path);
+      assert.ok(fs.lstatSync(actual).isFile(), 'curated record references must resolve to regular sibling files');
+      assert.equal(fs.statSync(actual).size, file.bytes);
+      assert.equal(digest(actual), file.sha256);
+    }
+  }
+}
+fs.writeFileSync(path.join(output, 'public-artifact-manifest.json'), `${JSON.stringify({
+  schema: 'probity.aps-priorseal-public-artifact/v1',
+  base_directory: 'public-results',
+  files: publicInventory,
+}, null, 2)}\n`);
 process.stdout.write(`${JSON.stringify({ groups: 6, commands: ledger.length, passed: true })}\n`);

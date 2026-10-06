@@ -15,6 +15,12 @@ Use the [fixed discovery prompts and receipt checker](discovery-evaluation.md)
 to retain a reader or agent session and review its answers against pinned public
 sources. Keep actual discovery attempts separate from author-operated packet checks.
 
+## Run a local replay
+
+To produce a new local APS/PriorSeal capture, use the [replay tools guide](replay-tools.html).
+Declare the caller and keep the source hashes, actual process logs and result together.
+The guide links one complete pinned procedure, including the copied-file route.
+
 ## Read a retained run
 
 From a pinned Atlas checkout:

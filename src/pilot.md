@@ -20,7 +20,7 @@ There is a separate run-contract limit. In the [pinned review wrapper at `b12879
 
 ## Roles and acceptance
 
-The [current replay tools](https://github.com/probityai/agent-evidence-atlas/blob/main/experiments/aps-priorseal-source-replay/RUN.md#caller-declaration-and-current-records) require callers to declare their runner identity.
+The [replay tools guide](replay-tools.html) describes the current tools, which require callers to declare their runner identity.
 They retain the entrypoint and helper source hashes separately from producer input pins.
 The [copied-file procedure](https://github.com/probityai/agent-evidence-atlas/blob/main/experiments/aps-priorseal-source-replay/RUN.md#use-copied-tools-outside-an-atlas-checkout) supports callers without an Atlas checkout.
 A declared identity does not prove who controlled the operator, keys or storage.

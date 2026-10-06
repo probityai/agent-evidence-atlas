@@ -11,20 +11,23 @@
 - [Assurance atlas](https://probityai.github.io/agent-evidence-atlas/atlas.md): Projects, mechanisms and evidence boundaries.
 - [Experiments](https://probityai.github.io/agent-evidence-atlas/experiments.md): Pinned procedures and recorded results.
 - [Replay an evidence decision](https://probityai.github.io/agent-evidence-atlas/replay-an-evidence-decision.md): A retained admission and its state-preserving refusals.
+- [Run the APS and PriorSeal replay](https://probityai.github.io/agent-evidence-atlas/replay-tools.md): Declare the caller and retain pinned sources, process logs and results.
 - [Claim ledger](https://probityai.github.io/agent-evidence-atlas/claims.md): Sources and re-derive commands.
 - [Repository guide](https://probityai.github.io/agent-evidence-atlas/repository.md): Sources, checks and the site build.
 
 ## Projects
 
 - [Probity Admission](https://github.com/probityai/agent-evidence-admission/blob/bbff435d11a7c0ec9bc0e8e65e6d8fc40c10b671/README.md): Component ID: `admission`. Provides OPA, Kyverno and policy-controller rules, plus a pre-call budget reservation API and CLI for bounded local workloads.
-- [Probity Atlas](https://github.com/probityai/agent-evidence-atlas/blob/89aea5fd58850247da3aab9e0e539c20625de35b/README.md): Component ID: `atlas`. Provides task-based project navigation, agent assurance documentation and an Open Evidence Lab run register.
+- [Probity APS refund example](https://github.com/probityai/agent-evidence-observer/blob/753932b42b00ab8257396112c529f840396f0ce7/docs/APS-REFUND-RETRIES.md): Profile ID: `aps-refund-retries`. Component ID: `observer`. Runs a local APS refund example that ties retries to approved actions and retains records for a separate reader.
+- [Probity Atlas](https://github.com/probityai/agent-evidence-atlas/blob/48b9648a277bc5177f9dce290551f385c6df2ba1/README.md): Component ID: `atlas`. Provides task-based project navigation, agent assurance documentation and an Open Evidence Lab run register.
 - [dsse](https://github.com/probityai/dsse/blob/35e418022b19bebedec13ebb4c31bc43b1c70caf/README.md): Component ID: `dsse`. Signs and verifies DSSE envelopes with explicit threshold and key handling.
 - [Probity native Inspect reader](https://github.com/probityai/agent-evidence-observer/blob/71ac0b2126473316655184235000647a6dd0f5cf/docs/NATIVE-CONSUMER-CI.md): Profile ID: `inspect-native-reader`. Component ID: `observer`. Reads selected retained Inspect execution profiles offline, preserving errors and unstarted attempts. Inspect accepted the catalog entry; its live listing was awaiting publication on October 5, 2026.
-- [jcs-admit](https://github.com/probityai/jcs-admit/blob/3e189b20711a57ce91eab40509324dd1d5d54cac/README.md): Component ID: `jcs-admit`. Checks raw JSON input before producing its RFC 8785 canonical form.
-- [Probity Observer](https://github.com/probityai/agent-evidence-observer/blob/671d89c2d8c023153eb5755c5afb027bf4fa553d/README.md): Component ID: `observer`. Records brokered file actions with signed packets and history, and reads selected native delegation evidence offline.
-- [Probity Vectors](https://github.com/probityai/agent-evidence-vectors/blob/10e6745b24db77a7bdd4dcc0cdd84f4b46063b7c/README.md): Component ID: `vectors`. Provides conformance cases and reference verifiers for selected agent evidence formats.
+- [jcs-admit](https://github.com/probityai/jcs-admit/blob/fb32a68aa2772e51cee32bc14835075d88af3953/README.md): Component ID: `jcs-admit`. Checks raw JSON input before producing its RFC 8785 canonical form.
+- [Probity MintID trace reader](https://github.com/probityai/jcs-admit/blob/fb32a68aa2772e51cee32bc14835075d88af3953/interop/mintid-trace-records-v2/README.md): Profile ID: `mintid-trace-records-v2`. Component ID: `jcs-admit`. Reads published MintID trace records after raw JSON admission and checks source-bound evidence and actor attribution.
+- [Probity Observer](https://github.com/probityai/agent-evidence-observer/blob/753932b42b00ab8257396112c529f840396f0ce7/README.md): Component ID: `observer`. Records brokered file actions with signed packets and history, and reads selected native delegation evidence offline.
+- [Probity Vectors](https://github.com/probityai/agent-evidence-vectors/blob/44042ae1a8cbde9444e8ea24e6690a7e773af65b/README.md): Component ID: `vectors`. Provides conformance cases and reference verifiers for selected agent evidence formats.
 - [Probity Verify](https://github.com/probityai/probity-verify/blob/437e484bd81e3d1eb1b9ad7230124a434a7a0ef6/README.md): Component ID: `verify`. Checks supplied evidence bytes through claim-specific offline adapters. Its README links to source-pinned installation and checked task recipes.
-- [Probity Vocabulary](https://github.com/probityai/agent-evidence-vocabulary/blob/8c80579ae613d7ae07982321e13a6091c402b2a8/README.md): Component ID: `vocabulary`. Defines versioned terms and crosswalks for claims about agent execution.
+- [Probity Vocabulary](https://github.com/probityai/agent-evidence-vocabulary/blob/4029a7801e0ec61a9818fd1e6c1cbd236e2c82bc/README.md): Component ID: `vocabulary`. Defines versioned terms and crosswalks for claims about agent execution.
 - [Probity witnessed run selection](https://github.com/probityai/agent-evidence-observer/blob/d53776c7b783abbce42a3422f56ed390dfedd2f2/docs/WITNESSED-RUN-SELECTION.md): Profile ID: `witnessed-run-selection`. Component ID: `observer`. Checks a supplied run against consumer-retained witness anchors, plan and control pins, and execution closure.
 
 ## Data

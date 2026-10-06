@@ -70,22 +70,28 @@ The output directory must be new. This control describes the pinned wrapper only
 
 Replace `https://github.com/OWNER/REPOSITORY` with your caller identity in both commands.
 Put exactly one `--runner` option before the four path arguments.
-The identity must contain 1–512 UTF-8 bytes, without outer whitespace, control characters or line separators.
+The identity must contain 1 to 512 UTF-8 bytes, without outer whitespace, control characters or line separators.
 The tools refuse missing, repeated or unknown options before they inspect source checkouts or create output.
 They do not infer the caller from a publisher, Git origin, environment or earlier record.
 
 New outputs use `probity.aps-priorseal-source-replay/v2` or `probity.aps-priorseal-run-contract/v2`.
 `scope.runner` contains `identity` and `source: "caller-declared"`.
 This is your declaration, not proof of an authenticated identity or independent operator.
-`harness.files` retains the SHA-256 of the executing entrypoint and its `runner.mjs` helper.
+`harness.files` retains the SHA-256 of the entrypoint and `runner.mjs` helper files read at invocation.
 These hashes bind local source bytes at invocation. They do not authenticate their publisher or attest the runtime.
 The replay also checks and records the unchanged `recorded.json` baseline digest.
 Historical records keep their original schemas and bytes.
 
 Each case also retains the child command, actual exit, signal, and raw stdout/stderr before assertions.
-The record binds those files by size and SHA-256. The replay retains its adapter self-test the same way.
+The record binds those files by size and SHA-256. Each `process.files[].path` is relative to the record's directory.
+The replay retains its adapter self-test the same way.
 The tools mark a spawn or capture error incomplete and refuse a successful record.
-The public CI artifact contains the declared-caller records, process logs and control ledger.
+The public CI artifact keeps `result/receipt.json` and `contract-result/record.json` with their sibling process logs.
+Curated control records and their streams stay under `caller-controls/public-results/`, preserving their relative layout.
+The control ledger's stream paths are relative to its own directory.
+`caller-controls/public-artifact-manifest.json` uses `probity.aps-priorseal-public-artifact/v1`.
+Its `base_directory: "public-results"` is relative to the manifest's parent; every `files[].path` is relative to that base.
+The manifest binds each selected regular file by size and SHA-256. The pinned uploader explicitly includes these bounded hidden paths.
 Full adapter reports and third-party checkouts remain within that job's bounded technical review.
 The public artifact copies only checked regular files. It follows no test links into producer checkouts.
 

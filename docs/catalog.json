@@ -54,7 +54,7 @@
       ],
       "status": "released",
       "summary": "Checks raw JSON input before producing its RFC 8785 canonical form.",
-      "task": "Admit and canonicalize JSON in Rust"
+      "task": "Reject duplicate JSON keys and canonicalize in Rust"
     },
     {
       "display_name": "Probity Observer",
@@ -211,7 +211,7 @@
       },
       "status": "released",
       "summary": "Checks raw JSON input before producing its RFC 8785 canonical form.",
-      "task": "Admit and canonicalize JSON in Rust",
+      "task": "Reject duplicate JSON keys and canonicalize in Rust",
       "url": "https://github.com/probityai/jcs-admit"
     },
     {

@@ -13,7 +13,7 @@ Use the catalog ID when selecting a tool or profile in a structured record. Repo
 | Choose a tool or inspect recorded claims and retained runs | [Probity Atlas](#atlas) |
 | Sign and verify DSSE envelopes in Rust | [dsse](#dsse) |
 | Read selected retained Inspect execution profiles | [Probity native Inspect reader](#inspect-native-reader) |
-| Admit and canonicalize JSON in Rust | [jcs-admit](#jcs-admit) |
+| Reject duplicate JSON keys and canonicalize in Rust | [jcs-admit](#jcs-admit) |
 | Check published MintID trace records | [Probity MintID trace reader](#mintid-trace-records-v2) |
 | Record file actions or check native delegation evidence | [Probity Observer](#observer) |
 | Test a verifier against conformance cases | [Probity Vectors](#vectors) |

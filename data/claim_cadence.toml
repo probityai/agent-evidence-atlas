@@ -218,3 +218,6 @@ P-78 = "none"
 
 # Worked interpretation of fixed historical source and output pins.
 "P-81" = "none"
+
+# Source-bound practical Lab entry; new runs and invitations have separate records.
+"P-82" = "none"

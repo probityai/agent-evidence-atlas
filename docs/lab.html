@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="Sankalp Gilda" />
-  <meta name="description" content="Submit pinned agent-evidence runs, hostile controls, field-level comparisons and correction records to a public register." />
+  <meta name="description" content="Explore practical agent-evidence examples, bring one question, and keep a result that another team can check." />
   <title>Probity Open Evidence Lab - Probity AI</title>
   <link rel="canonical" href="https://probityai.github.io/agent-evidence-atlas/lab.html" />
   <link rel="alternate" type="text/markdown" href="https://probityai.github.io/agent-evidence-atlas/lab.md" />
@@ -31,40 +31,63 @@
 <main id="main" tabindex="-1">
 <header class="page">
 <h1>Probity Open Evidence Lab</h1>
-<p class="subtitle">A public protocol and run register for checking specific agent-evidence claims</p>
-<p class="status">Protocol draft 0.1.9. Register updated 6 October 2026. The register retains native framework, admission, receipt and bounded actual-weight comparisons. Host adoption and independently operated custody have separate evidence.</p>
+<p class="subtitle">What was an agent allowed to do, and what actually happened?</p>
+<p class="status">The protocol is a draft. Each result names the question it answers and the evidence it still needs.</p>
 </header>
-<nav class="toc" aria-label="Contents">
-<p class="toc-title">Contents</p>
-<ul>
-<li><a href="#test-outcomes-and-evidence-conclusions" id="toc-test-outcomes-and-evidence-conclusions">Test outcomes and evidence conclusions</a></li>
-<li><a href="#outside-receipt-verifier-and-primitive-identifier-checks" id="toc-outside-receipt-verifier-and-primitive-identifier-checks">Outside receipt verifier and primitive identifier checks</a></li>
-<li><a href="#new-raw-admission-and-response-routing-comparisons" id="toc-new-raw-admission-and-response-routing-comparisons">New raw-admission and response-routing comparisons</a></li>
-<li><a href="#ag2-tasks-callbacks-and-target-authority" id="toc-ag2-tasks-callbacks-and-target-authority">AG2 tasks, callbacks and target authority</a></li>
-<li><a href="#remora-execution-boundary-run-records" id="toc-remora-execution-boundary-run-records">REMORA execution-boundary run records</a></li>
-<li><a href="#submitted-producer-fixture-runs" id="toc-submitted-producer-fixture-runs">Submitted producer-fixture runs</a></li>
-<li><a href="#retained-recovery-and-actual-weight-runs" id="toc-retained-recovery-and-actual-weight-runs">Retained recovery and actual-weight runs</a></li>
-<li><a href="#continued-recovery-sdk-and-paired-cpu-runs" id="toc-continued-recovery-sdk-and-paired-cpu-runs">Continued recovery, SDK and paired CPU runs</a></li>
-<li><a href="#native-metadata-and-separate-endpoint-state" id="toc-native-metadata-and-separate-endpoint-state">Native metadata and separate endpoint state</a></li>
-<li><a href="#atomic-native-local-delegation-evaluation" id="toc-atomic-native-local-delegation-evaluation">Atomic native local-delegation evaluation</a></li>
-<li><a href="#start-with-a-run-that-exists" id="toc-start-with-a-run-that-exists">Start with a run that exists</a></li>
-<li><a href="#choose-the-claim-you-are-submitting" id="toc-choose-the-claim-you-are-submitting">Choose the claim you are submitting</a></li>
-<li><a href="#submit-a-reproducible-evidence-packet" id="toc-submit-a-reproducible-evidence-packet">Submit a reproducible evidence packet</a></li>
-<li><a href="#controls-a-reviewed-result-must-survive" id="toc-controls-a-reviewed-result-must-survive">Controls a reviewed result must survive</a></li>
-<li><a href="#review-rejection-and-correction" id="toc-review-rejection-and-correction">Review, rejection and correction</a></li>
-<li><a href="#connections-to-current-upstream-work" id="toc-connections-to-current-upstream-work">Connections to current upstream work</a></li>
-<li><a href="#paired-schema-decoding-and-correctness" id="toc-paired-schema-decoding-and-correctness">Paired schema decoding and correctness</a></li>
-<li><a href="#scripted-adk-execution-and-installed-policy-decisions" id="toc-scripted-adk-execution-and-installed-policy-decisions">Scripted ADK execution and installed policy decisions</a></li>
-<li><a href="#retained-typed-policy-and-grounded-boundaries" id="toc-retained-typed-policy-and-grounded-boundaries">Retained typed, policy and grounded boundaries</a></li>
-<li><a href="#installed-boundary-evidence-and-semantic-quality-policy" id="toc-installed-boundary-evidence-and-semantic-quality-policy">Installed boundary evidence and semantic quality policy</a></li>
-<li><a href="#native-policy-vocabulary-and-an-installed-quality-hold" id="toc-native-policy-vocabulary-and-an-installed-quality-hold">Native policy vocabulary and an installed quality hold</a></li>
-<li><a href="#native-tool-arguments-and-explicit-abstention-failures" id="toc-native-tool-arguments-and-explicit-abstention-failures">Native tool arguments and explicit abstention failures</a></li>
-</ul>
-</nav>
+<p>An agent says it completed a task. What would let you check that claim?</p>
+<p>Imagine an agent approved to refund an order. A signed approval can show who authorized the request. It takes a separate observation to show that the refund happened. If the acknowledgement was lost, the outcome may still be unknown. These are different questions, and the evidence should keep them separate.</p>
+<p>The Open Evidence Lab helps teams test a specific question like this. A useful run leaves an example you can reproduce, a result you can inspect, and a clear account of its limits. A failed check or missing observation can be useful too.</p>
+<h2 id="find-an-example">Find an example</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Your question / Start here">
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Your question</th>
+<th>Start here</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>How can tests pass while the evidence says a claim failed?</td>
+<td><a href="evidence-test-meaning.html">Read the worked report</a>. Its refund story is hypothetical.</td>
+</tr>
+<tr>
+<td>What has someone actually run?</td>
+<td><a href="runs.html">Browse retained runs</a>. Each entry links its original report and stated limits.</td>
+</tr>
+<tr>
+<td>How do I check approval, retries, and a missing acknowledgement?</td>
+<td><a href="https://github.com/probityai/agent-evidence-observer/blob/main/docs/APS-REFUND-RETRIES.md">Read the refund example</a>.</td>
+</tr>
+<tr>
+<td>How do I replay an existing result?</td>
+<td><a href="#start-with-a-run-that-exists">Open the retained replay procedure</a> in the technical notes below.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="bring-one-question">Bring one question</h2>
+<p>Start with one decision your system needs to make. For example: should this changed request be refused, does this record identify the right tenant, or did the observed effect match the approved action?</p>
+<p>Probity offers working examples, verification tools, a shared result page, and help with the integration it contributes. You bring the real question and the part of the system you can exercise. Together, define what success would mean, include cases that should fail, and retain the original output. A check your own project can keep is a useful next step.</p>
+<p>You keep control of your implementation, policy, and original result. The first contribution is a concrete experiment with a named owner. A run in the Lab does not appoint your project to a coalition role or establish its endorsement.</p>
+<p><a href="https://github.com/probityai/agent-evidence-atlas/issues/new?template=evidence-run.yml">Propose a run</a>. Describe the question and the evidence you can supply. The form and technical protocol list the inputs needed for review.</p>
+<h2 id="read-a-result-with-its-limits">Read a result with its limits</h2>
+<p>A signature check, an authorization decision, and an observed effect answer different questions. A result should say which it checked. Missing evidence must remain visible. A run by the author can be useful without establishing that another operator independently controlled its keys or observations.</p>
+<p>Keep the original report separate from later comparisons or corrections. <a href="https://github.com/probityai/agent-evidence-atlas/issues/new?template=evidence-correction.yml">Report a correction</a> when the retained evidence does not support a claim.</p>
+<h2 id="technical-protocol-and-retained-run-notes">Technical protocol and retained-run notes</h2>
+<details>
+<summary>
+Open the protocol, replay commands, and detailed evidence limits
+</summary>
+<p>Protocol draft 0.1.9. Register updated 6 October 2026. The register retains native framework, admission, receipt and bounded actual-weight comparisons. Host adoption and independently operated custody have separate evidence.</p>
 <p>Maintainers can use this protocol to submit a verifier run, a host-project CI integration, or an observer/witness experiment. Each record names its contract, retained inputs, implementation and operators, and reports what passed, failed or remained untested. Probity maintains this register. A listed result makes no membership, endorsement or adoption commitment on behalf of another project.</p>
 <p><a href="https://github.com/probityai/agent-evidence-atlas/issues/new?template=evidence-run.yml">Submit a run</a> or <a href="https://github.com/probityai/agent-evidence-atlas/issues/new?template=evidence-correction.yml">report a correction</a>. The forms request the evidence needed for review. The <a href="lab/register.json">machine-readable register</a>, <a href="experiments.html">experiments</a> and <a href="claims.html">claim ledger</a> retain the supporting records.</p>
 <p><a href="runs.html">Find a retained run</a> by a claim, declared role, limit or per-claim result. Each entry links its original report, provenance and contract. The browser keeps the recorded result tokens and does not assign a grade to the whole run.</p>
-<p>The <a href="pilot.html">APS and PriorSeal pilot status</a> tracks Probity’s proposed next run, owner confirmations and open decisions. It is separate from this measured register.</p>
+<p>The <a href="pilot.html">earlier APS and PriorSeal pilot proposal</a> retains its proposed run, owner confirmations and open decisions. It is separate from this measured register and from current invitations.</p>
 <p>The <a href="task-grouped-rates.html">task-grouped rates example</a> shows how to retain a matched benign control, repeated episodes, unresolved labels and two weighting targets when reporting uncertainty. Its invented labels make the calculation reproducible; they add no empirical record to the register.</p>
 <p>The <a href="provael-task-controls.html">published robot controls companion</a> reads Provael’s original simulator reports and the author’s correction. It retains the matched controls, unknown runtime provenance and complete task-resampling weights. This is a publisher-report-derived reading alongside the register.</p>
 <h2 id="test-outcomes-and-evidence-conclusions">Test outcomes and evidence conclusions</h2>
@@ -386,13 +409,13 @@
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">--detach</span> 91a0759e459acee8355e2f9aba34f8e80d19e038</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/probityai/agent-evidence-observer .observer-source</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">-C</span> .observer-source checkout <span class="at">--detach</span> 8562c25fb7ec97596ea9d0297c495340298914b6</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run <span class="at">--no-project</span> <span class="at">--python</span> 3.12.14 <span class="at">--with</span> cryptography==46.0.7 <span class="dt">\</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  python experiments/observer-admission/run.py <span class="at">--observer-root</span> .observer-source <span class="dt">\</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">--bundle</span> experiments/observer-admission/retained <span class="dt">\</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">--manifest</span> experiments/observer-admission/provenance.json <span class="dt">\</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">--expect</span> experiments/observer-admission/recorded.json</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run <span class="at">--no-project</span> <span class="at">--python</span> 3.12.14 <span class="at">--with</span> cryptography==46.0.7 <span class="dt">\</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  python experiments/observer-admission/run.py <span class="at">--observer-root</span> .observer-source <span class="dt">\</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> venv <span class="at">--python</span> 3.12.14 .venv</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="va">UV_LINK_MODE</span><span class="op">=</span>copy <span class="ex">uv</span> pip install <span class="at">--python</span> .venv/bin/python cryptography==46.0.7</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">.venv/bin/python</span> experiments/observer-admission/run.py <span class="at">--observer-root</span> .observer-source <span class="dt">\</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">--bundle</span> experiments/observer-admission/retained <span class="dt">\</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">--manifest</span> experiments/observer-admission/provenance.json <span class="dt">\</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">--expect</span> experiments/observer-admission/recorded.json</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ex">.venv/bin/python</span> experiments/observer-admission/run.py <span class="at">--observer-root</span> .observer-source <span class="dt">\</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">--output</span> /tmp/observer-admission-new <span class="dt">\</span></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">--expect</span> experiments/observer-admission/recorded.json</span></code></pre></div>
 </div>
@@ -650,6 +673,7 @@
 <p>The nineteenth <a href="lab/register.json">register record</a> retains the complete original 128-call tool-argument CPU study. All short-cap outputs fail JSON parsing; all long-cap outputs satisfy their selected schema. At the long cap, the smaller model scores 0/16 and the larger model 7/16 in each mode. No quality row has a correct abstention or fully correct pair. All eight strict quality rows hold.</p>
 <p>The <a href="tool-argument-findings.html">complete finding and offline retention gate</a> preserve every raw response, source commitment, denominator and external whole-child resource observation. The exact native provider ZIP retains all 331 members. The separate complete preparation archive remains outside Atlas; its digest cannot reconstruct omitted model, dependency or environment bytes.</p>
 <p>All eighteen earlier literal records and artifact bytes remain unchanged. Native evidence publication, semantic quality, model-action authority, outside acceptance, recurring adoption and independent effect custody remain separate. <a href="claims.html">Claims P-51–P-56</a> record the new sources, read times and limits.</p>
+</details>
 </main>
 <footer class="site">
   <p>Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.6-draft, 2026-10-01.</p>

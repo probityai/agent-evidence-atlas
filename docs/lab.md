@@ -1,6 +1,56 @@
 # Probity Open Evidence Lab
 
-A public protocol and run register for checking specific agent-evidence claims
+What was an agent allowed to do, and what actually happened?
+
+The protocol is a draft. Each result names the question it answers and the evidence it still needs.
+
+An agent says it completed a task. What would let you check that claim?
+
+Imagine an agent approved to refund an order. A signed approval can show who authorized the request. It takes a separate observation to show that the refund happened. If the acknowledgement was lost, the outcome may still be unknown. These are different questions, and the evidence should keep them separate.
+
+The Open Evidence Lab helps teams test a specific question like this. A useful run leaves an example you can reproduce, a result you can inspect, and a clear account of its limits. A failed check or missing observation can be useful too.
+
+<a id="find-an-example"></a>
+
+## Find an example
+
+| Your question | Start here |
+|----|----|
+| How can tests pass while the evidence says a claim failed? | [Read the worked report](evidence-test-meaning.md). Its refund story is hypothetical. |
+| What has someone actually run? | [Browse retained runs](runs.md). Each entry links its original report and stated limits. |
+| How do I check approval, retries, and a missing acknowledgement? | [Read the refund example](https://github.com/probityai/agent-evidence-observer/blob/main/docs/APS-REFUND-RETRIES.md). |
+| How do I replay an existing result? | [Open the retained replay procedure](#start-with-a-run-that-exists) in the technical notes below. |
+
+<a id="bring-one-question"></a>
+
+## Bring one question
+
+Start with one decision your system needs to make. For example: should this changed request be refused, does this record identify the right tenant, or did the observed effect match the approved action?
+
+Probity offers working examples, verification tools, a shared result page, and help with the integration it contributes. You bring the real question and the part of the system you can exercise. Together, define what success would mean, include cases that should fail, and retain the original output. A check your own project can keep is a useful next step.
+
+You keep control of your implementation, policy, and original result. The first contribution is a concrete experiment with a named owner. A run in the Lab does not appoint your project to a coalition role or establish its endorsement.
+
+[Propose a run](https://github.com/probityai/agent-evidence-atlas/issues/new?template=evidence-run.yml). Describe the question and the evidence you can supply. The form and technical protocol list the inputs needed for review.
+
+<a id="read-a-result-with-its-limits"></a>
+
+## Read a result with its limits
+
+A signature check, an authorization decision, and an observed effect answer different questions. A result should say which it checked. Missing evidence must remain visible. A run by the author can be useful without establishing that another operator independently controlled its keys or observations.
+
+Keep the original report separate from later comparisons or corrections. [Report a correction](https://github.com/probityai/agent-evidence-atlas/issues/new?template=evidence-correction.yml) when the retained evidence does not support a claim.
+
+<a id="technical-protocol-and-retained-run-notes"></a>
+
+## Technical protocol and retained-run notes
+
+<details>
+
+<summary>
+
+Open the protocol, replay commands, and detailed evidence limits
+</summary>
 
 Protocol draft 0.1.9. Register updated 6 October 2026. The register retains native framework, admission, receipt and bounded actual-weight comparisons. Host adoption and independently operated custody have separate evidence.
 
@@ -10,7 +60,7 @@ Maintainers can use this protocol to submit a verifier run, a host-project CI in
 
 [Find a retained run](runs.md) by a claim, declared role, limit or per-claim result. Each entry links its original report, provenance and contract. The browser keeps the recorded result tokens and does not assign a grade to the whole run.
 
-The [APS and PriorSeal pilot status](pilot.md) tracks Probity's proposed next run, owner confirmations and open decisions. It is separate from this measured register.
+The [earlier APS and PriorSeal pilot proposal](pilot.md) retains its proposed run, owner confirmations and open decisions. It is separate from this measured register and from current invitations.
 
 The [task-grouped rates example](task-grouped-rates.md) shows how to retain a matched benign control, repeated episodes, unresolved labels and two weighting targets when reporting uncertainty. Its invented labels make the calculation reproducible; they add no empirical record to the register.
 
@@ -187,13 +237,13 @@ cd atlas
 git checkout --detach 91a0759e459acee8355e2f9aba34f8e80d19e038
 git clone https://github.com/probityai/agent-evidence-observer .observer-source
 git -C .observer-source checkout --detach 8562c25fb7ec97596ea9d0297c495340298914b6
-uv run --no-project --python 3.12.14 --with cryptography==46.0.7 \
-  python experiments/observer-admission/run.py --observer-root .observer-source \
+uv venv --python 3.12.14 .venv
+UV_LINK_MODE=copy uv pip install --python .venv/bin/python cryptography==46.0.7
+.venv/bin/python experiments/observer-admission/run.py --observer-root .observer-source \
   --bundle experiments/observer-admission/retained \
   --manifest experiments/observer-admission/provenance.json \
   --expect experiments/observer-admission/recorded.json
-uv run --no-project --python 3.12.14 --with cryptography==46.0.7 \
-  python experiments/observer-admission/run.py --observer-root .observer-source \
+.venv/bin/python experiments/observer-admission/run.py --observer-root .observer-source \
   --output /tmp/observer-admission-new \
   --expect experiments/observer-admission/recorded.json
 ```
@@ -344,5 +394,7 @@ The nineteenth [register record](lab/register.json) retains the complete origina
 The [complete finding and offline retention gate](tool-argument-findings.md) preserve every raw response, source commitment, denominator and external whole-child resource observation. The exact native provider ZIP retains all 331 members. The separate complete preparation archive remains outside Atlas; its digest cannot reconstruct omitted model, dependency or environment bytes.
 
 All eighteen earlier literal records and artifact bytes remain unchanged. Native evidence publication, semantic quality, model-action authority, outside acceptance, recurring adoption and independent effect custody remain separate. [Claims P-51–P-56](claims.md) record the new sources, read times and limits.
+
+</details>
 
 [HTML view](lab.html) | [Agent guide](llms.txt)

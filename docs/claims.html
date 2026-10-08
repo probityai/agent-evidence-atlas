@@ -2060,6 +2060,39 @@
 </tbody>
 </table>
 </div>
+<h2 id="practical-lab-entry-and-technical-disclosure">Practical Lab entry and technical disclosure</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="id / claim as printed / source / read (UTC) / re-derive / limit">
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr>
+<th>id</th>
+<th>claim as printed</th>
+<th>source</th>
+<th>read (UTC)</th>
+<th>re-derive</th>
+<th>limit</th>
+</tr>
+</thead>
+<tbody>
+<tr data-read="2026-10-08">
+<td>P-82</td>
+<td>The Lab opens with a practical evidence question, contribution offer, and links to retained runs and the refund example. Detailed protocol, source pins, replay commands, and historical run limits remain in an expandable section. Replay instructions use the owning repository environment with the same Python and cryptography pins.</td>
+<td><code>src/lab.md</code>; <code>data/lab-register.json</code>; <code>experiments/observer-admission/run.py</code>; original Lab source at <code>c28b1ab7c19c6644970df71a8576907b5bc0ac2b</code>; Observer refund guide at <code>e7ac5370053c6630de6ed2b746d7ffcefe66f075</code></td>
+<td>2026-10-08 <span class="cadence">(does not expire)</span></td>
+<td><code>.venv/bin/python tools/build.py --check</code>; <code>.venv/bin/python tools/check_links.py</code>; <code>.venv/bin/python tools/check_lab.py</code>; inspect the rendered disclosure and source diff against the pinned Lab</td>
+<td>Documentation and a proposed participation route. Register objects and original evidence are unchanged. No new native replay, accepted coalition seat, outside operation, deployment, or commercial agreement is claimed.</td>
+</tr>
+</tbody>
+</table>
+</div>
 </main>
 <footer class="site">
   <p>Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.6-draft, 2026-10-01.</p>

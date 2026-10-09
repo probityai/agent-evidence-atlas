@@ -49,3 +49,22 @@ or retain a file-effect observation. We maintain the case table and the comparis
 Case authors, implementation authors and run operators receive separate credit.
 The [approved SQL example](../approved-sql/README.md) already exercises the parallel distinction
 between a matching recorded commit and a later state difference.
+
+## Producer verifier run
+
+`giskard09` published a verifier and nine vectors for these cases at
+[`execution-join-ref-remora-bridge@f900615`](https://github.com/giskard09/execution-join-ref-remora-bridge/tree/f900615),
+derived from a run of the REMORA effect bridge. We reran `python3 verify.py vectors.json` at that commit
+on CPython 3.13.15; all nine checks passed with these outcomes:
+
+| Vector | Outcome |
+| --- | --- |
+| AR-00 | `AUTHORIZED_EFFECTIVE_CALL` |
+| AR-01, AR-02, AR-03 | `EFFECTIVE_CALL_REBINDING_FAILED` |
+| AR-04 | `NOT_MODELED` (the policy/context digest is outside the `action_ref` preimage) |
+| AR-05 | `POST_COMMIT_DIVERGENCE` (proposed code; original result preserved) |
+| APPROVED-REWRITE | `AUTHORIZED_EFFECTIVE_CALL` |
+| CHANGED-PREIMAGE | `DIGEST_MISMATCH` |
+| MISSING-OBSERVATION | `LATER_STATE_UNKNOWN` |
+
+Another reader can run the same nine vectors and add its outcomes beside these.

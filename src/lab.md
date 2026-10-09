@@ -22,6 +22,7 @@ account of its limits. A failed check or missing observation can be useful too.
 | Your question | Start here |
 |---|---|
 | How can tests pass while the evidence says a claim failed? | [Read the worked report](evidence-test-meaning.html). Its refund story is hypothetical. |
+| Does a wrapper's PASS match its command result and report? | [Run the corrected-wrapper cases](e030-corrected-wrapper.html) or keep the reader in CI. |
 | What has someone actually run? | [Browse retained runs](runs.html). Each entry links its original report and stated limits. |
 | How do I check approval, retries, and a missing acknowledgement? | [Read the refund example](https://github.com/probityai/agent-evidence-observer/blob/main/docs/APS-REFUND-RETRIES.md). |
 | Did a database write match its approval, even if the state changed later? | [Try the SQL example](approved-sql.html) and bring a native audit pair. |

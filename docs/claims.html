@@ -2142,6 +2142,39 @@
 </tbody>
 </table>
 </div>
+<h2 id="corrected-wrapper-regression">Corrected-wrapper regression</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="id / claim as printed / source / read (UTC) / re-derive / limit">
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr>
+<th>id</th>
+<th>claim as printed</th>
+<th>source</th>
+<th>read (UTC)</th>
+<th>re-derive</th>
+<th>limit</th>
+</tr>
+</thead>
+<tbody>
+<tr data-read="2026-10-09">
+<td>P-86</td>
+<td>The corrected-wrapper regression retains 14 case outcomes and 63 passing tests; it separates actual command exits, the wrapper’s recorded status and a bounded native-field report projection. Runtime and test files match preparation <code>42089b9</code>.</td>
+<td><code>examples/e030-corrected-wrapper/QUALIFICATION.json</code>; <code>qualification/tests.xml</code>, <code>qualification/demonstration.json</code>, <code>INTEGRATION.json</code> and <code>docs/SOURCE-MAP.md</code> in that directory</td>
+<td>2026-10-09 <span class="cadence">(does not expire)</span></td>
+<td>In the example, run <code>uv sync --frozen --group dev --python 3.14.7</code> and <code>.venv/bin/python scripts/qualify.py</code>; inspect the retained tests and all 14 case outcomes</td>
+<td>Unchanged pinned wrapper with injected npm/node commands and author-created reports. No producer verifier or signature execution, authenticated operator, native invocation binding or new outside adoption. The historical vector and Pico’s outside keeper stay separate.</td>
+</tr>
+</tbody>
+</table>
+</div>
 </main>
 <footer class="site">
   <p>Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.6-draft, 2026-10-01.</p>

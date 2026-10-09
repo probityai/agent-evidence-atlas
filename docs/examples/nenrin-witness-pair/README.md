@@ -27,3 +27,14 @@ Credit to Pavlo (`pipavlo82`) and `kuangmi-bit` for the witness records, and Hor
 Shield for supplying the pair. Probity owns this reader. Current key verification
 and reported assertion values stay separate from card signatures, response correctness,
 historical key control and timestamp proofs. Those details are in the [source map](docs/SOURCE-MAP.md).
+
+## Runs by other operators
+
+- `ogasurfproject-jpg` ran the gate at `2bff38d8` on Ubuntu 22.04 aarch64 with CPython 3.14.7: all 10 steps
+  matched their expected exits, and a direct read with their own operator string gave the same four outcomes
+  ([report](https://github.com/probityai/agent-evidence-atlas/issues/49#issuecomment-6080252135)).
+  Their machine checked the two key documents against the SHA-256 in `pins.json`, not a live fetch.
+- Horizon Shield keeps the same gate as a weekly check in
+  [`probity-witness-reader.yml`](https://github.com/ogasurfproject-jpg/horizon-shield/blob/main/.github/workflows/probity-witness-reader.yml)
+  ([first run](https://github.com/ogasurfproject-jpg/horizon-shield/actions/runs/37931782273)). It also checks
+  that `a.api.json` and `b.api.json` hold the record bytes its ledger serves.

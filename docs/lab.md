@@ -17,6 +17,7 @@ The Open Evidence Lab helps teams test a specific question like this. A useful r
 | Your question | Start here |
 |----|----|
 | How can tests pass while the evidence says a claim failed? | [Read the worked report](evidence-test-meaning.md). Its refund story is hypothetical. |
+| Does a wrapper's PASS match its command result and report? | [Run the corrected-wrapper cases](e030-corrected-wrapper.md) or keep the reader in CI. |
 | What has someone actually run? | [Browse retained runs](runs.md). Each entry links its original report and stated limits. |
 | How do I check approval, retries, and a missing acknowledgement? | [Read the refund example](https://github.com/probityai/agent-evidence-observer/blob/main/docs/APS-REFUND-RETRIES.md). |
 | Did a database write match its approval, even if the state changed later? | [Try the SQL example](approved-sql.md) and bring a native audit pair. |

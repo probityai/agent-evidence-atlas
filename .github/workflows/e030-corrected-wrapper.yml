@@ -1,0 +1,32 @@
+name: corrected-wrapper
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  process-and-report-controls:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6
+        with:
+          version: "0.12.24"
+      - name: Install the exact case tools
+        working-directory: examples/e030-corrected-wrapper
+        run: uv sync --frozen --group dev --python 3.14.7
+      - name: Compare actual wrapper exits and report fields
+        working-directory: examples/e030-corrected-wrapper
+        run: .venv/bin/python scripts/qualify.py
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: corrected-wrapper-process-and-report-controls
+          path: examples/e030-corrected-wrapper/gate-results/

@@ -1,0 +1,34 @@
+name: approved-sql
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  supplied-record-controls:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6
+        with:
+          version: "0.11.15"
+      - name: Install the locked example tools in their own environment
+        working-directory: examples/approved-sql
+        run: uv sync --frozen --group dev --python 3.14.7
+      - name: Check the reader and every supplied-record outcome
+        working-directory: examples/approved-sql
+        run: .venv/bin/python scripts/qualify.py
+      - name: Refuse failing, empty and unrelated test runs
+        run: examples/approved-sql/.venv/bin/python -m pytest tests/test_coverage_gate.py --junitxml=examples/approved-sql/gate-results/coverage-gate-tests.xml
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: approved-sql-supplied-record-controls
+          path: examples/approved-sql/gate-results/

@@ -2093,6 +2093,55 @@
 </tbody>
 </table>
 </div>
+<h2 id="approved-sql-illustration">Approved SQL illustration</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="id / claim as printed / source / read (UTC) / re-derive / limit">
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr>
+<th>id</th>
+<th>claim as printed</th>
+<th>source</th>
+<th>read (UTC)</th>
+<th>re-derive</th>
+<th>limit</th>
+</tr>
+</thead>
+<tbody>
+<tr data-read="2026-10-09">
+<td>P-83</td>
+<td>The approved-SQL illustration has 16 author-created fixtures and 56 passing tests. Its reader compares approval, application and audit projections, preserves transaction outcomes, and keeps a later state difference separate from an earlier recorded commit.</td>
+<td><code>examples/approved-sql/QUALIFICATION.json</code>; <code>fixtures/manifest.json</code>, <code>qualification/tests.xml</code>, <code>qualification/steps.json</code> and <code>sql_illustration/check.py</code> in that directory</td>
+<td>2026-10-09 <span class="cadence">(does not expire)</span></td>
+<td>In <code>examples/approved-sql</code>, run <code>uv sync --frozen --group dev</code> and <code>.venv/bin/python scripts/qualify.py</code>; inspect the retained test and case outputs; build and check the published page</td>
+<td>Author-created supplied-record comparison, not a native Tadpole export, database execution, authenticated approval, verified complete audit collection, independent operation or host adoption. Code and fixture bytes match the measured source; adapted documentation retains the limits.</td>
+</tr>
+<tr data-read="2026-10-09">
+<td>P-84</td>
+<td>The source map distinguishes Tadpole application users from database principals, mutable connection references from execution-time targets, statement outcomes from commits, and turn-level audit identifiers from the illustration’s comparison identifier. It retains the source pin and producer draft API version/hash.</td>
+<td><code>examples/approved-sql/SOURCE-MAP.md</code>; linked Tadpole public source at <code>d72351937e7c0d8a0742348a828283cf45d6e16a</code>; linked Integration API draft <code>1.0.0-draft</code>, SHA-256 <code>8abd24714b912420e101e90d0f010570cd79296c22ab7c4fbdfde3f2d90e821e</code></td>
+<td>2026-10-09 <span class="cadence">(does not expire)</span></td>
+<td>Inspect the pinned source paths and linked draft schemas; compare their field meanings with the input contract and source map</td>
+<td>Dated source reading and a producer-published draft. No claim that the older engine is the current enterprise implementation, or that the nominated native pair has been supplied.</td>
+</tr>
+<tr data-read="2026-10-09">
+<td>P-85</td>
+<td>The request/effect case table freezes a proposed experiment against the selected execution-join contract: pre-dispatch rebinding, a later changed resource and a failed digest recomputation retain separate meanings. Declared, hashed-action and executor-configured targets remain separate experiment fields.</td>
+<td><code>examples/request-effect-join/CASE-TABLE.md</code>; <a href="https://github.com/giskard09/argentum-core/blob/f4d989052bb3a61691b1b156cd6dd655793fea4f/docs/spec/execution-join-ref-v1.md">selected producer contract</a>; <a href="https://github.com/probityai/agent-evidence-atlas/issues/49#issuecomment-6072781535">case author’s distinction</a></td>
+<td>2026-10-09 <span class="cadence">(does not expire)</span></td>
+<td>Compare the table with the selected contract’s invariant 6 and failure-code meanings; inspect proposed status and separate original result/later-observation fields</td>
+<td>A proposed source-bound experiment, not a completed producer verifier run, new normative contract, approved post-commit code, observed executor dispatch or independent operation.</td>
+</tr>
+</tbody>
+</table>
+</div>
 </main>
 <footer class="site">
   <p>Every number on this site has a source, a read time and a re-derive command in the <a href="claims.html">claim ledger</a>. Build 0.6-draft, 2026-10-01.</p>

@@ -138,3 +138,12 @@ These commands do not authenticate an arbitrary copied tool merely because it pr
 This is a local technical review of public producer fixtures, with the Frequency adapter's expected claims visible before the run. It is not answer-blind, an independent second verifier, the federation's formal pilot, mutation adequacy, commercial use, approval to publish a formal result, outside-operator custody or host-project adoption. A formal run needs its separately confirmed scope. The planned authenticity and decision-binding mutations need discriminating fixtures and a separate adequacy decision. An actual action/effect pilot needs an externally selected trust policy, live observation and a consumer decision bound to the observed bytes.
 
 The capsule's [review-only notice](https://github.com/altrudev/Frequency-Federation-Review/blob/4162622af24c94efb843f53aa27940ffd1256ad6/REVIEW-ONLY-NOTICE.md) permits technical review and reproducibility assessment, but withholds commercial incorporation and redistribution of modified or derivative Frequency implementations. This runner invokes that repository by reference. It copies none of its implementation or fixtures and makes no partnership or endorsement claim. The APS fixtures are from an Apache-2.0 repository; PriorSeal's repository uses MIT. Their own notices govern their bytes.
+
+## External runs of the run-contract vector
+
+- Agent Errata (`piiiico`, an AI agent operated by Hakon Amdal) ran `check-run-contract.mjs` at `89250120`
+  unmodified on a GitHub-hosted runner, against the wrapper `run-pinned.sh` at `b12879d5`. All three
+  injected-failure cases matched the vector: the wrapper exits 0, records 0 and prints `PASS` with no report.
+  The artifact is retained on [run 37404021921](https://github.com/piiiico/agent-errata/actions/runs/37404021921),
+  and the full record is [atlas#43](https://github.com/probityai/agent-evidence-atlas/issues/43). It covers that
+  wrapper revision only, not the corrected runner at `cf738909`.

@@ -40,7 +40,7 @@
 <li><strong>Read times</strong> are UTC, and each read cell states its row’s cadence: star counts, pull-request states and link checks 7 days, standards and project statuses 30 days, while published versions and dated events do not expire. <code>data/claim_cadence.toml</code> holds the cadence of every row. When a row’s read date plus its cadence has passed, this page marks the row stale as it loads. <span id="stale-count">With scripts off, compare each read date with its cadence.</span></li>
 <li><strong>Captures.</strong> Every web page cited was saved when it was read. The capture log records URL, HTTP status, UTC time and SHA-256 for each one.</li>
 </ul>
-<p>Each row’s identifier starts with the letter of the page it covers: <code>A</code> for the atlas, <code>I</code> for the home page, <code>E</code> for the experiments, <code>P</code> for the lab protocol, <code>C</code> for the project catalog, and <code>L</code> for the site’s links. Rows that cite a local unpublished source say so; they are not independently reproducible until those exact source bytes are published.</p>
+<p>Each row’s identifier starts with the letter of the page it covers: <code>A</code> for the atlas, <code>I</code> for the home page, <code>E</code> for the experiments, <code>P</code> for the lab protocol, <code>C</code> for the project catalog, <code>N</code> for the agent incident record, and <code>L</code> for the site’s links. Rows that cite a local unpublished source say so; they are not independently reproducible until those exact source bytes are published.</p>
 <h2 id="atlas">Atlas</h2>
 <div class="table-scroll" tabindex="0" role="region" aria-label="id / claim as printed / source / read (UTC) / re-derive / limit">
 <table style="width:100%;">
@@ -2204,6 +2204,135 @@
 <td>2026-10-09 <span class="cadence">(does not expire)</span></td>
 <td>In the example, run <code>uv sync --frozen --group dev --python 3.14.7</code> and <code>.venv/bin/python scripts/qualify.py</code>; compare exact canonical record/key pins and all assertion values in the retained reads</td>
 <td>Probity wrote and ran this second reader from the signed format. Current local-key verification is separate from historical key control, card/response correctness, timestamp proof validation and affiliation-independent observation. This reader’s author-run is separate from the supplied witness observations; no outside use of the new reader is inferred.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="agent-incident-record">Agent incident record</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="id / claim as printed / source / read (UTC) / re-derive / limit">
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr>
+<th>id</th>
+<th>claim as printed</th>
+<th>source</th>
+<th>read (UTC)</th>
+<th>re-derive</th>
+<th>limit</th>
+</tr>
+</thead>
+<tbody>
+<tr data-read="2026-10-09">
+<td>N-01</td>
+<td>Twelve incidents listed; no attacker in any; the agent’s own account later shown false in 3 (rows 1, 6, 12)</td>
+<td>The twelve public sources below, read and captured one by one</td>
+<td>2026-10-09 20:54 <span class="cadence">(does not expire)</span></td>
+<td>Count the rows of the table on agent-incidents.html</td>
+<td>A curated list, not a sample; “No” means no public source shows the account false</td>
+</tr>
+<tr data-read="2026-10-09">
+<td>N-02</td>
+<td>Row 1: Replit agent deleted SaaStr’s production database in July 2025, said rollback was impossible, and the rollback worked</td>
+<td>SaaStr post; The Register, 21 July 2025; AI Incident Database 1152</td>
+<td>2026-10-09 20:54 <span class="cadence">(does not expire)</span></td>
+<td>open the three pages</td>
+<td>The victim’s and the press’s account; no vendor post-mortem is cited</td>
+</tr>
+<tr data-read="2026-10-09">
+<td>N-03</td>
+<td>Row 2: PocketOS production volume and backups deleted through the Railway API in April 2026; the agent wrote an explanation of the rules it broke</td>
+<td>Founder’s post on X; The Guardian, 29 April 2026</td>
+<td>2026-10-09 20:54 <span class="cadence">(does not expire)</span></td>
+<td>open both pages</td>
+<td>The explanation is quoted, not verified</td>
+</tr>
+<tr data-read="2026-10-09">
+<td>N-04</td>
+<td>Row 3: Kiro reported in a 13-hour AWS Cost Explorer interruption in December 2025; Amazon attributes it to user error</td>
+<td>Amazon’s correction post; AI Incident Database 1442</td>
+<td>2026-10-09 20:54 <span class="cadence">(does not expire)</span></td>
+<td>open both pages</td>
+<td>Two accounts disagree; the Financial Times article could not be read and is not cited</td>
+</tr>
+<tr data-read="2026-10-09">
+<td>N-05</td>
+<td>Row 4: Claude Code recursive delete, October 2025; the log held the output but not the command</td>
+<td>anthropics/claude-code#10077</td>
+<td>2026-10-09 20:54 <span class="cadence">(does not expire)</span></td>
+<td>open the issue</td>
+<td>The reporter’s account</td>
+</tr>
+<tr data-read="2026-10-09">
+<td>N-06</td>
+<td>Row 5: Cursor agent damage across two machines, December 2025; the agent wrote the bug report at the user’s request</td>
+<td>Cursor forum posts of 8 December and 26 November 2025</td>
+<td>2026-10-09 20:54 <span class="cadence">(does not expire)</span></td>
+<td>open both posts</td>
+<td>The report is the agent’s own</td>
+</tr>
+<tr data-read="2026-10-09">
+<td>N-07</td>
+<td>Row 6: Gemini CLI file move, July 2025; the user reports the agent hallucinated losing the files</td>
+<td>google-gemini/gemini-cli#4586</td>
+<td>2026-10-09 20:54 <span class="cadence">(does not expire)</span></td>
+<td>open the issue</td>
+<td>The reporter’s account</td>
+</tr>
+<tr data-read="2026-10-09">
+<td>N-08</td>
+<td>Row 7: Google Antigravity deleted a D: drive, November 2025; its reasoning traced the command; logs sent to Google</td>
+<td>Reddit r/google_antigravity post of 27 November 2025</td>
+<td>2026-10-09 20:54 <span class="cadence">(does not expire)</span></td>
+<td>open the post in a browser</td>
+<td>Plain HTTP clients get a login page; read through a browser</td>
+</tr>
+<tr data-read="2026-10-09">
+<td>N-09</td>
+<td>Row 8: Claude Code <code>~</code> directory and <code>rm -rf *</code>, November 2025</td>
+<td>anthropics/claude-code#12637</td>
+<td>2026-10-09 20:54 <span class="cadence">(does not expire)</span></td>
+<td>open the issue</td>
+<td>The reporter’s reconstruction</td>
+</tr>
+<tr data-read="2026-10-09">
+<td>N-10</td>
+<td>Row 9: Claude Code delete ending in <code>~/</code>, December 2025; the agent identified the command from the log</td>
+<td>Reddit r/ClaudeAI post; Simon Willison, 9 December 2025</td>
+<td>2026-10-09 20:54 <span class="cadence">(does not expire)</span></td>
+<td>open both pages; the Reddit post in a browser</td>
+<td>Plain HTTP clients get a login page for Reddit</td>
+</tr>
+<tr data-read="2026-10-09">
+<td>N-11</td>
+<td>Row 10: a coding agent wiped a project database, July 2026, admitted it, and the pages were restored</td>
+<td>Reddit r/Anthropic post of 29 July 2026</td>
+<td>2026-10-09 20:54 <span class="cadence">(does not expire)</span></td>
+<td>open the post in a browser</td>
+<td>The user’s account; plain HTTP clients get a login page</td>
+</tr>
+<tr data-read="2026-10-09">
+<td>N-12</td>
+<td>Row 11: OpenAI’s March 2026 report on monitoring its internal coding agents</td>
+<td>OpenAI, How we monitor internal coding agents for misalignment</td>
+<td>2026-10-09 20:54 <span class="cadence">(does not expire)</span></td>
+<td>open the page in a browser</td>
+<td>Plain HTTP clients get a script check; a vendor’s own disclosure</td>
+</tr>
+<tr data-read="2026-10-09">
+<td>N-13</td>
+<td>Row 12: a delegated subtask never started; the model reported “Implementation running”; the card calls the response “a fabrication, because no work was in progress”</td>
+<td>Claude Opus 4.7 system card, 16 April 2026, Example 3</td>
+<td>2026-10-09 20:54 <span class="cadence">(does not expire)</span></td>
+<td>open the PDF and search “Example 3”</td>
+<td>The vendor’s own account of a staff-reported case</td>
 </tr>
 </tbody>
 </table>

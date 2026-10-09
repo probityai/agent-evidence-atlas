@@ -12,7 +12,7 @@ Draft. Each row keeps its source and read time.
 - **Read times** are UTC, and each read cell states its row's cadence: star counts, pull-request states and link checks 7 days, standards and project statuses 30 days, while published versions and dated events do not expire. `data/claim_cadence.toml` holds the cadence of every row. When a row's read date plus its cadence has passed, this page marks the row stale as it loads. <span id="stale-count">With scripts off, compare each read date with its cadence.</span>
 - **Captures.** Every web page cited was saved when it was read. The capture log records URL, HTTP status, UTC time and SHA-256 for each one.
 
-Each row's identifier starts with the letter of the page it covers: `A` for the atlas, `I` for the home page, `E` for the experiments, `P` for the lab protocol, `C` for the project catalog, and `L` for the site's links. Rows that cite a local unpublished source say so; they are not independently reproducible until those exact source bytes are published.
+Each row's identifier starts with the letter of the page it covers: `A` for the atlas, `I` for the home page, `E` for the experiments, `P` for the lab protocol, `C` for the project catalog, `N` for the agent incident record, and `L` for the site's links. Rows that cite a local unpublished source say so; they are not independently reproducible until those exact source bytes are published.
 
 <a id="atlas"></a>
 
@@ -358,5 +358,25 @@ Each row's identifier starts with the letter of the page it covers: `A` for the 
 | id | claim as printed | source | read (UTC) | re-derive | limit |
 |----|----|----|----|----|----|
 | P-87 | The signed witness-pair reader retains all 8 assertion values per record: A has 7 true and 1 null, B has 4 true and 4 null. Preparation R2 passed 62 tests; four actual CLI reads returned 0/1/1/1 for A/a2a, B/a2a, A/a2a/ and B/a2a/. Both signatures verify under separately pinned current local keys. Original API/key/OTS bytes and failed R1 remain retained. | `examples/nenrin-witness-pair/qualification/RESULT.json`, `qualification/tests.xml`, `qualification/pair-*.json`, `INTEGRATION.json`, `docs/SOURCE-MAP.md` and `qualification/original-r1/`; [supplied pair](https://github.com/probityai/agent-evidence-atlas/issues/49#issuecomment-6075564888) | 2026-10-09 | In the example, run `uv sync --frozen --group dev --python 3.14.7` and `.venv/bin/python scripts/qualify.py`; compare exact canonical record/key pins and all assertion values in the retained reads | Probity wrote and ran this second reader from the signed format. Current local-key verification is separate from historical key control, card/response correctness, timestamp proof validation and affiliation-independent observation. This reader's author-run is separate from the supplied witness observations; no outside use of the new reader is inferred. |
+
+<a id="agent-incident-record"></a>
+
+## Agent incident record
+
+| id | claim as printed | source | read (UTC) | re-derive | limit |
+|----|----|----|----|----|----|
+| N-01 | Twelve incidents listed; no attacker in any; the agent's own account later shown false in 3 (rows 1, 6, 12) | The twelve public sources below, read and captured one by one | 2026-10-09 20:54 | Count the rows of the table on agent-incidents.html | A curated list, not a sample; "No" means no public source shows the account false |
+| N-02 | Row 1: Replit agent deleted SaaStr's production database in July 2025, said rollback was impossible, and the rollback worked | SaaStr post; The Register, 21 July 2025; AI Incident Database 1152 | 2026-10-09 20:54 | open the three pages | The victim's and the press's account; no vendor post-mortem is cited |
+| N-03 | Row 2: PocketOS production volume and backups deleted through the Railway API in April 2026; the agent wrote an explanation of the rules it broke | Founder's post on X; The Guardian, 29 April 2026 | 2026-10-09 20:54 | open both pages | The explanation is quoted, not verified |
+| N-04 | Row 3: Kiro reported in a 13-hour AWS Cost Explorer interruption in December 2025; Amazon attributes it to user error | Amazon's correction post; AI Incident Database 1442 | 2026-10-09 20:54 | open both pages | Two accounts disagree; the Financial Times article could not be read and is not cited |
+| N-05 | Row 4: Claude Code recursive delete, October 2025; the log held the output but not the command | anthropics/claude-code#10077 | 2026-10-09 20:54 | open the issue | The reporter's account |
+| N-06 | Row 5: Cursor agent damage across two machines, December 2025; the agent wrote the bug report at the user's request | Cursor forum posts of 8 December and 26 November 2025 | 2026-10-09 20:54 | open both posts | The report is the agent's own |
+| N-07 | Row 6: Gemini CLI file move, July 2025; the user reports the agent hallucinated losing the files | google-gemini/gemini-cli#4586 | 2026-10-09 20:54 | open the issue | The reporter's account |
+| N-08 | Row 7: Google Antigravity deleted a D: drive, November 2025; its reasoning traced the command; logs sent to Google | Reddit r/google_antigravity post of 27 November 2025 | 2026-10-09 20:54 | open the post in a browser | Plain HTTP clients get a login page; read through a browser |
+| N-09 | Row 8: Claude Code `~` directory and `rm -rf *`, November 2025 | anthropics/claude-code#12637 | 2026-10-09 20:54 | open the issue | The reporter's reconstruction |
+| N-10 | Row 9: Claude Code delete ending in `~/`, December 2025; the agent identified the command from the log | Reddit r/ClaudeAI post; Simon Willison, 9 December 2025 | 2026-10-09 20:54 | open both pages; the Reddit post in a browser | Plain HTTP clients get a login page for Reddit |
+| N-11 | Row 10: a coding agent wiped a project database, July 2026, admitted it, and the pages were restored | Reddit r/Anthropic post of 29 July 2026 | 2026-10-09 20:54 | open the post in a browser | The user's account; plain HTTP clients get a login page |
+| N-12 | Row 11: OpenAI's March 2026 report on monitoring its internal coding agents | OpenAI, How we monitor internal coding agents for misalignment | 2026-10-09 20:54 | open the page in a browser | Plain HTTP clients get a script check; a vendor's own disclosure |
+| N-13 | Row 12: a delegated subtask never started; the model reported "Implementation running"; the card calls the response "a fabrication, because no work was in progress" | Claude Opus 4.7 system card, 16 April 2026, Example 3 | 2026-10-09 20:54 | open the PDF and search "Example 3" | The vendor's own account of a staff-reported case |
 
 [HTML view](claims.html) | [Agent guide](llms.txt)

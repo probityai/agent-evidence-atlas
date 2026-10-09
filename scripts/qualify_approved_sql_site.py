@@ -19,6 +19,8 @@ def main() -> int:
     environment["PATH"] = str(root / ".venv/bin") + os.pathsep + environment["PATH"]
     environment["ATLAS_LAYOUT_EVIDENCE"] = str(results / "public-layout")
     commands = [
+        ("witness-tools", ["uv", "sync", "--project", "examples/nenrin-witness-pair", "--frozen", "--group", "dev", "--python", "3.14.7"]),
+        ("witness-controls", [str(root / "examples/nenrin-witness-pair/.venv/bin/python"), "examples/nenrin-witness-pair/scripts/qualify.py"]),
         ("e030-tools", ["uv", "sync", "--project", "examples/e030-corrected-wrapper", "--frozen", "--group", "dev", "--python", "3.14.7"]),
         ("e030-controls", [str(root / "examples/e030-corrected-wrapper/.venv/bin/python"), "examples/e030-corrected-wrapper/scripts/qualify.py"]),
         ("example-tools", ["uv", "sync", "--project", "examples/approved-sql", "--frozen", "--group", "dev", "--python", "3.14.7"]),

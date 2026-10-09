@@ -228,3 +228,6 @@ P-78 = "none"
 
 # Fixed corrected-wrapper source and retained qualification.
 "P-86" = "none"
+
+# Fixed supplied witness bytes and retained reader qualification.
+"P-87" = "none"

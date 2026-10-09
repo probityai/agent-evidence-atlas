@@ -1,0 +1,32 @@
+name: signed-witness-pair
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  signature-and-target-controls:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6
+        with:
+          version: "0.12.24"
+      - name: Install the exact reader tools in their own environment
+        working-directory: examples/nenrin-witness-pair
+        run: uv sync --frozen --group dev --python 3.14.7
+      - name: Check the signed bytes, target refusals and every assertion value
+        working-directory: examples/nenrin-witness-pair
+        run: .venv/bin/python scripts/qualify.py
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: signed-witness-pair-controls
+          path: examples/nenrin-witness-pair/gate-results/

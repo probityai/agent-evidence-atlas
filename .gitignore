@@ -7,3 +7,5 @@ __pycache__/
 observer-admission-run/
 observer-admission-report.json
 /.research-cache/
+approved-sql-site-results/
+.atlas-toolchain/

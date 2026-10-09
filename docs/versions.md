@@ -14,8 +14,8 @@ A digest here is the SHA-256 of the artifact's source file in the site's reposit
 | Verifier demonstration | 0.1 | 2026-09-27 | held | page not built in this repository yet | Held until it passes its release criteria |
 | [Experiments](experiments.md) | 0.3 | 2026-10-01 | draft | `692c4fabcf4b2a52` `src/experiments.md` | Adds original observer CI admission bytes, immutable source pins, executable replay and refusal controls; independent operation remains unestablished |
 | Series plan | 0.1 | 2026-09-27 | held | page not built in this repository yet | Held until it passes its release criteria |
-| [Claim ledger](claims.md) | 0.8.21 | 2026-10-06 | draft | `c547da758453207c` `CLAIMS.md` | Adds the retained-run presentation contract and its checks; preserves original dated results and research scopes |
-| [Probity Open Evidence Lab](lab.md) | 0.1.11 | 2026-10-06 | draft | `da1d57582e0000f3` `src/lab.md` | Links the retained-run browser; existing retained records, artifacts and protocol remain unchanged |
+| [Claim ledger](claims.md) | 0.8.21 | 2026-10-06 | draft | `81877b13c53bc165` `CLAIMS.md` | Adds the retained-run presentation contract and its checks; preserves original dated results and research scopes |
+| [Probity Open Evidence Lab](lab.md) | 0.1.11 | 2026-10-06 | draft | `be94303d6e6d1025` `src/lab.md` | Links the retained-run browser; existing retained records, artifacts and protocol remain unchanged |
 | [Task-grouped rates worked example](task-grouped-rates.md) | 0.1 | 2026-10-03 | draft | `92940ce8ee827ad0` `examples/task-grouped-rates/input.json` | Authored labels, paired task resampling, explicit weighting targets and unresolved outcomes |
 | [Published robot controls companion](provael-task-controls.md) | 0.1 | 2026-10-03 | draft | `20b90c1ae59c399d` `examples/provael-task-controls/source-record.json` | Original publisher simulator labels, matched controls, corrected interpretation and exact paired task weights |
 | [APS and PriorSeal pilot status](pilot.md) | 0.1.1 | 2026-10-01 | proposed | `e3026b2b60ceca12` `src/pilot.md` | Probity-owned proposal, merged technical replay, owner slots and acceptance gates; no formal pilot agreement |
@@ -30,5 +30,7 @@ A digest here is the SHA-256 of the artifact's source file in the site's reposit
 | [Caller-declared APS and PriorSeal replay guide](replay-tools.md) | 0.1 | 2026-10-06 | draft | `8a4458c31bfb7496` `src/replay-tools.md` | Links one complete v2 procedure, explicit caller declarations, hashes of files read at invocation and actual process outputs; historical results stay unchanged |
 | [Historical report and diagnostic retained record](runs.md) | 0.1 | 2026-10-06 | draft | `892a154384a1c6d9` `experiments/w3c-report-replay-2026-10-06/report.json` | Original historical report outputs and separate diagnostic controls with maintained data-only accounting; no new native or independent-operator claim |
 | [Test outcomes and evidence conclusions](evidence-test-meaning.md) | 0.1 | 2026-10-06 | draft | `044d31da81f1f6c0` `src/evidence-test-meaning.md` | Worked hypothetical refund story with historical package pins, retained per-case data and a maintained Lab checking route |
+| [Approved SQL illustration](approved-sql.md) | 0.1.0 | 2026-10-09 | illustration | `8a43f0b206be9201` `src/approved-sql.md` | Checked supplied-record comparison; native audit pair and independent reader remain separate contributions |
+| [Request and effect join cases](request-effect-join.md) | 0.1 | 2026-10-09 | proposed | `65dd24d41527d3b5` `src/request-effect-join.md` | Selected producer contract and separate pre-dispatch, post-commit and target-coverage cases |
 
 [HTML view](versions.html) | [Agent guide](llms.txt)

@@ -200,3 +200,22 @@ version = "0.1"
 date = "2026-10-06"
 status = "draft"
 note = "Worked hypothetical refund story with historical package pins, retained per-case data and a maintained Lab checking route"
+
+
+[[artifact]]
+name = "Approved SQL illustration"
+page = "approved-sql.html"
+source = "src/approved-sql.md"
+version = "0.1.0"
+date = "2026-10-09"
+status = "illustration"
+note = "Checked supplied-record comparison; native audit pair and independent reader remain separate contributions"
+
+[[artifact]]
+name = "Request and effect join cases"
+page = "request-effect-join.html"
+source = "src/request-effect-join.md"
+version = "0.1"
+date = "2026-10-09"
+status = "proposed"
+note = "Selected producer contract and separate pre-dispatch, post-commit and target-coverage cases"

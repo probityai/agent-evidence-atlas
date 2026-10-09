@@ -31,6 +31,8 @@ Probity offers working examples, verification tools, a shared result page, and h
 
 You keep control of your implementation, policy, and original result. The first contribution is a concrete experiment with a named owner. A run in the Lab does not appoint your project to a coalition role or establish its endorsement.
 
+Have a tool, a check, or a problem to work on? [Join the collaboration thread](https://github.com/probityai/agent-evidence-atlas/issues/49) and tell us about it.
+
 [Propose a run](https://github.com/probityai/agent-evidence-atlas/issues/new?template=evidence-run.yml). Describe the question and the evidence you can supply. The form and technical protocol list the inputs needed for review.
 
 <a id="read-a-result-with-its-limits"></a>

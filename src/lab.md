@@ -28,6 +28,7 @@ account of its limits. A failed check or missing observation can be useful too.
 | How do I check approval, retries, and a missing acknowledgement? | [Read the refund example](https://github.com/probityai/agent-evidence-observer/blob/main/docs/APS-REFUND-RETRIES.md). |
 | Did a database write match its approval, even if the state changed later? | [Try the SQL example](approved-sql.html) and bring a native audit pair. |
 | Did the agent change the call after approval, or did the resource change later? | [Compare the request/effect cases](request-effect-join.html) and bring a reader or retained run. |
+| Did an agent purchase that was approved get charged, ordered and delivered as approved? | [Read the checkout assessment](agent-checkout-assessment.html) and run the public refund-handoff cases. |
 | Does an approved target, completion report or later observation establish the same thing? | [Try the authority and effect controls](authority-effect-cases.html) and compare the separate conclusions. |
 | Does a signed native result identify the selected report without enlarging its claim? | [Replay the independent M1 consumer](trace-m1-consumer.html) and inspect its retained decisions. |
 | How do I replay an existing result? | [Open the retained replay procedure](#start-with-a-run-that-exists) in the technical notes below. |

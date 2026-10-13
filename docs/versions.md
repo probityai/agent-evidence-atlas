@@ -15,7 +15,7 @@ A digest here is the SHA-256 of the artifact's source file in the site's reposit
 | [Experiments](experiments.md) | 0.3 | 2026-10-01 | draft | `692c4fabcf4b2a52` `src/experiments.md` | Adds original observer CI admission bytes, immutable source pins, executable replay and refusal controls; independent operation remains unestablished |
 | Series plan | 0.1 | 2026-09-27 | held | page not built in this repository yet | Held until it passes its release criteria |
 | [Claim ledger](claims.md) | 0.8.21 | 2026-10-06 | draft | `093693f19b8286a0` `CLAIMS.md` | Adds the retained-run presentation contract and its checks; preserves original dated results and research scopes |
-| [Probity Open Evidence Lab](lab.md) | 0.1.11 | 2026-10-06 | draft | `c1fc9700bcf8794a` `src/lab.md` | Links the retained-run browser; existing retained records, artifacts and protocol remain unchanged |
+| [Probity Open Evidence Lab](lab.md) | 0.1.11 | 2026-10-06 | draft | `b3c1b4f80861ce82` `src/lab.md` | Links the retained-run browser; existing retained records, artifacts and protocol remain unchanged |
 | [Task-grouped rates worked example](task-grouped-rates.md) | 0.1 | 2026-10-03 | draft | `92940ce8ee827ad0` `examples/task-grouped-rates/input.json` | Authored labels, paired task resampling, explicit weighting targets and unresolved outcomes |
 | [Published robot controls companion](provael-task-controls.md) | 0.1 | 2026-10-03 | draft | `20b90c1ae59c399d` `examples/provael-task-controls/source-record.json` | Original publisher simulator labels, matched controls, corrected interpretation and exact paired task weights |
 | [APS and PriorSeal pilot status](pilot.md) | 0.1.1 | 2026-10-01 | proposed | `e3026b2b60ceca12` `src/pilot.md` | Probity-owned proposal, merged technical replay, owner slots and acceptance gates; no formal pilot agreement |
@@ -33,5 +33,6 @@ A digest here is the SHA-256 of the artifact's source file in the site's reposit
 | [Approved SQL illustration](approved-sql.md) | 0.1.0 | 2026-10-09 | illustration | `8a43f0b206be9201` `src/approved-sql.md` | Checked supplied-record comparison; native audit pair and independent reader remain separate contributions |
 | [Request and effect join cases](request-effect-join.md) | 0.1 | 2026-10-09 | proposed | `65dd24d41527d3b5` `src/request-effect-join.md` | Selected producer contract and separate pre-dispatch, post-commit and target-coverage cases |
 | [Synthetic authority, report and observation controls](authority-effect-cases.md) | 0.1.0 | 2026-10-09 | \[synthetic controls\]{.label .synthetic controls} | `1a237d760c9e90d7` `src/authority-effect-cases.md` | Authored supplied-record comparisons, source attribution and an installed-package gate; live effects, independent observation and outside operation remain separate |
+| [Agent checkout authority-to-effect assessment](agent-checkout-assessment.md) | 0.1 | 2026-10-13 | proposed | `20f5ee113dcb65d5` `src/agent-checkout-assessment.md` | Assessment class from shopper approval to payment, order and effect; public synthetic method, operator records stay private |
 
 [HTML view](versions.html) | [Agent guide](llms.txt)
